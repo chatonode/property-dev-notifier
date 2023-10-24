@@ -1,0 +1,32 @@
+# Ignore development and build files
+node_modules
+npm-debug.log
+
+# Ignore version control files
+.git
+
+# Ignore package manager configuration files
+yarn.lock
+package-lock.json
+
+# Ignore editor and IDE specific files
+.vscode
+.idea
+*.iml
+
+# Ignore test and documentation files
+__tests__
+test
+tests
+__mocks__
+coverage
+
+# Ignore logs and temporary files
+logs
+*.log
+
+# Ignore user and system-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore any other files or directories that are not needed in the Docker build context

@@ -1,0 +1,48 @@
+.container {
+  min-height: auto;
+  background-color: #c4c4c4;
+  padding: 0.5em;
+}
+
+.content {
+  /* display: flex;
+    flex-direction: column; */
+  min-width: 45vw;
+  padding: 0.75em;
+
+  -ms-flex-pack: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.alternative-text {
+  flex-direction: row;
+  /* justify-content: center; */
+  /* text-align: center; */
+}
+
+.signup-agree {
+  text-align: left;
+  font-size: 0.7rem;
+  width: 300px;
+}
+
+.item button {
+  background-color: #ebebeb;
+}
+
+.item a {
+  background-color: yellow;
+}
+
+.item button,
+.item a {
+  width: fit-content;
+  margin: 0.3em;
+  padding: 0.5em;
+  border-radius: 2em;
+  text-align: center;
+
+  width: 300px;
+}

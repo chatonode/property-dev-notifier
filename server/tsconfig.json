@@ -1,0 +1,33 @@
+/**
+ * This file was copied from here: https://www.totaltypescript.com/tsconfig-cheat-sheet
+ */
+{
+  "compilerOptions": {
+    /* Base Options: */
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "es2022",
+    // "verbatimModuleSyntax": true,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+
+    /* Strictness */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    // Extras
+    "noFallthroughCasesInSwitch": true,
+
+    /* If transpiling with TypeScript: */
+    "moduleResolution": "NodeNext",
+    "module": "NodeNext",
+    "outDir": "dist",
+    "sourceMap": true,
+
+    /* If your code doesn't run in the DOM: */
+    "lib": ["es2022"]
+  },
+  /* Remaining */
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}

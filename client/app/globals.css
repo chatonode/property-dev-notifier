@@ -1,0 +1,196 @@
+/* Doc: https://gist.github.com/chatonode/4ca2bddf9122ee4c6e2e7e5c94905459 */
+
+:root {
+  /* Colors */
+  --primary-color: #000000;
+  --secondary-color: #30b3b3; /* A lighter shade of Teal */
+  --accent-color: #63808e; /* A slightly muted shade of Teal */
+  --background-color: #e7e7e7; /* A lighter shade that complements Teal */
+  --text-color: #242424; /* Dark Gray for text readability */
+  --header-color: #ffc92c;
+
+  /* Typography */
+  --font-size: 16px;
+
+  /* Layout */
+  /* --container-width: 1200px; */
+  --container-width: 80vw;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  /* @ref-link: https://css-for-js.dev/ */
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+}
+
+html,
+body {
+  /* height: 100%; */
+  min-height: auto;
+}
+
+/* Layout */
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: 1.325rem;
+  /* line-height: 1.6; */
+  color: var(--text-color);
+  background-color: #ffffff;
+}
+
+.base {
+  -ms-flex-align: stretch;
+  -ms-flex-direction: column;
+  -ms-flex-negative: 0;
+  -ms-flex-preferred-size: auto;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-flex-basis: auto;
+  -webkit-flex-direction: column;
+  -webkit-flex-shrink: 0;
+  align-items: stretch;
+  border: 0 solid black;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-basis: auto;
+  flex-direction: column;
+  flex-shrink: 0;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  min-height: 0px;
+  min-width: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  position: relative;
+  z-index: 0;
+}
+
+main {
+  flex: 1;
+}
+
+/* Headers */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-bottom: 0.8em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: clamp(2.25rem, 5vw + 1rem, 3rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw + 0.5rem, 2.5rem);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 3vw + 0.4rem, 2.25rem);
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+/* Images */
+img {
+  max-width: 100%;
+}
+
+/*** Layout ***/
+/* #1 Standard Container */
+/* .main {
+  max-width: var(--container-width);
+  margin: 0 auto;
+
+  padding: 1.25rem;
+  background-color: #ffb0b0;
+} */
+
+/* .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0.5rem 1.5rem 1rem 1.2rem;
+  border-radius: 0.8rem;
+  margin: 0.5em 0.5em 0.8em 0.7em;
+} */
+
+/* .nav {
+  display: flex;
+} */
+
+/* .nav-item {
+  margin-left: 10px;
+
+  margin-left: 10px;
+  font-size: xx-large;
+} */
+
+/* .container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 20px;
+} */
+
+.sidebar {
+  grid-column: span 3;
+}
+
+/* .content {
+  grid-column: span 9;
+} */
+
+.footer {
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 40rem) {
+  .landing-main {
+    max-width: 80vw;
+  }
+
+  .landing-container {
+    flex-direction: column-reverse;
+  }
+
+  .landing-sidebar {
+    order: 1;
+  }
+
+  .landing-content {
+    order: 2;
+    min-height: auto;
+  }
+}

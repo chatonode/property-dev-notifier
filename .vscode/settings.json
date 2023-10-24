@@ -1,0 +1,12 @@
+{
+  // "npm-intellisense.importLinebreak": ""
+  // "json.schemaDownload.enable": true // https://github.com/microsoft/tsdoc/issues/253#issuecomment-1591986505
+
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": false,
+
+  "prettier.singleQuote": true,
+  "prettier.semi": false
+
+  // "npm-intellisense.importQuotes": "'",
+}

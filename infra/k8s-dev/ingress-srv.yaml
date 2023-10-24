@@ -1,0 +1,31 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-srv
+  annotations:
+    kubernetes.io/ingress.class: 'nginx'
+    nginx.ingress.kubernetes.io/use-regex: 'true'
+spec:
+  rules:
+    # add this to your 'drivers/etc/hosts' file -> 127.0.0.1 property-dev-notifier.com
+    - host: property-dev-notifier.com
+      http:
+        paths:
+          # Server  | if (server)
+          - path: /api/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: server-srv
+                port:
+                  number: 3000
+          # TODO: Client with Additionally configured "/custom-api" endpoint
+          # https://stackoverflow.com/questions/60874250/nextjs-change-pages-api-to-pages-myapi
+          # Client | else
+          - path: /?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: client-srv
+                port:
+                  number: 3000

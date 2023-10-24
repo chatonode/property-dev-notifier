@@ -1,0 +1,49 @@
+# Ignore development and build files
+node_modules
+.cache
+.next
+out
+dist
+build
+
+# Ignore version control files
+.git
+# .svn
+# .hg
+# .bzr
+
+# Ignore package manager configuration files
+yarn.lock
+
+# Ignore editor and IDE specific files
+.vscode
+.idea
+*.iml
+npm-debug.log
+
+# Ignore test and documentation files
+__tests__
+test
+tests
+__mocks__
+coverage
+
+# Ignore environment-specific files
+.env*
+.env.local
+
+# Ignore build tools and configuration files
+.eslintrc*
+.prettierrc*
+babel.config.js
+prettier.config.js
+
+# Ignore logs and temporary files
+logs
+*.log
+
+# Ignore user and system-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore any other files or directories that are not needed in the Docker build context

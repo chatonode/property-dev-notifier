@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: server
+  template:
+    metadata:
+      labels:
+        app: server
+    spec:
+      containers:
+        - name: server
+          image: chatonode/property-dev-notifier-server
+          env:
+            - name: MONGO_URI
+              value: 'mongodb://server-mongo-srv:27017/server'
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY
+            # NATS
+            # - name: NATS_CLUSTER_ID
+            #   value: property-dev-notifier
+            # - name: NATS_CLIENT_ID
+            #   valueFrom:
+            #     fieldRef:
+            #       fieldPath: metadata.name  # Pod Name
+            # - name: NATS_URL
+            #   value: 'http://nats-streaming-srv:4222'
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: server-srv
+spec:
+  selector:
+    app: server
+  ports:
+    - name: server
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
