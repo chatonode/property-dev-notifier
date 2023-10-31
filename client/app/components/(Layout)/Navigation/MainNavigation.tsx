@@ -4,19 +4,17 @@ import Link from 'next/link'
 
 import { Route } from '@/app/types/enums'
 import { useRouter } from 'next/navigation'
+import { buildSender } from '@/app/api/build-sender'
 
 const MainNavigation = () => {
   const router = useRouter()
 
   const logUserOut = async () => {
-    const response = await fetch('/api/auth/logout', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
+    const axiosSender = buildSender()
 
-    if (!response.ok) {
+    const response = await axiosSender.post('/api/auth/logout', {})
+
+    if (response.status !== 200) {
       throw new Error('Log out Failed!')
     }
 
@@ -34,12 +32,6 @@ const MainNavigation = () => {
       <Link href={Route.Welcome} className="nav-item">
         Welcome
       </Link>
-      {/* <Link href={Route.Signup} className="nav-item">
-        Signup
-      </Link> */}
-      {/* <Link href={Route.Login} className="nav-item">
-        Login
-      </Link> */}
       <Link href={Route.Notify} className="nav-item">
         Notify
       </Link>
