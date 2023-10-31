@@ -10,6 +10,7 @@ import { User } from '../../models/User/user'
 import { logUserIn } from '../../utils/jwt'
 
 import { PasswordUtils } from '../../utils/Password'
+import HttpStatusCode from '../../constants/HTTPStatusCode'
 
 const router = express.Router()
 
@@ -46,7 +47,7 @@ router[RouteMap.LOGIN.method](
     logUserIn(req, existingUser)
 
     // Least info within response
-    res.status(200).send({
+    res.status(HttpStatusCode.OK_200).send({
       email: existingUser.email,
     })
   }

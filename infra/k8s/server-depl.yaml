@@ -23,6 +23,16 @@ spec:
                 secretKeyRef:
                   name: jwt-secret
                   key: JWT_KEY
+            - name: SENDGRID_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: sendgrid-api-key-secret
+                  key: SENDGRID_API_KEY
+            - name: SENDGRID_ACCOUNT_EMAIL
+              valueFrom:
+                secretKeyRef:
+                  name: sendgrid-account-email-secret
+                  key: SENDGRID_ACCOUNT_EMAIL
             # NATS
             # - name: NATS_CLUSTER_ID
             #   value: property-dev-notifier

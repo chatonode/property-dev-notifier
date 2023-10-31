@@ -4,8 +4,9 @@ export const enum Route {
   Signup = '/signup',
   Login = '/login',
   Logout = '/logout',
-  Dashboard = '/dashboard',
+  // Dashboard = '/dashboard',
 //   MyProfile = '/my-profile',
+  Notify = '/notify',
 }
 
 export const enum EFormType {

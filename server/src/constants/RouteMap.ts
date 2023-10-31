@@ -8,6 +8,9 @@ enum ApiRoute {
   LOGOUT = '/api/auth/logout',
   CURRENT_USER = '/api/auth/current-user',
 
+  NOTIFY_DEVELOPERS = '/api/notifications/send-all',
+
+  // TODO
   GET_USERS = '/api/users/',
   POST_USER = '/api/users/new',
   GET_USER = '/api/users/:userId',
@@ -39,6 +42,10 @@ const RouteMap: RouteConfig = {
   LOGIN: { method: HttpMethod.POST, path: ApiRoute.LOGIN },
   LOGOUT: { method: HttpMethod.POST, path: ApiRoute.LOGOUT },
   CURRENT_USER: { method: HttpMethod.GET, path: ApiRoute.CURRENT_USER },
+  NOTIFY_DEVELOPERS: {
+    method: HttpMethod.POST,
+    path: ApiRoute.NOTIFY_DEVELOPERS,
+  },
   GET_USERS: { method: HttpMethod.GET, path: ApiRoute.GET_USERS },
   POST_USER: { method: HttpMethod.POST, path: ApiRoute.POST_USER },
   GET_USER: { method: HttpMethod.GET, path: ApiRoute.GET_USER },

@@ -28,9 +28,9 @@ const MainNavigation = () => {
 
   return (
     <nav className="nav">
-      <Link href={Route.Home} className="nav-item">
+      {/* <Link href={Route.Home} className="nav-item">
         Home
-      </Link>
+      </Link> */}
       <Link href={Route.Welcome} className="nav-item">
         Welcome
       </Link>
@@ -40,11 +40,11 @@ const MainNavigation = () => {
       {/* <Link href={Route.Login} className="nav-item">
         Login
       </Link> */}
+      <Link href={Route.Notify} className="nav-item">
+        Notify
+      </Link>
       <Link href={Route.Logout} className="nav-item" onClick={logUserOut}>
         Logout
-      </Link>
-      <Link href={Route.Dashboard} className="nav-item">
-        Dashboard
       </Link>
     </nav>
   )
