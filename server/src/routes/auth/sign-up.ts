@@ -9,6 +9,7 @@ import { User } from '../../models/User/user'
 import { BadRequestError } from '../../errors/BadRequestError'
 
 import { logUserIn } from '../../utils/jwt'
+import HttpStatusCode from '../../constants/HTTPStatusCode'
 
 const router = express.Router()
 
@@ -39,7 +40,7 @@ router[RouteMap.SIGNUP.method](
     logUserIn(req, newUser)
 
     // Least info within response
-    res.status(201).send({
+    res.status(HttpStatusCode.CREATED_201).send({
       email: newUser.email,
     })
   }

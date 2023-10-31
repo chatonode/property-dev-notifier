@@ -17,7 +17,6 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-    # TODO: Client
     - image: chatonode/property-dev-notifier-client
       context: ./client
       docker:

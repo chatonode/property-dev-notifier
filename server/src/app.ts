@@ -7,8 +7,10 @@ import { signUpRouter } from './routes/auth/sign-up'
 import { logInRouter } from './routes/auth/log-in'
 import { logOutRouter } from './routes/auth/log-out'
 import { currentUserRouter } from './routes/auth/current-user'
+import { notificationsSendAllRouter } from './routes/notifications/send-all'
 
 import { errorHandler } from './middlewares/error-handler'
+import { currentUser } from './middlewares/current-user'
 
 import { NotFoundError } from './errors/NotFoundError'
 
@@ -29,10 +31,14 @@ app.use(
 )
 app.use(helmet())
 
+// Global currentUser middleware
+app.use(currentUser)
+
 app.use(signUpRouter)
 app.use(logInRouter)
 app.use(logOutRouter)
 app.use(currentUserRouter)
+app.use(notificationsSendAllRouter)
 // TODO
 // -> /api/auth/forgot-password
 // -> /api/auth/validate-token

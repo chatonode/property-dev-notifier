@@ -85,6 +85,7 @@ property-dev-notifier/
 Make sure to set the following environment variables in the .env file or through your deployment platform as Kubernetes Secret:
 
 - **SENDGRID_API_KEY**: Your SendGrid API key for sending emails.
+- **SENDGRID_ACCOUNT_EMAIL**: Your SendGrid account e-mail which is the subject of the sent emails.
 - **JWT_KEY**: For secure authentication
 - **MONGO_URI**: For MongoDB URI runs on Kubernetes deployment
 

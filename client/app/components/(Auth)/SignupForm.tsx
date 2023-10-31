@@ -82,12 +82,12 @@ const SignupForm = () => {
       message: 'Email cannot be empty.',
     },
     minLength: {
-      value: 5,
-      message: 'Email must have more than 5 characters.',
+      value: 10,
+      message: 'Email must have more than 10 characters.',
     },
     maxLength: {
-      value: 20,
-      message: 'Email characters cannot be greater than 20.',
+      value: 40,
+      message: 'Email characters cannot be greater than 40.',
     },
   }
   const passwordOptions: RegisterOptions<
