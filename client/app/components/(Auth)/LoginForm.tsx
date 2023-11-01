@@ -8,13 +8,7 @@ import { EFormType } from '@/app/types/enums'
 import { TFormDataType } from '@/app/types/types'
 
 import classes from './LoginForm.module.css'
-
-// Local
-const ingressNginxURL = ''
-// 'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local'
-
-// Prod
-// const ingressNginxURL = 'http://www.your-domain.com'
+import { buildSender } from '@/app/api/build-sender'
 
 const LoginForm = () => {
   const {
@@ -32,20 +26,19 @@ const LoginForm = () => {
       throw new Error('Invalid Form Data!')
     }
 
-    const response = await fetch(`${ingressNginxURL}/api/auth/login`, {
-      method: 'POST',
-      headers: {
-        Host: 'property-dev-notifier.com',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
+    const axiosSender = buildSender()
 
-    if (!response.ok) {
-      throw new Error('Log in Failed!')
+    const response = await axiosSender.post('/api/auth/login', data)
+
+    if (response.status === 400) {
+      throw new Error('Logging Failed with Bad Request Parameters!')
     }
 
-    console.log('HURRAYYYYYY', await response.json())
+    if (response.status !== 200) {
+      throw new Error('Logging In Failed!')
+    }
+
+    // const data = await response.data
 
     // Reset form
     reset()
@@ -55,23 +48,21 @@ const LoginForm = () => {
     router.push('/welcome')
   }
 
-  const emailOptions: RegisterOptions<
-    TFormDataType[EFormType.LOGIN],
-    'email'
-  > = {
-    required: {
-      value: true,
-      message: 'Email cannot be empty.',
-    },
-    minLength: {
-      value: 10,
-      message: 'Email must have more than 10 characters.',
-    },
-    maxLength: {
-      value: 40,
-      message: 'Email characters cannot be greater than 40.',
-    },
-  }
+  const emailOptions: RegisterOptions<TFormDataType[EFormType.LOGIN], 'email'> =
+    {
+      required: {
+        value: true,
+        message: 'Email cannot be empty.',
+      },
+      minLength: {
+        value: 10,
+        message: 'Email must have more than 10 characters.',
+      },
+      maxLength: {
+        value: 40,
+        message: 'Email characters cannot be greater than 40.',
+      },
+    }
   const passwordOptions: RegisterOptions<
     TFormDataType[EFormType.LOGIN],
     'password'
@@ -122,7 +113,9 @@ const LoginForm = () => {
         {errors.password && <p>{errors.password.message}</p>}
       </div>
       <div className={classes.actions}>
-        <button type="submit">Log In</button>
+        <button type="submit" disabled={isSubmitting ? true : undefined}>
+          {isSubmitting ? 'Logging In...' : 'Log In'}
+        </button>
       </div>
     </form>
   )
