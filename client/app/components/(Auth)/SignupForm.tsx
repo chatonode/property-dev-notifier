@@ -9,13 +9,7 @@ import { TFormDataType } from '@/app/types/types'
 // import TSignUpFormData from '@/app/types/types'
 
 import classes from './SignupForm.module.css'
-
-// Local
-const ingressNginxURL = ''
-// 'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local'
-
-// Prod
-// const ingressNginxURL = 'http://www.your-domain.com'
+import { buildSender } from '@/app/api/build-sender'
 
 const SignupForm = () => {
   const {
@@ -33,20 +27,19 @@ const SignupForm = () => {
       throw new Error('Invalid Form Data!')
     }
 
-    const response = await fetch(`${ingressNginxURL}/api/auth/signup`, {
-      method: 'POST',
-      headers: {
-        Host: 'property-dev-notifier.com',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
+    const axiosSender = buildSender()
 
-    if (!response.ok) {
-      throw new Error('Sign up Failed!')
+    const response = await axiosSender.post('/api/auth/signup', data)
+
+    if (response.status === 400) {
+      throw new Error('Signing Up Failed with Bad Request Parameters!')
     }
 
-    console.log('HURRAYYYYYY', await response.json())
+    if (response.status !== 201) {
+      throw new Error('Signing Up Failed!')
+    }
+
+    // const data = await response.data
 
     // Reset form
     reset()
@@ -140,7 +133,9 @@ const SignupForm = () => {
         {errors.password && <p>{errors.password.message}</p>}
       </div>
       <div className={classes.actions}>
-        <button type="submit">Sign Up</button>
+        <button type="submit" disabled={isSubmitting ? true : undefined}>
+          {isSubmitting ? 'Signing Up...' : 'Sign Up'}
+        </button>
       </div>
     </form>
   )

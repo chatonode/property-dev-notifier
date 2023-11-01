@@ -7,7 +7,7 @@ const router = express.Router()
 
 router[RouteMap.CURRENT_USER.method](
   RouteMap.CURRENT_USER.path,
-  currentUser,
+  // currentUser,
   (req: Request, res: Response) => {
     res.send({ currentUser: req.currentUser || null }) // Send 'null' instead of 'undefined'
   }
