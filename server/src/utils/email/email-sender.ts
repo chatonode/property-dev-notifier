@@ -1,6 +1,6 @@
 import { BaseSender, TEmailData } from './base-sender'
 
-type TEventData = {
+export type TEventData = {
   email: string
   userId: string
 }
