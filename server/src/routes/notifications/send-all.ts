@@ -33,8 +33,6 @@ router[RouteMap.NOTIFY_DEVELOPERS.method](
       throw new NotFoundError()
     }
 
-    console.log('User:', existingUsers[0]?.email)
-
     existingUsers.forEach((existingUser) => {
       new EmailSender(existingUser.email, {
         email: existingUser.email,
