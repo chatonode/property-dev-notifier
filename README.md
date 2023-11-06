@@ -51,11 +51,15 @@ To get started with this project, follow the steps below:
 
 4. Access the application:
 
-> Open your web browser and visit http://localhost:3000 for the application.
+> Open your web browser and visit https://localhost:3000 for the application.
+> > or you can simply use your `hosts` file in Windows to redirect `127.0.0.1` to `your-domain.com` and visit https://your-domain.com
+
+
+Note that, once you see the warning message of **Your connection is not private**, you need to type `thisisunsafe` anywhere on the screen. This is related to our https or load balancer, probably.
 
 ### Configuration
 
-Configure **SendGrid API key** in the server component to enable email sending functionality. This key should be stored as an environment variable.
+Configure **SendGrid API key** and **SendGrid Account E-mail** (which is verified and responsible for sending the e-mails) in the server component to enable email sending functionality. This key should be stored as an environment variable.
 
 ### Usage
 
@@ -89,10 +93,10 @@ Make sure to set the following environment variables in the .env file or through
 - **JWT_KEY**: For secure authentication
 - **MONGO_URI**: For MongoDB URI runs on Kubernetes deployment
 
-License
-This project is licensed under the **MIT License** - see the **LICENSE file** for details.
+# TODO: License
+This project is licensed under the **TODO License** - see the **LICENSE file** for details.
 
-Acknowledgments
+# Acknowledgments
 Thanks to the open-source community for providing the tools and technologies used in this project.
 Feel free to customize this README.md to include any specific instructions, details, or acknowledgments relevant to your project.
 
