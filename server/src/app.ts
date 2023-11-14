@@ -8,6 +8,8 @@ import { logInRouter } from './routes/auth/log-in'
 import { logOutRouter } from './routes/auth/log-out'
 import { currentUserRouter } from './routes/auth/current-user'
 import { notificationsSendAllRouter } from './routes/notifications/send-all'
+import { getUsersRouter } from './routes/users/get-all'
+import { getUserRouter } from './routes/users/get'
 
 import { errorHandler } from './middlewares/error-handler'
 import { currentUser } from './middlewares/current-user'
@@ -43,6 +45,8 @@ app.use(notificationsSendAllRouter)
 // -> /api/auth/forgot-password
 // -> /api/auth/validate-token
 // -> /api/auth/reset-password
+app.use(getUsersRouter)
+app.use(getUserRouter)
 
 // 'Handler Not Found' for all HTTP Methods
 app.all('*', async () => {

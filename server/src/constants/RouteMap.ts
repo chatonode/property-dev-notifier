@@ -11,10 +11,10 @@ enum ApiRoute {
   NOTIFY_DEVELOPERS = '/api/notifications/send-all',
 
   // TODO
-  GET_USERS = '/api/users/',
-  POST_USER = '/api/users/new',
+  GET_USERS = '/api/users',
+  CREATE_USER = '/api/users',
   GET_USER = '/api/users/:userId',
-  PATCH_USER = '/api/users/:userId',
+  UPDATE_USER = '/api/users/:userId',
   DELETE_USER = '/api/users/:userId',
 }
 
@@ -23,8 +23,8 @@ enum ApiRoute {
 enum HttpMethod {
   GET = 'get',
   POST = 'post',
-  PUT = 'put',
-  PATCH = 'patch',
+  PUT = 'put', // Update Entire Resource
+  PATCH = 'patch', // Update Partial Resource
   DELETE = 'delete',
 }
 
@@ -47,9 +47,9 @@ const RouteMap: RouteConfig = {
     path: ApiRoute.NOTIFY_DEVELOPERS,
   },
   GET_USERS: { method: HttpMethod.GET, path: ApiRoute.GET_USERS },
-  POST_USER: { method: HttpMethod.POST, path: ApiRoute.POST_USER },
+  CREATE_USER: { method: HttpMethod.POST, path: ApiRoute.CREATE_USER },
   GET_USER: { method: HttpMethod.GET, path: ApiRoute.GET_USER },
-  PATCH_USER: { method: HttpMethod.PATCH, path: ApiRoute.PATCH_USER },
+  UPDATE_USER: { method: HttpMethod.PATCH, path: ApiRoute.UPDATE_USER },
   DELETE_USER: { method: HttpMethod.DELETE, path: ApiRoute.DELETE_USER },
 } as const
 
