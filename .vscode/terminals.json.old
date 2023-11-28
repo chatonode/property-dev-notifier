@@ -1,0 +1,38 @@
+{
+  "autorun": true,
+  "autokill": true,
+  "terminals": [
+    {
+      "name": "git",
+      "description": "A terminal that runs for git related commands",
+      "icon": "mark-github",
+      "recycle": true
+    },
+    {
+      "name": "skaffold",
+      "description": "A terminal that runs for running the entire app via skaffold",
+      "icon": "play",
+      "recycle": true
+    },
+    {
+      "name": "k8s",
+      "description": "A terminal that runs for kubernetes related commands",
+      "icon": "container",
+      "recycle": true
+    },
+    {
+      "name": "server",
+      "description": "A terminal that runs for server directory",
+      "icon": "server",
+      "recycle": true,
+      "command": "cd ./server"
+    },
+    {
+      "name": "client",
+      "description": "A terminal that runs for client directory",
+      "icon": "code",
+      "recycle": true,
+      "command": "cd ./client"
+    }
+  ]
+}
