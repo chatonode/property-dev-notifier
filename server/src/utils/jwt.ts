@@ -2,10 +2,10 @@ import { Request } from 'express'
 
 import jwt from 'jsonwebtoken'
 
-import { UserDoc } from '../models/User/user'
+import { AdministratorDoc } from '../models/User/administrator'
 
 // Centralized JWT Generator
-export const logUserIn = (req: Request, user: UserDoc) => {
+export const logUserIn = (req: Request, user: AdministratorDoc) => {
   // Generate a JWT
   const payload = {
     //TODO: error TS2322: Type 'String' is not assignable to type 'string'.
