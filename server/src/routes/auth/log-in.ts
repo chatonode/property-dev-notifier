@@ -5,7 +5,7 @@ import RouteMap from '../../constants/RouteMap'
 
 import { validateRequest } from '../../middlewares/validate-request'
 import { BadRequestError } from '../../errors/BadRequestError'
-import { User } from '../../models/User/user'
+import { Administrator } from '../../models/User/administrator'
 
 import { logUserIn } from '../../utils/jwt'
 
@@ -27,15 +27,15 @@ router[RouteMap.LOGIN.method](
   async (req: Request, res: Response) => {
     const { email, password } = req.body
 
-    const existingUser = await User.findOne({ email })
+    const existingAdministrator = await Administrator.findOne({ email })
 
-    if (!existingUser) {
+    if (!existingAdministrator) {
       throw new BadRequestError('Invalid Credentials!')
     }
 
     // Password Check
     const passwordsMatch = await PasswordUtils.compare(
-      existingUser.password,
+      existingAdministrator.password,
       password
     )
 
@@ -43,12 +43,12 @@ router[RouteMap.LOGIN.method](
       throw new BadRequestError('Invalid Credentials!')
     }
 
-    // Log user in
-    logUserIn(req, existingUser)
+    // Log admin user in
+    logUserIn(req, existingAdministrator)
 
     // Least info within response
     res.status(HttpStatusCode.OK_200).send({
-      email: existingUser.email,
+      email: existingAdministrator.email,
     })
   }
 )
