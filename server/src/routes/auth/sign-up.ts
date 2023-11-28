@@ -4,7 +4,7 @@ import { body } from 'express-validator'
 import RouteMap from '../../constants/RouteMap'
 import { validateRequest } from '../../middlewares/validate-request'
 
-import { User } from '../../models/User/user'
+import { Administrator } from '../../models/User/administrator'
 
 import { BadRequestError } from '../../errors/BadRequestError'
 
@@ -26,22 +26,22 @@ router[RouteMap.SIGNUP.method](
   async (req: Request, res: Response) => {
     const { email, password } = req.body
 
-    const existingUser = await User.findOne({ email })
+    const existingAdministrator = await Administrator.findOne({ email })
 
-    if (existingUser) {
+    if (existingAdministrator) {
       throw new BadRequestError('E-mail in use!')
     }
 
-    // Build the new user and save it to the database
-    const newUser = User.build({ email, password })
-    await newUser.save()
+    // Build the new admin user and save it to the database
+    const newAdministrator = Administrator.build({ email, password })
+    await newAdministrator.save()
 
-    // Log user in
-    logUserIn(req, newUser)
+    // Log admin user in
+    logUserIn(req, newAdministrator)
 
     // Least info within response
     res.status(HttpStatusCode.CREATED_201).send({
-      email: newUser.email,
+      email: newAdministrator.email,
     })
   }
 )
