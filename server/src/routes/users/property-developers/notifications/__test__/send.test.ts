@@ -1,8 +1,8 @@
 import request from 'supertest'
-import { app } from '../../../app'
-import { getValidCookie } from '../../../test/auth-helper'
+import { app } from '../../../../../app'
+import { getValidCookie } from '../../../../../test/auth-helper'
 
-import { User } from '../../../models/User/user'
+import { User } from '../../../../../models/User/user'
 
 // Fake Import
 import sgMail from '@sendgrid/mail'

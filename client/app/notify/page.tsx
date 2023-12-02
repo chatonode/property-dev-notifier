@@ -4,7 +4,7 @@ const Notify = () => {
   return (
     <main className="base">
       <section className="base content">
-        <h2>Notify Developers</h2>
+        <h2>Notify Property Developers</h2>
 
         <NotifyPanel />
       </section>

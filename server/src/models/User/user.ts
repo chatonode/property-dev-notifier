@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-enum UserStatus {
+export enum UserStatus {
   NOT_VERIFIED = 'NOT_VERIFIED',
   ACTIVE = 'ACTIVE',
   SUSPENDED = 'SUSPENDED',
@@ -39,6 +39,7 @@ const userSchema = new mongoose.Schema(
     email: {
       type: String,
       required: true,
+      unique: true,
     },
     status: {
       type: String,
@@ -60,10 +61,11 @@ const userSchema = new mongoose.Schema(
   {
     discriminatorKey: 'userType',
     toJSON: {
+      // Not being inherited by children
       transform(doc, ret) {
-        // _id -> id
-        ret.id = ret._id
-        delete ret._id
+        // // _id -> id
+        // ret.id = ret._id
+        // delete ret._id
 
         // __v -> -
         // delete ret.__v   //Disabled for using 'version'

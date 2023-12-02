@@ -9,7 +9,7 @@ const NotifyPanel = () => {
     const notifyDevelopers = async () => {
       const axiosSender = buildSender()
 
-      const response = await axiosSender.post(`/api/notifications/send-all`, {})
+      const response = await axiosSender.post(`/api/users/property-developers/notifications`, {})
 
       if (response.status !== 200) {
         throw new Error('Notifying developers Failed!')

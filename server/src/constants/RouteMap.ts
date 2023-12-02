@@ -8,14 +8,12 @@ enum ApiRoute {
   LOGOUT = '/api/auth/logout',
   CURRENT_USER = '/api/auth/current-user',
 
-  NOTIFY_DEVELOPERS = '/api/notifications/send-all',
-
-  // TODO
-  GET_USERS = '/api/users',
-  CREATE_USER = '/api/users',
-  GET_USER = '/api/users/:userId',
-  UPDATE_USER = '/api/users/:userId',
-  DELETE_USER = '/api/users/:userId',
+  CREATE_PROPERTY_DEVELOPER = '/api/users/property-developers',
+  LIST_PROPERTY_DEVELOPERS = '/api/users/property-developers',
+  GET_PROPERTY_DEVELOPER = '/api/users/property-developers/:propertyDeveloperId',
+  UPDATE_PROPERTY_DEVELOPER = '/api/users/property-developers/:propertyDeveloperId',
+  DELETE_PROPERTY_DEVELOPER = '/api/users/property-developers/:propertyDeveloperId',
+  NOTIFY_PROPERTY_DEVELOPERS = '/api/users/property-developers/notifications',
 }
 
 // type HttpMethod = 'GET' | 'POST' | 'DELETE' | 'PUT' | 'PATCH'
@@ -42,15 +40,31 @@ const RouteMap: RouteConfig = {
   LOGIN: { method: HttpMethod.POST, path: ApiRoute.LOGIN },
   LOGOUT: { method: HttpMethod.POST, path: ApiRoute.LOGOUT },
   CURRENT_USER: { method: HttpMethod.GET, path: ApiRoute.CURRENT_USER },
-  NOTIFY_DEVELOPERS: {
+
+  CREATE_PROPERTY_DEVELOPER: {
     method: HttpMethod.POST,
-    path: ApiRoute.NOTIFY_DEVELOPERS,
+    path: ApiRoute.CREATE_PROPERTY_DEVELOPER,
   },
-  GET_USERS: { method: HttpMethod.GET, path: ApiRoute.GET_USERS },
-  CREATE_USER: { method: HttpMethod.POST, path: ApiRoute.CREATE_USER },
-  GET_USER: { method: HttpMethod.GET, path: ApiRoute.GET_USER },
-  UPDATE_USER: { method: HttpMethod.PATCH, path: ApiRoute.UPDATE_USER },
-  DELETE_USER: { method: HttpMethod.DELETE, path: ApiRoute.DELETE_USER },
+  LIST_PROPERTY_DEVELOPERS: {
+    method: HttpMethod.GET,
+    path: ApiRoute.LIST_PROPERTY_DEVELOPERS,
+  },
+  GET_PROPERTY_DEVELOPER: {
+    method: HttpMethod.GET,
+    path: ApiRoute.GET_PROPERTY_DEVELOPER,
+  },
+  UPDATE_PROPERTY_DEVELOPER: {
+    method: HttpMethod.PATCH,
+    path: ApiRoute.UPDATE_PROPERTY_DEVELOPER,
+  },
+  DELETE_PROPERTY_DEVELOPER: {
+    method: HttpMethod.DELETE,
+    path: ApiRoute.DELETE_PROPERTY_DEVELOPER,
+  },
+  NOTIFY_PROPERTY_DEVELOPERS: {
+    method: HttpMethod.POST,
+    path: ApiRoute.NOTIFY_PROPERTY_DEVELOPERS,
+  },
 } as const
 
 export default RouteMap
