@@ -8,8 +8,9 @@ import { EFormType } from '@/app/types/enums'
 import { TFormDataType } from '@/app/types/types'
 // import TSignUpFormData from '@/app/types/types'
 
+import { buildClientSender } from '@/app/api/(axios)/client/build-client-sender'
+
 import classes from './SignupForm.module.css'
-import { buildSender } from '@/app/api/build-sender'
 
 const SignupForm = () => {
   const {
@@ -27,7 +28,7 @@ const SignupForm = () => {
       throw new Error('Invalid Form Data!')
     }
 
-    const axiosSender = buildSender()
+    const axiosSender = buildClientSender()
 
     const response = await axiosSender.post('/api/auth/signup', data)
 

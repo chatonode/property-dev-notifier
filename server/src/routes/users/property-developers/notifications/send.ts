@@ -25,6 +25,15 @@ type RequestBody = {
   content: TEmailData
 }
 
+// type PropertyDeveloper = {
+//   properyDeveloperId: string,
+
+// }
+
+// type NewRequestBody = {
+//   propertyDevelopers: []
+// }
+
 const router = express.Router()
 
 router[RouteMap.NOTIFY_PROPERTY_DEVELOPERS.method](
@@ -74,21 +83,20 @@ router[RouteMap.NOTIFY_PROPERTY_DEVELOPERS.method](
      * */
     const nonexistingPropertyDeveloperIds: PropertyDeveloperIds = []
 
+    // TODO: Test it
     const propertyDevelopers = await Promise.all(
-      propertyDeveloperIds.map(
-        async (propertyDeveloperId): Promise<PropertyDeveloperDoc | null> => {
-          const existingPropertyDeveloper = await PropertyDeveloper.findById(
-            propertyDeveloperId
-          )
+      propertyDeveloperIds.map(async (propertyDeveloperId) => {
+        const existingPropertyDeveloper = await PropertyDeveloper.findById(
+          propertyDeveloperId
+        )
 
-          if (!existingPropertyDeveloper) {
-            nonexistingPropertyDeveloperIds.push(propertyDeveloperId)
-            return null
-          }
-
-          return existingPropertyDeveloper
+        if (!existingPropertyDeveloper) {
+          nonexistingPropertyDeveloperIds.push(propertyDeveloperId)
+          return null
         }
-      )
+
+        return existingPropertyDeveloper
+      })
     )
 
     const existingPropertyDevelopers = propertyDevelopers.filter(
@@ -106,8 +114,11 @@ router[RouteMap.NOTIFY_PROPERTY_DEVELOPERS.method](
     })
     await newNotification.save()
 
-    const emailSender = new EmailSender(newNotification.content)
     newNotification.recipients.forEach((existingPropertyDeveloper) => {
+      const emailSender = new EmailSender({
+        title: newNotification.content.title,
+        body: `Hello ${existingPropertyDeveloper.fullName} ${newNotification.content.body}`,
+      })
       emailSender.sendEmailTo(existingPropertyDeveloper.email)
     })
 

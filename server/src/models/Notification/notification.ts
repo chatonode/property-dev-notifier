@@ -3,13 +3,13 @@ import { AdministratorDoc } from '../User/administrator'
 import { PropertyDeveloperDoc } from '../User/property-developer'
 import { TEmailData } from '../../utils/email/base-sender'
 
-enum NotificationType {
+export enum NotificationType {
   WARNING = 'WARNING',
   INFO = 'INFO',
   ERROR = 'ERROR',
 }
 
-enum NotificationMethod {
+export enum NotificationMethod {
   EMAIL = 'EMAIL',
 }
 

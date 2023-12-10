@@ -2,8 +2,9 @@
 
 :root {
   /* Colors */
-  --primary-color: #000000;
-  --secondary-color: #30b3b3; /* A lighter shade of Teal */
+  --primary-color: #004d5a;
+  --secondary-color: #a90034;
+
   --accent-color: #63808e; /* A slightly muted shade of Teal */
   --background-color: #e7e7e7; /* A lighter shade that complements Teal */
   --text-color: #242424; /* Dark Gray for text readability */
@@ -82,7 +83,11 @@ body {
 }
 
 main {
-  flex: 1;
+  /* flex: 1; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
 }
 
 /* Headers */
@@ -165,6 +170,14 @@ img {
   grid-gap: 20px;
 } */
 
+.logo-container {
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--primary-color);
+  padding: 20px 20px 10px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
 .sidebar {
   grid-column: span 3;
 }
@@ -195,4 +208,13 @@ img {
     order: 2;
     min-height: auto;
   }
+}
+
+/* SCR */
+
+.create-template-button {
+  width: 200px;
+  height: 50px;
+  background-color: var(--primary-color);
+  color: #ffffff;
 }

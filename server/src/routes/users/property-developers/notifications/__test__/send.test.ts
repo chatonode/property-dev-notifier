@@ -1,6 +1,7 @@
 import request from 'supertest'
 import { app } from '../../../../../app'
 import { getValidCookie } from '../../../../../test/auth-helper'
+import { getValidObjectId } from '../../../../../test/valid-id-generator'
 
 import { User } from '../../../../../models/User/user'
 
@@ -64,4 +65,65 @@ it('successfully sends notification email to users', async () => {
     .expect(200)
 
   expect(sgMail.send).toHaveBeenCalledTimes(3)
+})
+
+// TODO
+describe('Notify Property Developers Endpoint Validation', () => {
+  '/api/users/property-developers/notifications'
+  it('should return 400 if propertyDeveloperIds is not an array', async () => {
+    await request(app)
+      .post('/api/users/property-developers/notifications')
+      .send({ propertyDeveloperIds: 'notAnArray' })
+      .expect(400)
+  })
+
+  it('should return 400 if propertyDeveloperIds array is empty', async () => {
+    await request(app)
+      .post('/api/users/property-developers/notifications')
+      .send({ propertyDeveloperIds: [] })
+      .expect(400)
+  })
+
+  it('should return 400 if propertyDeveloperIds contains invalid MongoIds', async () => {
+    await request(app)
+      .post('/api/users/property-developers/notifications')
+      .send({
+        propertyDeveloperIds: [
+          'invalidId',
+          getValidObjectId(),
+          'anotherInvalidId',
+        ],
+      })
+      .expect(400)
+  })
+
+  it('should return 400 if content is not an object', async () => {
+    await request(app)
+      .post('/api/users/property-developers/notifications')
+      .send({
+        propertyDeveloperIds: [getValidObjectId(), getValidObjectId()],
+        content: 'notAnObject',
+      })
+      .expect(400)
+  })
+
+  it('should return 400 if content.title is not a non-empty string', async () => {
+    await request(app)
+      .post('/api/users/property-developers/notifications')
+      .send({
+        propertyDeveloperIds: [getValidObjectId(), getValidObjectId()],
+        content: { title: '' },
+      })
+      .expect(400)
+  })
+
+  it('should return 400 if content.body is not a non-empty string', async () => {
+    await request(app)
+      .post('/api/users/property-developers/notifications')
+      .send({
+        propertyDeveloperIds: [getValidObjectId(), getValidObjectId()],
+        content: { title: 'Valid Title', body: '' },
+      })
+      .expect(400)
+  })
 })

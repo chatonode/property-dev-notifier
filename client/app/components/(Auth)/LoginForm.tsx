@@ -7,8 +7,9 @@ import { useForm, RegisterOptions } from 'react-hook-form'
 import { EFormType } from '@/app/types/enums'
 import { TFormDataType } from '@/app/types/types'
 
+import { buildClientSender } from '@/app/api/(axios)/client/build-client-sender'
+
 import classes from './LoginForm.module.css'
-import { buildSender } from '@/app/api/build-sender'
 
 const LoginForm = () => {
   const {
@@ -26,7 +27,7 @@ const LoginForm = () => {
       throw new Error('Invalid Form Data!')
     }
 
-    const axiosSender = buildSender()
+    const axiosSender = buildClientSender()
 
     const response = await axiosSender.post('/api/auth/login', data)
 

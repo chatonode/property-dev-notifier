@@ -19,6 +19,9 @@ export abstract class BaseSender {
       from: process.env.SENDGRID_ACCOUNT_EMAIL!,
       subject: title,
       text: body,
+      // todo
+      // bcc: Administrators
+      bcc: 'selcuk@nagua.io',
     }
 
     try {
