@@ -8,6 +8,7 @@ import logo from '@/public/assets/images/logo/SmartLogoWebMobile.png'
 
 import getCurrentUser from '@/api/(users)/get-current-user'
 import { ERoute } from '@/types/enums'
+import MovingCircles from './components/UI/Background/MovingCircles'
 
 const anton = Anton({ weight: '400', subsets: ['latin'] })
 
@@ -49,7 +50,10 @@ export default async function RootLayout({
           <h1>Property Dev Notifier</h1>
           {/* {currentUser !== null && <MainNavigation />} */}
         </header>
-        <div className="root">{children}</div>
+        <div className="root">
+          <MovingCircles />
+          {children}
+        </div>
         <footer className="footer">
           <p>&copy;2023 Nagua. All rights reserved.</p>
         </footer>

@@ -51,9 +51,10 @@ const PropertyDevelopersList = (props: TPropertyDevelopersListProps) => {
   }
 
   return (
-    <div className={classes.container}>
-      <h4>Select Property Developers:</h4>
-      {/*<div>
+    <div className={classes.body}>
+      <div className={classes.container}>
+        <h4 className={classes.title}>Select Property Developers:</h4>
+        {/*<div>
          <button
           className={classes['send-button']}
           type="button"
@@ -62,8 +63,8 @@ const PropertyDevelopersList = (props: TPropertyDevelopersListProps) => {
         >
           Save List
         </button> 
-      </div>*/}
-      <ul className={`${classes['developer-list']} ${poppins.className}`}>
+        </div>*/}
+        {/*<ul className={`${classes['developer-list']} ${poppins.className}`}>
         {props.propertyDevelopers.map((propertyDeveloper) => {
           const isSelected = selectedDeveloperIds.includes(propertyDeveloper.id)
 
@@ -90,7 +91,45 @@ const PropertyDevelopersList = (props: TPropertyDevelopersListProps) => {
             </li>
           )
         })}
-      </ul>
+      </ul> */}
+        <div>
+          <button
+            className={classes.button}
+            // onClick={handleSelectAll}
+          >
+            Select All
+          </button>
+          <button
+            className={`${classes.button} ${classes.unselectAll}`}
+            // onClick={handleUnselectAll}
+          >
+            Unselect All
+          </button>
+        </div>
+        <ul className={`${classes.userList} ${poppins.className}`}>
+          {props.propertyDevelopers.map((propertyDeveloper) => {
+            const isSelected = selectedDeveloperIds.includes(
+              propertyDeveloper.id
+            )
+
+            return (
+              <li key={propertyDeveloper.id} className={classes.listItem}>
+                <input
+                  type="checkbox"
+                  id={propertyDeveloper.id}
+                  className={classes.input}
+                  checked={isSelected}
+                />
+                <label htmlFor={propertyDeveloper.id} className={classes.label}>
+                  <strong>Full Name:</strong> {propertyDeveloper.fullName}
+                  <br />
+                  <strong>Email:</strong> {propertyDeveloper.email}
+                </label>
+              </li>
+            )
+          })}
+        </ul>
+      </div>
     </div>
   )
 }
