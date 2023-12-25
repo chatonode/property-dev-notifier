@@ -7,11 +7,11 @@ export type TEmailData = {
   body: string
 }
 
-export abstract class BaseSender<T> {
+export abstract class BaseSender {
   protected abstract data: TEmailData
-  protected abstract getData: (eventData: T) => TEmailData
+  // protected abstract getData: (emailData: T) => TEmailData
 
-  protected sendEmailTo(email: string): void {
+  public sendEmailTo(email: string): void {
     const { title, body } = this.data
 
     const msg: MailDataRequired = {
@@ -19,6 +19,9 @@ export abstract class BaseSender<T> {
       from: process.env.SENDGRID_ACCOUNT_EMAIL!,
       subject: title,
       text: body,
+      // todo
+      // bcc: Administrators
+      bcc: 'selcuk@nagua.io',
     }
 
     try {

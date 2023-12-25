@@ -1,12 +1,14 @@
-export const enum Route {
+export const enum ERoute {
   Home = '/',
-  Welcome = '/welcome',
   Signup = '/signup',
   Login = '/login',
   Logout = '/logout',
+  Welcome = '/welcome',
+  CreateNotificationTemplate = '/notifications/create-a-template',
+  // PropertyDevelopers = '/users/property-developers',
+
   // Dashboard = '/dashboard',
-//   MyProfile = '/my-profile',
-  Notify = '/notify',
+  //   MyProfile = '/my-profile',
 }
 
 export const enum EFormType {

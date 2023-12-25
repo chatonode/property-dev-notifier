@@ -5,16 +5,20 @@ import { updateIfCurrentPlugin } from 'mongoose-update-if-current'
 import { UserAttrs, UserDoc, User } from './user'
 
 import { NotificationDoc } from '../Notification/notification'
+import { AdministratorDoc } from './administrator'
 
 // An interface that describes the properties
 // that are required to create a new Property Developer
 interface PropertyDeveloperAttrs extends UserAttrs {
-  //   notifications: NotificationDoc[]
+  fullName: string
+  createdBy: AdministratorDoc
 }
 
 // An interface that describes the properties
 // that a Property Developer Document has
 export interface PropertyDeveloperDoc extends UserDoc {
+  fullName: string
+  createdBy: AdministratorDoc
   notifications: NotificationDoc[]
 }
 
@@ -26,6 +30,15 @@ interface PropertyDeveloperModel extends mongoose.Model<PropertyDeveloperDoc> {
 
 const propertyDeveloperSchema = new mongoose.Schema(
   {
+    fullName: {
+      type: String,
+      required: true,
+    },
+    createdBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: 'Administrator',
+    },
     notifications: [
       {
         type: mongoose.Schema.Types.ObjectId,
@@ -35,7 +48,11 @@ const propertyDeveloperSchema = new mongoose.Schema(
   },
   {
     toJSON: {
-      transform(doc, ret) {},
+      transform(doc, ret) {
+        // _id -> id
+        ret.id = ret._id
+        delete ret._id
+      },
     },
   }
 )

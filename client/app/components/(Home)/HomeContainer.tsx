@@ -1,4 +1,4 @@
-import { Route } from '@/app/types/enums'
+import { ERoute } from '@/app/types/enums'
 import classes from './HomeContainer.module.css'
 
 const HomeContainer = () => {
@@ -9,7 +9,7 @@ const HomeContainer = () => {
         <h3>Join now!</h3>
 
         <div className={`base ${classes.actions}`}>
-          <div className={`base ${classes.item}`}>
+          {/* <div className={`base ${classes.item}`}>
             <button>Sign up with Google</button>
           </div>
 
@@ -20,10 +20,10 @@ const HomeContainer = () => {
             className={`base ${classes.item} ${classes['alternative-text']}`}
           >
             <p>--- or alternatively ---</p>
-          </div>
+          </div> */}
 
           <div className={`base ${classes.item}`}>
-            <a href={Route.Signup}>Sign up</a>
+            <a href={ERoute.Signup}>Sign up</a>
             <span className={classes['signup-agree']}>
               By signing up, you agree to the Terms of Service and Privacy
               Policy, including Cookie Use.
@@ -32,7 +32,7 @@ const HomeContainer = () => {
 
           <div className={`base ${classes.item}`}>
             <h5>Already have an account?</h5>
-            <a href={Route.Login}>Log in</a>
+            <a href={ERoute.Login}>Log in</a>
           </div>
         </div>
       </div>

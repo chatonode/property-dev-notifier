@@ -1,11 +1,16 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { IBM_Plex_Mono } from 'next/font/google'
+import { Anton } from 'next/font/google'
+import Image from 'next/image'
+import Link from 'next/link'
 
-import MainNavigation from './components/(Layout)/Navigation/MainNavigation'
-import getCurrentUser from './api/(server)/get-current-user'
+import logo from '@/public/assets/images/logo/SmartLogoWebMobile.png'
 
-const ibmPlex = IBM_Plex_Mono({ weight: '400', subsets: ['latin'] })
+import getCurrentUser from '@/api/(users)/get-current-user'
+import { ERoute } from '@/types/enums'
+import MovingCircles from './components/UI/Background/MovingCircles'
+
+const anton = Anton({ weight: '400', subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Property Dev Notifier',
@@ -19,16 +24,34 @@ export default async function RootLayout({
 }) {
   const currentUser = await getCurrentUser()
 
-  console.log('CURRENT_USSSAAAH:', currentUser)
+  // console.log('CURRENT_USER:', currentUser)
 
   return (
-    <html lang="en" className={ibmPlex.className}>
+    <html lang="en" className={anton.className}>
       <body>
+        <header className="header">
+          <div className="logo-container">
+            <Image
+              src={logo.src}
+              quality={100}
+              width={200}
+              height={45}
+              //   sizes="(max-width: 768px) 100vw"
+              alt="logo"
+            />
+            <Link
+              href={ERoute.Logout}
+              className="nav-item"
+              // onClick={logUserOut}
+            >
+              Logout
+            </Link>
+          </div>
+          <h1>Property Dev Notifier</h1>
+          {/* {currentUser !== null && <MainNavigation />} */}
+        </header>
         <div className="root">
-          <header className="header">
-            <h1>Property Dev Notifier</h1>
-            {currentUser !== null && <MainNavigation />}
-          </header>
+          <MovingCircles />
           {children}
         </div>
         <footer className="footer">

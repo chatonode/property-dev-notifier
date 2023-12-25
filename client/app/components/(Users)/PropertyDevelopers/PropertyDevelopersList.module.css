@@ -1,0 +1,174 @@
+/* PropertyDevelopersList.module.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  /* margin: clamp(1em, 2vw, 2em); */
+  max-height: 80vh;
+
+  width: 100%; /* Set a fixed width for the container */
+}
+
+.developer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 60vh;
+  overflow: scroll;
+
+  width: 100%; /* Set a fixed width for the list */
+}
+
+.developer-card {
+  border: 2px solid #3498db;
+  border-radius: 12px;
+  margin: 20px;
+  padding: 20px;
+  /* background: #ffffff; */
+  background: linear-gradient(298deg, #d1e9f2, transparent 100px);
+  box-shadow: 0 4px 8px rgba(3, 3, 3, 0.1);
+  background-position: 0%;
+  background-size: 1px 200px;
+  /* transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out background-position 0.4s ease-in-out; */
+  transition: background 0.3s ease-in-out;
+  overflow: hidden;
+
+  /* width: 80vw; */
+  height: auto;
+  display: flex;
+  gap: 10px;
+
+  width: 100%; /* Set a fixed width for each developer card */
+  min-height: 120px; /* Set a fixed or minimum height for each developer card */
+}
+
+.developer-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(52, 152, 219, 0.2);
+}
+
+.developer-card.checked {
+  /* background: linear-gradient(45deg, #3498db, #22ffd3 150%); */
+  background: linear-gradient(11deg, #93d4ff, #a66dba 150%);
+  background-position: 40px 0px;
+  /* transition: all 0.3s ease-in-out; */
+}
+
+.developer-card.checked .developer-email {
+  color: #fff;
+}
+
+.developer-header {
+  margin-bottom: 15px;
+  color: #3498db;
+}
+
+.developer-name,
+.developer-email {
+  margin: 0;
+}
+
+.developer-name {
+  color: var(--primary-color);
+  font-size: clamp(1.25rem, 3vw + 0.4rem, 2.25rem);
+}
+
+.developer-email {
+  /* color: var(--primary-color); */
+  font-size: clamp(1.25rem, 3vw + 0.4rem, 2.25rem);
+  transition: color 0.3s ease-in-out;
+  overflow: hidden; /* Ensure that content exceeding the container is hidden */
+  white-space: nowrap; /* Prevent line breaks */
+}
+
+.developer-card:hover .developer-email {
+  animation: scrollText 8s linear infinite; /* Adjust the duration as needed */
+}
+
+/* Add the animation definition */
+@keyframes scrollText {
+  0% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(-50%); /* Move the text to the left */
+  }
+  100% {
+    transform: translateX(0%); /* Move the text back to its original position */
+  }
+}
+
+.send-button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.send-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.send-button:hover {
+  background-color: #2980b9;
+}
+
+/* Input */
+.developer-card input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #3498db;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.developer-card input[type='checkbox']:checked {
+  background-color: #3498db;
+  border-color: #f5f5f5;
+  border-radius: 10px;
+}
+
+/* .developer-card input[type='checkbox']:checked::before {
+  content: '\2713';
+  font-size: 16px;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */
+
+/* Input END */
+
+/* Media Query for Larger Screens */
+@media (min-width: 768px) {
+  .developer-card {
+    display: flex;
+    align-items: center;
+    width: calc(100vw - 100px); /* Adjust as needed */
+    margin: 10px;
+    padding: 10px;
+  }
+
+  .developer-card:hover {
+    transform: scale(1.03);
+  }
+
+  .developer-header {
+    margin-bottom: 0;
+    margin-right: 15px;
+  }
+
+  .developer-name {
+    margin-bottom: 10px;
+  }
+}
