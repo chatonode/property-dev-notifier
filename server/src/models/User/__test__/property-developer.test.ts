@@ -1,13 +1,26 @@
 import mongoose from 'mongoose'
+import { Administrator } from '../administrator'
 import { PropertyDeveloper } from '../property-developer'
+import { getValidObjectId } from '../../../test/valid-id-generator'
 
 it('increments the version number on multiple saves', async () => {
   /*
         Pre-Conditions
     */
+  // Create an instance of an admin that creates a property developer
+  const createdAdmin = Administrator.build({
+    email: '1stnewadminemail@example.com',
+    password: 'sUcHaValidPassword123!.',
+  })
+
+  // Save created admin user to the database
+  await createdAdmin.save()
+
   // Create an instance of a property developer
   const createdPropertyDev = PropertyDeveloper.build({
     email: '1stnewemail@example.com',
+    fullName: 'First John Doe',
+    createdBy: createdAdmin,
   })
 
   // Save created property dev user to the database
@@ -56,12 +69,23 @@ it('implements OCC (optimistic concurrency control)', async () => {
   /*
         Pre-Conditions
     */
-  // Create an instance of a property dev user
-  const createdPropertyDev = PropertyDeveloper.build({
-    email: '1stnewemail@example.com',
+  // Create an instance of an admin that creates a property developer
+  const createdAdmin = Administrator.build({
+    email: '1stnewadminemail@example.com',
+    password: 'sUcHaValidPassword123!.',
   })
 
-  // Save the property dev user to the database
+  // Save created admin user to the database
+  await createdAdmin.save()
+
+  // Create an instance of a property developer
+  const createdPropertyDev = PropertyDeveloper.build({
+    email: '1stnewemail@example.com',
+    fullName: 'First John Doe',
+    createdBy: createdAdmin,
+  })
+
+  // Save created property dev user to the database
   await createdPropertyDev.save()
 
   // Fetch the property dev user twice

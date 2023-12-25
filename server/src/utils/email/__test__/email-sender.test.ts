@@ -1,5 +1,5 @@
 // Types
-import { TEventData, EmailSender } from '../email-sender'
+import { EmailSender } from '../email-sender'
 
 // Fake Import
 import sgMail from '@sendgrid/mail'
@@ -11,17 +11,22 @@ import { getValidObjectId } from '../../../test/valid-id-generator'
 
 const TEST_EMAIL = 'existinguser@property-dev-notifier.com' as const
 
-const getEventData = () => {
-  const eventData: TEventData = {
-    userId: getValidObjectId(),
-    email: TEST_EMAIL,
-  }
+// const getEventData = () => {
+//   const eventData: TEventData = {
+//     userId: getValidObjectId(),
+//     email: TEST_EMAIL,
+//   }
 
-  return eventData
-}
+//   return eventData
+// }
 
 it('sends notification email', () => {
-  new EmailSender(TEST_EMAIL, getEventData())
+  const sender = new EmailSender({
+    title: 'Sample Title',
+    body: 'Hello sample body! We are currently bla bla...',
+  })
+
+  sender.sendEmailTo(TEST_EMAIL)
 
   expect(sgMail.send).toHaveBeenCalled()
   expect(sgMail.send).toHaveBeenCalledTimes(1)

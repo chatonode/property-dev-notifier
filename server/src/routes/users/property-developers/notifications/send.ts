@@ -117,7 +117,11 @@ router[RouteMap.NOTIFY_PROPERTY_DEVELOPERS.method](
     newNotification.recipients.forEach((existingPropertyDeveloper) => {
       const emailSender = new EmailSender({
         title: newNotification.content.title,
-        body: `Hello ${existingPropertyDeveloper.fullName} ${newNotification.content.body}`,
+        body: `Hello ${existingPropertyDeveloper.fullName};
+        ${newNotification.content.body}
+        
+        Cheers!
+        `,
       })
       emailSender.sendEmailTo(existingPropertyDeveloper.email)
     })
