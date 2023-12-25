@@ -1,9 +1,12 @@
+import classes from './MovingCircles.module.css'
+
 const MovingCircles = () => {
   return (
-    <div className="background-circles">
-      <div className="circle"></div>
-      <div className="circle"></div>
-      <div className="circle"></div>
+    <div className={classes['background-circles']}>
+      <div className={classes.circle}></div>
+      <div className={classes.circle}></div>
+      {/* <div className={classes.lock}></div> */}
+      <div className={classes.circle}></div>
       {/* <!-- Add more circles as needed --> */}
     </div>
   )
