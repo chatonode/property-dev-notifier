@@ -13,9 +13,12 @@ const useAuth = (isAuthenticatedInitially: TAuthenticated): TUseAuthReturn => {
   const router = useRouter()
 
   useEffect(() => {
-    if (isAuthenticated) {
+    let isMounted = false
+    if (!isMounted && isAuthenticated) {
       router.refresh()
     }
+
+    isMounted = true
   }, [isAuthenticated])
 
   return [isAuthenticated, setIsAuthenticated]

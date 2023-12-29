@@ -41,6 +41,7 @@ const MainHeader = (props: TMainHeaderProps) => {
           height={45}
           //   sizes="(max-width: 768px) 100vw"
           alt="logo"
+          onClick={() => router.push(ERoute.Home)}
         />
         {!!props.currentUser && (
           <>
