@@ -1,15 +1,16 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useState, useTransition } from 'react'
 import { useRouter } from 'next/navigation'
 import { useForm, RegisterOptions } from 'react-hook-form'
 
-import { EFormType } from '@/app/types/enums'
+import { EFormType, ERoute } from '@/app/types/enums'
 import { TFormDataType } from '@/app/types/types'
 
 import { buildClientSender } from '@/app/api/(axios)/client/build-client-sender'
 
 import classes from './LoginForm.module.css'
+import useAuth from '@/app/hooks/useAuth'
 
 const LoginForm = () => {
   const {
@@ -21,6 +22,7 @@ const LoginForm = () => {
   } = useForm<TFormDataType[EFormType.LOGIN]>()
 
   const router = useRouter()
+  const [_, setIsAuthenticated] = useAuth(false)
 
   const submitHandler = async (data: TFormDataType[EFormType.LOGIN]) => {
     if (!isValid) {
@@ -45,9 +47,13 @@ const LoginForm = () => {
     reset()
 
     // Redirect to another page
-    router.refresh()
-    router.push('/welcome')
+    setIsAuthenticated(true)
+    router.replace(ERoute.Dashboard)
   }
+
+  // useEffect(() => {
+  //   router.refresh()
+  // }, [isAuthenticated])
 
   const emailOptions: RegisterOptions<TFormDataType[EFormType.LOGIN], 'email'> =
     {

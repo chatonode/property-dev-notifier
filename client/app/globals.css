@@ -18,6 +18,9 @@
   --container-width: 80vw;
 }
 
+/***___ RESET.CSS ___***/
+/* @ref-link: https://github.com/Andy-set-studio/modern-css-reset/blob/master/src/reset.css */
+/* Box sizing rules */
 *,
 *::before,
 *::after {
@@ -27,20 +30,86 @@
   -webkit-font-smoothing: antialiased;
 }
 
-html,
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
 body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Anchor elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/***___ MY CUSTOM STYLING___***/
+
+html {
   /* height: 100%; */
   min-height: auto;
   /* todo: to be deleted */
-  background: rgb(34, 193, 195);
+  background: rgb(63, 63, 63);
 }
 
 /* Layout */
 body {
-  margin: 0;
   font-family: var(--font-family);
   font-size: 1.325rem;
-  /* line-height: 1.6; */
   color: var(--text-color);
   background-color: #ffffff;
 
@@ -57,6 +126,7 @@ body {
   transition: background-color 0.5s ease;
 }
 
+/* Resetter "base" Class */
 .base {
   -ms-flex-align: stretch;
   -ms-flex-direction: column;
@@ -142,53 +212,11 @@ h3 {
   font-size: clamp(1.25rem, 3vw + 0.4rem, 2.25rem);
 }
 
-/* Links */
+/* Non-decotared anchor elements */
 a {
   text-decoration: none;
   color: var(--primary-color);
 }
-
-/* Images */
-img {
-  max-width: 100%;
-}
-
-/*** Layout ***/
-/* #1 Standard Container */
-/* .main {
-  max-width: var(--container-width);
-  margin: 0 auto;
-
-  padding: 1.25rem;
-  background-color: #ffb0b0;
-} */
-
-/* .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  padding: 0.5rem 1.5rem 1rem 1.2rem;
-  border-radius: 0.8rem;
-  margin: 0.5em 0.5em 0.8em 0.7em;
-} */
-
-/* .nav {
-  display: flex;
-} */
-
-/* .nav-item {
-  margin-left: 10px;
-
-  margin-left: 10px;
-  font-size: xx-large;
-} */
-
-/* .container {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-gap: 20px;
-} */
 
 .logo-container {
   box-sizing: border-box;
@@ -202,33 +230,12 @@ img {
   grid-column: span 3;
 }
 
-/* .content {
-  grid-column: span 9;
-} */
-
 .footer {
   display: flex;
   align-items: center;
 }
 
 @media (min-width: 40rem) {
-  .landing-main {
-    max-width: 80vw;
-  }
-
-  .landing-container {
-    flex-direction: column-reverse;
-  }
-
-  .landing-sidebar {
-    order: 1;
-  }
-
-  .landing-content {
-    order: 2;
-    min-height: auto;
-  }
-
   main {
     height: 77.6vh;
     max-height: 80vh;

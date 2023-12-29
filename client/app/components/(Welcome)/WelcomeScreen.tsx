@@ -1,12 +1,13 @@
 'use client'
 
-import { redirect } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
 import { ERoute } from '@/types/enums'
 
 const WelcomeScreen = () => {
+  const router = useRouter()
   const clickHandler = () => {
-    redirect(ERoute.CreateNotificationTemplate)
+    router.push(ERoute.CreateNotificationTemplate)
   }
   return (
     <div>

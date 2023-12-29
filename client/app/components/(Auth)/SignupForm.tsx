@@ -4,24 +4,26 @@ import React from 'react'
 import { useRouter } from 'next/navigation'
 import { useForm, RegisterOptions } from 'react-hook-form'
 
-import { EFormType } from '@/app/types/enums'
+import { EFormType, ERoute } from '@/app/types/enums'
 import { TFormDataType } from '@/app/types/types'
 // import TSignUpFormData from '@/app/types/types'
 
 import { buildClientSender } from '@/app/api/(axios)/client/build-client-sender'
 
 import classes from './SignupForm.module.css'
+import useAuth from '@/app/hooks/useAuth'
 
 const SignupForm = () => {
   const {
     register,
     setValue,
     handleSubmit,
-    formState: { errors, isValid, isSubmitting },
+    formState: { errors, isValid, isSubmitting, isSubmitSuccessful },
     reset,
   } = useForm<TFormDataType[EFormType.SIGNUP]>()
 
   const router = useRouter()
+  const [_, setIsAuthenticated] = useAuth(false)
 
   const submitHandler = async (data: TFormDataType[EFormType.SIGNUP]) => {
     if (!isValid) {
@@ -46,8 +48,8 @@ const SignupForm = () => {
     reset()
 
     // Redirect to another page
-    router.refresh()
-    router.push('/welcome')
+    setIsAuthenticated(true)
+    router.replace(ERoute.Dashboard)
   }
 
   // const usernameOptions: RegisterOptions<
