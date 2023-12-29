@@ -17,7 +17,7 @@ const LoginForm = () => {
     register,
     setValue,
     handleSubmit,
-    formState: { errors, isValid, isSubmitting },
+    formState: { errors, isValid, isSubmitting, isSubmitSuccessful },
     reset,
   } = useForm<TFormDataType[EFormType.LOGIN]>()
 
@@ -50,10 +50,6 @@ const LoginForm = () => {
     setIsAuthenticated(true)
     router.replace(ERoute.Dashboard)
   }
-
-  // useEffect(() => {
-  //   router.refresh()
-  // }, [isAuthenticated])
 
   const emailOptions: RegisterOptions<TFormDataType[EFormType.LOGIN], 'email'> =
     {
@@ -120,8 +116,15 @@ const LoginForm = () => {
         {errors.password && <p>{errors.password.message}</p>}
       </div>
       <div className={classes.actions}>
-        <button type="submit" disabled={isSubmitting ? true : undefined}>
-          {isSubmitting ? 'Logging In...' : 'Log In'}
+        <button
+          type="submit"
+          disabled={isSubmitting || isSubmitSuccessful ? true : undefined}
+        >
+          {isSubmitting
+            ? 'Logging In...'
+            : isSubmitSuccessful
+            ? 'Connecting...'
+            : 'Log In'}
         </button>
       </div>
     </form>

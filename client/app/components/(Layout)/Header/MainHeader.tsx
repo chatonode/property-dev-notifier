@@ -44,7 +44,7 @@ const MainHeader = (props: TMainHeaderProps) => {
         />
         {!!props.currentUser && (
           <>
-            <p>{props.currentUser.email}</p>
+            {/* <p>{props.currentUser.email}</p> */}
             <Link
               href={ERoute.GoodBye}
               className="nav-item"

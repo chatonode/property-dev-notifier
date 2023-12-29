@@ -136,8 +136,12 @@ const SignupForm = () => {
         {errors.password && <p>{errors.password.message}</p>}
       </div>
       <div className={classes.actions}>
-        <button type="submit" disabled={isSubmitting ? true : undefined}>
-          {isSubmitting ? 'Signing Up...' : 'Sign Up'}
+        <button type="submit" disabled={(isSubmitting || isSubmitSuccessful) ? true : undefined}>
+          {isSubmitting
+            ? 'Signing Up...'
+            : isSubmitSuccessful
+            ? 'Connecting...'
+            : 'Sign Up'}
         </button>
       </div>
     </form>
