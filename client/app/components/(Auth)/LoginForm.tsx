@@ -11,6 +11,7 @@ import { buildClientSender } from '@/app/api/(axios)/client/build-client-sender'
 
 import classes from './LoginForm.module.css'
 import useAuth from '@/app/hooks/useAuth'
+import AuthSubmitButton from '../UI/Button/Form/AuthSubmitButton'
 
 const LoginForm = () => {
   const {
@@ -116,16 +117,11 @@ const LoginForm = () => {
         {errors.password && <p>{errors.password.message}</p>}
       </div>
       <div className={classes.actions}>
-        <button
-          type="submit"
-          disabled={isSubmitting || isSubmitSuccessful ? true : undefined}
-        >
-          {isSubmitting
-            ? 'Logging In...'
-            : isSubmitSuccessful
-            ? 'Connecting...'
-            : 'Log In'}
-        </button>
+        <AuthSubmitButton
+          formType={'LOGIN'}
+          isSubmitting={isSubmitting}
+          isSubmitSuccessful={isSubmitSuccessful}
+        />
       </div>
     </form>
   )

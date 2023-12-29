@@ -117,17 +117,3 @@
 /* .form-group :is(:focus) {
   border-color: #007bff;
 } */
-
-.actions button {
-  background: #007bff;
-  color: #fff;
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.actions button :is(:hover) {
-  background: #0056b3;
-}
