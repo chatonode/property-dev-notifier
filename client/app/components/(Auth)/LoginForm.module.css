@@ -112,8 +112,17 @@
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
+
+  transition: width 1s linear, height 0.8s linear, padding 1.2s linear, border 1s ease-in;
 }
 
 /* .form-group :is(:focus) {
   border-color: #007bff;
 } */
+
+.form-group input.successful {
+  width: 0;
+  padding: 0;
+  border: 0;
+  height: 0;
+}

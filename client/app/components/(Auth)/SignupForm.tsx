@@ -13,6 +13,7 @@ import { buildClientSender } from '@/app/api/(axios)/client/build-client-sender'
 import classes from './SignupForm.module.css'
 import useAuth from '@/app/hooks/useAuth'
 import AuthSubmitButton from '../UI/Button/Form/AuthSubmitButton'
+import Link from 'next/link'
 
 const SignupForm = () => {
   const {
@@ -111,7 +112,7 @@ const SignupForm = () => {
       onSubmit={handleSubmit(submitHandler)}
     >
       <div className={classes.body}>
-        <h3>Sign Up</h3>
+        <h3>Join Our Community!</h3>
         {/* <div className={classes['form-group']}>
           <label htmlFor="username">Username</label>
           <input
@@ -123,7 +124,13 @@ const SignupForm = () => {
         {/* {errors.username && <p>{errors.username.message}</p>} */}
         <div className={classes['form-group']}>
           <label htmlFor="email">Email</label>
-          <input id="email" type="email" {...register('email', emailOptions)} />
+          <input
+            id="email"
+            type="email"
+            {...register('email', emailOptions)}
+            className={isSubmitSuccessful ? classes.successful : undefined}
+            readOnly={isSubmitSuccessful}
+          />
         </div>
         {errors.email && <p>{errors.email.message}</p>}
         <div className={classes['form-group']}>
@@ -132,6 +139,8 @@ const SignupForm = () => {
             id="password"
             type="password"
             {...register('password', passwordOptions)}
+            className={isSubmitSuccessful ? classes.successful : undefined}
+            readOnly={isSubmitSuccessful}
           />
         </div>
         {errors.password && <p>{errors.password.message}</p>}
@@ -142,6 +151,11 @@ const SignupForm = () => {
           isSubmitting={isSubmitting}
           isSubmitSuccessful={isSubmitSuccessful}
         />
+      </div>
+      <div className={classes.footer}>
+        <p>
+          Already part of us? <Link href={ERoute.Login}>Log In</Link>
+        </p>
       </div>
     </form>
   )
