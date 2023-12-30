@@ -108,7 +108,7 @@ html {
 /* Layout */
 body {
   font-family: var(--font-family);
-  font-size: 1.325rem;
+  font-size: var(--font-size);
   color: var(--text-color);
   background-color: #f3f3f3;
 
@@ -196,15 +196,15 @@ h6 {
 }
 
 h1 {
-  font-size: clamp(0.8rem, 3vw + 1rem, 2.5rem);
+  font-size: clamp(2.25rem, 5vw + 1rem, 3rem);
 }
 
 h2 {
-  font-size: clamp(0.7rem, 4vw + 0.5rem, 1.75rem);
+  font-size: clamp(1.65rem, 4vw + 0.5rem, 2.5rem);
 }
 
 h3 {
-  font-size: clamp(0.6rem, 3vw + 0.4rem, 1.5rem);
+  font-size: clamp(1.25rem, 3vw + 0.4rem, 2.25rem);
 }
 
 /* Non-decotared anchor elements */
@@ -223,6 +223,15 @@ a:focus {
   grid-column: span 3;
 } */
 
+.header {
+  font-size: 1.25rem;
+}
+
+.header,
+.footer {
+  background-color: var(--header-footer-background-color);
+}
+
 .content {
   display: flex;
   margin: 1rem;
@@ -231,8 +240,13 @@ a:focus {
 }
 
 .footer {
+  font-size: 1.25rem;
   display: flex;
+  justify-content: center;
   align-items: center;
+  text-align: center;
+  padding: 0.6em 0;
+  box-shadow: 0px 7px 8px 7px #a1a1a1;
 }
 
 @media (min-width: 40rem) {
@@ -242,12 +256,7 @@ a:focus {
   }
 }
 
-/* SCR */
-
-.header,
-.footer {
-  background-color: var(--header-footer-background-color);
-}
+/* After Reset: More Customization */
 
 .logo-container {
   box-sizing: border-box;
@@ -261,14 +270,6 @@ a:focus {
   align-items: center;
 }
 
-.header h1 {
-  margin-left: 0.5em;
-  margin-top: 0.3em;
-  color: var(--primary-color);
-  /* display: none; */
-  transition: font-size 0.3s ease-in;
-}
-
 .create-template-button {
   width: 200px;
   height: 50px;
@@ -277,7 +278,5 @@ a:focus {
 }
 
 @media (min-width: 40rem) {
-  /* .header h1 {
-    display: block;
-  } */
+  /* TODO */
 }

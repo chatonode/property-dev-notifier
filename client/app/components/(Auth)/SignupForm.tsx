@@ -128,7 +128,12 @@ const SignupForm = () => {
         </div> */}
           {/* {errors.username && <p>{errors.username.message}</p>} */}
           <div className={classes['form-group']}>
-            <label htmlFor="email">Email</label>
+            <label
+              htmlFor="email"
+              className={isSubmitSuccessful ? classes.successful : undefined}
+            >
+              Email
+            </label>
             <input
               id="email"
               type="email"
@@ -139,7 +144,12 @@ const SignupForm = () => {
           </div>
           {errors.email && <p>{errors.email.message}</p>}
           <div className={classes['form-group']}>
-            <label htmlFor="password">Password</label>
+            <label
+              htmlFor="password"
+              className={isSubmitSuccessful ? classes.successful : undefined}
+            >
+              Password
+            </label>
             <input
               id="password"
               type="password"
