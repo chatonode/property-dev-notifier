@@ -56,7 +56,7 @@ const MainHeader = (props: TMainHeaderProps) => {
           </>
         )}
       </div>
-      <h1>Property Dev Notifier</h1>
+      {/* <h1>Property Dev Notifier</h1> */}
     </header>
   )
 }

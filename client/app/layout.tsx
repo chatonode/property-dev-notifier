@@ -26,13 +26,12 @@ export default async function RootLayout({
     <html lang="en" className={anton.className}>
       <body>
         <MainHeader currentUser={currentUser} />
-        <div className="root">
-          <MovingCircles />
-          {children}
-        </div>
+
+        <div className="root">{children}</div>
         <footer className="footer">
           <p>&copy;2023 Nagua. All rights reserved.</p>
         </footer>
+        <MovingCircles />
       </body>
     </html>
   )

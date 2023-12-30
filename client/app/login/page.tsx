@@ -1,6 +1,19 @@
-import LoginForm from '../components/(Auth)/LoginForm'
+import { permanentRedirect } from 'next/navigation'
 
-const LogIn = () => {
+import getCurrentUser from '@/api/(users)/get-current-user'
+import { ERoute } from '@/types/enums'
+
+import LoginForm from '@/components/(Auth)/LoginForm'
+
+const LogIn = async () => {
+  const currentUser = await getCurrentUser()
+
+  // console.log(currentUser)
+
+  if (currentUser) {
+    return permanentRedirect(ERoute.Dashboard)
+  }
+
   return (
     <main className="base">
       <section className="base content">

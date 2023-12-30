@@ -2,13 +2,10 @@
 
 :root {
   /* Colors */
+  --header-footer-background-color: #ffffff;
+
   --primary-color: #a91638;
   --secondary-color: #a90034;
-
-  --accent-color: #63808e; /* A slightly muted shade of Teal */
-  --background-color: #e7e7e7; /* A lighter shade that complements Teal */
-  --text-color: #242424; /* Dark Gray for text readability */
-  --header-color: #ffc92c;
 
   --link-color: #36345a;
   --link-hover-color: #36345a;
@@ -17,7 +14,6 @@
   --font-size: 16px;
 
   /* Layout */
-  /* --container-width: 1200px; */
   --container-width: 80vw;
 }
 
@@ -118,13 +114,9 @@ body {
 
   margin: 0;
   padding: 0;
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* height: 100vh; */
-  /* overflow: hidden; */
-  /* background: #222; */
-  /* background: #adadad; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   position: relative;
   transition: background-color 0.5s ease;
 }
@@ -204,15 +196,15 @@ h6 {
 }
 
 h1 {
-  font-size: clamp(0.8rem, 5vw + 1rem, 3rem);
+  font-size: clamp(0.8rem, 3vw + 1rem, 2.5rem);
 }
 
 h2 {
-  font-size: clamp(0.7rem, 4vw + 0.5rem, 2.5rem);
+  font-size: clamp(0.7rem, 4vw + 0.5rem, 1.75rem);
 }
 
 h3 {
-  font-size: clamp(0.6rem, 3vw + 0.4rem, 2.25rem);
+  font-size: clamp(0.6rem, 3vw + 0.4rem, 1.5rem);
 }
 
 /* Non-decotared anchor elements */
@@ -227,20 +219,9 @@ a:focus {
   /* text-decoration: underline;   */
 }
 
-.logo-container {
-  box-sizing: border-box;
-  /* border-bottom: 3px solid var(--primary-color); */
-  /* border-bottom-right-radius: 6px 15px; */
-  /* border-bottom-left-radius: 16px 40px; */
-  box-shadow: 0px 0px 5px -1px var(--primary-color);
-  padding: 20px 20px 10px 20px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.sidebar {
+/* .sidebar {
   grid-column: span 3;
-}
+} */
 
 .content {
   display: flex;
@@ -263,9 +244,40 @@ a:focus {
 
 /* SCR */
 
+.header,
+.footer {
+  background-color: var(--header-footer-background-color);
+}
+
+.logo-container {
+  box-sizing: border-box;
+  /* border-bottom: 3px solid var(--primary-color); */
+  /* border-bottom-right-radius: 6px 15px; */
+  /* border-bottom-left-radius: 16px 40px; */
+  box-shadow: 0px 0px 5px -1px var(--primary-color);
+  padding: 20px 20px 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  margin-left: 0.5em;
+  margin-top: 0.3em;
+  color: var(--primary-color);
+  /* display: none; */
+  transition: font-size 0.3s ease-in;
+}
+
 .create-template-button {
   width: 200px;
   height: 50px;
   background-color: var(--primary-color);
   color: #ffffff;
+}
+
+@media (min-width: 40rem) {
+  /* .header h1 {
+    display: block;
+  } */
 }
