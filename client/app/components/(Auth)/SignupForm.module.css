@@ -129,6 +129,10 @@
   margin-top: 1.2rem;
 }
 
+.footer a {
+  font-weight: 800;
+}
+
 .footer a:hover,
 .footer a:focus {
   text-decoration: underline;

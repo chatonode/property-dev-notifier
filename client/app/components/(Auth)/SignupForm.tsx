@@ -9,7 +9,6 @@ import { Lato } from 'next/font/google'
 
 import { EFormType, ERoute } from '@/app/types/enums'
 import { TFormDataType } from '@/app/types/types'
-// import TSignUpFormData from '@/app/types/types'
 
 import { buildClientSender } from '@/app/api/(axios)/client/build-client-sender'
 
@@ -18,7 +17,7 @@ import useAuth from '@/app/hooks/useAuth'
 import AuthSubmitButton from '../UI/Button/Form/AuthSubmitButton'
 import AuthFormContainer from '../UI/Card/Form/AuthFormContainer'
 
-const lato = Lato({ weight: '700', subsets: ['latin'] })
+const lato = Lato({ weight: '400', subsets: ['latin'] })
 
 const SignupForm = () => {
   const {

@@ -17,7 +17,7 @@ import useAuth from '@/app/hooks/useAuth'
 import AuthSubmitButton from '../UI/Button/Form/AuthSubmitButton'
 import AuthFormContainer from '../UI/Card/Form/AuthFormContainer'
 
-const lato = Lato({ weight: '700', subsets: ['latin'] })
+const lato = Lato({ weight: '400', subsets: ['latin'] })
 
 const LoginForm = () => {
   const {
@@ -140,7 +140,7 @@ const LoginForm = () => {
         </div>
         <div className={`${classes.footer} ${lato.className}`}>
           <p>
-            New around here? <Link href={ERoute.Signup}>Sign Up</Link> now!
+            New around here? <Link href={ERoute.Signup}>Sign Up</Link>
           </p>
         </div>
       </form>

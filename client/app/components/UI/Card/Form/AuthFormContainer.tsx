@@ -8,7 +8,7 @@ import { Poppins } from 'next/font/google'
 
 type TAuthFormContainerProps = PropsWithChildren
 
-const poppins = Poppins({ weight: '600', subsets: ['latin'] })
+const poppins = Poppins({ weight: '500', subsets: ['latin'] })
 
 const AuthFormContainer = (props: TAuthFormContainerProps) => {
   return (
