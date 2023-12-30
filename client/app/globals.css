@@ -230,6 +230,13 @@ a {
   grid-column: span 3;
 }
 
+.content {
+  display: flex;
+  margin: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
 .footer {
   display: flex;
   align-items: center;

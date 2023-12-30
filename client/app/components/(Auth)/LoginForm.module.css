@@ -123,3 +123,13 @@
   border: 0;
   /* height: 0; */
 }
+
+.footer {
+  font-size: 0.8em;
+  margin-top: 1.2rem;
+}
+
+.footer a:hover,
+.footer a:focus {
+  text-decoration: underline;
+}

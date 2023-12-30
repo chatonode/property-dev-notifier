@@ -4,7 +4,7 @@ const SignUp = () => {
   return (
     <main className="base">
       <section className="base content">
-        <h2>Sign Up</h2>
+        {/* <h2>Sign Up</h2> */}
         <SignupForm />
       </section>
     </main>

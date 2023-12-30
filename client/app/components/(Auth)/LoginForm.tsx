@@ -4,6 +4,9 @@ import React, { useEffect, useState, useTransition } from 'react'
 import { useRouter } from 'next/navigation'
 import { useForm, RegisterOptions } from 'react-hook-form'
 
+import Link from 'next/link'
+import { Lato } from 'next/font/google'
+
 import { EFormType, ERoute } from '@/app/types/enums'
 import { TFormDataType } from '@/app/types/types'
 
@@ -12,7 +15,9 @@ import { buildClientSender } from '@/app/api/(axios)/client/build-client-sender'
 import classes from './LoginForm.module.css'
 import useAuth from '@/app/hooks/useAuth'
 import AuthSubmitButton from '../UI/Button/Form/AuthSubmitButton'
-import Link from 'next/link'
+import AuthFormContainer from '../UI/Card/Form/AuthFormContainer'
+
+const lato = Lato({ weight: '700', subsets: ['latin'] })
 
 const LoginForm = () => {
   const {
@@ -87,13 +92,14 @@ const LoginForm = () => {
   }
 
   return (
-    <form
-      className={classes['login-form']}
-      onSubmit={handleSubmit(submitHandler)}
-    >
-      <div className={classes.body}>
-        <h3>Welcome Back!</h3>
-        {/* <div className={classes['form-group']}>
+    <AuthFormContainer>
+      <form
+        className={classes['login-form']}
+        onSubmit={handleSubmit(submitHandler)}
+      >
+        <div className={classes.body}>
+          <h3>Welcome Back!</h3>
+          {/* <div className={classes['form-group']}>
           <label htmlFor="username">Username</label>
           <input
             id="username"
@@ -101,43 +107,44 @@ const LoginForm = () => {
             {...register('username', usernameOptions)}
           />
         </div> */}
-        {/* {errors.username && <p>{errors.username.message}</p>} */}
-        <div className={classes['form-group']}>
-          <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            type="email"
-            {...register('email', emailOptions)}
-            className={isSubmitSuccessful ? classes.successful : undefined}
-            readOnly={isSubmitSuccessful}
+          {/* {errors.username && <p>{errors.username.message}</p>} */}
+          <div className={classes['form-group']}>
+            <label htmlFor="email">Email</label>
+            <input
+              id="email"
+              type="email"
+              {...register('email', emailOptions)}
+              className={isSubmitSuccessful ? classes.successful : undefined}
+              readOnly={isSubmitSuccessful}
+            />
+          </div>
+          {errors.email && <p>{errors.email.message}</p>}
+          <div className={classes['form-group']}>
+            <label htmlFor="password">Password</label>
+            <input
+              id="password"
+              type="password"
+              {...register('password', passwordOptions)}
+              className={isSubmitSuccessful ? classes.successful : undefined}
+              readOnly={isSubmitSuccessful}
+            />
+          </div>
+          {errors.password && <p>{errors.password.message}</p>}
+        </div>
+        <div className={classes.actions}>
+          <AuthSubmitButton
+            formType={'LOGIN'}
+            isSubmitting={isSubmitting}
+            isSubmitSuccessful={isSubmitSuccessful}
           />
         </div>
-        {errors.email && <p>{errors.email.message}</p>}
-        <div className={classes['form-group']}>
-          <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            type="password"
-            {...register('password', passwordOptions)}
-            className={isSubmitSuccessful ? classes.successful : undefined}
-            readOnly={isSubmitSuccessful}
-          />
+        <div className={`${classes.footer} ${lato.className}`}>
+          <p>
+            New around here? <Link href={ERoute.Signup}>Sign Up</Link> now!
+          </p>
         </div>
-        {errors.password && <p>{errors.password.message}</p>}
-      </div>
-      <div className={classes.actions}>
-        <AuthSubmitButton
-          formType={'LOGIN'}
-          isSubmitting={isSubmitting}
-          isSubmitSuccessful={isSubmitSuccessful}
-        />
-      </div>
-      <div className={classes.footer}>
-        <p>
-          New around here? <Link href={ERoute.Signup}>Sign Up</Link> now!
-        </p>
-      </div>
-    </form>
+      </form>
+    </AuthFormContainer>
   )
 }
 

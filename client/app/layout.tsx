@@ -5,7 +5,7 @@ import { Anton } from 'next/font/google'
 import getCurrentUser from '@/api/(users)/get-current-user'
 import { ERoute } from '@/types/enums'
 import MovingCircles from '@/components/UI/Background/MovingCircles'
-import MainHeader from './components/(Layout)/Header/MainHeader'
+import MainHeader from '@/components/(Layout)/Header/MainHeader'
 
 const anton = Anton({ weight: '400', subsets: ['latin'] })
 
