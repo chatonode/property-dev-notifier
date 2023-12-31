@@ -118,7 +118,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-  transition: background-color 0.5s ease;
+  /* transition: background-color 0.5s ease; */
 }
 
 /* Resetter "base" Class */
@@ -166,7 +166,8 @@ main {
   align-items: center;
   /* height: 77.6vh;
   max-height: 80vh; */
-  height: 70.4vh;
+  /* height: 70.4vh; */
+  height: 79.4vh;
   max-height: 80vh;
   overflow: auto;
 }

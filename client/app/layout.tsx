@@ -6,6 +6,7 @@ import getCurrentUser from '@/api/(users)/get-current-user'
 import MovingCircles from '@/components/UI/Background/MovingCircles'
 import MainHeader from '@/components/(Layout)/Header/MainHeader'
 import MainFooter from './components/(Layout)/Footer/MainFooter'
+import RootLoadingSkeleton from './loading'
 
 const inter500 = Inter({ weight: '500', subsets: ['latin'] })
 
@@ -27,6 +28,7 @@ export default async function RootLayout({
       <body>
         <MainHeader currentUser={currentUser} />
         <div className="root">{children}</div>
+        {/* <RootLoadingSkeleton /> */}
         <MainFooter />
         <MovingCircles />
       </body>
