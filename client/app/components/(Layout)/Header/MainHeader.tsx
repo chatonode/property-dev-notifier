@@ -8,9 +8,11 @@ import Image from 'next/image'
 import { ERoute } from '@/app/types/enums'
 
 import logo from '@/public/assets/images/logo/SmartLogoWebMobile.png'
+import classes from './MainHeader.module.css'
 
 import { TCurrentUser } from '@/app/api/(users)/get-current-user'
 import { logUserOutFromClient } from '@/app/api/(auth)/authentication'
+import LogoutIcon from '@/components/UI/Icon/Logout/LogoutIcon'
 
 type TMainHeaderProps = {
   currentUser: TCurrentUser
@@ -41,6 +43,7 @@ const MainHeader = (props: TMainHeaderProps) => {
           height={45}
           //   sizes="(max-width: 768px) 100vw"
           alt="logo"
+          style={{ cursor: 'pointer' }}
           onClick={() => router.push(ERoute.Home)}
         />
         {!!props.currentUser && (
@@ -48,10 +51,15 @@ const MainHeader = (props: TMainHeaderProps) => {
             {/* <p>{props.currentUser.email}</p> */}
             <Link
               href={ERoute.GoodBye}
-              className="nav-item"
-              onClick={sendLogoutRequest}
+              className={`${classes.logout}${
+                isPending || isFetching ? ` ${classes.sending}` : ''
+              }`}
+              onClick={
+                !isPending && !isFetching ? sendLogoutRequest : undefined
+              }
             >
-              {isPending || isFetching ? 'Logging out...' : 'Logout'}
+              {/* {isPending || isFetching ? 'Logging out...' : <LogoutIcon />} */}
+              <LogoutIcon />
             </Link>
           </>
         )}

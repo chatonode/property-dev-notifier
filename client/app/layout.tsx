@@ -1,13 +1,13 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Anton } from 'next/font/google'
+import { Inter } from 'next/font/google'
 
 import getCurrentUser from '@/api/(users)/get-current-user'
 import MovingCircles from '@/components/UI/Background/MovingCircles'
 import MainHeader from '@/components/(Layout)/Header/MainHeader'
 import MainFooter from './components/(Layout)/Footer/MainFooter'
 
-const anton = Anton({ weight: '400', subsets: ['latin'] })
+const inter500 = Inter({ weight: '500', subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Property Dev Notifier',
@@ -23,7 +23,7 @@ export default async function RootLayout({
   const currentUser = await getCurrentUser()
 
   return (
-    <html lang="en" className={anton.className}>
+    <html lang="en" className={inter500.className}>
       <body>
         <MainHeader currentUser={currentUser} />
         <div className="root">{children}</div>

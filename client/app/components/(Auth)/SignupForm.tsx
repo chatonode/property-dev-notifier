@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import { useForm, RegisterOptions } from 'react-hook-form'
 
 import Link from 'next/link'
-import { Lato } from 'next/font/google'
+import { Inter } from 'next/font/google'
 
 import { EFormType, ERoute } from '@/app/types/enums'
 import { TFormDataType } from '@/app/types/types'
@@ -17,7 +17,7 @@ import useAuth from '@/app/hooks/useAuth'
 import AuthSubmitButton from '../UI/Button/Form/AuthSubmitButton'
 import AuthFormContainer from '../UI/Card/Form/AuthFormContainer'
 
-const lato = Lato({ weight: '400', subsets: ['latin'] })
+const inter200 = Inter({ weight: '200', subsets: ['latin'] })
 
 const SignupForm = () => {
   const {
@@ -167,8 +167,8 @@ const SignupForm = () => {
             isSubmitSuccessful={isSubmitSuccessful}
           />
         </div>
-        <div className={`${classes.footer} ${lato.className}`}>
-          <p>
+        <div className={`${classes.footer} ${inter200.className}`}>
+          <p className={isSubmitSuccessful ? classes.successful : undefined}>
             Already part of us? <Link href={ERoute.Login}>Log In</Link>
           </p>
         </div>
