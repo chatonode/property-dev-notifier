@@ -113,7 +113,9 @@ const SignupForm = () => {
   return (
     <AuthFormContainer>
       <form
-        className={classes['signup-form']}
+        className={`${classes['signup-form']}${
+          isSubmitSuccessful ? ` ${classes.successful}` : ''
+        }`}
         onSubmit={handleSubmit(submitHandler)}
       >
         <div className={classes.body}>
@@ -127,7 +129,11 @@ const SignupForm = () => {
           />
         </div> */}
           {/* {errors.username && <p>{errors.username.message}</p>} */}
-          <div className={classes['form-group']}>
+          <div
+            className={`${classes['form-group']}${
+              isSubmitSuccessful ? ` ${classes.successful}` : ''
+            }`}
+          >
             <label
               htmlFor="email"
               className={isSubmitSuccessful ? classes.successful : undefined}
@@ -138,11 +144,15 @@ const SignupForm = () => {
               id="email"
               type="email"
               {...register('email', emailOptions)}
-              className={isSubmitSuccessful ? classes.successful : undefined}
+              className={`${isSubmitSuccessful ? classes.successful : ''}${
+                errors.email ? ` ${classes.invalid}` : ''
+              }`}
               readOnly={isSubmitSuccessful}
             />
+            {errors.email && (
+              <p className={classes['error-message']}>{errors.email.message}</p>
+            )}
           </div>
-          {errors.email && <p>{errors.email.message}</p>}
           <div className={classes['form-group']}>
             <label
               htmlFor="password"
@@ -154,11 +164,17 @@ const SignupForm = () => {
               id="password"
               type="password"
               {...register('password', passwordOptions)}
-              className={isSubmitSuccessful ? classes.successful : undefined}
+              className={`${isSubmitSuccessful ? classes.successful : ''}${
+                errors.password ? ` ${classes.invalid}` : ''
+              }`}
               readOnly={isSubmitSuccessful}
             />
+            {errors.password && (
+              <p className={classes['error-message']}>
+                {errors.password.message}
+              </p>
+            )}
           </div>
-          {errors.password && <p>{errors.password.message}</p>}
         </div>
         <div className={classes.actions}>
           <AuthSubmitButton

@@ -31,6 +31,21 @@ const LoginForm = () => {
   const router = useRouter()
   const [_, setIsAuthenticated] = useAuth(false)
 
+  // useEffect(() => {
+  //   let timeoutId: NodeJS.Timeout
+
+  //   if (isSubmitSuccessful) {
+  //     timeoutId = setTimeout(() => {
+  //       // Reset the animation or perform any additional actions
+  //       // after the specified delay (e.g., 2000 milliseconds)
+  //     }, 5000)
+  //   }
+
+  //   return () => {
+  //     clearTimeout(timeoutId) // Clear the timeout if the component unmounts or is updated
+  //   }
+  // }, [isSubmitSuccessful])
+
   const submitHandler = async (data: TFormDataType[EFormType.LOGIN]) => {
     if (!isValid) {
       throw new Error('Invalid Form Data!')
@@ -94,7 +109,9 @@ const LoginForm = () => {
   return (
     <AuthFormContainer>
       <form
-        className={classes['login-form']}
+        className={`${classes['login-form']}${
+          isSubmitSuccessful ? ` ${classes.successful}` : ''
+        }`}
         onSubmit={handleSubmit(submitHandler)}
       >
         <div className={classes.body}>
@@ -108,7 +125,11 @@ const LoginForm = () => {
           />
         </div> */}
           {/* {errors.username && <p>{errors.username.message}</p>} */}
-          <div className={classes['form-group']}>
+          <div
+            className={`${classes['form-group']}${
+              isSubmitSuccessful ? ` ${classes.successful}` : ''
+            }`}
+          >
             <label
               htmlFor="email"
               className={isSubmitSuccessful ? classes.successful : undefined}
@@ -119,11 +140,15 @@ const LoginForm = () => {
               id="email"
               type="email"
               {...register('email', emailOptions)}
-              className={isSubmitSuccessful ? classes.successful : undefined}
+              className={`${isSubmitSuccessful ? classes.successful : ''}${
+                errors.email ? ` ${classes.invalid}` : ''
+              }`}
               readOnly={isSubmitSuccessful}
             />
+            {errors.email && (
+              <p className={classes['error-message']}>{errors.email.message}</p>
+            )}
           </div>
-          {errors.email && <p>{errors.email.message}</p>}
           <div className={classes['form-group']}>
             <label
               htmlFor="password"
@@ -135,11 +160,17 @@ const LoginForm = () => {
               id="password"
               type="password"
               {...register('password', passwordOptions)}
-              className={isSubmitSuccessful ? classes.successful : undefined}
+              className={`${isSubmitSuccessful ? classes.successful : ''}${
+                errors.password ? ` ${classes.invalid}` : ''
+              }`}
               readOnly={isSubmitSuccessful}
             />
+            {errors.password && (
+              <p className={classes['error-message']}>
+                {errors.password.message}
+              </p>
+            )}
           </div>
-          {errors.password && <p>{errors.password.message}</p>}
         </div>
         <div className={classes.actions}>
           <AuthSubmitButton
