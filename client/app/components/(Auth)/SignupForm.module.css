@@ -60,9 +60,9 @@
 }
 
 /* .form-group.connecting { */
-  /* opacity: 0;
+/* opacity: 0;
   visibility: hidden; */
-  /* width: 0;
+/* width: 0;
   filter: blur(1px);
 } */
 
@@ -93,7 +93,7 @@
 
 .form-group input:focus-visible {
   outline: none;
-  box-shadow: 0 0 12px 2px #cccccc;
+  box-shadow: 0 0 20px 2px #cccccc;
 }
 
 /* .form-group input:hover {
@@ -104,7 +104,7 @@
   width: 0;
   padding: 0;
   border: 0;
-  /* height: 0; */
+  box-shadow: none;
 }
 
 p.error-message {
@@ -115,11 +115,11 @@ p.error-message {
 }
 
 .form-group input.invalid {
-  box-shadow: 0 0 15px 1px red;
+  box-shadow: 0 0 18px 1px red;
 }
 
 .form-group input.valid {
-  box-shadow: 0 0 15px 1px green;
+  box-shadow: 0 0 12px 1px green;
 }
 
 .footer p {
