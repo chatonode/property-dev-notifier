@@ -9,7 +9,7 @@
   /* animation: float 5s infinite alternate, colorChange 17s infinite; */
 }
 
-.login-form.successful {
+.login-form.connecting {
   animation: float 3s infinite alternate, colorChange 17s infinite;
 }
 
@@ -51,20 +51,24 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
+  /* align-items: flex-start; */
   gap: 1em;
   height: 140px;
   width: auto;
+  /* TODO: Test animation around direction: rlt */
+  /* @ref-link: https://stackoverflow.com/questions/18235764/is-it-possible-to-transition-text-alignment-using-css3-only */
+  /* direction: ltr; */
   /* transition: opacity 0.7s ease-in-out, visibility 0.8s ease-in-out; */
-  transition: filter 0.5s ease-in, width 0.5s ease-in;
+  /* transition: filter 0.5s ease-in, width 0.5s ease-in; */
 }
 
-.form-group.successful {
-  /* opacity: 0;
+/* .form-group.connecting { */
+/* opacity: 0;
   visibility: hidden; */
-  width: 0;
+/* width: 0;
   filter: blur(1px);
-}
+} */
 
 .form-group label {
   display: block;
@@ -74,7 +78,7 @@
   transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
 }
 
-.form-group label.successful {
+.form-group label.connecting {
   opacity: 0;
   visibility: hidden;
 }
@@ -91,7 +95,8 @@
     border 1s ease-in, box-shadow 0.5s ease-in;
 }
 
-.form-group input:focus-visible {
+.form-group input:focus-visible,
+.form-group input:hover {
   outline: none;
   box-shadow: 0 0 12px 2px #cccccc;
 }
@@ -100,7 +105,7 @@
   box-shadow: 0 0 6px 1px #ebebeb;
 } */
 
-.form-group input.successful {
+.form-group input.connecting {
   width: 0;
   padding: 0;
   border: 0;
@@ -111,17 +116,22 @@ p.error-message {
   color: red;
   font-size: 0.8em;
   text-align: left;
+  margin-left: 1em;
 }
 
 .form-group input.invalid {
   box-shadow: 0 0 15px 1px red;
 }
 
+.form-group input.valid {
+  box-shadow: 0 0 15px 1px green;
+}
+
 .footer p {
   transition: opacity 0.6s linear, visibility 0.6s ease-in-out;
 }
 
-.footer p.successful {
+.footer p.connecting {
   opacity: 0;
   visibility: hidden;
 }

@@ -9,7 +9,7 @@ const pacifico = Pacifico({ weight: '400', subsets: ['latin'] })
 const MainFooter = () => {
   return (
     <footer className={`footer`}>
-      <p className={classes["copyright-text"]}>&copy;2023 Nagua. All rights reserved.</p>
+      <p className={classes["copyright-text"]}>&copy;2024 Nagua. All rights reserved.</p>
     </footer>
   )
 }

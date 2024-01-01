@@ -19,14 +19,27 @@ import AuthFormContainer from '../UI/Card/Form/AuthFormContainer'
 
 const inter200 = Inter({ weight: '200', subsets: ['latin'] })
 
+const DEFAULT_LOGIN_FORM_STATE: TFormDataType[EFormType.LOGIN] = {
+  email: '',
+  password: '',
+} as const
+
 const LoginForm = () => {
   const {
     register,
     setValue,
     handleSubmit,
-    formState: { errors, isValid, isSubmitting, isSubmitSuccessful },
+    formState: {
+      errors,
+      isValid,
+      isSubmitting,
+      isSubmitSuccessful,
+      submitCount,
+    },
     reset,
-  } = useForm<TFormDataType[EFormType.LOGIN]>()
+  } = useForm<TFormDataType[EFormType.LOGIN]>({
+    defaultValues: DEFAULT_LOGIN_FORM_STATE,
+  })
 
   const router = useRouter()
   const [_, setIsAuthenticated] = useAuth(false)
@@ -87,6 +100,10 @@ const LoginForm = () => {
         value: 40,
         message: 'Email characters cannot be greater than 40.',
       },
+      pattern: {
+        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+        message: 'E-mail must be valid.',
+      },
     }
   const passwordOptions: RegisterOptions<
     TFormDataType[EFormType.LOGIN],
@@ -106,33 +123,39 @@ const LoginForm = () => {
     },
   }
 
+  // Validation Styles
+  const emailIsValid = submitCount > 0 && !errors.email
+  const emailHasError = submitCount > 0 && errors.email
+
+  const emailInputClasses = `${emailIsValid ? classes.valid : ''}${
+    emailHasError ? ` ${classes.invalid}` : ''
+  }${isSubmitSuccessful ? ` ${classes.connecting}` : ''}`
+
+  const passwordIsValid = submitCount > 0 && !errors.password
+  const passwordHasError = submitCount > 0 && errors.password
+
+  const passwordInputClasses = `${passwordIsValid ? classes.valid : ''}${
+    passwordHasError ? ` ${classes.invalid}` : ''
+  }${isSubmitSuccessful ? ` ${classes.connecting}` : ''}`
+
   return (
     <AuthFormContainer>
       <form
         className={`${classes['login-form']}${
-          isSubmitSuccessful ? ` ${classes.successful}` : ''
+          isSubmitSuccessful ? ` ${classes.connecting}` : ''
         }`}
         onSubmit={handleSubmit(submitHandler)}
       >
         <div className={classes.body}>
           <h3>Welcome Back!</h3>
-          {/* <div className={classes['form-group']}>
-          <label htmlFor="username">Username</label>
-          <input
-            id="username"
-            type="text"
-            {...register('username', usernameOptions)}
-          />
-        </div> */}
-          {/* {errors.username && <p>{errors.username.message}</p>} */}
           <div
             className={`${classes['form-group']}${
-              isSubmitSuccessful ? ` ${classes.successful}` : ''
+              isSubmitSuccessful ? ` ${classes.connecting}` : ''
             }`}
           >
             <label
               htmlFor="email"
-              className={isSubmitSuccessful ? classes.successful : undefined}
+              className={isSubmitSuccessful ? classes.connecting : undefined}
             >
               Email
             </label>
@@ -140,9 +163,7 @@ const LoginForm = () => {
               id="email"
               type="email"
               {...register('email', emailOptions)}
-              className={`${isSubmitSuccessful ? classes.successful : ''}${
-                errors.email ? ` ${classes.invalid}` : ''
-              }`}
+              className={emailInputClasses}
               readOnly={isSubmitSuccessful}
             />
             {errors.email && (
@@ -152,7 +173,7 @@ const LoginForm = () => {
           <div className={classes['form-group']}>
             <label
               htmlFor="password"
-              className={isSubmitSuccessful ? classes.successful : undefined}
+              className={isSubmitSuccessful ? classes.connecting : undefined}
             >
               Password
             </label>
@@ -160,9 +181,7 @@ const LoginForm = () => {
               id="password"
               type="password"
               {...register('password', passwordOptions)}
-              className={`${isSubmitSuccessful ? classes.successful : ''}${
-                errors.password ? ` ${classes.invalid}` : ''
-              }`}
+              className={passwordInputClasses}
               readOnly={isSubmitSuccessful}
             />
             {errors.password && (
@@ -180,7 +199,7 @@ const LoginForm = () => {
           />
         </div>
         <div className={`${classes.footer} ${inter200.className}`}>
-          <p className={isSubmitSuccessful ? classes.successful : undefined}>
+          <p className={isSubmitSuccessful ? classes.connecting : undefined}>
             New around here? <Link href={ERoute.Signup}>Sign Up</Link>
           </p>
         </div>
