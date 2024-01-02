@@ -15,7 +15,8 @@ import { buildClientSender } from '@/app/api/(axios)/client/build-client-sender'
 import classes from './SignupForm.module.css'
 import useAuth from '@/app/hooks/useAuth'
 import AuthSubmitButton from '../UI/Button/Form/AuthSubmitButton'
-import AuthFormContainer from '../UI/Card/Form/AuthFormContainer'
+import AuthFormContainer from '../UI/Form/AuthFormContainer'
+import AvatarContainer from '../UI/Form/Avatar/AvatarContainer'
 
 const inter200 = Inter({ weight: '200', subsets: ['latin'] })
 
@@ -132,9 +133,11 @@ const SignupForm = () => {
           isSubmitSuccessful ? ` ${classes.connecting}` : ''
         }`}
         onSubmit={handleSubmit(submitHandler)}
+        noValidate // to ignore native browser validation
       >
-        <div className={classes.body}>
-          <h3>Join Our Community!</h3>
+        <AvatarContainer />
+        <h3>Join Our Community!</h3>
+        <div className={classes['form-group-list']}>
           <div
             className={`${classes['form-group']}${
               isSubmitSuccessful ? ` ${classes.connecting}` : ''
@@ -154,7 +157,11 @@ const SignupForm = () => {
               readOnly={isSubmitSuccessful}
             />
             {errors.email && (
-              <p className={classes['error-message']}>{errors.email.message}</p>
+              <div className={classes.error}>
+                <p className={classes['error-message']}>
+                  {errors.email.message}
+                </p>
+              </div>
             )}
           </div>
           <div className={classes['form-group']}>
@@ -172,9 +179,11 @@ const SignupForm = () => {
               readOnly={isSubmitSuccessful}
             />
             {errors.password && (
-              <p className={classes['error-message']}>
-                {errors.password.message}
-              </p>
+              <div className={classes.error}>
+                <p className={classes['error-message']}>
+                  {errors.password.message}
+                </p>
+              </div>
             )}
           </div>
         </div>

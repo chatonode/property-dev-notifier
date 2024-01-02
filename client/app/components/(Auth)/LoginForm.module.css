@@ -42,19 +42,24 @@
 
 .login-form h3 {
   font-size: 1.5em;
-  margin-bottom: 20px;
+  margin-bottom: 1.25em;
   color: #333;
 }
 
+/* 
+.form-group-list {
+
+} */
+
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 1em;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   /* align-items: flex-start; */
   gap: 1em;
-  height: 140px;
+  height: 130px;
   width: auto;
   /* TODO: Test animation around direction: rlt */
   /* @ref-link: https://stackoverflow.com/questions/18235764/is-it-possible-to-transition-text-alignment-using-css3-only */
@@ -73,7 +78,7 @@
 .form-group label {
   display: block;
   font-size: 1em;
-  margin-bottom: 6px;
+  /* margin-bottom: 6px; */
   color: #333;
   transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
 }
@@ -112,19 +117,27 @@
   box-shadow: none;
 }
 
+.error {
+  width: 100%;
+  display: flex;
+}
+
 p.error-message {
   color: red;
-  font-size: 0.8em;
+  /* font-size: 0.8em; */
+  font-size: 0.7em;
   text-align: left;
   margin-left: 1em;
 }
 
 .form-group input.invalid {
-  box-shadow: 0 0 18px 1px red;
+  box-shadow: 0 0 18px 1px #ec5b5bd6;
+  border-color: #c12525ba;
 }
 
 .form-group input.valid {
   box-shadow: 0 0 12px 1px green;
+  border-color: #24aa24a6;
 }
 
 .footer p {

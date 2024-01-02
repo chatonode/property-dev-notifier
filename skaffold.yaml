@@ -23,5 +23,5 @@ build:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: '**/*.{ts,tsx,css}'
+          - src: '**/*.{ts,tsx,css,jpg,jpeg,png,gif}'
             dest: .
