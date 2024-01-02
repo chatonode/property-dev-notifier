@@ -2,4 +2,52 @@
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
+  position: relative;
+}
+
+/* .form-container::after {
+  content: url('../../../../../public/assets/images/animals/hello.jpg');
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 80px;
+  height: auto;
+  z-index: 999;
+} */
+
+/* .form-container::before {
+  content: '';
+  display: block;
+  background: url('../../../../../public/assets/images/animals/hello.jpg')
+    no-repeat center center / cover;
+  width: 200px;
+  height: 200px;
+  margin: -50px auto 20px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+} */
+
+.image-container {
+  position: absolute;
+  width: 100px;
+  /* height: 100%; */
+  height: auto;
+  overflow: hidden;
+
+  /* transform: translate(190%, -74%);
+  border-radius: 50%;
+  box-shadow: 11px 10px 5px 1px #7a7a7a94; */
+
+  /* Center and classic avatar circle */
+  /* transform: translate(115%, -74%);
+  border-radius: 50%; */
+
+  transform: translate(115%, -74%);
+  /* border-radius: 100% 50% / 50% 55%; */
+  border-radius: 50%;
+  box-shadow: 0px 5px 10px 2px #1515157a;
+  z-index: 1;
 }
