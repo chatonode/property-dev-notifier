@@ -1,12 +1,10 @@
 import { permanentRedirect } from 'next/navigation'
-
-import { ERoute } from '@/types/enums'
 import getCurrentUser from '@/api/(users)/get-current-user'
+import { ERoute } from '@/types/enums'
 
-import HomeContainer from '@/components/(Home)/HomeContainer'
+import GoodByeScreen from '@/components/(GoodBye)/GoodByeScreen'
 
-const Home = async () => {
-  // const router = useRouter()
+const GoodBye = async () => {
   const currentUser = await getCurrentUser()
 
   // console.log(currentUser)
@@ -17,9 +15,11 @@ const Home = async () => {
 
   return (
     <main className="base">
-      <HomeContainer />
+      <section className="base content">
+        <GoodByeScreen />
+      </section>
     </main>
   )
 }
 
-export default Home
+export default GoodBye

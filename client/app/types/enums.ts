@@ -2,8 +2,8 @@ export const enum ERoute {
   Home = '/',
   Signup = '/signup',
   Login = '/login',
-  Logout = '/logout',
-  Welcome = '/welcome',
+  GoodBye = '/goodbye',
+  Dashboard = '/dashboard',
   CreateNotificationTemplate = '/notifications/create-a-template',
   // PropertyDevelopers = '/users/property-developers',
 

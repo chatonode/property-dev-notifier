@@ -1,26 +1,64 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useState, useTransition } from 'react'
 import { useRouter } from 'next/navigation'
 import { useForm, RegisterOptions } from 'react-hook-form'
 
-import { EFormType } from '@/app/types/enums'
+import Link from 'next/link'
+import { Inter } from 'next/font/google'
+
+import { EFormType, ERoute } from '@/app/types/enums'
 import { TFormDataType } from '@/app/types/types'
 
 import { buildClientSender } from '@/app/api/(axios)/client/build-client-sender'
 
 import classes from './LoginForm.module.css'
+import useAuth from '@/app/hooks/useAuth'
+import AuthSubmitButton from '../UI/Button/Form/AuthSubmitButton'
+import AuthFormContainer from '../UI/Form/AuthFormContainer'
+import AvatarContainer from '../UI/Form/Avatar/AvatarContainer'
+
+const inter200 = Inter({ weight: '200', subsets: ['latin'] })
+
+const DEFAULT_LOGIN_FORM_STATE: TFormDataType[EFormType.LOGIN] = {
+  email: '',
+  password: '',
+} as const
 
 const LoginForm = () => {
   const {
     register,
     setValue,
     handleSubmit,
-    formState: { errors, isValid, isSubmitting },
+    formState: {
+      errors,
+      isValid,
+      isSubmitting,
+      isSubmitSuccessful,
+      submitCount,
+    },
     reset,
-  } = useForm<TFormDataType[EFormType.LOGIN]>()
+  } = useForm<TFormDataType[EFormType.LOGIN]>({
+    defaultValues: DEFAULT_LOGIN_FORM_STATE,
+  })
 
   const router = useRouter()
+  const [_, setIsAuthenticated] = useAuth(false)
+
+  // useEffect(() => {
+  //   let timeoutId: NodeJS.Timeout
+
+  //   if (isSubmitSuccessful) {
+  //     timeoutId = setTimeout(() => {
+  //       // Reset the animation or perform any additional actions
+  //       // after the specified delay (e.g., 2000 milliseconds)
+  //     }, 5000)
+  //   }
+
+  //   return () => {
+  //     clearTimeout(timeoutId) // Clear the timeout if the component unmounts or is updated
+  //   }
+  // }, [isSubmitSuccessful])
 
   const submitHandler = async (data: TFormDataType[EFormType.LOGIN]) => {
     if (!isValid) {
@@ -45,8 +83,8 @@ const LoginForm = () => {
     reset()
 
     // Redirect to another page
-    router.refresh()
-    router.push('/welcome')
+    setIsAuthenticated(true)
+    router.replace(ERoute.Dashboard)
   }
 
   const emailOptions: RegisterOptions<TFormDataType[EFormType.LOGIN], 'email'> =
@@ -62,6 +100,10 @@ const LoginForm = () => {
       maxLength: {
         value: 40,
         message: 'Email characters cannot be greater than 40.',
+      },
+      pattern: {
+        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+        message: 'E-mail must be valid.',
       },
     }
   const passwordOptions: RegisterOptions<
@@ -82,43 +124,96 @@ const LoginForm = () => {
     },
   }
 
+  // Validation Styles
+  const emailIsValid = submitCount > 0 && !errors.email
+  const emailHasError = submitCount > 0 && errors.email
+
+  const emailInputClasses = `${emailIsValid ? classes.valid : ''}${
+    emailHasError ? ` ${classes.invalid}` : ''
+  }${isSubmitSuccessful ? ` ${classes.connecting}` : ''}`
+
+  const passwordIsValid = submitCount > 0 && !errors.password
+  const passwordHasError = submitCount > 0 && errors.password
+
+  const passwordInputClasses = `${passwordIsValid ? classes.valid : ''}${
+    passwordHasError ? ` ${classes.invalid}` : ''
+  }${isSubmitSuccessful ? ` ${classes.connecting}` : ''}`
+
   return (
-    <form
-      className={classes['login-form']}
-      onSubmit={handleSubmit(submitHandler)}
-    >
-      <div className={classes.body}>
-        <h3>Log In</h3>
-        {/* <div className={classes['form-group']}>
-          <label htmlFor="username">Username</label>
-          <input
-            id="username"
-            type="text"
-            {...register('username', usernameOptions)}
-          />
-        </div> */}
-        {/* {errors.username && <p>{errors.username.message}</p>} */}
-        <div className={classes['form-group']}>
-          <label htmlFor="email">Email</label>
-          <input id="email" type="email" {...register('email', emailOptions)} />
+    <AuthFormContainer>
+      <form
+        className={`${classes['login-form']}${
+          isSubmitSuccessful ? ` ${classes.connecting}` : ''
+        }`}
+        onSubmit={handleSubmit(submitHandler)}
+        noValidate // to ignore native browser validation
+      >
+        <AvatarContainer />
+        <h3>Welcome Back!</h3>
+        <div className={classes['form-group-list']}>
+          <div
+            className={`${classes['form-group']}${
+              isSubmitSuccessful ? ` ${classes.connecting}` : ''
+            }`}
+          >
+            <label
+              htmlFor="email"
+              className={isSubmitSuccessful ? classes.connecting : undefined}
+            >
+              Email
+            </label>
+            <input
+              id="email"
+              type="email"
+              {...register('email', emailOptions)}
+              className={emailInputClasses}
+              readOnly={isSubmitSuccessful}
+            />
+            {errors.email && (
+              <div className={classes.error}>
+                <p className={classes['error-message']}>
+                  {errors.email.message}
+                </p>
+              </div>
+            )}
+          </div>
+          <div className={classes['form-group']}>
+            <label
+              htmlFor="password"
+              className={isSubmitSuccessful ? classes.connecting : undefined}
+            >
+              Password
+            </label>
+            <input
+              id="password"
+              type="password"
+              {...register('password', passwordOptions)}
+              className={passwordInputClasses}
+              readOnly={isSubmitSuccessful}
+            />
+            {errors.password && (
+              <div className={classes.error}>
+                <p className={classes['error-message']}>
+                  {errors.password.message}
+                </p>
+              </div>
+            )}
+          </div>
         </div>
-        {errors.email && <p>{errors.email.message}</p>}
-        <div className={classes['form-group']}>
-          <label htmlFor="password">Password</label>
-          <input
-            id="password"
-            type="password"
-            {...register('password', passwordOptions)}
+        <div className={classes.actions}>
+          <AuthSubmitButton
+            formType={'LOGIN'}
+            isSubmitting={isSubmitting}
+            isSubmitSuccessful={isSubmitSuccessful}
           />
         </div>
-        {errors.password && <p>{errors.password.message}</p>}
-      </div>
-      <div className={classes.actions}>
-        <button type="submit" disabled={isSubmitting ? true : undefined}>
-          {isSubmitting ? 'Logging In...' : 'Log In'}
-        </button>
-      </div>
-    </form>
+        <div className={`${classes.footer} ${inter200.className}`}>
+          <p className={isSubmitSuccessful ? classes.connecting : undefined}>
+            New around here? <Link href={ERoute.Signup}>Sign Up</Link>
+          </p>
+        </div>
+      </form>
+    </AuthFormContainer>
   )
 }
 

@@ -1,5 +1,6 @@
 import { ERoute } from '@/app/types/enums'
 import classes from './HomeContainer.module.css'
+import Link from 'next/link'
 
 const HomeContainer = () => {
   return (
@@ -23,7 +24,7 @@ const HomeContainer = () => {
           </div> */}
 
           <div className={`base ${classes.item}`}>
-            <a href={ERoute.Signup}>Sign up</a>
+            <Link href={ERoute.Signup}>Sign up</Link>
             <span className={classes['signup-agree']}>
               By signing up, you agree to the Terms of Service and Privacy
               Policy, including Cookie Use.
@@ -32,7 +33,7 @@ const HomeContainer = () => {
 
           <div className={`base ${classes.item}`}>
             <h5>Already have an account?</h5>
-            <a href={ERoute.Login}>Log in</a>
+            <Link href={ERoute.Login}>Log in</Link>
           </div>
         </div>
       </div>
