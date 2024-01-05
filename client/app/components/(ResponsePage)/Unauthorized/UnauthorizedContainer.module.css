@@ -1,0 +1,26 @@
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.emoji {
+  position: relative;
+  animation: wave 13s cubic-bezier(0.13, 0.45, 0.53, 0.37) infinite;
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-17deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(17deg);
+  }
+}

@@ -5,10 +5,12 @@ export const enum ERoute {
   GoodBye = '/goodbye',
   Dashboard = '/dashboard',
   CreateNotificationTemplate = '/notifications/create-a-template',
-  // PropertyDevelopers = '/users/property-developers',
 
-  // Dashboard = '/dashboard',
-  //   MyProfile = '/my-profile',
+  // PropertyDevelopers = '/users/property-developers',
+  // MyProfile = '/my-profile',
+
+  RateLimitExceeded = '/rate-limit-exceeded',
+  Unauthorized = '/unauthorized',
 }
 
 export const enum EFormType {
