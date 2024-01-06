@@ -1,19 +1,17 @@
 'use client'
 
-import { PropsWithChildren } from 'react'
-
-import { useRouter } from 'next/navigation'
-import { usePathname } from 'next/navigation'
 import classes from './Backdrop.module.css'
 
-const Backdrop = (props: PropsWithChildren) => {
-  const router = useRouter()
-  const pathname = usePathname()
+type TBackdropProps = {
+  onClose?: () => void
+}
 
+const Backdrop = (props: TBackdropProps) => {
   return (
-    <div className={classes.backdrop} onClick={() => router.replace(pathname)}>
-      {props.children}
-    </div>
+    <div
+      className={classes.backdrop}
+      onClick={props.onClose}
+    />
   )
 }
 

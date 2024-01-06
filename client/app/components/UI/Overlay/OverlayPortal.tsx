@@ -3,19 +3,31 @@
 import { PropsWithChildren, useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 
-import { useSearchParams } from 'next/navigation'
 import Backdrop from './Backdrop'
 
-const OverlayPortal = (props: PropsWithChildren) => {
+import classes from './OverlayPortal.module.css'
+
+type TOverlayPortalProps = PropsWithChildren & {
+  onBackdropClose?: () => void
+}
+
+const OverlayPortal = (props: TOverlayPortalProps) => {
   const [mounted, setMounted] = useState(false)
-  const searchParams = useSearchParams()
-  const modal = searchParams.get('modal')
 
   useEffect(() => setMounted(true), [])
 
-  return modal && mounted
-    ? createPortal(<Backdrop>{props.children}</Backdrop>, document.body)
-    : null
+  return mounted ? (
+    <>
+      {createPortal(
+        <div className={classes.overlay}>
+          <Backdrop onClose={props.onBackdropClose} />
+          {/* Modal as children */}
+          {props.children}
+        </div>,
+        document.body
+      )}
+    </>
+  ) : null
 }
 
 export default OverlayPortal
