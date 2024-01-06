@@ -1,0 +1,21 @@
+.modal {
+  position: fixed;
+  background: linear-gradient(
+    126deg,
+    rgba(244, 244, 244, 1) 0%,
+    rgba(208, 159, 169, 1) 100%
+  );
+  margin: 0 1.5em;
+  padding: 2em;
+  overflow: auto;
+  max-height: 50vh;
+  border-radius: 10px;
+  /* box-shadow: 0 0 10px 1px white; */
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  z-index: 3;
+
+  pointer-events: none;
+}
