@@ -3,7 +3,7 @@ const Test = () => {
   return (
     <main className="main">
       <section>
-        <h2>Welcome!</h2>
+        <h2>Test!</h2>
         <TestContainer />
       </section>
     </main>

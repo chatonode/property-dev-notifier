@@ -17,17 +17,19 @@ const Modal = (props: TModalProps) => {
       onBackdropClose={props.isBackdropClosable ? props.onClose : undefined}
     >
       <div className={classes.modal}>
-        <div className={classes.title}>
-          <h2>{props.title}</h2>
+        <div className={classes.content}>
+          <div className={classes.title}>
+            <h2>{props.title}</h2>
+          </div>
+          <div>{props.children}</div>
+          <button
+            type="button"
+            className={classes.cancel}
+            onClick={props.onClose}
+          >
+            Close Modal
+          </button>
         </div>
-        <div>{props.children}</div>
-        <button
-          type="button"
-          className={classes.cancel}
-          onClick={props.onClose}
-        >
-          Close Modal
-        </button>
       </div>
     </OverlayPortal>
   )

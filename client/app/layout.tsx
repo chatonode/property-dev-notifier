@@ -6,7 +6,7 @@ import getCurrentUser from '@/api/(users)/get-current-user'
 
 import MainHeader from '@/components/(Layout)/Header/MainHeader'
 import MainFooter from './components/(Layout)/Footer/MainFooter'
-import RootLoadingSkeleton from './loading'
+import RootLoadingSkeleton from './loading-unused'
 import BackgroundPortal from './components/UI/Background/BackgroundPortal'
 
 const inter500 = Inter({ weight: '500', subsets: ['latin'] })
