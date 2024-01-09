@@ -1,21 +1,31 @@
 'use client'
 
-import { PropsWithChildren } from 'react'
+import { PropsWithChildren, memo } from 'react'
 
 import classes from './Modal.module.css'
-import OverlayPortal from './OverlayPortal'
+import BackdropPortal from './BackdropPortal'
 
-type TModalProps = PropsWithChildren & {
+type TBackdropClosable = boolean
+
+type TModalProps<T extends TBackdropClosable> = PropsWithChildren & {
   title: string
-  onClose: () => void
-  isBackdropClosable: boolean
+  isBackdropClosable: T
+  onClose: T extends true ? () => void : undefined
 }
 
-const Modal = (props: TModalProps) => {
+/**
+ * Modal Component
+ *
+ * @template T - Specify the type for isBackdropClosable.
+ *               Use 'true' if the modal is closable, 'false' otherwise.
+ * @param {TModalProps<T>} props - The props for the Modal component.
+ * @returns {JSX.Element} - The rendered Modal component.
+ */
+function Modal<T extends TBackdropClosable>(
+  props: TModalProps<T>
+): JSX.Element {
   return (
-    <OverlayPortal
-      onBackdropClose={props.isBackdropClosable ? props.onClose : undefined}
-    >
+    <BackdropPortal onBackdropClick={props.onClose}>
       <div className={classes.modal}>
         <div className={classes.content}>
           <div className={classes.title}>
@@ -31,8 +41,8 @@ const Modal = (props: TModalProps) => {
           </button>
         </div>
       </div>
-    </OverlayPortal>
+    </BackdropPortal>
   )
 }
 
-export default Modal
+export default memo(Modal)

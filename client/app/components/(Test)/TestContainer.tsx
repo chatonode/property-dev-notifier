@@ -1,18 +1,23 @@
 'use client'
 
-import { useState } from 'react'
+import { memo, useCallback, useState } from 'react'
 import Modal from '../UI/Overlay/Modal'
 
 const TestContainer = () => {
   const [modalIsVisible, setModalIsVisible] = useState(false)
 
-  const closeModalHandler = () => {
+  const openModalHandler = useCallback(() => {
+    setModalIsVisible(true)
+  }, [])
+
+  const closeModalHandler = useCallback(() => {
     setModalIsVisible(false)
-  }
+  }, [])
+
   return (
     <>
       <div>
-        <button type="button" onClick={() => setModalIsVisible(true)}>
+        <button type="button" onClick={openModalHandler}>
           {modalIsVisible ? 'Opened Modal' : 'Open Modal'}
         </button>
         {modalIsVisible && (
@@ -54,4 +59,4 @@ const TestContainer = () => {
   )
 }
 
-export default TestContainer
+export default memo(TestContainer)

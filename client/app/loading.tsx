@@ -1,14 +1,14 @@
 'use client'
 
-import OverlayPortal from './components/UI/Overlay/OverlayPortal'
-import classes from './loading.module.css'
+import { memo } from 'react'
+import LoadingContainer from './components/(Loading)/LoadingContainer'
 
 const RootLoading = () => {
-    return (
-        <OverlayPortal>
-            <div className={classes.blob}></div>
-        </OverlayPortal>
-    )
+  return (
+    <>
+      <LoadingContainer />
+    </>
+  )
 }
 
-export default RootLoading
+export default memo(RootLoading)
