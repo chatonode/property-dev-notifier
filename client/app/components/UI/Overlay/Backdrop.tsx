@@ -26,10 +26,8 @@
 
 // export default memo(Backdrop)
 
-// Backdrop.tsx
-
-import { memo, useEffect, useState, useRef } from 'react'
-import { Transition } from 'react-transition-group'
+import { memo, useEffect, useState } from 'react'
+import { useSpring, animated } from 'react-spring'
 import classes from './Backdrop.module.css'
 
 type TBackdropProps = {
@@ -38,10 +36,20 @@ type TBackdropProps = {
 
 const Backdrop = (props: TBackdropProps) => {
   const [isVisible, setIsVisible] = useState(true)
-  const nodeRef = useRef(null)
+  // Define the spring animation config
+  const fadeAnimation = useSpring({
+    opacity: isVisible ? 1 : 0,
+    from: { opacity: isVisible ? 0 : 1 },
+    config: { duration: 500 }, // Adjust the duration as needed
+  })
 
   useEffect(() => {
     console.log('Is Backdrop being mounted?')
+
+    // Toggle visibility after mounting (for demonstration)
+    setTimeout(() => {
+      setIsVisible(false)
+    }, 2000)
 
     // Cleanup function
     return () => {
@@ -50,26 +58,12 @@ const Backdrop = (props: TBackdropProps) => {
   }, [])
 
   return (
-    <Transition
-      nodeRef={nodeRef}
-      in={isVisible}
-      timeout={300}
-      classNames={{
-        enter: classes.backdropEntering,
-        enterActive: classes.backdropEntered,
-        exit: classes.backdropExiting,
-        exitActive: classes.backdropExited,
-      }}
-      unmountOnExit
-    >
-      {(state) => (
-        <div
-          ref={nodeRef}
-          className={`${classes.backdrop} ${classes[`backdrop-${state}`]}`}
-          onClick={props.onClick}
-        />
-      )}
-    </Transition>
+    // Use animated.div from react-spring for animated components
+    <animated.div
+      style={fadeAnimation}
+      className={classes.backdrop}
+      onClick={props.onClick}
+    />
   )
 }
 
