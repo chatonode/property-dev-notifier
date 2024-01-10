@@ -12,13 +12,24 @@
   align-items: center;
 }
 
-/* No explicit opacity or transition properties here */
-.backdrop-entering,
-.backdrop-entered {
-  opacity: 1;
+.backdrop::view-transition-old(root),
+.backdrop::view-transition-new(root) {
+  animation-duration: 5s;
 }
 
-.backdrop-exiting,
-.backdrop-exited {
+/* No explicit opacity or transition properties here */
+.backdrop-enter {
   opacity: 0;
+}
+.backdrop-enter-active {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+
+.backdrop-exit {
+  opacity: 1;
+}
+.backdrop-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
 }
