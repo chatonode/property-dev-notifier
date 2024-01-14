@@ -1,30 +1,30 @@
-// 'use client'
+'use client'
 
-// import { memo, useEffect, useState } from 'react'
-// import classes from './Backdrop.module.css'
+import { memo, useEffect, useState } from 'react'
+import classes from './Backdrop.module.css'
 
-// type TBackdropProps = {
-//   onClick?: () => void
-// }
+type TBackdropProps = {
+  onClick?: () => void
+}
 
-// const Backdrop = (props: TBackdropProps) => {
-//   // const [isPending, startTransition] = useTransition()
-//   const [isVisible, setIsVisible] = useState(true)
-//   // const pathname = usePathname()
+const Backdrop = (props: TBackdropProps) => {
+  // const [isPending, startTransition] = useTransition()
+  const [isVisible, setIsVisible] = useState(true)
+  // const pathname = usePathname()
 
-//   useEffect(() => {
-//     console.log('Is Backdrop being mounted?')
+  useEffect(() => {
+    console.log('Is Backdrop being mounted?')
 
-//     // Cleanup function
-//     return () => {
-//       console.log('Is Backdrop being unmounted?')
-//     }
-//   }, [])
+    // Cleanup function
+    return () => {
+      console.log('Is Backdrop being unmounted?')
+    }
+  }, [])
 
-//   return <div className={classes.backdrop} onClick={props.onClick} />
-// }
+  return <div className={classes.backdrop} onClick={props.onClick} />
+}
 
-// export default memo(Backdrop)
+export default memo(Backdrop)
 
 /* ********************************* */
 
@@ -74,42 +74,3 @@
 // export default memo(Backdrop)
 
 /* ********************************* */
-
-'use client'
-
-import { memo, useEffect, useRef, useState } from 'react'
-import { CSSTransition } from 'react-transition-group'
-import classes from './Backdrop.module.css'
-
-type TBackdropProps = {
-  onClick?: () => void
-}
-
-const Backdrop = (props: TBackdropProps) => {
-  // const [isPending, startTransition] = useTransition()
-  const [isVisible, setIsVisible] = useState(true)
-  // const pathname = usePathname()
-  const nodeRef = useRef(null)
-
-  useEffect(() => {
-    console.log('Is Backdrop being mounted?')
-
-    // Cleanup function
-    return () => {
-      console.log('Is Backdrop being unmounted?')
-    }
-  }, [])
-
-  return (
-    <CSSTransition
-      timeout={300}
-      classNames={classes.backdrop}
-      unmountOnExit
-      nodeRef={nodeRef}
-    >
-      <div className={classes.backdrop} onClick={props.onClick} ref={nodeRef} />
-    </CSSTransition>
-  )
-}
-
-export default memo(Backdrop)

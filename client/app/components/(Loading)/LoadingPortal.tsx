@@ -16,7 +16,7 @@ const LoadingPortal = (props: TLoadingPortalProps) => {
     <>
       {createPortal(
         <div className={classes.overlay}>
-          <Backdrop />
+          {/* <Backdrop /> */}
           {/* LoadingContainer as children */}
           {props.children}
         </div>,

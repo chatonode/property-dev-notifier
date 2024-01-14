@@ -1,39 +1,20 @@
 .container {
-  /* animation: fade 0.5s ease-in-out forwards; */
-  /* backdrop-filter: blur(1px); */
   z-index: 9999;
+  /* animation: fade 0.5s ease-in-out forwards; */
+  animation: backdrop-filter 0.5s ease-in-out;
+  backdrop-filter: blur(1px);
 }
-
-/* @keyframes fade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-} */
-
-/* .container.exit {
-  animation: fadeReverse 0.5s ease-in-out forwards;
-}
-
-@keyframes fadeReverse {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-} */
 
 .blob {
-  background: #b3ff01;
+  /* background: #b3ff01; */
+  background: #a91638;
   border-radius: 50%;
   margin: 10px;
   height: 50px;
   width: 50px;
 
-  box-shadow: 0 0 0 0 #b3ff01;
+  /* box-shadow: 0 0 0 0 #b3ff01; */
+  box-shadow: 0 0 0 0 #a91638;
   transform: scale(1);
   animation: pulse 2s infinite;
 }
@@ -41,7 +22,7 @@
 @keyframes pulse {
   0% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 #b3ff01b9;
+    box-shadow: 0 0 0 0 #a91638b9;
   }
 
   70% {

@@ -6,19 +6,14 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
 
-  /* Modal */
+  /* Content */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.backdrop::view-transition-old(root),
-.backdrop::view-transition-new(root) {
-  animation-duration: 5s;
-}
-
 /* No explicit opacity or transition properties here */
-.backdrop-enter {
+/* .backdrop-enter {
   opacity: 0;
 }
 .backdrop-enter-active {
@@ -32,4 +27,4 @@
 .backdrop-exit-active {
   opacity: 0;
   transition: opacity 200ms;
-}
+} */
