@@ -2,13 +2,15 @@
 
 :root {
   /* Colors */
-  --header-footer-background-color: #ffffff;
+  /* --header-footer-background-color: #ffffff; */
+  --header-footer-background-color: floralwhite;
 
   --primary-color: #a91638;
   --secondary-color: #a90034;
 
   --link-color: #36345a;
   --link-hover-color: #36345a;
+  --backdrop-gradient: linear-gradient(45deg, #ff8a00, #e52e71, #fae048);
 
   /* Typography */
   --font-size: 16px;

@@ -3,10 +3,12 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
 import getCurrentUser from '@/api/(users)/get-current-user'
-import MovingCircles from '@/components/UI/Background/MovingCircles'
+
 import MainHeader from '@/components/(Layout)/Header/MainHeader'
 import MainFooter from './components/(Layout)/Footer/MainFooter'
-import RootLoadingSkeleton from './loading'
+import RootLoadingSkeleton from './loading-unused'
+import BackgroundPortal from './components/UI/Background/BackgroundPortal'
+import RootLoading from './loading'
 
 const inter500 = Inter({ weight: '500', subsets: ['latin'] })
 
@@ -29,8 +31,9 @@ export default async function RootLayout({
         <MainHeader currentUser={currentUser} />
         <div className="root">{children}</div>
         {/* <RootLoadingSkeleton /> */}
+        {/* {<RootLoading />} */}
         <MainFooter />
-        <MovingCircles />
+        <BackgroundPortal />
       </body>
     </html>
   )

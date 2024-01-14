@@ -25,6 +25,7 @@ const nextConfig = {
   httpAgentOptions: {
     keepAlive: false,
   },
+  reactStrictMode: false,
 }
 
 module.exports = nextConfig

@@ -1,0 +1,30 @@
+.backdrop {
+  z-index: 9998;
+
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  /* Content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* No explicit opacity or transition properties here */
+/* .backdrop-enter {
+  opacity: 0;
+}
+.backdrop-enter-active {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+
+.backdrop-exit {
+  opacity: 1;
+}
+.backdrop-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
+} */

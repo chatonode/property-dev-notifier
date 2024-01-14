@@ -1,3 +1,5 @@
+'use client'
+
 import classes from './MovingCircles.module.css'
 
 const MovingCircles = () => {
