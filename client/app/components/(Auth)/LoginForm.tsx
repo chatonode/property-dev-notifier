@@ -17,6 +17,8 @@ import useAuth from '@/app/hooks/useAuth'
 import AuthSubmitButton from '../UI/Button/Form/AuthSubmitButton'
 import AuthFormContainer from '../UI/Form/AuthFormContainer'
 import AvatarContainer from '../UI/Form/Avatar/AvatarContainer'
+import InvalidFormInputsError from '@/app/lib/errors/InvalidFormInputsError'
+import BadRequestError from '@/app/lib/errors/BadRequestError'
 
 const inter200 = Inter({ weight: '200', subsets: ['latin'] })
 
@@ -43,41 +45,40 @@ const LoginForm = () => {
   })
 
   const router = useRouter()
+  const [, setError] = useState(null)
   const [_, setIsAuthenticated] = useAuth(false)
-
-  // useEffect(() => {
-  //   let timeoutId: NodeJS.Timeout
-
-  //   if (isSubmitSuccessful) {
-  //     timeoutId = setTimeout(() => {
-  //       // Reset the animation or perform any additional actions
-  //       // after the specified delay (e.g., 2000 milliseconds)
-  //     }, 5000)
-  //   }
-
-  //   return () => {
-  //     clearTimeout(timeoutId) // Clear the timeout if the component unmounts or is updated
-  //   }
-  // }, [isSubmitSuccessful])
 
   const submitHandler = async (data: TFormDataType[EFormType.LOGIN]) => {
     if (!isValid) {
-      throw new Error('Invalid Form Data!')
+      throw new InvalidFormInputsError()
     }
 
     const axiosSender = buildClientSender()
 
-    const response = await axiosSender.post('/api/auth/login', data)
+    console.log('sending it...')
 
-    if (response.status === 400) {
-      throw new Error('Logging Failed with Bad Request Parameters!')
+    try {
+      const response = await axiosSender.post('/api/auth/login', data)
+
+      console.log('LoginForm response:', response)
+
+      if (response.status === 400) {
+        // @ref-link: https://github.com/facebook/react/issues/14981#issuecomment-468460187
+        setError(() => {
+          // throw new Error('Logging Failed with Bad Request Parameters!')
+          throw new BadRequestError(response.data.errors[0].message)
+        })
+      }
+
+      if (response.status !== 200) {
+        throw new Error('Logging In Failed!')
+      }
+
+      // const data = await response.data
+    } catch (error: any) {
+      console.error('LoginForm error response: ', error)
+      throw error
     }
-
-    if (response.status !== 200) {
-      throw new Error('Logging In Failed!')
-    }
-
-    // const data = await response.data
 
     // Reset form
     reset()

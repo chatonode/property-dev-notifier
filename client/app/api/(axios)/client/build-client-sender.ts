@@ -1,4 +1,5 @@
 import axios, { AxiosInstance } from 'axios'
+import { activateResponseInterceptor } from '../common/interceptor'
 
 /**
  * Builds a client-side Axios instance for sending HTTP requests.
@@ -16,7 +17,15 @@ const buildClientSender = (): AxiosInstance => {
   } else {
     // We are on the browser!
 
-    return axios.create({})
+    const axiosInstance = axios.create({
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+
+    activateResponseInterceptor(axiosInstance)
+
+    return axiosInstance
   }
 }
 

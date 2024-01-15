@@ -1,6 +1,7 @@
 // For Server Components only!
 import axios, { AxiosInstance } from 'axios'
 import { cookies } from 'next/headers'
+import { activateResponseInterceptor } from '../common/interceptor'
 
 // Local
 const ingressNginxURL =
@@ -23,14 +24,19 @@ const buildServerSender = (): AxiosInstance => {
     const cookieStore = cookies()
     const session = cookieStore.get('session')
 
-    return axios.create({
+    const axiosInstance = axios.create({
       baseURL: ingressNginxURL,
       headers: {
         Host: 'property-dev-notifier.com', // Fixed the issue!!!
+        'Content-Type': 'application/json',
         cookie: `${session?.name}=${session?.value}`,
       },
       withCredentials: true,
     })
+
+    activateResponseInterceptor(axiosInstance)
+
+    return axiosInstance
   } else {
     // We are on the browser!
 

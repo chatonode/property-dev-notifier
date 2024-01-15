@@ -1,21 +1,28 @@
 import { buildServerSender } from '@/app/api/(axios)/server/build-server-sender'
 import NotificationMultiForm from '@/app/components/(Notification)/NotificationMultiForm'
+import AuthRequiredError from '@/app/lib/errors/AuthRequiredError'
 import { TPropertyDevelopersList } from '@/app/types/types'
 
 const getPropertyDevelopers = async () => {
   const axiosSender = buildServerSender()
 
-  const response = await axiosSender.get('/api/users/property-developers')
+  try {
+    const response = await axiosSender.get('/api/users/property-developers')
 
-  if (response.status === 401) {
-    throw new Error('Unauthorized User!')
+    if (response.status === 401) {
+      console.log('Can i reach here?')
+      throw new AuthRequiredError(response.data.errors[0].message)
+    }
+
+    const { propertyDevelopers } = (await response.data) as {
+      propertyDevelopers: TPropertyDevelopersList
+    }
+
+    return propertyDevelopers
+  } catch (error) {
+    console.error('CreateNotificationTemplate error response: ', error)
+    throw error
   }
-
-  const { propertyDevelopers } = (await response.data) as {
-    propertyDevelopers: TPropertyDevelopersList
-  }
-
-  return propertyDevelopers
 }
 
 const CreateNotificationTemplate = async () => {
@@ -26,7 +33,7 @@ const CreateNotificationTemplate = async () => {
       <section>
         <h2>Create Notification Template</h2>
 
-        <NotificationMultiForm propertyDevelopers={propertyDevelopers} />
+        <NotificationMultiForm propertyDevelopers={propertyDevelopers!} />
       </section>
     </main>
   )
