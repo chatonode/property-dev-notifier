@@ -19,6 +19,7 @@ import AuthFormContainer from '../UI/Form/AuthFormContainer'
 import AvatarContainer from '../UI/Form/Avatar/AvatarContainer'
 import InvalidFormInputsError from '@/app/lib/errors/InvalidFormInputsError'
 import BadRequestError from '@/app/lib/errors/BadRequestError'
+import { useAsyncError } from '@/app/hooks/useAsyncError'
 
 const inter200 = Inter({ weight: '200', subsets: ['latin'] })
 
@@ -45,7 +46,7 @@ const LoginForm = () => {
   })
 
   const router = useRouter()
-  const [, setError] = useState(null)
+  const throwError = useAsyncError()
   const [_, setIsAuthenticated] = useAuth(false)
 
   const submitHandler = async (data: TFormDataType[EFormType.LOGIN]) => {
@@ -63,11 +64,8 @@ const LoginForm = () => {
       console.log('LoginForm response:', response)
 
       if (response.status === 400) {
-        // @ref-link: https://github.com/facebook/react/issues/14981#issuecomment-468460187
-        setError(() => {
-          // throw new Error('Logging Failed with Bad Request Parameters!')
-          throw new BadRequestError(response.data.errors[0].message)
-        })
+        // throw new Error('Logging Failed with Bad Request Parameters!')
+        throwError(new BadRequestError(response.data.errors[0].message))
       }
 
       if (response.status !== 200) {

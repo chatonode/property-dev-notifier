@@ -19,8 +19,15 @@ const getPropertyDevelopers = async () => {
     }
 
     return propertyDevelopers
-  } catch (error) {
-    console.error('CreateNotificationTemplate error response: ', error)
+  } catch (error: any) {
+    console.error(
+      'CreateNotificationTemplate error response: ',
+      error.name,
+      '(((((((---)))))))',
+      error.message,
+      '(((((((---)))))))',
+      error.detail
+    )
     throw error
   }
 }
@@ -33,7 +40,7 @@ const CreateNotificationTemplate = async () => {
       <section>
         <h2>Create Notification Template</h2>
 
-        <NotificationMultiForm propertyDevelopers={propertyDevelopers!} />
+        <NotificationMultiForm propertyDevelopers={propertyDevelopers} />
       </section>
     </main>
   )
