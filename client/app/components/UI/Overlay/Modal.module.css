@@ -37,6 +37,10 @@
   padding: 1em;
   overflow-y: auto;
   overflow-x: hidden;
+  /* @ref-link: https://www.youtube.com/watch?v=cH8VbLM1958 */
+  overflow-wrap: break-word;
+  min-width: 0;
+  /* --- */
   width: 100%;
   box-shadow: 0 0 25px 15px #ffffff5c;
   /* box-shadow: inset 0px 33px 25px 0 #000, inset 0 66px 15px 0px #ccc,

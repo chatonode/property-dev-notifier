@@ -1,0 +1,22 @@
+.footer p {
+  transition: opacity 0.6s linear, visibility 0.6s ease-in-out;
+}
+
+.footer p.connecting {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.footer {
+  font-size: 1.1em;
+  margin-top: 1.2rem;
+}
+
+.footer a {
+  font-weight: 800;
+}
+
+.footer a:hover,
+.footer a:focus {
+  text-decoration: underline;
+}

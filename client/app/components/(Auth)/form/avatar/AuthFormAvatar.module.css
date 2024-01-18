@@ -1,0 +1,59 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  /* Moved Avatar at top */
+  /* position: relative; */
+}
+
+.image-container {
+  width: 100px;
+  height: auto;
+  overflow: hidden;
+
+  border-radius: 50%;
+  box-shadow: 0px 5px 10px 2px #1515157a;
+
+  /* Moved Avatar at top */
+  position: absolute;
+  top: -12%;
+  /* transform: rotateY(180deg); */
+  /* animation: rotateAnimation 1s ease-in-out; */
+  animation: rotateAnimation 1s ease-in;
+}
+
+/* .image-container:hover,
+.image-container:focus {
+  transform: rotate3d(0, 1, 0, 180deg);
+  box-shadow: 0px 0px 15px 3px #c3c3c3be;
+} */
+
+/* Keyframe animation definition */
+@keyframes rotateAnimation {
+  0% {
+    /* opacity: 0; */
+    transform: rotateY(180deg);
+  }
+  40% {
+    /* opacity: 0.1; */
+  }
+  100% {
+    /* opacity: 1; */
+    /* transform: rotate3d(0, 0, 0, 0deg); */
+    transform: rotateY(0deg);
+  }
+}
+
+.connecting {
+  animation: moveToCenter 2.5s ease-in forwards;
+}
+
+@keyframes moveToCenter {
+  50% {
+    box-shadow: 0px 0px 15px 2px #76ff64cb;
+  }
+  100% {
+    top: 25%;
+
+    box-shadow: 0px 0px 20px 3px #e8ffe5f6;
+  }
+}

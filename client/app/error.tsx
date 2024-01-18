@@ -20,15 +20,16 @@ const Error = ({ error, reset }: TErrorProps) => {
   }, [reset])
 
   useEffect(() => {
-    console.log(error.name)
+    console.log('ERROR TSX:', error.name)
     // Log the error to an error reporting service
-    console.error('error.tsx: ', error)
+    console.error('error.tsx: ', error.digest)
   }, [error])
 
   return (
     <ErrorLayout>
       <div className="error-content">
         <h2>Whoopsie...</h2>
+        {/* <h3>{error.name}</h3> */}
         <h3>{error.name}</h3>
         {/* <button onClick={resetHandler}>Reset</button> */}
 
@@ -38,9 +39,15 @@ const Error = ({ error, reset }: TErrorProps) => {
             <p>{error.stack}</p>
           </code> */}
 
+        {/* <p>{error.detail}</p> */}
+
         <p>{error.detail}</p>
 
-        {/* <p>{error.name}</p> */}
+        {/* {error.cause && (
+          <ul>
+            {error.cause}
+          </ul>
+        )} */}
         <Link href={ERoute.Home}>Return to Home Page</Link>
       </div>
     </ErrorLayout>

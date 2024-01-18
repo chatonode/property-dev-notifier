@@ -1,6 +1,6 @@
 import { permanentRedirect } from 'next/navigation'
 
-import SignupForm from '@/components/(Auth)/SignupForm'
+import SignupForm from '@/app/components/(Auth)/form/signup/SignupForm'
 import { ERoute } from '@/types/enums'
 import getCurrentUser from '@/api/(users)/get-current-user'
 

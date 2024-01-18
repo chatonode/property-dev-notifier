@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState, useTransition } from 'react'
+import { memo, useEffect, useState, useTransition } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
@@ -37,6 +37,7 @@ const MainHeader = (props: TMainHeaderProps) => {
     <header className="header">
       <div className="logo-container">
         <Image
+          priority={true}
           src={logo.src}
           quality={100}
           width={200}
@@ -69,4 +70,4 @@ const MainHeader = (props: TMainHeaderProps) => {
   )
 }
 
-export default MainHeader
+export default memo(MainHeader)

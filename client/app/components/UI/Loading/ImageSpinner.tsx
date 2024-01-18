@@ -1,3 +1,7 @@
+'use client'
+
+import { memo } from "react"
+
 const ImageSpinner = () => {
   return (
     <div>
@@ -53,4 +57,4 @@ const ImageSpinner = () => {
   )
 }
 
-export default ImageSpinner
+export default memo(ImageSpinner)

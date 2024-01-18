@@ -2,16 +2,17 @@
 
 import { EFormType } from '@/app/types/enums'
 
-import classes from './AuthSubmitButton.module.css'
+import classes from './AuthFormSubmitButton.module.css'
+import { memo } from 'react'
 
-type TAuthSubmitButtonProps<T extends keyof typeof EFormType> = {
+type TAuthFormSubmitButtonProps<T extends keyof typeof EFormType> = {
   formType: T
   isSubmitting: boolean
   isSubmitSuccessful: boolean
 }
 
-const AuthSubmitButton = <T extends keyof typeof EFormType>(
-  props: TAuthSubmitButtonProps<T>
+const AuthFormSubmitButton = <T extends keyof typeof EFormType>(
+  props: TAuthFormSubmitButtonProps<T>
 ) => {
   const buttonClasses = `${classes.button} ${
     props.isSubmitSuccessful ? ` ${classes.successful}` : undefined
@@ -52,4 +53,4 @@ const AuthSubmitButton = <T extends keyof typeof EFormType>(
   )
 }
 
-export default AuthSubmitButton
+export default memo(AuthFormSubmitButton)
