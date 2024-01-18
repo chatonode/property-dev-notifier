@@ -15,9 +15,9 @@ type TAuthFormAvatarProps = {
   isSubmitSuccessful: boolean
 }
 
-const AuthFormAvatar = (props: TAuthFormAvatarProps) => {
-  const imagePaths = [image1, image2, image3, image4]
+const IMAGE_PATHS = [image1, image2, image3, image4] as const
 
+const AuthFormAvatar = (props: TAuthFormAvatarProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const AuthFormAvatar = (props: TAuthFormAvatarProps) => {
 
     if (!props.isSubmitSuccessful) {
       timer = setInterval(() => {
-        setCurrentImageIndex((currentImageIndex + 1) % imagePaths.length)
+        setCurrentImageIndex((currentImageIndex + 1) % IMAGE_PATHS.length)
       }, 5000) // change image every 5 seconds
     }
 
@@ -42,13 +42,13 @@ const AuthFormAvatar = (props: TAuthFormAvatarProps) => {
     <div className={classes.wrapper}>
       <div
         className={imageContainerClasses}
-        key={imagePaths[currentImageIndex]!.src}
+        key={IMAGE_PATHS[currentImageIndex]!.src}
       >
         <Suspense fallback={<ImageSpinner />}>
           <Image
             // layout="fill"
             // key={imagePaths[currentImageIndex]!.src}
-            src={imagePaths[currentImageIndex]!.src}
+            src={IMAGE_PATHS[currentImageIndex]!.src}
             quality={100}
             width={100}
             height={100}
