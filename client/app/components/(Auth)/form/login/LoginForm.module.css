@@ -11,7 +11,8 @@
   align-items: center;
   /* align-items: flex-start; */
   gap: 1em;
-  height: 130px;
+  /* height: 130px; */
+  min-height: 130px;
   width: auto;
   /* TODO: Test animation around direction: rlt */
   /* @ref-link: https://stackoverflow.com/questions/18235764/is-it-possible-to-transition-text-alignment-using-css3-only */

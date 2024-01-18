@@ -27,6 +27,13 @@ const AuthFormContainer = (props: TAuthFormContainerProps) => {
         onSubmit={props.onSubmit}
         noValidate // to ignore native browser validation
       >
+        <div className={classes['background-container']}>
+          <div className={classes.background}>
+            <div className={classes.mountain} />
+            <div className={classes.mountain} />
+            <div className={classes.mountain} />
+          </div>
+        </div>
         <AuthFormAvatar isSubmitSuccessful={props.isSubmitSuccessful} />
         <h3>{props.title}</h3>
         {props.children}

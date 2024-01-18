@@ -15,8 +15,8 @@ const Dashboard = async () => {
   }
 
   return (
-    <main className="main">
-      <section>
+    <main>
+      <section className="content">
         <h2>Welcome!</h2>
         <WelcomeScreen />
       </section>

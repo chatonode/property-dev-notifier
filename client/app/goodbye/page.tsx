@@ -14,8 +14,8 @@ const GoodBye = async () => {
   }
 
   return (
-    <main className="base">
-      <section className="base content">
+    <main>
+      <section className="content">
         <GoodByeScreen />
       </section>
     </main>

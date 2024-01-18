@@ -18,7 +18,8 @@
   top: -12%;
   /* transform: rotateY(180deg); */
   /* animation: rotateAnimation 1s ease-in-out; */
-  animation: rotateAnimation 1s ease-in;
+  /* animation: rotateAnimation 1s ease-in; */
+  animation: rotateAnimation 0.5s ease-in-out alternate;
 }
 
 /* .image-container:hover,

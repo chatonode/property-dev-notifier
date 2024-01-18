@@ -14,8 +14,8 @@ const SignUp = async () => {
   }
 
   return (
-    <main className="base">
-      <section className="base content">
+    <main>
+      <section className="content">
         {/* <h2>Sign Up</h2> */}
         <SignupForm />
       </section>

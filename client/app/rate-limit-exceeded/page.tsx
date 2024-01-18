@@ -2,8 +2,8 @@ import RateLimitContainer from '@/components/(ResponsePage)/RateLimit/RateLimitC
 
 export default function RateLimitExceeded() {
   return (
-    <main className="base">
-      <section className="base content">
+    <main>
+      <section className="content">
         <RateLimitContainer />
       </section>
     </main>

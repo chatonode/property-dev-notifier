@@ -2,11 +2,56 @@
   max-width: 600px;
   margin: 0 auto;
   padding: 0 1em;
-
+  margin-top: 80px; /* absolute Avatar Size */
   /* display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center; */
+}
+
+.background-container {
+  position: absolute;
+  overflow: hidden;
+  width: inherit;
+  height: 10%;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+}
+
+.background {
+  position: absolute;
+  /* overflow: hidden; */
+  width: 100%;
+  height: 100%;
+  /* top: 0;
+  left: 0; */
+}
+
+.mountain {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+  /* background: radial-gradient(circle, #ff8c00, #ffd700); */
+  background: radial-gradient(
+    circle,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 90, 121, 1) 27%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+
+.mountain:nth-child(2) {
+  left: 25%;
+  transform: scaleX(-1) rotate(10deg);
+}
+
+.mountain:nth-child(3) {
+  left: 50%;
+  transform: rotate(-10deg);
 }
 
 .auth-form {
@@ -21,6 +66,7 @@
 
   /* Moved Avatar at top */
   position: relative;
+  padding-bottom: 3em;
 }
 
 .auth-form.connecting {

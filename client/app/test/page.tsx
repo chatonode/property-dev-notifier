@@ -1,7 +1,7 @@
 import TestContainer from '@/components/(Test)/TestContainer'
 const Test = () => {
   return (
-    <main className="main">
+    <main>
       <section>
         <h2>Test!</h2>
         <TestContainer />

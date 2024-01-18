@@ -15,8 +15,8 @@ const LogIn = async () => {
   }
 
   return (
-    <main className="base">
-      <section className="base content">
+    <main>
+      <section className="content">
         {/* <h2>Log In</h2> */}
         <LoginForm />
       </section>

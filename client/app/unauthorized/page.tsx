@@ -2,8 +2,8 @@ import UnauthorizedContainer from '../components/(ResponsePage)/Unauthorized/Una
 
 const Unauthorized = () => {
   return (
-    <main className="base">
-      <section className="base content">
+    <main>
+      <section className="content">
         <UnauthorizedContainer />
       </section>
     </main>

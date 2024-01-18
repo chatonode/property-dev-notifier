@@ -24,11 +24,30 @@
 
 .circle {
   position: absolute;
-  /* background: rgba(255, 255, 255, 0.3); */
-  background: rgb(169 22 56 / 64%);
+  /* background: rgb(169 22 56 / 64%); */
+  /* filter: blur(5px); */
   border-radius: 50%;
   animation: float 10s infinite alternate linear;
-  filter: blur(5px);
+  /* filter: blur(2px);
+  background: conic-gradient(
+    from 337deg at 50% 50%,
+    #c9c9c9,
+    #d5d5d5,
+    #959595,
+    #d9d9d9,
+    #f7f7f7,
+    #ededed
+  ); */
+  filter: blur(3px);
+  background: conic-gradient(
+    from 337deg at 50% 50%,
+    #c9c9c970,
+    #d5d5d575,
+    #95959554,
+    #d9d9d973,
+    #f7f7f7,
+    #ededed8c
+  );
 }
 
 .lock {
@@ -72,9 +91,11 @@
 
 @keyframes float {
   from {
+    opacity: 0;
     transform: translateY(0);
   }
   to {
+    opacity: 1;
     transform: translateY(-10px);
   }
 }

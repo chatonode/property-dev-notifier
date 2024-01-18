@@ -119,8 +119,19 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 1em;
   position: relative;
   /* transition: background-color 0.5s ease; */
+}
+
+.root {
+  flex-grow: 1;
+  overflow: hidden;
+  /* height: 100%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Resetter "base" Class */
@@ -162,20 +173,51 @@ body {
 }
 
 main {
-  /* flex: 1; */
+  -ms-flex-align: stretch;
+  -ms-flex-direction: column;
+  -ms-flex-negative: 0;
+  -ms-flex-preferred-size: auto;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-flex-basis: auto;
+  -webkit-flex-direction: column;
+  -webkit-flex-shrink: 0;
+  align-items: stretch;
+  border: 0 solid black;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  /* height: 77.6vh;
-  max-height: 80vh; */
-  /* height: 70.4vh; */
-  height: 79.4vh;
-  max-height: 80vh;
-  overflow: auto;
+  flex-basis: auto;
+  flex-direction: column;
+  flex-shrink: 0;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  min-height: 0px;
+  min-width: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  position: relative;
+  z-index: 0;
+
+  /* Customize */
+  height: 100%;
+  margin: auto;
+  padding-top: 1em;
+  padding-bottom: 1.2em;
 }
 
 section {
-  min-height: 70vh;
+  /* min-height: 70vh; */
+  height: 100%;
 }
 
 /* Headers */
@@ -237,7 +279,8 @@ a:focus {
 
 .content {
   display: flex;
-  margin: 1rem;
+  /* margin: 1rem; */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
