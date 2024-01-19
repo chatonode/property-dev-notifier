@@ -27,7 +27,7 @@ const Error = ({ error, reset }: TErrorProps) => {
 
   return (
     <ErrorLayout>
-      <div className="error-content">
+      <div>
         <h2>Whoopsie...</h2>
         {/* <h3>{error.name}</h3> */}
         <h3>{error.name}</h3>

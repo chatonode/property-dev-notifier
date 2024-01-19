@@ -1,4 +1,5 @@
 import { buildServerSender } from '@/app/api/(axios)/server/build-server-sender'
+import MainSectionWrapper from '@/app/components/(Layout)/Body/MainSectionWrapper'
 import NotificationMultiForm from '@/app/components/(Notification)/NotificationMultiForm'
 import { TPropertyDevelopersList } from '@/app/types/types'
 
@@ -22,13 +23,11 @@ const PropertyDevelopers = async () => {
   const propertyDevelopers = await getPropertyDevelopers()
 
   return (
-    <main>
-      <section>
-        <h2>Property Developers</h2>
+    <MainSectionWrapper>
+      <h2>Property Developers</h2>
 
-        <NotificationMultiForm propertyDevelopers={propertyDevelopers} />
-      </section>
-    </main>
+      <p>TODO</p>
+    </MainSectionWrapper>
   )
 }
 

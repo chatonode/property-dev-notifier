@@ -9,7 +9,7 @@ import image1 from '@/public/assets/images/forms/avatar/expressionist/_37bd5f80-
 import image2 from '@/public/assets/images/forms/avatar/expressionist/_3c49204a-0da2-4ee6-b292-1f17e7c1b375.jpg'
 import image3 from '@/public/assets/images/forms/avatar/expressionist/_c2c9c34d-533c-4456-ba06-143708d2508d.jpg'
 import image4 from '@/public/assets/images/forms/avatar/expressionist/_d60fb8e4-9bf9-40e7-8588-ff17d8a72c54.jpg'
-import ImageSpinner from '@/app/components/UI/Loading/ImageSpinner'
+import ImageSpinner from '@/app/components/UI/SVG/Loading/ImageSpinner'
 
 type TAuthFormAvatarProps = {
   isSubmitSuccessful: boolean

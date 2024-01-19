@@ -4,8 +4,8 @@ import { PropsWithChildren } from 'react'
 
 const ErrorLayout = (props: PropsWithChildren) => {
   return (
-    <main >
-      <section className="content">{props.children}</section>
+    <main>
+      <section className="error-content">{props.children}</section>
     </main>
   )
 }
