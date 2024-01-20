@@ -14,14 +14,16 @@
   background: #0056b3;
 }
 
-.successful {
+.connecting {
   background-color: white;
   border-radius: 4px;
   border: 2px solid black;
   box-shadow: 10px 5px 5px gray;
   color: black;
   filter: blur(0px);
+  transform: translate3d(0, 20%, 0);
   animation: toggleBlur 3s ease-in-out 0s infinite forwards alternate;
+  /* sailTheBoat 1s ease-in forwards, float 3s ease-in infinite alternate; */
 }
 
 @keyframes toggleBlur {
@@ -29,3 +31,30 @@
     filter: blur(1px);
   }
 }
+
+/* @keyframes sailTheBoat {
+  100% {
+    border-top-left-radius: 47% 18%;
+    border-top-right-radius: 0% 0%;
+    border-bottom-right-radius: 58% 100%;
+    border-bottom-left-radius: 50% 50%;
+  }
+} */
+
+/* @keyframes float {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  25% {
+    transform: rotateZ(5deg);
+  }
+  50% {
+    transform: rotateZ(1deg);
+  }
+  75% {
+    transform: rotateZ(-4deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
+} */

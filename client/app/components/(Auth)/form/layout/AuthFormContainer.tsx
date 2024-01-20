@@ -7,7 +7,8 @@ import classes from './AuthFormContainer.module.css'
 import { inter600 } from '@/app/fonts'
 
 import AuthFormAvatar from '../avatar/AuthFormAvatar'
-import AuthFormBackgroundSVG from '@/app/components/UI/SVG/Form/Auth/AuthFormBackgroundSVG'
+import AuthFormWaves from './background/AuthFormWaves'
+import AuthFormBackground from './background/AuthFormBackground'
 
 const FORM_TITLES = ['Join Our Community!', 'Welcome Back!'] as const
 type TFormTitle = (typeof FORM_TITLES)[number]
@@ -28,18 +29,11 @@ const AuthFormContainer = (props: TAuthFormContainerProps) => {
         onSubmit={props.onSubmit}
         noValidate // to ignore native browser validation
       >
-        <div className={classes['background-container']}>
-          <div
-            className={`${classes.background}${
-              props.isSubmitSuccessful ? ` ${classes.connecting}` : ''
-            }`}
-          >
-            <AuthFormBackgroundSVG />
-          </div>
-        </div>
+        <AuthFormBackground isSubmitSuccessful={props.isSubmitSuccessful} />
         <AuthFormAvatar isSubmitSuccessful={props.isSubmitSuccessful} />
         <h3>{props.title}</h3>
         {props.children}
+        <AuthFormWaves isSubmitSuccessful={props.isSubmitSuccessful} />
       </form>
     </div>
   )

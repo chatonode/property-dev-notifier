@@ -15,7 +15,9 @@ const AuthFormSubmitButton = <T extends keyof typeof EFormType>(
   props: TAuthFormSubmitButtonProps<T>
 ) => {
   const buttonClasses = `${classes.button} ${
-    props.isSubmitSuccessful ? ` ${classes.successful}` : undefined
+    props.isSubmitting || props.isSubmitSuccessful
+      ? ` ${classes.connecting}`
+      : undefined
   }`
 
   const isSignUpForm = props.formType === 'SIGNUP'

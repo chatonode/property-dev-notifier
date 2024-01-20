@@ -9,7 +9,9 @@ const AuthFormBackgroundSVG = () => {
       viewBox="0 0 1200 120"
       xmlns="http://www.w3.org/2000/svg"
       style={{
-        fill: 'saddlebrown',
+        // fill: 'saddlebrown',
+        // fill: '#041f3b',
+        fill: '#002337',
         width: '200%',
         height: '100%',
         transform: 'rotate(180deg)',

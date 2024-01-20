@@ -48,6 +48,8 @@ const LoginForm = () => {
   const throwError = useAsyncError()
   const [_, setIsAuthenticated] = useAuth(false)
 
+  // const isSubmitSuccessful = true
+
   const submitHandler = async (data: TFormDataType[EFormType.LOGIN]) => {
     if (!isValid) {
       throw new InvalidFormInputsError()
