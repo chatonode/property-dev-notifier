@@ -3,7 +3,8 @@ import { permanentRedirect } from 'next/navigation'
 import getCurrentUser from '@/api/(users)/get-current-user'
 import { ERoute } from '@/types/enums'
 
-import LoginForm from '@/components/(Auth)/LoginForm'
+import MainSectionWrapper from '@/app/components/(Layout)/Body/MainSectionWrapper'
+import LoginForm from '@/app/components/(Auth)/form/login/LoginForm'
 
 const LogIn = async () => {
   const currentUser = await getCurrentUser()
@@ -15,12 +16,10 @@ const LogIn = async () => {
   }
 
   return (
-    <main className="base">
-      <section className="base content">
-        {/* <h2>Log In</h2> */}
-        <LoginForm />
-      </section>
-    </main>
+    <MainSectionWrapper>
+      {/* <h2>Log In</h2> */}
+      <LoginForm />
+    </MainSectionWrapper>
   )
 }
 

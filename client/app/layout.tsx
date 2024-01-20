@@ -1,7 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 
+import { inter500 } from './fonts'
 import getCurrentUser from '@/api/(users)/get-current-user'
 
 import MainHeader from '@/components/(Layout)/Header/MainHeader'
@@ -9,8 +9,6 @@ import MainFooter from './components/(Layout)/Footer/MainFooter'
 import RootLoadingSkeleton from './loading-unused'
 import BackgroundPortal from './components/UI/Background/BackgroundPortal'
 import RootLoading from './loading'
-
-const inter500 = Inter({ weight: '500', subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Property Dev Notifier',

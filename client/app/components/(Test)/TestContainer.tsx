@@ -2,6 +2,7 @@
 
 import { memo, useCallback, useState } from 'react'
 import Modal from '../UI/Overlay/Modal'
+import SwipeableCardContainer from '../UI/Swipeable/SwipeableCardContainer'
 
 const TestContainer = () => {
   const [modalIsVisible, setModalIsVisible] = useState(false)
@@ -54,6 +55,7 @@ const TestContainer = () => {
             </div>
           </Modal>
         )}
+        <SwipeableCardContainer />
       </div>
     </>
   )

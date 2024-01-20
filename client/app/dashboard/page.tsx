@@ -4,6 +4,7 @@ import getCurrentUser from '@/api/(users)/get-current-user'
 import { ERoute } from '@/types/enums'
 
 import WelcomeScreen from '@/components/(Welcome)/WelcomeScreen'
+import MainSectionWrapper from '@/app/components/(Layout)/Body/MainSectionWrapper'
 
 const Dashboard = async () => {
   const currentUser = await getCurrentUser()
@@ -15,12 +16,10 @@ const Dashboard = async () => {
   }
 
   return (
-    <main className="main">
-      <section>
-        <h2>Welcome!</h2>
-        <WelcomeScreen />
-      </section>
-    </main>
+    <MainSectionWrapper>
+      <h2>Welcome!</h2>
+      <WelcomeScreen />
+    </MainSectionWrapper>
   )
 }
 

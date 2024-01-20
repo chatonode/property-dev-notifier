@@ -2,8 +2,41 @@
 
 :root {
   /* Colors */
+  /** Background  **/
   /* --header-footer-background-color: #ffffff; */
-  --header-footer-background-color: floralwhite;
+  --header-footer-background-color: #fffaf0;
+
+  --header-background: linear-gradient(to right, #e7f4ff, #b3d3e1);
+  --body-background-image: radial-gradient(
+    ellipse at 20% 20%,
+    #d8eaf7 0%,
+    #b0d3e5 30%,
+    #8abdcf 60%,
+    #64a7b9 90%,
+    #3e91a3 100%
+  );
+  --footer-background: linear-gradient(to right, #5e7e9e, #204666);
+
+  --body-background-image-alternative: radial-gradient(
+    ellipse at center,
+    #e1e1e1 0%,
+    #dfdfdf 10%,
+    #dcdddd 20%,
+    #d9dadb 30%,
+    #d7d8da 40%,
+    #d3d6d9 50%,
+    #ced4da 60%,
+    #ced2d5 70%,
+    #ced0d2 80%,
+    #cccecf 90%,
+    #cbcccc 95%,
+    #c9caca 98%,
+    #c7c8c8 100%
+  );
+
+  /** ---  **/
+
+  --footer-font-color: #ffffff;
 
   --primary-color: #a91638;
   --secondary-color: #a90034;
@@ -20,8 +53,8 @@
 }
 
 /***___ RESET.CSS ___***/
-/* @ref-link: https://github.com/Andy-set-studio/modern-css-reset/blob/master/src/reset.css */
 /* Box sizing rules */
+/* @ref-link: https://github.com/Andy-set-studio/modern-css-reset/blob/master/src/reset.css */
 *,
 *::before,
 *::after {
@@ -29,6 +62,12 @@
   /* @ref-link: https://css-for-js.dev/ */
   line-height: 1.45;
   -webkit-font-smoothing: antialiased;
+}
+
+/* @ref-link: https://defensivecss.dev/tip/flexbox-min-content-size/ */
+* {
+  min-width: 0;
+  min-height: 0;
 }
 
 /* Remove default margin */
@@ -104,7 +143,12 @@ html {
   /* height: 100%; */
   min-height: auto;
   /* todo: to be deleted */
-  background: rgb(63, 63, 63);
+  /* background: repeating-radial-gradient(
+    circle at center,
+    #ffffff,
+    #0000001c clamp(7.66666px, 10%, 20px),
+    #6d6d6d1c clamp(24.66666px, 30%, 40px)
+  ); */
 }
 
 /* Layout */
@@ -112,15 +156,34 @@ body {
   font-family: var(--font-family);
   font-size: var(--font-size);
   color: var(--text-color);
-  background-color: #f3f3f3;
+  /* background-color: #f3f3f3; */
 
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 1em;
   position: relative;
   /* transition: background-color 0.5s ease; */
+  /* background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent clamp(2px, 5%, 5px),
+    #c9c9c980 clamp(3px, 8%, 10px),
+    #936e6e78 clamp(3px, 8%, 10px)
+  ); */
+  background-image: var(--body-background-image);
+}
+
+.root {
+  flex-grow: 1;
+  overflow: hidden;
+  /* height: 100%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Resetter "base" Class */
@@ -162,20 +225,51 @@ body {
 }
 
 main {
-  /* flex: 1; */
+  -ms-flex-align: stretch;
+  -ms-flex-direction: column;
+  -ms-flex-negative: 0;
+  -ms-flex-preferred-size: auto;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-flex-basis: auto;
+  -webkit-flex-direction: column;
+  -webkit-flex-shrink: 0;
+  align-items: stretch;
+  border: 0 solid black;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  /* height: 77.6vh;
-  max-height: 80vh; */
-  /* height: 70.4vh; */
-  height: 79.4vh;
-  max-height: 80vh;
-  overflow: auto;
+  flex-basis: auto;
+  flex-direction: column;
+  flex-shrink: 0;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  min-height: 0px;
+  min-width: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  position: relative;
+  z-index: 0;
+
+  /* Customize */
+  height: 100%;
+  margin: auto;
+  padding-top: 1em;
+  padding-bottom: 1.2em;
 }
 
 section {
-  min-height: 70vh;
+  /* min-height: 70vh; */
+  height: 100%;
 }
 
 /* Headers */
@@ -222,33 +316,44 @@ a:focus {
   /* text-decoration: underline;   */
 }
 
-/* .sidebar {
-  grid-column: span 3;
+/* .header,
+.footer {
+  background-color: var(--header-footer-background-color);
+  opacity: 0.87;
+} */
+
+/* .header:focus,
+.header:hover,
+.footer:focus,
+.footer:hover {
+  opacity: 1;
 } */
 
 .header {
   font-size: 1.25rem;
-}
 
-.header,
-.footer {
-  background-color: var(--header-footer-background-color);
+  background: var(--header-background);
+  box-shadow: 0px 0px 5px -1px var(--primary-color);
 }
 
 .content {
   display: flex;
-  margin: 1rem;
+  /* margin: 1rem; */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .footer {
-  font-size: 1.25rem;
+  font-size: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 0.6em 0;
+
+  background: var(--footer-background);
+  color: var(--footer-font-color);
   box-shadow: 0px 7px 8px 7px #a1a1a1;
 }
 
@@ -261,12 +366,48 @@ a:focus {
 
 /* After Reset: More Customization */
 
+/** Disable Next.js Error **/
+nextjs-portal {
+  display: none;
+}
+
+/** Errors **/
+.error-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  padding: 1em;
+
+  /* background: repeating-linear-gradient( 225deg, transparent, transparent 7px, black 8px, black 8px ); */
+  /* box-shadow: 0px -1px 5px 2px darkred; */
+  transition: box-shadow 0.3s ease-in;
+}
+
+.error-content:hover,
+.error-content:focus {
+  box-shadow: 0px -1px 5px 2px red;
+}
+
+.error-content h2 {
+  color: #ff0000; /* Red color for error headings */
+  margin-bottom: 1em;
+}
+
+.error-content p {
+  font-size: 1.2em;
+  color: #333; /* Dark color for error details */
+}
+
+/** END of Errors **/
+
 .logo-container {
   box-sizing: border-box;
-  /* border-bottom: 3px solid var(--primary-color); */
-  /* border-bottom-right-radius: 6px 15px; */
-  /* border-bottom-left-radius: 16px 40px; */
-  box-shadow: 0px 0px 5px -1px var(--primary-color);
   padding: 20px 20px 10px 20px;
   display: flex;
   justify-content: space-between;

@@ -1,12 +1,11 @@
 import TestContainer from '@/components/(Test)/TestContainer'
+import MainSectionWrapper from '@/app/components/(Layout)/Body/MainSectionWrapper'
 const Test = () => {
   return (
-    <main className="main">
-      <section>
-        <h2>Test!</h2>
-        <TestContainer />
-      </section>
-    </main>
+    <MainSectionWrapper>
+      <h2>Test!</h2>
+      <TestContainer />
+    </MainSectionWrapper>
   )
 }
 

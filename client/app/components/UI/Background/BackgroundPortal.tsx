@@ -2,7 +2,7 @@
 
 import { createPortal } from 'react-dom'
 import MovingCircles from './MovingCircles'
-import { useEffect, useState } from 'react'
+import { memo, useEffect, useState } from 'react'
 
 const BackgroundPortal = () => {
   const [mounted, setMounted] = useState(false)
@@ -11,4 +11,4 @@ const BackgroundPortal = () => {
   return mounted ? createPortal(<MovingCircles />, document.body) : null
 }
 
-export default BackgroundPortal
+export default memo(BackgroundPortal)

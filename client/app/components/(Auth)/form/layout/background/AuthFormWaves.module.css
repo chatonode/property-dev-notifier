@@ -1,0 +1,41 @@
+.background-container {
+  position: absolute;
+  overflow: hidden;
+  width: inherit;
+  height: 10%;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+}
+
+.background-container.connecting {
+  animation: raiseWaves 1s 0.3s linear forwards; /* Adjust the duration as needed */
+}
+
+@keyframes raiseWaves {
+  100% {
+    height: 15%;
+  }
+}
+
+.background {
+  position: absolute;
+  /* overflow: hidden; */
+  width: 100%;
+  height: 100%;
+  background: repeat-x;
+}
+
+.background.connecting {
+  animation: runBackground 7s 0.3s linear alternate infinite; /* Adjust the duration as needed */
+}
+
+@keyframes runBackground {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%) scale(1.2);
+    width: 300%;
+  }
+}

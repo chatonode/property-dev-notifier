@@ -1,0 +1,42 @@
+.background-container {
+  position: absolute;
+  overflow: hidden;
+  width: inherit;
+  width: 100%;
+  height: 100%;
+  top: 23%;
+  left: 0;
+  border-radius: inherit;
+  /* z-index: -1; */
+  visibility: hidden;
+}
+
+.background {
+  position: absolute;
+  /* overflow: hidden; */
+  /* width: 100%; */
+  /* height: auto; */
+  background: repeat-x;
+  clip-path: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%);
+  /* clip-path: polygon(50% -139%, 0% 100%, 100% 100%); */
+}
+
+.background.connecting {
+  visibility: visible;
+  animation: appearBackground 3s linear forwards;
+}
+
+@keyframes appearBackground {
+  0% {
+    opacity: 0;
+  }
+
+  80% {
+    opacity: 0.1;
+  }
+  100% {
+    /* opacity: 0.8; */
+    opacity: 0.9;
+    transform: scale(1.2);
+  }
+}

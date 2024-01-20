@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Poppins } from 'next/font/google'
+import { poppins500 } from '@/app/fonts'
 
 import { TPropertyDevelopersList } from '@/app/types/types'
 
@@ -14,8 +14,6 @@ type TPropertyDevelopersListProps = {
   // TODO
   // onReset: () => void
 }
-
-const poppins = Poppins({ weight: '500', subsets: ['latin'] })
 
 const PropertyDevelopersList = (props: TPropertyDevelopersListProps) => {
   const [selectedDeveloperIds, setSelectedDeveloperIds] = useState<string[]>(
@@ -63,7 +61,7 @@ const PropertyDevelopersList = (props: TPropertyDevelopersListProps) => {
           Save List
         </button> 
       </div>*/}
-      <ul className={`${classes['developer-list']} ${poppins.className}`}>
+      <ul className={`${classes['developer-list']} ${poppins500.className}`}>
         {props.propertyDevelopers.map((propertyDeveloper) => {
           const isSelected = selectedDeveloperIds.includes(propertyDeveloper.id)
 

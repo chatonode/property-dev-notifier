@@ -1,34 +1,22 @@
-import { buildServerSender } from '@/app/api/(axios)/server/build-server-sender'
+import { Suspense } from 'react'
 import NotificationMultiForm from '@/app/components/(Notification)/NotificationMultiForm'
-import { TPropertyDevelopersList } from '@/app/types/types'
 
-const getPropertyDevelopers = async () => {
-  const axiosSender = buildServerSender()
-
-  const response = await axiosSender.get('/api/users/property-developers')
-
-  if (response.status === 401) {
-    throw new Error('Unauthorized User!')
-  }
-
-  const { propertyDevelopers } = (await response.data) as {
-    propertyDevelopers: TPropertyDevelopersList
-  }
-
-  return propertyDevelopers
-}
+import MainSectionWrapper from '@/app/components/(Layout)/Body/MainSectionWrapper'
+import getPropertyDevelopers from '@/api/(users)/property-developers/get'
 
 const CreateNotificationTemplate = async () => {
-  const propertyDevelopers = await getPropertyDevelopers()
+  // const propertyDevelopers = await getPropertyDevelopers()
 
   return (
-    <main>
-      <section>
-        <h2>Create Notification Template</h2>
+    <MainSectionWrapper>
+      <h2>Create Notification Template</h2>
 
-        <NotificationMultiForm propertyDevelopers={propertyDevelopers} />
-      </section>
-    </main>
+      <Suspense fallback={<p>loading...</p>}>
+        <NotificationMultiForm
+          propertyDevelopers={await getPropertyDevelopers()}
+        />
+      </Suspense>
+    </MainSectionWrapper>
   )
 }
 
