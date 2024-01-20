@@ -48,6 +48,7 @@ const LoginForm = () => {
   const throwError = useAsyncError()
   const [_, setIsAuthenticated] = useAuth(false)
 
+  // Test Mode:
   // const isSubmitSuccessful = true
 
   const submitHandler = async (data: TFormDataType[EFormType.LOGIN]) => {
@@ -78,7 +79,6 @@ const LoginForm = () => {
 
     // Reset form
     reset()
-
   }
 
   useEffect(() => {
