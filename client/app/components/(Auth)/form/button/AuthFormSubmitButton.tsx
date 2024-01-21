@@ -42,13 +42,13 @@ const AuthFormSubmitButton = <T extends keyof typeof EFormType>(
         ? props.isSubmitting
           ? 'Signing Up...'
           : props.isSubmitSuccessful
-          ? 'Connecting...'
+          ? 'Sailing...'
           : 'Sign Up'
         : isLogInForm
         ? props.isSubmitting
           ? 'Logging In...'
           : props.isSubmitSuccessful
-          ? 'Connecting...'
+          ? 'Sailing...'
           : 'Log In'
         : '...'}
     </button>
