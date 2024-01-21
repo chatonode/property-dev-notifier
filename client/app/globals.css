@@ -225,6 +225,12 @@ body,
   opacity: 1;
 } */
 
+/* TODO: Test, revert (-1px) to (1px) for either header or footer maybe */
+/* .header,
+.footer {
+  box-shadow: 0 -1px 5px 0px var(--text-primary);
+} */
+
 .header {
   font-size: 1.25rem;
 
