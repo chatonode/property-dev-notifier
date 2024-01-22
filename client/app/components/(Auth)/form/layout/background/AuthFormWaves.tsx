@@ -1,7 +1,7 @@
 'use client'
 
 import { memo } from 'react'
-import AuthFormBackgroundSVG from '@/app/components/UI/SVG/Form/Auth/AuthFormBackgroundSVG'
+import AuthFormWavesSVG from '@/app/components/UI/SVG/Form/Auth/AuthFormWavesSVG'
 
 import classes from './AuthFormWaves.module.css'
 
@@ -21,7 +21,7 @@ const AuthFormWaves = (props: TAuthFormWavesProps) => {
           props.isSubmitSuccessful ? ` ${classes.connecting}` : ''
         }`}
       >
-        <AuthFormBackgroundSVG />
+        <AuthFormWavesSVG />
       </div>
     </div>
   )

@@ -1,0 +1,23 @@
+.container {
+  opacity: 0.3;
+  animation: show 1s ease-in forwards;
+}
+
+.draw-path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw 2s ease-in forwards;
+}
+
+@keyframes draw {
+  to {
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes show {
+  to {
+    opacity: 1;
+  }
+}

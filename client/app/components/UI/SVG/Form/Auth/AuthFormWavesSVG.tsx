@@ -2,7 +2,7 @@
 
 import { memo } from 'react'
 
-const AuthFormBackgroundSVG = () => {
+const AuthFormWavesSVG = () => {
   return (
     <svg
       preserveAspectRatio="none"
@@ -30,4 +30,4 @@ const AuthFormBackgroundSVG = () => {
   )
 }
 
-export default memo(AuthFormBackgroundSVG)
+export default memo(AuthFormWavesSVG)
