@@ -3,11 +3,10 @@
 :root {
   /* Colors */
   /** Background  **/
-  --header-background-light: hsl(210, 100%, 95%);
-  --header-box-shadow-light: 0px 2px 3px 2px var(--header-background-light);
-  --global-background-light: #edf2f7;
-  --global-background-light-blue: linear-gradient(
-    to bottom,
+  /* --header-background-light: hsl(210, 100%, 95%); */
+  /* --header-box-shadow-light: 0px 2px 3px 2px var(--header-background-light); */
+  /* --header-background-light: linear-gradient(
+    to top,
     hsl(190.99, 91.61%, 71.96%) 0%,
     hsla(191.27, 91.34%, 71.77%, 0.996) 8.1%,
     hsla(192.03, 90.61%, 71.22%, 0.985) 15.5%,
@@ -24,8 +23,67 @@
     hsla(206.69, 81%, 50.39%, 0.705) 84.5%,
     hsla(206.19, 89.06%, 47.76%, 0.694) 91.9%,
     hsla(205.04, 100%, 45.1%, 0.69) 100%
+  ); */
+  --header-background-light: hsl(210, 38%, 95%);
+  /* --global-background-light: hsl(210, 38%, 95%); */
+  --global-background-light: linear-gradient(
+    to bottom,
+    hsl(210, 38.46%, 94.9%) 0%,
+    hsl(210, 38.46%, 94.9%) 3.7%,
+    hsl(209.89, 38.09%, 94.71%) 3.7%,
+    hsl(209.89, 38.09%, 94.71%) 7.4%,
+    hsl(209.78, 37.74%, 94.52%) 7.4%,
+    hsl(209.78, 37.74%, 94.52%) 11.1%,
+    hsl(209.68, 37.42%, 94.34%) 11.1%,
+    hsl(209.68, 37.42%, 94.34%) 14.8%,
+    hsl(209.58, 37.11%, 94.15%) 14.8%,
+    hsl(209.58, 37.11%, 94.15%) 18.5%,
+    hsl(209.49, 36.83%, 93.96%) 18.5%,
+    hsl(209.49, 36.83%, 93.96%) 22.2%,
+    hsl(209.4, 36.56%, 93.77%) 22.2%,
+    hsl(209.4, 36.56%, 93.77%) 25.9%,
+    hsl(209.32, 36.31%, 93.58%) 25.9%,
+    hsl(209.32, 36.31%, 93.58%) 29.6%,
+    hsl(209.24, 36.07%, 93.39%) 29.6%,
+    hsl(209.24, 36.07%, 93.39%) 33.3%,
+    hsl(209.16, 35.85%, 93.21%) 33.3%,
+    hsl(209.16, 35.85%, 93.21%) 37%,
+    hsl(209.09, 35.64%, 93.02%) 37%,
+    hsl(209.09, 35.64%, 93.02%) 40.7%,
+    hsl(209.02, 35.44%, 92.83%) 40.7%,
+    hsl(209.02, 35.44%, 92.83%) 44.4%,
+    hsl(208.95, 35.25%, 92.64%) 44.4%,
+    hsl(208.95, 35.25%, 92.64%) 48.1%,
+    hsl(208.89, 35.06%, 92.45%) 48.1%,
+    hsl(208.89, 35.06%, 92.45%) 51.9%,
+    hsl(208.83, 34.89%, 92.26%) 51.9%,
+    hsl(208.83, 34.89%, 92.26%) 55.6%,
+    hsl(208.77, 34.73%, 92.07%) 55.6%,
+    hsl(208.77, 34.73%, 92.07%) 59.3%,
+    hsl(208.71, 34.57%, 91.89%) 59.3%,
+    hsl(208.71, 34.57%, 91.89%) 63%,
+    hsl(208.65, 34.42%, 91.7%) 63%,
+    hsl(208.65, 34.42%, 91.7%) 66.7%,
+    hsl(208.6, 34.28%, 91.51%) 66.7%,
+    hsl(208.6, 34.28%, 91.51%) 70.4%,
+    hsl(208.55, 34.14%, 91.32%) 70.4%,
+    hsl(208.55, 34.14%, 91.32%) 74.1%,
+    hsl(208.5, 34.01%, 91.13%) 74.1%,
+    hsl(208.5, 34.01%, 91.13%) 77.8%,
+    hsl(208.45, 33.89%, 90.94%) 77.8%,
+    hsl(208.45, 33.89%, 90.94%) 81.5%,
+    hsl(208.41, 33.77%, 90.75%) 81.5%,
+    hsl(208.41, 33.77%, 90.75%) 85.2%,
+    hsl(208.36, 33.65%, 90.57%) 85.2%,
+    hsl(208.36, 33.65%, 90.57%) 88.9%,
+    hsl(208.32, 33.54%, 90.38%) 88.9%,
+    hsl(208.32, 33.54%, 90.38%) 92.6%,
+    hsl(208.28, 33.44%, 90.19%) 92.6%,
+    hsl(208.28, 33.44%, 90.19%) 96.3%,
+    hsl(208.24, 33.33%, 90%) 96.3%,
+    hsl(208.24, 33.33%, 90%) 100%
   );
-  --global-background-mid: linear-gradient(
+  /* --global-background-mid: linear-gradient(
     to top,
     hsl(201.11, 100%, 39.02%) 0%,
     hsl(202.8, 84.76%, 42.4%) 8.1%,
@@ -43,8 +101,8 @@
     hsl(209.93, 90.98%, 76.88%) 84.5%,
     hsl(209.98, 93.65%, 77.74%) 91.9%,
     hsl(210, 94.64%, 78.04%) 100%
-  );
-  --footer-background-light: linear-gradient(
+  ); */
+  /* --footer-background-light: linear-gradient(
     to top,
     hsl(61.94, 100%, 93.92%) 0%,
     hsl(61.94, 100%, 93.92%) 8.1%,
@@ -62,12 +120,13 @@
     hsl(51.43, 100%, 95.88%) 84.5%,
     hsl(51, 100%, 96.08%) 91.9%,
     hsl(51, 100%, 96.08%) 100%
-  );
-  --footer-box-shadow-light: 0px -2px 3px 2px hsl(51, 100%, 96.08%);
-  --footer-background-dark: hsl(201.11, 100%, 30%);
-  --footer-box-shadow-dark: 0px -2px 3px 2px var(var(--footer-background-dark));
+  ); */
+  --footer-background-light: hsl(201.82deg 95.64% 4.91%);
+  /* --footer-box-shadow-light: 0px -2px 3px 2px hsl(51, 100%, 96.08%); */
+  /* --footer-background-dark: hsl(201.11, 100%, 30%);
+  --footer-box-shadow-dark: 0px -2px 3px 2px var(var(--footer-background-dark)); */
 
-  --body-background-image-alternative: radial-gradient(
+  /* --body-background-image-alternative: radial-gradient(
     ellipse at center,
     #e1e1e1 0%,
     #dfdfdf 10%,
@@ -82,7 +141,7 @@
     #cbcccc 95%,
     #c9caca 98%,
     #c7c8c8 100%
-  );
+  ); */
 
   /** ---  **/
 
@@ -91,13 +150,13 @@
   --text-primary: hsl(201.82deg 100% 10.78%);
   --text-secondary: hsl(0, 0%, 50%);
 
-  --footer-text-color-light: hsl(201.82deg 100% 10.78%);
-  --footer-text-color-dark: hsl(201.82deg 100% 40%);
+  /* --footer-text-color-light: hsl(201.82deg 100% 10.78%); */
+  --footer-text-color-light: hsl(51, 100%, 96.08%);
 
   /** ---  **/
 
-  --link-color: #36345a;
-  --link-hover-color: #36345a;
+  --link-color: #d3c828;
+  --link-hover-color: #dbd020;
 
   /*  ---  */
 
@@ -236,7 +295,7 @@ body,
   font-size: 1.25rem;
 
   background: var(--header-background-light);
-  box-shadow: var(--header-box-shadow-light);
+  /* box-shadow: var(--header-box-shadow-light); */
 }
 
 .root {
@@ -254,7 +313,7 @@ body,
   font-size: 1rem;
 
   background: var(--footer-background-light);
-  box-shadow: var(--footer-box-shadow-light);
+  /* box-shadow: var(--footer-box-shadow-light); */
   color: var(--footer-text-color-light);
 
   display: flex;
