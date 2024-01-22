@@ -1,10 +1,10 @@
 .container {
-  opacity: 0.3;
-  animation: show 1s ease-in forwards;
+  opacity: 0.1;
+  animation: show 1s 0.3s ease-in forwards;
 }
 
 .draw-path {
-  stroke-dasharray: 1000;
+  stroke-dasharray: 1 5 10 20 35 55 72 180;
   stroke-dashoffset: 1000;
   animation: draw 2s ease-in forwards;
 }
