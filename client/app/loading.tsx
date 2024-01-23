@@ -1,7 +1,7 @@
 'use client'
 
 import { memo } from 'react'
-import LoadingContainer from './components/(Loading)/LoadingContainer'
+import LoadingContainer from '@/components/(Loading)/LoadingContainer'
 
 const RootLoading = () => {
   return (

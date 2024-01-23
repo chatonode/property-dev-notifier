@@ -3,7 +3,7 @@
 import { PropsWithChildren, memo, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 
-// import Backdrop from '@/components/UI/Overlay/Backdrop'
+import Backdrop from '@/components/UI/Overlay/Backdrop'
 
 import classes from './LoadingPortal.module.css'
 
@@ -24,7 +24,7 @@ const LoadingPortal = (props: TLoadingPortalProps) => {
       {mounted &&
         createPortal(
           <div className={classes.overlay}>
-            {/* <Backdrop /> */}
+            <Backdrop />
             {/* LoadingContainer as children */}
             {props.children}
           </div>,

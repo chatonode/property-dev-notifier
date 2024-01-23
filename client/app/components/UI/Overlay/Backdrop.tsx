@@ -9,17 +9,17 @@ type TBackdropProps = {
 
 const Backdrop = (props: TBackdropProps) => {
   // const [isPending, startTransition] = useTransition()
-  const [isVisible, setIsVisible] = useState(true)
+  // const [isVisible, setIsVisible] = useState(true)
   // const pathname = usePathname()
 
-  useEffect(() => {
-    console.log('Is Backdrop being mounted?')
+  // useEffect(() => {
+  //   console.log('Is Backdrop being mounted?')
 
-    // Cleanup function
-    return () => {
-      console.log('Is Backdrop being unmounted?')
-    }
-  }, [])
+  //   // Cleanup function
+  //   return () => {
+  //     console.log('Is Backdrop being unmounted?')
+  //   }
+  // }, [])
 
   return <div className={classes.backdrop} onClick={props.onClick} />
 }
