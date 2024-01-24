@@ -3,19 +3,24 @@
 import { Suspense, memo } from 'react'
 import Image from 'next/image'
 
-import classes from './AuthFormBackground.module.css'
+import classes from './AuthFormLighthouse.module.css'
 
 import backgroundImage from '@/public/assets/images/forms/background/_40bc28f7-891a-4b01-85c3-7e60d5820a3c.jpg'
+// import backgroundImage from '@/public/assets/images/forms/background/_93281976-0b9f-4cd7-bd52-95399fb4bf5f.jpg'
 
 import ImageSpinner from '@/app/components/UI/SVG/Loading/ImageSpinner'
 
-type TAuthFormBackgroundProps = {
+type TAuthFormLighthouseProps = {
   isSubmitSuccessful: boolean
 }
 
-const AuthFormBackground = (props: TAuthFormBackgroundProps) => {
+const AuthFormLighthouse = (props: TAuthFormLighthouseProps) => {
   return (
-    <div className={classes['background-container']}>
+    <div
+      className={`${classes['background-container']}${
+        props.isSubmitSuccessful ? ` ${classes.connecting}` : ''
+      }`}
+    >
       <div
         className={`${classes.background}${
           props.isSubmitSuccessful ? ` ${classes.connecting}` : ''
@@ -40,4 +45,4 @@ const AuthFormBackground = (props: TAuthFormBackgroundProps) => {
   )
 }
 
-export default memo(AuthFormBackground)
+export default memo(AuthFormLighthouse)

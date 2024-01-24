@@ -11,7 +11,7 @@ const CreateNotificationTemplate = async () => {
     <MainSectionWrapper>
       <h2>Create Notification Template</h2>
 
-      <Suspense fallback={<p>loading...</p>}>
+      <Suspense fallback={<p>Loading...</p>}>
         <NotificationMultiForm
           propertyDevelopers={await getPropertyDevelopers()}
         />

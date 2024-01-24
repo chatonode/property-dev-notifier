@@ -36,7 +36,7 @@ const AuthFormAvatar = (props: TAuthFormAvatarProps) => {
     props.isSubmitSuccessful ? ` ${classes.connecting}` : ''
   }`
 
-  console.log('imageContainerClasses: ', imageContainerClasses)
+  // console.log('imageContainerClasses: ', imageContainerClasses)
 
   return (
     <div className={classes.wrapper}>

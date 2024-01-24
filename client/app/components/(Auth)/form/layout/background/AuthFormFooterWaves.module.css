@@ -1,4 +1,4 @@
-.background-container {
+.waves-container {
   position: absolute;
   overflow: hidden;
   width: inherit;
@@ -8,8 +8,13 @@
   border-radius: inherit;
 }
 
-.background-container.connecting {
-  animation: raiseWaves 1s 0.3s linear forwards; /* Adjust the duration as needed */
+.upper {
+  bottom: 10%;
+  /* visibility: hidden; */
+}
+
+.waves-container.connecting {
+  animation: raiseWaves 1s 0.3s linear forwards;
 }
 
 @keyframes raiseWaves {
@@ -18,7 +23,7 @@
   }
 }
 
-.background {
+.waves {
   position: absolute;
   /* overflow: hidden; */
   width: 100%;
@@ -26,11 +31,11 @@
   background: repeat-x;
 }
 
-.background.connecting {
-  animation: runBackground 7s 0.3s linear alternate infinite; /* Adjust the duration as needed */
+.waves.connecting {
+  animation: moveWaves 7s 0.3s linear alternate infinite;
 }
 
-@keyframes runBackground {
+@keyframes moveWaves {
   0% {
     transform: translateX(0%);
   }

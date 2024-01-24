@@ -1,29 +1,92 @@
+.button-container {
+  z-index: 2;
+
+  position: relative;
+  filter: blur(0px);
+  transform: rotate(0deg) scale(1) rotateZ(0deg);
+  width: 100%;
+  height: 100%;
+  /* overflow: hidden; */
+}
+
+.button-container.connecting {
+  animation:
+  /* toggleBlur 3s ease-in-out 0s infinite forwards alternate, */ sailTheBoat
+    7s cubic-bezier(0.15, 0, 0.83, 1) infinite;
+}
+
+.sails {
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: -280%;
+  left: 0;
+  /* background: #21212170; */
+  /* background: radial-gradient(
+    circle at bottom center,
+    rgb(0 35 55 / 22%) 0%,
+    rgb(0 123 255 / 3%) 80%,
+    rgba(0, 123, 255, 0) 100%
+  ); */
+  /* clip-path: circle(60%); */
+  /*
+  animation: inherit;
+  animation-delay: 0.2s; */
+}
+
 .button {
-  background: #007bff;
+  background: var(--text-primary);
   color: #fff;
   width: 100%;
   padding: 10px 20px;
-  font-size: 1em;
+  font-size: 1.2em;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: all 0.6s ease-in;
+  position: relative;
 }
 
-.button :is(:hover) {
-  background: #0056b3;
+.button:focus,
+.button:hover {
+  background: hsl(201.82deg 100% 20%);
 }
 
-.connecting {
-  background-color: white;
-  border-radius: 4px;
+.button.submitting,
+.button.connecting,
+.button.connecting:focus,
+.button.connecting:hover,
+.button.submitting:focus,
+.button.submitting:hover {
+  /* border-radius: 4px; */
+  background: white;
   border: 2px solid black;
   box-shadow: 10px 5px 5px gray;
+  /* transform: translate3d(0, 75%, 0); */
   color: black;
-  filter: blur(0px);
-  transform: translate3d(0, 20%, 0);
-  animation: toggleBlur 3s ease-in-out 0s infinite forwards alternate;
-  /* sailTheBoat 1s ease-in forwards, float 3s ease-in infinite alternate; */
+  transition: border-radius 1s ease-in;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* .button.connecting:focus,
+.button.connecting:hover,
+.button.submitting:focus,
+.button.submitting:hover {
+  background: #fff;
+} */
+
+.button-container.connecting,
+.button.connecting {
+  /* border-top-left-radius: 2em 1em;
+  border-top-right-radius: 1em 3em;
+  border-bottom-right-radius: 10em;
+  border-bottom-left-radius: 10em 2em; */
+  /* transform: translate3d(0, 25%, 0); */
+  border-radius: 0% 0 70% 30% / 0 0 70% 70%;
 }
 
 @keyframes toggleBlur {
@@ -32,29 +95,30 @@
   }
 }
 
-/* @keyframes sailTheBoat {
-  100% {
-    border-top-left-radius: 47% 18%;
-    border-top-right-radius: 0% 0%;
-    border-bottom-right-radius: 58% 100%;
-    border-bottom-left-radius: 50% 50%;
+@keyframes float {
+  25% {
+    transform: rotate(3deg);
   }
-} */
 
-/* @keyframes float {
+  75% {
+    transform: rotate(-3deg);
+  }
+}
+
+@keyframes sailTheBoat {
   0% {
-    transform: rotateZ(0deg);
+    transform: rotate(0deg) scale(1) rotateZ(0deg);
   }
   25% {
-    transform: rotateZ(5deg);
+    transform: rotate(-3deg) scale(1.02) rotateZ(-2deg);
   }
   50% {
-    transform: rotateZ(1deg);
+    transform: rotate(0deg) scale(1) rotateZ(0deg);
   }
   75% {
-    transform: rotateZ(-4deg);
+    transform: rotate(3deg) scale(0.98) rotateZ(2deg);
   }
   100% {
-    transform: rotateZ(0deg);
+    transform: rotate(0deg) scale(1) rotateZ(0deg);
   }
-} */
+}

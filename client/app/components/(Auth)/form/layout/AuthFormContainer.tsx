@@ -7,8 +7,8 @@ import classes from './AuthFormContainer.module.css'
 import { inter600 } from '@/app/fonts'
 
 import AuthFormAvatar from '../avatar/AuthFormAvatar'
-import AuthFormWaves from './background/AuthFormWaves'
-import AuthFormBackground from './background/AuthFormBackground'
+import AuthFormFooterWaves from './background/AuthFormFooterWaves'
+import AuthFormLighthouse from './background/AuthFormLighthouse'
 
 const FORM_TITLES = ['Join Our Community!', 'Welcome Back!'] as const
 type TFormTitle = (typeof FORM_TITLES)[number]
@@ -29,11 +29,11 @@ const AuthFormContainer = (props: TAuthFormContainerProps) => {
         onSubmit={props.onSubmit}
         noValidate // to ignore native browser validation
       >
-        <AuthFormBackground isSubmitSuccessful={props.isSubmitSuccessful} />
+        <AuthFormLighthouse isSubmitSuccessful={props.isSubmitSuccessful} />
         <AuthFormAvatar isSubmitSuccessful={props.isSubmitSuccessful} />
         <h3>{props.title}</h3>
         {props.children}
-        <AuthFormWaves isSubmitSuccessful={props.isSubmitSuccessful} />
+        <AuthFormFooterWaves isSubmitSuccessful={props.isSubmitSuccessful} />
       </form>
     </div>
   )

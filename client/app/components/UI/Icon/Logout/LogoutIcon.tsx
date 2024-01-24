@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 
 import { IoLogOutOutline } from 'react-icons/io5'
 

@@ -3,21 +3,111 @@
 :root {
   /* Colors */
   /** Background  **/
-  /* --header-footer-background-color: #ffffff; */
-  --header-footer-background-color: #fffaf0;
-
-  --header-background: linear-gradient(to right, #e7f4ff, #b3d3e1);
-  --body-background-image: radial-gradient(
-    ellipse at 20% 20%,
-    #d8eaf7 0%,
-    #b0d3e5 30%,
-    #8abdcf 60%,
-    #64a7b9 90%,
-    #3e91a3 100%
+  /* --header-background-light: hsl(210, 100%, 95%); */
+  /* --header-box-shadow-light: 0px 2px 3px 2px var(--header-background-light); */
+  /* --header-background-light: linear-gradient(
+    to top,
+    hsl(190.99, 91.61%, 71.96%) 0%,
+    hsla(191.27, 91.34%, 71.77%, 0.996) 8.1%,
+    hsla(192.03, 90.61%, 71.22%, 0.985) 15.5%,
+    hsla(193.19, 89.54%, 70.35%, 0.968) 22.5%,
+    hsla(194.67, 88.25%, 69.2%, 0.946) 29%,
+    hsla(196.36, 86.87%, 67.8%, 0.92) 35.3%,
+    hsla(198.18, 85.49%, 66.17%, 0.891) 41.2%,
+    hsla(200.02, 84.2%, 64.34%, 0.86) 47.1%,
+    hsla(201.82, 83.07%, 62.33%, 0.83) 52.9%,
+    hsla(203.46, 82.14%, 60.17%, 0.799) 58.8%,
+    hsla(204.86, 81.45%, 57.87%, 0.77) 64.7%,
+    hsla(205.93, 81.02%, 55.46%, 0.744) 71%,
+    hsla(206.57, 80.87%, 52.96%, 0.722) 77.5%,
+    hsla(206.69, 81%, 50.39%, 0.705) 84.5%,
+    hsla(206.19, 89.06%, 47.76%, 0.694) 91.9%,
+    hsla(205.04, 100%, 45.1%, 0.69) 100%
+  ); */
+  --header-background-light: hsl(210, 38%, 95%);
+  /* --global-background-light: hsl(210, 38%, 95%); */
+  --global-background-light: linear-gradient(
+    to bottom,
+    hsl(210, 38.46%, 94.9%) 0%,
+    hsl(210, 38.46%, 94.9%) 3.7%,
+    hsl(209.89, 38.09%, 94.71%) 3.7%,
+    hsl(209.89, 38.09%, 94.71%) 7.4%,
+    hsl(209.78, 37.74%, 94.52%) 7.4%,
+    hsl(209.78, 37.74%, 94.52%) 11.1%,
+    hsl(209.68, 37.42%, 94.34%) 11.1%,
+    hsl(209.68, 37.42%, 94.34%) 14.8%,
+    hsl(209.58, 37.11%, 94.15%) 14.8%,
+    hsl(209.58, 37.11%, 94.15%) 18.5%,
+    hsl(209.49, 36.83%, 93.96%) 18.5%,
+    hsl(209.49, 36.83%, 93.96%) 22.2%,
+    hsl(209.4, 36.56%, 93.77%) 22.2%,
+    hsl(209.4, 36.56%, 93.77%) 25.9%,
+    hsl(209.32, 36.31%, 93.58%) 25.9%,
+    hsl(209.32, 36.31%, 93.58%) 29.6%,
+    hsl(209.24, 36.07%, 93.39%) 29.6%,
+    hsl(209.24, 36.07%, 93.39%) 33.3%,
+    hsl(209.16, 35.85%, 93.21%) 33.3%,
+    hsl(209.16, 35.85%, 93.21%) 37%,
+    hsl(209.09, 35.64%, 93.02%) 37%,
+    hsl(209.09, 35.64%, 93.02%) 40.7%,
+    hsl(209.02, 35.44%, 92.83%) 40.7%,
+    hsl(209.02, 35.44%, 92.83%) 44.4%,
+    hsl(208.95, 35.25%, 92.64%) 44.4%,
+    hsl(208.95, 35.25%, 92.64%) 48.1%,
+    hsl(208.89, 35.06%, 92.45%) 48.1%,
+    hsl(208.89, 35.06%, 92.45%) 51.9%,
+    hsl(208.83, 34.89%, 92.26%) 51.9%,
+    hsl(208.83, 34.89%, 92.26%) 55.6%,
+    hsl(208.77, 34.73%, 92.07%) 55.6%,
+    hsl(208.77, 34.73%, 92.07%) 59.3%,
+    hsl(208.71, 34.57%, 91.89%) 59.3%,
+    hsl(208.71, 34.57%, 91.89%) 63%,
+    hsl(208.65, 34.42%, 91.7%) 63%,
+    hsl(208.65, 34.42%, 91.7%) 66.7%,
+    hsl(208.6, 34.28%, 91.51%) 66.7%,
+    hsl(208.6, 34.28%, 91.51%) 70.4%,
+    hsl(208.55, 34.14%, 91.32%) 70.4%,
+    hsl(208.55, 34.14%, 91.32%) 74.1%,
+    hsl(208.5, 34.01%, 91.13%) 74.1%,
+    hsl(208.5, 34.01%, 91.13%) 77.8%,
+    hsl(208.45, 33.89%, 90.94%) 77.8%,
+    hsl(208.45, 33.89%, 90.94%) 81.5%,
+    hsl(208.41, 33.77%, 90.75%) 81.5%,
+    hsl(208.41, 33.77%, 90.75%) 85.2%,
+    hsl(208.36, 33.65%, 90.57%) 85.2%,
+    hsl(208.36, 33.65%, 90.57%) 88.9%,
+    hsl(208.32, 33.54%, 90.38%) 88.9%,
+    hsl(208.32, 33.54%, 90.38%) 92.6%,
+    hsl(208.28, 33.44%, 90.19%) 92.6%,
+    hsl(208.28, 33.44%, 90.19%) 96.3%,
+    hsl(208.24, 33.33%, 90%) 96.3%,
+    hsl(208.24, 33.33%, 90%) 100%
   );
-  --footer-background: linear-gradient(to right, #5e7e9e, #204666);
+  /* --global-background-mid: linear-gradient(
+    to top,
+    hsl(201.11, 100%, 39.02%) 0%,
+    hsl(202.8, 84.76%, 42.4%) 8.1%,
+    hsl(204.27, 72.5%, 45.9%) 15.5%,
+    hsl(205.51, 62.67%, 49.46%) 22.5%,
+    hsl(206.53, 61.83%, 53.02%) 29%,
+    hsl(207.36, 63.01%, 56.54%) 35.3%,
+    hsl(208.02, 64.87%, 59.95%) 41.2%,
+    hsl(208.55, 67.39%, 63.21%) 47.1%,
+    hsl(208.96, 70.55%, 66.26%) 52.9%,
+    hsl(209.28, 74.28%, 69.07%) 58.8%,
+    hsl(209.52, 78.46%, 71.58%) 64.7%,
+    hsl(209.7, 82.88%, 73.75%) 71%,
+    hsl(209.84, 87.21%, 75.53%) 77.5%,
+    hsl(209.93, 90.98%, 76.88%) 84.5%,
+    hsl(209.98, 93.65%, 77.74%) 91.9%,
+    hsl(210, 94.64%, 78.04%) 100%
+  ); */
+  --footer-background-light: hsl(201.82deg 95.64% 4.91%);
+  /* --footer-box-shadow-light: --- */
+  /* --footer-background-dark: --- */
+  /* --footer-box-shadow-dark: 0px -2px 3px 2px var(var(--footer-background-dark)); */
 
-  --body-background-image-alternative: radial-gradient(
+  /* --body-background-image-alternative: radial-gradient(
     ellipse at center,
     #e1e1e1 0%,
     #dfdfdf 10%,
@@ -32,24 +122,29 @@
     #cbcccc 95%,
     #c9caca 98%,
     #c7c8c8 100%
-  );
+  ); */
 
   /** ---  **/
 
-  --footer-font-color: #ffffff;
+  /** Text  **/
 
-  --primary-color: #a91638;
-  --secondary-color: #a90034;
+  --text-primary: hsl(201.82deg 100% 10.78%);
+  --text-secondary: hsl(0, 0%, 50%);
 
-  --link-color: #36345a;
-  --link-hover-color: #36345a;
-  --backdrop-gradient: linear-gradient(45deg, #ff8a00, #e52e71, #fae048);
+  /* --footer-text-color-light: hsl(201.82deg 100% 10.78%); */
+  --footer-text-color-light: hsl(51, 100%, 96.08%);
+
+  /** ---  **/
+
+  --link-color: #d3c828;
+  --link-hover-color: #dbd020;
+
+  /*  ---  */
 
   /* Typography */
-  --font-size: 16px;
+  --default-font-size: 16px;
 
-  /* Layout */
-  --container-width: 80vw;
+  /*  ---  */
 }
 
 /***___ RESET.CSS ___***/
@@ -140,23 +235,13 @@ select {
 /***___ MY CUSTOM STYLING___***/
 
 html {
-  /* height: 100%; */
   min-height: auto;
-  /* todo: to be deleted */
-  /* background: repeating-radial-gradient(
-    circle at center,
-    #ffffff,
-    #0000001c clamp(7.66666px, 10%, 20px),
-    #6d6d6d1c clamp(24.66666px, 30%, 40px)
-  ); */
 }
 
 /* Layout */
 body {
-  font-family: var(--font-family);
-  font-size: var(--font-size);
-  color: var(--text-color);
-  /* background-color: #f3f3f3; */
+  background: var(--global-background-light);
+  font-size: var(--default-font-size);
 
   margin: 0;
   padding: 0;
@@ -165,25 +250,58 @@ body {
   justify-content: space-between;
   gap: 1em;
   position: relative;
-  /* transition: background-color 0.5s ease; */
-  /* background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent clamp(2px, 5%, 5px),
-    #c9c9c980 clamp(3px, 8%, 10px),
-    #936e6e78 clamp(3px, 8%, 10px)
-  ); */
-  background-image: var(--body-background-image);
+}
+
+body,
+.header,
+.root,
+.footer {
+  width: 100%;
+}
+
+/* .header:focus,
+.header:hover,
+.footer:focus,
+.footer:hover {
+  opacity: 1;
+} */
+
+/* TODO: Test, revert (-1px) to (1px) for either header or footer maybe */
+/* .header,
+.footer {
+  box-shadow: 0 -1px 5px 0px var(--text-primary);
+} */
+
+.header {
+  font-size: 1.25rem;
+
+  background: var(--header-background-light);
+  /* box-shadow: var(--header-box-shadow-light); */
 }
 
 .root {
+  color: var(--text-primary);
+
   flex-grow: 1;
   overflow: hidden;
-  /* height: 100%; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.footer {
+  font-size: 1rem;
+
+  background: var(--footer-background-light);
+  /* box-shadow: var(--footer-box-shadow-light); */
+  color: var(--footer-text-color-light);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0.6em 0;
 }
 
 /* Resetter "base" Class */
@@ -222,6 +340,50 @@ body {
   padding-top: 0px;
   position: relative;
   z-index: 0;
+}
+
+/* Headers */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-bottom: 0.8em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: clamp(2.25rem, 5vw + 1rem, 3rem);
+}
+
+h2 {
+  font-size: clamp(1.65rem, 4vw + 0.5rem, 2.5rem);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 3vw + 0.4rem, 2.25rem);
+}
+
+/* Non-decotared anchor elements */
+a {
+  text-decoration: none;
+  color: var(--link-color);
+}
+
+a:hover,
+a:focus {
+  color: var(--link-hover-color);
+  /* text-decoration: underline;   */
 }
 
 main {
@@ -272,89 +434,12 @@ section {
   height: 100%;
 }
 
-/* Headers */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin-bottom: 0.8em;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: bold;
-}
-
-h1 {
-  font-size: clamp(2.25rem, 5vw + 1rem, 3rem);
-}
-
-h2 {
-  font-size: clamp(1.65rem, 4vw + 0.5rem, 2.5rem);
-}
-
-h3 {
-  font-size: clamp(1.25rem, 3vw + 0.4rem, 2.25rem);
-}
-
-/* Non-decotared anchor elements */
-a {
-  text-decoration: none;
-  color: var(--link-color);
-}
-
-a:hover,
-a:focus {
-  color: var(--link-hover-color);
-  /* text-decoration: underline;   */
-}
-
-/* .header,
-.footer {
-  background-color: var(--header-footer-background-color);
-  opacity: 0.87;
-} */
-
-/* .header:focus,
-.header:hover,
-.footer:focus,
-.footer:hover {
-  opacity: 1;
-} */
-
-.header {
-  font-size: 1.25rem;
-
-  background: var(--header-background);
-  box-shadow: 0px 0px 5px -1px var(--primary-color);
-}
-
 .content {
   display: flex;
   /* margin: 1rem; */
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.footer {
-  font-size: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 0.6em 0;
-
-  background: var(--footer-background);
-  color: var(--footer-font-color);
-  box-shadow: 0px 7px 8px 7px #a1a1a1;
 }
 
 @media (min-width: 40rem) {
@@ -417,10 +502,19 @@ nextjs-portal {
 .create-template-button {
   width: 200px;
   height: 50px;
-  background-color: var(--primary-color);
+  background-color: var(--text-primary);
   color: #ffffff;
 }
 
 @media (min-width: 40rem) {
   /* TODO */
+}
+
+
+@media screen and (prefers-color-scheme: dark) {
+  /* TODO */
+  /* body {
+    background: var(--text-primary);
+    color: var(--global-background-light);
+  } */
 }

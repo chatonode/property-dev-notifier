@@ -1,7 +1,7 @@
-'use client'
+// 'use client'
 
-import { memo } from 'react'
-import LoadingContainer from './components/(Loading)/LoadingContainer'
+// import { memo } from 'react'
+import LoadingContainer from '@/components/(Loading)/LoadingContainer'
 
 const RootLoading = () => {
   return (
@@ -11,4 +11,4 @@ const RootLoading = () => {
   )
 }
 
-export default memo(RootLoading)
+export default RootLoading

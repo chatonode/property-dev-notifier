@@ -6,20 +6,42 @@
 }
 
 .blob {
-  /* background: #b3ff01; */
-  background: #a91638;
   border-radius: 50%;
   margin: 10px;
   height: 50px;
   width: 50px;
 
+  /* background: #b3ff01; */
+  /* background: #a91638; */
+  background: #edf2f7;
   /* box-shadow: 0 0 0 0 #b3ff01; */
-  box-shadow: 0 0 0 0 #a91638;
+  /* box-shadow: 0 0 0 0 #a91638; */
+  box-shadow: #edf2f7;
   transform: scale(1);
   animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 #a91638b9;
+    box-shadow: 0 0 0 0 #edf2f7bb;
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px #b3ff0100;
+    box-shadow: 0 0 0 10px #edf2f700;
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 #b3ff0100;
+    box-shadow: 0 0 0 0 #edf2f700;
+  }
+}
+
+/* @keyframes pulse {
   0% {
     transform: scale(0.95);
     box-shadow: 0 0 0 0 #a91638b9;
@@ -34,4 +56,4 @@
     transform: scale(0.95);
     box-shadow: 0 0 0 0 #b3ff0100;
   }
-}
+} */

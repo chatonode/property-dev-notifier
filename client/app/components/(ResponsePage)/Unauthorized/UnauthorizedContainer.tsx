@@ -1,5 +1,3 @@
-'use client'
-
 import Link from 'next/link'
 import classes from './UnauthorizedContainer.module.css'
 import { ERoute } from '@/app/types/enums'

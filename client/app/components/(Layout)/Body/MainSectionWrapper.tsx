@@ -1,7 +1,3 @@
-'use client'
-
-import { memo } from 'react'
-
 import { PropsWithChildren } from 'react'
 
 const MainSectionWrapper = (props: PropsWithChildren) => {
@@ -12,4 +8,4 @@ const MainSectionWrapper = (props: PropsWithChildren) => {
   )
 }
 
-export default memo(MainSectionWrapper)
+export default MainSectionWrapper
