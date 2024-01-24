@@ -1,7 +1,9 @@
-import React from 'react'
-import classes from './loading.module.css'
+'use client'
 
-export default function RootLoadingSkeleton() {
+import React from 'react'
+import classes from './DummySkeleton.module.css'
+
+const DummySkeleton = () => {
   return (
     <div className={classes.container}>
       <div className={classes['c-item']}>
@@ -25,3 +27,5 @@ export default function RootLoadingSkeleton() {
     </div>
   )
 }
+
+export default DummySkeleton

@@ -1,10 +1,10 @@
-import MainSectionWrapper from '@/app/components/(Layout)/Body/MainSectionWrapper'
+import ErrorLayout from '@/components/UI/Error/ErrorLayout'
 import RateLimitContainer from '@/components/(ResponsePage)/RateLimit/RateLimitContainer'
 
 export default function RateLimitExceeded() {
   return (
-    <MainSectionWrapper>
+    <ErrorLayout>
       <RateLimitContainer />
-    </MainSectionWrapper>
+    </ErrorLayout>
   )
 }

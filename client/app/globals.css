@@ -102,29 +102,10 @@
     hsl(209.98, 93.65%, 77.74%) 91.9%,
     hsl(210, 94.64%, 78.04%) 100%
   ); */
-  /* --footer-background-light: linear-gradient(
-    to top,
-    hsl(61.94, 100%, 93.92%) 0%,
-    hsl(61.94, 100%, 93.92%) 8.1%,
-    hsl(62, 100%, 94.12%) 15.5%,
-    hsl(60, 100%, 94.12%) 22.5%,
-    hsl(60, 100%, 94.31%) 29%,
-    hsl(60, 100%, 94.51%) 35.3%,
-    hsl(57.78, 100%, 94.71%) 41.2%,
-    hsl(57.69, 100%, 94.9%) 47.1%,
-    hsl(55.2, 100%, 95.1%) 52.9%,
-    hsl(55, 100%, 95.29%) 58.8%,
-    hsl(54.78, 100%, 95.49%) 64.7%,
-    hsl(51.82, 100%, 95.69%) 71%,
-    hsl(51.43, 100%, 95.88%) 77.5%,
-    hsl(51.43, 100%, 95.88%) 84.5%,
-    hsl(51, 100%, 96.08%) 91.9%,
-    hsl(51, 100%, 96.08%) 100%
-  ); */
   --footer-background-light: hsl(201.82deg 95.64% 4.91%);
-  /* --footer-box-shadow-light: 0px -2px 3px 2px hsl(51, 100%, 96.08%); */
-  /* --footer-background-dark: hsl(201.11, 100%, 30%);
-  --footer-box-shadow-dark: 0px -2px 3px 2px var(var(--footer-background-dark)); */
+  /* --footer-box-shadow-light: --- */
+  /* --footer-background-dark: --- */
+  /* --footer-box-shadow-dark: 0px -2px 3px 2px var(var(--footer-background-dark)); */
 
   /* --body-background-image-alternative: radial-gradient(
     ellipse at center,
@@ -527,4 +508,13 @@ nextjs-portal {
 
 @media (min-width: 40rem) {
   /* TODO */
+}
+
+
+@media screen and (prefers-color-scheme: dark) {
+  /* TODO */
+  /* body {
+    background: var(--text-primary);
+    color: var(--global-background-light);
+  } */
 }

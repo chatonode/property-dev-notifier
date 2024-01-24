@@ -27,16 +27,28 @@ const activateResponseInterceptor = (instance: AxiosInstance) => {
             console.error('Interceptor: 401')
             // const router = useRouter()
             return redirect(ERoute.Unauthorized)
-          // return Promise.resolve(error.response)
+          case 403:
+            console.error('Interceptor: 403')
+            return redirect(ERoute.Forbidden)
           case 404:
             console.error('Interceptor: 404')
             return Promise.resolve(error.response)
           case 500:
             console.error('Interceptor: 500')
-            return Promise.resolve(error.response)
+            return redirect(ERoute.InternalServerError)
           default:
             return Promise.reject(error)
         }
+      } else if (error.request) {
+        // Network-related errors (e.g., timeout, no response)
+        console.error('Interceptor: Network error')
+        // Handle and provide user feedback
+        return redirect(ERoute.NetworkError)
+      } else {
+        // Other unexpected errors
+        console.error('Interceptor: Unexpected error', error.message)
+        // Handle and provide user feedback
+        return redirect(ERoute.GenericError)
       }
     }
   )
