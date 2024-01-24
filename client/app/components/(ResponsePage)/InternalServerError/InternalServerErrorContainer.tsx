@@ -2,7 +2,6 @@ import Link from 'next/link'
 import classes from './InternalServerErrorContainer.module.css'
 import { ERoute } from '@/app/types/enums'
 
-// InternalServerErrorContainer component
 const InternalServerErrorContainer = () => {
   return (
     <>

@@ -1,3 +1,4 @@
+// TODO: Make it a server component by creating a separate client button component for enabling event handler only for this particular element
 'use client'
 
 import { useRouter } from 'next/navigation'

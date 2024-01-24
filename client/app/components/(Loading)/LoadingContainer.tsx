@@ -1,3 +1,4 @@
+// TODO: does it worth it to turn this into a server component?
 'use client'
 
 import { memo } from 'react'

@@ -1,6 +1,6 @@
-'use client'
+// 'use client'
 
-import { memo } from "react"
+// import { memo } from "react"
 
 const ImageSpinner = () => {
   return (
@@ -57,4 +57,4 @@ const ImageSpinner = () => {
   )
 }
 
-export default memo(ImageSpinner)
+export default ImageSpinner

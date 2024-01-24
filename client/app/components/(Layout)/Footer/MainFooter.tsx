@@ -1,5 +1,3 @@
-// 'use client'
-
 import classes from './MainFooter.module.css'
 
 const MainFooter = () => {

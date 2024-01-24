@@ -1,6 +1,6 @@
-'use client'
+// 'use client'
 
-import { memo } from 'react'
+// import { memo } from 'react'
 
 const AuthFormWavesSVG = () => {
   return (
@@ -30,4 +30,4 @@ const AuthFormWavesSVG = () => {
   )
 }
 
-export default memo(AuthFormWavesSVG)
+export default AuthFormWavesSVG

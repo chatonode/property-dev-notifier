@@ -1,13 +1,13 @@
-'use client'
+// 'use client'
 
-import { memo } from 'react'
+// import { memo } from 'react'
 
 import classes from './AuthFormSailsSVG.module.css'
 
 const AuthFormSailsSVG = () => {
   return (
     <svg
-    className={classes.container}
+      className={classes.container}
       version="1.0"
       xmlns="http://www.w3.org/2000/svg"
       width="144.000000pt"
@@ -30,4 +30,4 @@ const AuthFormSailsSVG = () => {
   )
 }
 
-export default memo(AuthFormSailsSVG)
+export default AuthFormSailsSVG
