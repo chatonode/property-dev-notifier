@@ -1,11 +1,11 @@
-import ErrorLayout from '@/components/UI/Error/ErrorLayout'
+import ErrorSectionWrapper from '@/app/components/(Layout)/Body/Error/ErrorSectionWrapper'
 import InternalServerErrorContainer from '@/components/(ResponsePage)/InternalServerError/InternalServerErrorContainer'
 
 const InternalServerError = () => {
   return (
-    <ErrorLayout>
+    <ErrorSectionWrapper>
       <InternalServerErrorContainer />
-    </ErrorLayout>
+    </ErrorSectionWrapper>
   )
 }
 

@@ -2,7 +2,7 @@ import { Suspense } from 'react'
 import NotificationMultiForm from '@/app/components/(Notification)/NotificationMultiForm'
 
 import MainSectionWrapper from '@/app/components/(Layout)/Body/MainSectionWrapper'
-import getPropertyDevelopers from '@/api/(users)/property-developers/get'
+import getPropertyDevelopers from '@/app/api/(users)/property-developers/list'
 
 const CreateNotificationTemplate = async () => {
   // const propertyDevelopers = await getPropertyDevelopers()

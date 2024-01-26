@@ -1,0 +1,35 @@
+/* CreatePropertyDeveloperContainer.module.css */
+
+.container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  background: var(--global-background-light);
+  box-shadow: 0px 2px 3px 2px var(--text-primary);
+  border-radius: 8px;
+}
+
+.container label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.container input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.container button {
+  background-color: var(--text-primary);
+  color: #ffffff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.container button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}

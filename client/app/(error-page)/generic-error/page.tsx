@@ -1,11 +1,11 @@
-import ErrorLayout from '@/components/UI/Error/ErrorLayout'
+import ErrorSectionWrapper from '@/app/components/(Layout)/Body/Error/ErrorSectionWrapper'
 import GenericErrorContainer from '@/components/(ResponsePage)/GenericError/GenericErrorContainer'
 
 const GenericError = () => {
   return (
-    <ErrorLayout>
+    <ErrorSectionWrapper>
       <GenericErrorContainer />
-    </ErrorLayout>
+    </ErrorSectionWrapper>
   )
 }
 

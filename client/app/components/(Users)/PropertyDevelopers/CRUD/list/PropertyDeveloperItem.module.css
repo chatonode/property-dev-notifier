@@ -1,0 +1,22 @@
+/* PropertyDeveloperItem.module.css */
+
+.item {
+  width: 100%;
+  max-width: 320px;
+  padding: 1em;
+  background: var(--global-background-light);
+  box-shadow: 0px 2px 3px 2px var(--text-primary);
+  border-radius: 8px;
+}
+
+.fullName {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+.email {
+  color: var(--text-secondary);
+}
+
+/* Add more styling for additional information as needed */

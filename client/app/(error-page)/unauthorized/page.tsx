@@ -1,11 +1,11 @@
-import ErrorLayout from '@/components/UI/Error/ErrorLayout'
+import ErrorSectionWrapper from '@/app/components/(Layout)/Body/Error/ErrorSectionWrapper'
 import UnauthorizedContainer from '@/components/(ResponsePage)/Unauthorized/UnauthorizedContainer'
 
 const Unauthorized = () => {
   return (
-    <ErrorLayout>
+    <ErrorSectionWrapper>
       <UnauthorizedContainer />
-    </ErrorLayout>
+    </ErrorSectionWrapper>
   )
 }
 

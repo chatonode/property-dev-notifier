@@ -3,7 +3,7 @@ import { PropsWithChildren } from 'react'
 const MainSectionWrapper = (props: PropsWithChildren) => {
   return (
     <main>
-      <section className="content">{props.children}</section>
+      <section>{props.children}</section>
     </main>
   )
 }

@@ -1,7 +1,7 @@
 'use client'
 
 import { useCallback, useEffect } from 'react'
-import ErrorLayout from '@/app/components/UI/Error/ErrorLayout'
+import ErrorSectionWrapper from '@/app/components/(Layout)/Body/Error/ErrorSectionWrapper'
 import Link from 'next/link'
 import { ERoute } from './types/enums'
 
@@ -26,7 +26,7 @@ const Error = ({ error, reset }: TErrorProps) => {
   }, [error])
 
   return (
-    <ErrorLayout>
+    <ErrorSectionWrapper>
       <div>
         <h2>Whoopsie...</h2>
         {/* <h3>{error.name}</h3> */}
@@ -50,7 +50,7 @@ const Error = ({ error, reset }: TErrorProps) => {
         )} */}
         <Link href={ERoute.Home}>Return to Home Page</Link>
       </div>
-    </ErrorLayout>
+    </ErrorSectionWrapper>
   )
 }
 

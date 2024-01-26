@@ -124,6 +124,8 @@
     #c7c8c8 100%
   ); */
 
+  --theme-color-transition-duration: 0.3s;
+
   /** ---  **/
 
   /** Text  **/
@@ -192,7 +194,8 @@ html:focus-within {
 
 /* Set core body defaults */
 body {
-  min-height: 100vh;
+  min-height: 100vh; /* Else, compatible version is set */ /** NOTE: This is the correct order to make it work. **/
+  min-height: 100dvh; /* If compatible client, it counts URL Bar, etc */
   text-rendering: optimizeSpeed;
   line-height: 1.5;
 }
@@ -257,6 +260,20 @@ body,
 .root,
 .footer {
   width: 100%;
+}
+
+/* Color Change */
+body,
+.header,
+.footer {
+  transition: background var(--theme-color-transition-duration) linear;
+  background-blend-mode: color; /* To make it work with HSL */
+}
+
+.header,
+.root,
+.footer {
+  transition: color var(--theme-color-transition-duration) linear; /* Essential to assign (text) color from these 3 main pieces to make this transition work */
 }
 
 /* .header:focus,
@@ -386,6 +403,22 @@ a:focus {
   /* text-decoration: underline;   */
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+button,
+label,
+a {
+  /* overflow-wrap: break-word; */
+  overflow-wrap: anywhere;
+}
+
+/* Refresh */
 main {
   -ms-flex-align: stretch;
   -ms-flex-direction: column;
@@ -421,33 +454,37 @@ main {
   padding-top: 0px;
   position: relative;
   z-index: 0;
+}
 
-  /* Customize */
-  height: 100%;
+/* Customize main after resetting */
+main {
+  /* height: 100%; */
   margin: auto;
   padding-top: 1em;
   padding-bottom: 1.2em;
+  flex-grow: 1;
 }
 
 section {
-  /* min-height: 70vh; */
-  height: 100%;
-}
-
-.content {
   display: flex;
   /* margin: 1rem; */
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 
+/* section h2 {
+  text-shadow: 2px 2px 0 transparent, 4px 4px 0 var(--header-background-light),
+    6px 6px 0 var(--text-primary);
+} */
+
 @media (min-width: 40rem) {
-  main {
+  /* main {
     height: 77.6vh;
     max-height: 80vh;
-  }
+  } */
 }
+
 
 /* After Reset: More Customization */
 
@@ -457,15 +494,15 @@ nextjs-portal {
 }
 
 /** Errors **/
-.error-content {
+.error-section {
   text-align: center;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
   border-radius: 20px;
   padding: 1em;
 
@@ -474,17 +511,17 @@ nextjs-portal {
   transition: box-shadow 0.3s ease-in;
 }
 
-.error-content:hover,
-.error-content:focus {
+.error-section:hover,
+.error-section:focus {
   box-shadow: 0px -1px 5px 2px red;
 }
 
-.error-content h2 {
+.error-section h2 {
   color: #ff0000; /* Red color for error headings */
   margin-bottom: 1em;
 }
 
-.error-content p {
+.error-section p {
   font-size: 1.2em;
   color: #333; /* Dark color for error details */
 }
@@ -492,7 +529,6 @@ nextjs-portal {
 /** END of Errors **/
 
 .logo-container {
-  box-sizing: border-box;
   padding: 20px 20px 10px 20px;
   display: flex;
   justify-content: space-between;
@@ -509,7 +545,6 @@ nextjs-portal {
 @media (min-width: 40rem) {
   /* TODO */
 }
-
 
 @media screen and (prefers-color-scheme: dark) {
   /* TODO */
