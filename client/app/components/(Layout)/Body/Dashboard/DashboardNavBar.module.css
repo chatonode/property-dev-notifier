@@ -1,0 +1,36 @@
+.navbar-container {
+  z-index: 9996;
+
+  background: blue;
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* width: 100%; */
+  width: 95vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translate(-100%);
+  transition: transform 0.26s ease-in-out;
+}
+
+.opened {
+  transform: translate(0%);
+}
+
+button.dashboard-opener {
+  visibility: visible;
+}
+
+@media (min-width: 40rem) {
+  .navbar-container {
+    width: 220px;
+    height: 100%;
+  }
+
+  button.dashboard-opener {
+    visibility: hidden;
+  }
+}

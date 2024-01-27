@@ -5,6 +5,7 @@ import { ERoute } from '@/types/enums'
 
 import WelcomeScreen from '@/components/(Welcome)/WelcomeScreen'
 import MainSectionWrapper from '@/app/components/(Layout)/Body/MainSectionWrapper'
+import DashboardNavBar from '../components/(Layout)/Body/Dashboard/DashboardNavBar'
 
 const Dashboard = async () => {
   const currentUser = await getCurrentUser()
@@ -16,10 +17,14 @@ const Dashboard = async () => {
   }
 
   return (
-    <MainSectionWrapper>
-      <h2>Welcome!</h2>
-      <WelcomeScreen />
-    </MainSectionWrapper>
+    <>
+      <MainSectionWrapper>
+        <DashboardNavBar>
+          {/* <h3>Howdy There!</h3> */}
+          <WelcomeScreen />
+        </DashboardNavBar>
+      </MainSectionWrapper>
+    </>
   )
 }
 
