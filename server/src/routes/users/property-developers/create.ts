@@ -9,7 +9,7 @@ import HttpStatusCode from '../../../constants/HTTPStatusCode'
 
 import { requireAuth } from '../../../middlewares/require-auth'
 import { validateRequest } from '../../../middlewares/validate-request'
-import { getVerifiedUserDoc } from '../../../middlewares/get-verified-user-doc'
+import { validateTokenOwner } from '../../../middlewares/validate-token-owner'
 
 import { BadRequestError } from '../../../errors/BadRequestError'
 
@@ -34,7 +34,7 @@ router[RouteMap.CREATE_PROPERTY_DEVELOPER.method](
   ],
   validateRequest,
   requireAuth,
-  getVerifiedUserDoc,
+  validateTokenOwner,
   async (req: Request, res: Response) => {
     const { email, fullName }: RequestBody = req.body
 
@@ -47,7 +47,7 @@ router[RouteMap.CREATE_PROPERTY_DEVELOPER.method](
     const newPropertyDeveloper = PropertyDeveloper.build({
       email,
       fullName,
-      createdBy: req.authenticatedUserDoc!,
+      createdBy: req.currentUserDoc!,
     })
 
     await newPropertyDeveloper.save()

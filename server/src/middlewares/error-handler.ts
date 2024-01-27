@@ -6,13 +6,20 @@ import { CustomError } from '../errors/CustomError'
  * Error Handler Middleware
  *
  * This middleware function is responsible for managing errors that occur during the request-response cycle.
- * It checks if the error is a custom error (e.g., 'BadRequestError') and responds accordingly with the error details.
- * If the error is not a custom error, it logs the error and sends a generic 500 Internal Server Error response.
+ * It checks if the error is a known custom error (e.g., 'BadRequestError') and responds accordingly with the
+ * error details. If the error is not a custom error, it logs the error and sends a generic 500 Internal Server
+ * Error response.
  *
- * @param {Error} err - The error being handled
- * @param {Request} req - The Express request object
- * @param {Response} res - The Express response object
- * @param {NextFunction} next - The Express next function
+ * @param {Error} err - The error being handled. If it's a custom error, it may contain additional information
+ *                      specific to the application's error handling strategy.
+ * @param {import('express').Request} req - The Express Request object.
+ * @param {import('express').Response} res - The Express Response object.
+ * @param {import('express').NextFunction} next - The Express NextFunction callback.
+ *
+ * @example
+ * // Global usage in the 'app.ts' file
+ * const app = express()
+ * app.use(errorHandler)
  */
 export const errorHandler = (
   err: Error,

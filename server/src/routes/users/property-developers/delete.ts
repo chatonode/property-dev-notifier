@@ -6,8 +6,9 @@ import RouteMap from '../../../constants/RouteMap'
 import { PropertyDeveloper } from '../../../models/User/property-developer'
 
 import HttpStatusCode from '../../../constants/HTTPStatusCode'
-import { requireAuth } from '../../../middlewares/require-auth'
 import { validateRequest } from '../../../middlewares/validate-request'
+import { requireAuth } from '../../../middlewares/require-auth'
+import { validateTokenOwner } from '../../../middlewares/validate-token-owner'
 import { NotFoundError } from '../../../errors/NotFoundError'
 
 const router = express.Router()
@@ -21,6 +22,7 @@ router[RouteMap.DELETE_PROPERTY_DEVELOPER.method](
   ],
   validateRequest,
   requireAuth,
+  validateTokenOwner,
   async (req: Request, res: Response) => {
     const propertyDeveloperId = req.params.propertyDeveloperId
 
