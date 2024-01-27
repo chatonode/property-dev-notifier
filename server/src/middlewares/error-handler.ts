@@ -19,6 +19,10 @@ import { CustomError } from '../errors/CustomError'
  * @example
  * // Global usage in the 'app.ts' file
  * const app = express()
+ *
+ * // Other middleware and route configurations go here
+ *
+ * // Error handler should be the last middleware
  * app.use(errorHandler)
  */
 export const errorHandler = (
