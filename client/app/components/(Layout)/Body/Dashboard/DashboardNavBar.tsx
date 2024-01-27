@@ -29,7 +29,9 @@ const DashboardNavBar = (props: PropsWithChildren) => {
       </button>
 
       <div className={navBarContainerClasses}>
-        <button onClick={clickHandler}>X</button>
+        <button className={classes['dashboard-closer']} onClick={clickHandler}>
+          X
+        </button>
         {props.children}
       </div>
     </>
