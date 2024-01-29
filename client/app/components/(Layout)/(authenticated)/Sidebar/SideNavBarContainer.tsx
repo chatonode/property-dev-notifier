@@ -1,17 +1,22 @@
 'use client'
 
 import { PropsWithChildren, memo, useEffect, useState } from 'react'
-import { createPortal } from 'react-dom'
+
+// import { createPortal } from 'react-dom'
 
 // import Backdrop from './Backdrop'
 
-import classes from './DashboardNavBar.module.css'
+import classes from './SideNavBarContainer.module.css'
+import NavigationMenu from './NavigationMenu'
+import Header from './Header'
+import Bottom from './Bottom'
+import Copyright from './Copyright'
 
-// type TBackdropPortalProps = PropsWithChildren & {
+// type TSideNavBarContainerProps = PropsWithChildren & {
 //   onBackdropClick?: () => void
 // }
 
-const DashboardNavBar = (props: PropsWithChildren) => {
+const SideNavBarContainer = (props: PropsWithChildren) => {
   const [opened, toggleOpened] = useState(false)
 
   const clickHandler = () => {
@@ -29,13 +34,14 @@ const DashboardNavBar = (props: PropsWithChildren) => {
       </button>
 
       <div className={navBarContainerClasses}>
-        <button className={classes['dashboard-closer']} onClick={clickHandler}>
-          X
-        </button>
+        <Header onClose={clickHandler} />
+        <NavigationMenu />
         {props.children}
+        <Bottom />
+        <Copyright />
       </div>
     </>
   )
 }
 
-export default DashboardNavBar
+export default SideNavBarContainer

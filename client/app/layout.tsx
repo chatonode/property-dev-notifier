@@ -4,9 +4,10 @@ import type { Metadata } from 'next'
 import { inter500 } from './fonts'
 import getCurrentUser from '@/api/(users)/get-current-user'
 
-import MainHeader from '@/components/(Layout)/Header/MainHeader'
+import MainHeader from '@/app/components/(Layout)/(unauthenticated)/Header/MainHeader'
 import MainFooter from '@/components/(Layout)/Footer/MainFooter'
 import BackgroundPortal from '@/components/UI/Background/BackgroundPortal'
+import SideNavBarContainer from './components/(Layout)/(authenticated)/Sidebar/SideNavBarContainer'
 // import LoadingContainer from '@/components/(Loading)/LoadingContainer'
 
 export const metadata: Metadata = {
@@ -24,11 +25,12 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className={inter500.className}>
-      <body>
-        <MainHeader currentUser={currentUser} />
+      <body className={!!currentUser ? 'authenticated' : undefined}>
+        {!currentUser && <MainHeader />}
+        {!!currentUser && <SideNavBarContainer />}
         {/* <LoadingContainer /> */}
         <div className="root">{children}</div>
-        <MainFooter />
+        {!currentUser && <MainFooter />}
         <BackgroundPortal />
       </body>
     </html>

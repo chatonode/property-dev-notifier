@@ -6,7 +6,7 @@ import { inter500 } from '@/app/fonts'
 
 import BackgroundPortal from '@/components/UI/Background/BackgroundPortal'
 import MainFooter from './components/(Layout)/Footer/MainFooter'
-import MainHeader from './components/(Layout)/Header/MainHeader'
+import MainHeader from './components/(Layout)/(unauthenticated)/Header/MainHeader'
 import ErrorSectionWrapper from './components/(Layout)/Body/Error/ErrorSectionWrapper'
 
 export default function GlobalError({

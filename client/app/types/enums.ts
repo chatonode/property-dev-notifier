@@ -4,9 +4,12 @@ export const enum ERoute {
   Login = '/login',
   GoodBye = '/goodbye',
   Dashboard = '/dashboard',
-  CreateNotificationTemplate = '/notifications/create-a-template',
+  
+  About = '/about',
 
-  // PropertyDevelopers = '/users/property-developers',
+  CreateNotificationTemplate = '/notifications/create-a-template',
+  PropertyDevelopers = '/users/property-developers',
+  CreatePropertyDeveloper = '/users/property-developers/create',
   // MyProfile = '/my-profile',
 
   // RateLimitExceeded = '/rate-limit-exceeded',

@@ -147,6 +147,12 @@
   --default-font-size: 16px;
 
   /*  ---  */
+
+  /* Layout Sizes */
+  /** Width **/
+  --header-logo-container-min-width: 200px;
+  --sidebar-min-width-smaller-screens: 300px;
+  --sidebar-min-width-larger-screens: 250px;
 }
 
 /***___ RESET.CSS ___***/
@@ -253,9 +259,6 @@ body {
   justify-content: space-between;
   gap: 1em;
   position: relative;
-
-  /* TODO: Check it */
-  overflow: hidden;
 }
 
 body,
@@ -277,6 +280,9 @@ body,
 .root,
 .footer {
   transition: color var(--theme-color-transition-duration) linear; /* Essential to assign (text) color from these 3 main pieces to make this transition work */
+
+  /* TODO: Check it */
+  overflow: hidden;
 }
 
 /* .header:focus,
@@ -297,6 +303,10 @@ body,
 
   background: var(--header-background-light);
   /* box-shadow: var(--header-box-shadow-light); */
+  padding: 20px 20px 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .root {
@@ -323,6 +333,22 @@ body,
   text-align: center;
   padding: 0.6em 0;
 }
+
+@media (min-width: 40rem) {
+  body.authenticated {
+    flex-direction: row;
+  }
+
+  /* main {
+    display: flex;
+  } */
+
+  /* .root, .footer {
+    width: var(--page-width-larger-screens);
+  } */
+}
+
+/***********************************************/
 
 /* Resetter "base" Class */
 .base {
@@ -467,8 +493,9 @@ main {
   padding-bottom: 1.2em;
   flex-grow: 1;
 
-  /* For Dashboard Sidebar */
+  /* For Sidebar */
   position: relative;
+  /* display: flex; */
 }
 
 section {
@@ -496,13 +523,6 @@ section {
   text-shadow: 2px 2px 0 transparent, 4px 4px 0 var(--header-background-light),
     6px 6px 0 var(--text-primary);
 } */
-
-@media (min-width: 40rem) {
-  /* main {
-    height: 77.6vh;
-    max-height: 80vh;
-  } */
-}
 
 /* After Reset: More Customization */
 
@@ -546,12 +566,12 @@ nextjs-portal {
 
 /** END of Errors **/
 
-.logo-container {
+/* .logo-container {
   padding: 20px 20px 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
+} */
 
 .create-template-button {
   width: 200px;

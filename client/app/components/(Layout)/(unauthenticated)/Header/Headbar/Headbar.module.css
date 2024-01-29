@@ -1,0 +1,59 @@
+.headbar-container {
+  z-index: 9996;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  animation: show-headbar-collapse 0.2s ease forwards;
+
+  display: none;
+}
+
+.collapsed {
+  /* transform: translate(0%); */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 20px 20px 10px 20px;
+  background: green;
+}
+
+/* button.dashboard-opener {
+  display: inherit;
+} */
+
+@media (min-width: 40rem) {
+  .headbar-container,
+  .collapsed {
+    background: none;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+
+    flex-grow: 1;
+  }
+
+  button.dashboard-opener,
+  button.dashboard-closer {
+    display: none;
+  }
+}
+
+@keyframes show-headbar-collapse {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+    transform-origin: 100% 0;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

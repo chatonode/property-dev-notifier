@@ -1,0 +1,33 @@
+.navigation-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.navigation-list li {
+    list-style: none;
+    padding: 0 0.5em;
+    position: relative;
+}
+
+li::before.active {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%
+
+}
+
+.active {
+    background: yellow;
+}
+
+@media (min-width: 40rem) {
+  .navigation-list {
+    flex-direction: row;
+    align-items: center;
+    margin-left: auto;
+  }
+}
