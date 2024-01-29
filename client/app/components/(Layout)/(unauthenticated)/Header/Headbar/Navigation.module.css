@@ -1,3 +1,8 @@
+nav.navigation-container {
+  width: 100%;
+  display: flex;
+}
+
 .navigation-list {
   display: flex;
   flex-direction: column;
@@ -6,22 +11,21 @@
 }
 
 .navigation-list li {
-    list-style: none;
-    padding: 0 0.5em;
-    position: relative;
+  list-style: none;
+  padding: 0 0.5em;
+  position: relative;
 }
 
 li::before.active {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    width: 100%
-
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
 }
 
 .active {
-    background: yellow;
+  background: yellow;
 }
 
 @media (min-width: 40rem) {

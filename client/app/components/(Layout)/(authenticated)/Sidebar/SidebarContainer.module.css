@@ -1,4 +1,4 @@
-.navbar-container {
+.sidebar-container {
   z-index: 9996;
 
   background: #80dbff;
@@ -26,7 +26,7 @@ button.dashboard-opener {
 }
 
 @media (min-width: 40rem) {
-  .navbar-container,
+  .sidebar-container,
   .opened {
     width: var(--sidebar-min-width-larger-screens);
     flex: 0 0 auto;
@@ -35,7 +35,6 @@ button.dashboard-opener {
     /* width: var(--sidebar-width-larger-screens); */
     /* height: 100%; */
   }
-  
 
   button.dashboard-opener {
     display: none;

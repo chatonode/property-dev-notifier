@@ -6,24 +6,24 @@ import { PropsWithChildren, memo, useEffect, useState } from 'react'
 
 // import Backdrop from './Backdrop'
 
-import classes from './SideNavBarContainer.module.css'
+import classes from './SidebarContainer.module.css'
 import NavigationMenu from './NavigationMenu'
 import Header from './Header'
 import Bottom from './Bottom'
 import Copyright from './Copyright'
 
-// type TSideNavBarContainerProps = PropsWithChildren & {
+// type TSidebarContainerProps = PropsWithChildren & {
 //   onBackdropClick?: () => void
 // }
 
-const SideNavBarContainer = (props: PropsWithChildren) => {
+const SidebarContainer = (props: PropsWithChildren) => {
   const [opened, toggleOpened] = useState(false)
 
   const clickHandler = () => {
     toggleOpened((prevOpenState) => !prevOpenState)
   }
 
-  const navBarContainerClasses = `${classes['navbar-container']}${
+  const sidebarContainerClasses = `${classes['sidebar-container']}${
     opened ? ` ${classes.opened}` : ''
   }`
 
@@ -33,7 +33,7 @@ const SideNavBarContainer = (props: PropsWithChildren) => {
         CLIKC MEI!
       </button>
 
-      <div className={navBarContainerClasses}>
+      <div className={sidebarContainerClasses}>
         <Header onClose={clickHandler} />
         <NavigationMenu />
         {props.children}
@@ -44,4 +44,4 @@ const SideNavBarContainer = (props: PropsWithChildren) => {
   )
 }
 
-export default SideNavBarContainer
+export default memo(SidebarContainer)

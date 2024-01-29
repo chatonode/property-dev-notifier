@@ -1,9 +1,9 @@
 'use client'
 
 import { useCallback, useEffect } from 'react'
-import ErrorSectionWrapper from '@/app/components/(Layout)/Body/Error/ErrorSectionWrapper'
 import Link from 'next/link'
-import { ERoute } from './types/enums'
+import ErrorSectionWrapper from '@/app/components/(Layout)/Body/Error/ErrorSectionWrapper'
+import { ERoute } from '@/types/enums'
 
 type TNextError = Error & { digest?: string }
 

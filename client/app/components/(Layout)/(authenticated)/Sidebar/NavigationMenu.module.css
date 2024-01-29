@@ -1,20 +1,17 @@
-.navigation {
-    width: 100%;
-    display: flex;
-    /* flex-direction: column;
+nav.navigation-container {
+  width: 100%;
+  display: flex;
+  /* flex-direction: column;
     justify-content: center;
     align-items: flex-start; */
 }
 
 .navigation-list {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-
-
 .active {
-    background: darkgreen;
+  background: darkgreen;
 }

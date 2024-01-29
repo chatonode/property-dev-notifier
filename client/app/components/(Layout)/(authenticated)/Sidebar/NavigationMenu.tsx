@@ -7,7 +7,7 @@ const NavigationMenu = () => {
   const pathname = usePathname()
 
   return (
-    <div className={classes.navigation}>
+    <nav className={classes['navigation-container']}>
       <ul className={classes['navigation-list']}>
         <li key={ERoute.Dashboard}>
           <Link
@@ -31,6 +31,18 @@ const NavigationMenu = () => {
             Property Developers
           </Link>
         </li>
+        <li key={ERoute.CreatePropertyDeveloper}>
+          <Link
+            href={ERoute.CreatePropertyDeveloper}
+            className={
+              pathname === ERoute.CreatePropertyDeveloper
+                ? classes.active
+                : undefined
+            }
+          >
+            Create a Property Developer
+          </Link>
+        </li>
         <li key={ERoute.CreateNotificationTemplate}>
           <Link
             href={ERoute.CreateNotificationTemplate}
@@ -44,7 +56,7 @@ const NavigationMenu = () => {
           </Link>
         </li>
       </ul>
-    </div>
+    </nav>
   )
 }
 
