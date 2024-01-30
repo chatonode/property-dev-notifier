@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { memo } from 'react'
+
+import classes from './HamburgerSVG.module.css'
 
 type THamburgerSVGProps = {
   onClick: () => void
@@ -6,7 +8,7 @@ type THamburgerSVGProps = {
 
 const HamburgerSVG = (props: THamburgerSVGProps) => {
   return (
-    <>
+    <div className={classes['hamburger-container']}>
       <svg
         width="24"
         height="18"
@@ -19,8 +21,8 @@ const HamburgerSVG = (props: THamburgerSVGProps) => {
         <rect y="7" width="24" height="3" rx="1.5" fill="#333" />
         <rect y="14" width="24" height="3" rx="1.5" fill="#333" />
       </svg>
-    </>
+    </div>
   )
 }
 
-export default HamburgerSVG
+export default memo(HamburgerSVG)

@@ -1,6 +1,6 @@
 'use client'
 
-import { memo, useEffect, useState, useTransition } from 'react'
+import { memo, useCallback, useEffect, useState, useTransition } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 
 import classes from './MainHeader.module.css'
@@ -12,25 +12,31 @@ import Headbar from './Headbar/Headbar'
 import { ERoute } from '@/app/types/enums'
 
 type TMainHeaderProps = {
-  // currentUser: TCurrentUser
+  currentUser: TCurrentUser
   // onClick: () => void
 }
 
 const MainHeader = (props: TMainHeaderProps) => {
   const [headbarCollapsed, toggleHeadbarCollapsed] = useState(false)
 
-  const toggleHeadbarHandler = () => {
+  const toggleHeadbarHandler = useCallback(() => {
     toggleHeadbarCollapsed((prevHeadbarState) => !prevHeadbarState)
-  }
+  }, [])
+
+  const closeHeadbarHandler = useCallback(() => {
+    toggleHeadbarCollapsed(false)
+  }, [])
 
   return (
     <>
       <header className="header">
         <LogoContainer />
-        <Headbar collapsed={headbarCollapsed} />
-        <div className={classes['hamburger-container']}>
-          <HamburgerSVG onClick={toggleHeadbarHandler} />
-        </div>
+        <Headbar
+          currentUser={props.currentUser}
+          collapsed={headbarCollapsed}
+          onClose={closeHeadbarHandler}
+        />
+        <HamburgerSVG onClick={toggleHeadbarHandler} />
       </header>
     </>
   )

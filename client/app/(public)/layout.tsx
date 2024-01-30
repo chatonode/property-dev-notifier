@@ -18,11 +18,11 @@ const PublicLayout = async (props: TInternalLayoutProps) => {
   const currentUser = await getCurrentUser()
 
   return (
-    <>
-      <MainHeader />
+    <div className="layout-public">
+      <MainHeader currentUser={currentUser} />
       <div className="root">{props.children}</div>
       <MainFooter />
-    </>
+    </div>
   )
 }
 

@@ -19,12 +19,3 @@
   cursor: progress;
 } */
 
-.hamburger-container {
-  display: inherit;
-}
-
-@media (min-width: 40rem) {
-  .hamburger-container {
-    display: none;
-  }
-}

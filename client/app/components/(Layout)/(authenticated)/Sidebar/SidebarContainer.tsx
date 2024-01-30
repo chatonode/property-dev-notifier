@@ -1,37 +1,49 @@
 'use client'
 
-import { PropsWithChildren, memo, useEffect, useState } from 'react'
+import {
+  PropsWithChildren,
+  ReactNode,
+  memo,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react'
 
 // import { createPortal } from 'react-dom'
 
 // import Backdrop from './Backdrop'
 
 import classes from './SidebarContainer.module.css'
+import HamburgerWrapper from './HamburgerWrapper'
 import NavigationMenu from './NavigationMenu'
 import Header from './Header'
 import Bottom from './Bottom'
 import Copyright from './Copyright'
 
-// type TSidebarContainerProps = PropsWithChildren & {
-//   onBackdropClick?: () => void
-// }
+type TSidebarContainerProps = {
+  children?: ReactNode
+  // onCollapse: () => void
+  // onOpen: () => void
+}
 
-const SidebarContainer = (props: PropsWithChildren) => {
-  const [opened, toggleOpened] = useState(false)
+const SidebarContainer = (props: TSidebarContainerProps) => {
+  const [sidebarCollapsed, toggleSidebarCollapsed] = useState(false)
 
-  const clickHandler = () => {
-    toggleOpened((prevOpenState) => !prevOpenState)
-  }
+  const clickHandler = useCallback(() => {
+    toggleSidebarCollapsed((prevSidebarState) => !prevSidebarState)
+  }, [])
+
+  const openSidebarHandler = useCallback(() => {
+    toggleSidebarCollapsed(true)
+  }, [])
 
   const sidebarContainerClasses = `${classes['sidebar-container']}${
-    opened ? ` ${classes.opened}` : ''
+    sidebarCollapsed ? ` ${classes.collapsed}` : ''
   }`
 
   return (
     <>
-      <button className={classes['dashboard-opener']} onClick={clickHandler}>
-        CLIKC MEI!
-      </button>
+      <HamburgerWrapper onClick={openSidebarHandler} />
 
       <div className={sidebarContainerClasses}>
         <Header onClose={clickHandler} />

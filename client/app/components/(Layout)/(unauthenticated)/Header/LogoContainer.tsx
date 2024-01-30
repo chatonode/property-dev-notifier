@@ -1,3 +1,4 @@
+import { memo, useCallback } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
@@ -17,6 +18,10 @@ const LogoContainer = (props: TLogoContainerProps) => {
     props.collapsed ? ` ${classes.collapsed}` : ''
   }`
 
+  const clickHandler = useCallback(() => {
+    return router.push(ERoute.Home)
+  }, [])
+
   return (
     <div className={logoContainerClasses}>
       <Image
@@ -28,10 +33,10 @@ const LogoContainer = (props: TLogoContainerProps) => {
         //   sizes="(max-width: 768px) 100vw"
         alt="logo"
         style={{ cursor: 'pointer' }}
-        onClick={() => router.push(ERoute.Home)}
+        onClick={props.collapsed ? undefined : clickHandler}
       />
     </div>
   )
 }
 
-export default LogoContainer
+export default memo(LogoContainer)

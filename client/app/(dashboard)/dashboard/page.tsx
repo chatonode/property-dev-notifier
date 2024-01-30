@@ -5,24 +5,23 @@ import { ERoute } from '@/types/enums'
 
 import WelcomeScreen from '@/components/(Welcome)/WelcomeScreen'
 import MainSectionWrapper from '@/app/components/(Layout)/Body/MainSectionWrapper'
+import PageTitleWrapper from '@/app/components/(Layout)/(authenticated)/Body/PageTitleWrapper'
 // import SideNavBarContainer from '@/components/(Layout)/Sidebar/SideNavBarContainer'
 
 const Dashboard = async () => {
-  const currentUser = await getCurrentUser()
+  // const currentUser = await getCurrentUser()
 
   // console.log(currentUser)
 
-  if (!currentUser) {
-    return permanentRedirect(ERoute.Home)
-  }
+  // if (!currentUser) {
+  //   return permanentRedirect(ERoute.Home)
+  // }
 
   return (
     <>
       <MainSectionWrapper>
-        {/* <SideNavBarContainer> */}
-          {/* <h3>Howdy There!</h3> */}
-          <WelcomeScreen />
-        {/* </SideNavBarContainer> */}
+        <PageTitleWrapper>Dashboard</PageTitleWrapper>
+        <WelcomeScreen />
       </MainSectionWrapper>
     </>
   )

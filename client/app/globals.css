@@ -254,14 +254,37 @@ body {
 
   margin: 0;
   padding: 0;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1em; */
+  position: relative;
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+}
+
+.layout-public,
+.layout-dashboard {
+  font-size: 1rem;
+  flex-grow: 1;
+}
+
+.layout-public {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 1em;
-  position: relative;
 }
 
-body,
+.layout-dashboard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* gap: 1em; */
+}
+
+/* body, */
 .header,
 .root,
 .footer {
@@ -269,7 +292,7 @@ body,
 }
 
 /* Color Change */
-body,
+/* body, */
 .header,
 .footer {
   transition: background var(--theme-color-transition-duration) linear;
