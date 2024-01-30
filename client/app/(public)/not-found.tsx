@@ -1,10 +1,14 @@
+import PublicMainWrapper from '@/components/(Layout)/(public)/Body/Main/Default/PublicMainWrapper'
+import PublicSectionWrapper from '@/components/(Layout)/(public)/Body/Main/Section/PublicSectionWrapper'
 import NotFoundContainer from '@/components/(ResponsePage)/NotFound/NotFoundContainer'
 
 const NotFound = () => {
   return (
-    <>
-      <NotFoundContainer />
-    </>
+    <PublicMainWrapper>
+      <PublicSectionWrapper>
+        <NotFoundContainer />
+      </PublicSectionWrapper>
+    </PublicMainWrapper>
   )
 }
 

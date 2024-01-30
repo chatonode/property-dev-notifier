@@ -3,6 +3,8 @@ import { permanentRedirect } from 'next/navigation'
 import { ERoute } from '@/types/enums'
 import getCurrentUser from '@/api/(users)/get-current-user'
 
+import PublicMainWrapper from '@/app/components/(Layout)/(public)/Body/Main/Default/PublicMainWrapper'
+import PublicSectionWrapper from '../components/(Layout)/(public)/Body/Main/Section/PublicSectionWrapper'
 import HomeContainer from '@/components/(Home)/HomeContainer'
 
 const Home = async () => {
@@ -11,14 +13,19 @@ const Home = async () => {
 
   // console.log(currentUser)
 
-  if (currentUser) {
-    return permanentRedirect(ERoute.Dashboard)
-  }
+  // if (currentUser) {
+  //   return permanentRedirect(ERoute.Dashboard)
+  // }
 
   return (
-    <main className="base">
-      <HomeContainer />
-    </main>
+    <PublicMainWrapper>
+      <PublicSectionWrapper>
+        <HomeContainer />
+      </PublicSectionWrapper>
+      <PublicSectionWrapper>
+        <HomeContainer />
+      </PublicSectionWrapper>
+    </PublicMainWrapper>
   )
 }
 

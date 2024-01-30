@@ -1,4 +1,9 @@
+'use client'
+
+import { memo } from 'react'
+
 import classes from './Headbar.module.css'
+
 import LogoContainer from '../LogoContainer'
 import Navigation from './Navigation'
 import { TCurrentUser } from '@/app/api/(users)/get-current-user'
@@ -28,4 +33,4 @@ const Headbar = (props: THeadbarProps) => {
   )
 }
 
-export default Headbar
+export default memo(Headbar)

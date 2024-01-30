@@ -3,10 +3,11 @@ import { permanentRedirect } from 'next/navigation'
 import getCurrentUser from '@/api/(users)/get-current-user'
 import { ERoute } from '@/types/enums'
 
+import DashboardMainWrapper from '@/app/components/(Layout)/(dashboard)/Body/Main/Default/DashboardMainWrapper'
+import PageTitleWrapper from '@/app/components/(Layout)/(dashboard)/Body/Main/Title/PageTitleWrapper'
+import DashboardSectionWrapper from '@/app/components/(Layout)/(dashboard)/Body/Main/Section/DashboardSectionWrapper'
+
 import WelcomeScreen from '@/components/(Welcome)/WelcomeScreen'
-import MainSectionWrapper from '@/app/components/(Layout)/Body/MainSectionWrapper'
-import PageTitleWrapper from '@/app/components/(Layout)/(authenticated)/Body/PageTitleWrapper'
-// import SideNavBarContainer from '@/components/(Layout)/Sidebar/SideNavBarContainer'
 
 const Dashboard = async () => {
   // const currentUser = await getCurrentUser()
@@ -19,10 +20,12 @@ const Dashboard = async () => {
 
   return (
     <>
-      <MainSectionWrapper>
+      <DashboardMainWrapper>
         <PageTitleWrapper>Dashboard</PageTitleWrapper>
-        <WelcomeScreen />
-      </MainSectionWrapper>
+        <DashboardSectionWrapper>
+          <WelcomeScreen />
+        </DashboardSectionWrapper>
+      </DashboardMainWrapper>
     </>
   )
 }

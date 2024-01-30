@@ -2,7 +2,8 @@ import { permanentRedirect } from 'next/navigation'
 import getCurrentUser from '@/api/(users)/get-current-user'
 import { ERoute } from '@/types/enums'
 
-import MainSectionWrapper from '@/app/components/(Layout)/Body/MainSectionWrapper'
+import PublicMainWrapper from '@/app/components/(Layout)/(public)/Body/Main/Default/PublicMainWrapper'
+import PublicSectionWrapper from '@/app/components/(Layout)/(public)/Body/Main/Section/PublicSectionWrapper'
 import GoodByeScreen from '@/components/(GoodBye)/GoodByeScreen'
 
 const GoodBye = async () => {
@@ -15,9 +16,11 @@ const GoodBye = async () => {
   }
 
   return (
-    <MainSectionWrapper>
-      <GoodByeScreen />
-    </MainSectionWrapper>
+    <PublicMainWrapper>
+      <PublicSectionWrapper>
+        <GoodByeScreen />
+      </PublicSectionWrapper>
+    </PublicMainWrapper>
   )
 }
 

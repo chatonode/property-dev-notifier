@@ -471,7 +471,7 @@ a {
 }
 
 /* Refresh */
-main {
+/* main {
   -ms-flex-align: stretch;
   -ms-flex-direction: column;
   -ms-flex-negative: 0;
@@ -506,10 +506,11 @@ main {
   padding-top: 0px;
   position: relative;
   z-index: 0;
-}
+} */
 
-/* Customize main after resetting */
-main {
+/* Customize main and section */
+/** Public Main & Section **/
+main.main-public {
   /* height: 100%; */
   margin: auto;
   padding-top: 1em;
@@ -526,7 +527,7 @@ main {
   /* align-items: center; */
 }
 
-section {
+section.section-public {
   display: flex;
   /* margin: 1rem; */
   flex-direction: column;
@@ -535,18 +536,36 @@ section {
   flex-grow: 1;
 }
 
-/* .dashboard-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+/** **/
+/** Dashboard Main & Section **/
+main.main-dashboard {
+  /* height: 100%; */
+  margin: auto;
+  /* padding-top: 1em; */
+  padding-bottom: 1.2em;
+  flex-grow: 1;
 
+  /* For Sidebar */
+  position: relative;
+  /* display: flex; */
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  /* align-items: center; */
+  gap: 1em;
+}
+
+section.section-dashboard {
+  display: flex;
+  /* margin: 1rem; */
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-} */
+  flex-grow: 1;
+}
+
+/** **/
 
 /* section h2 {
   text-shadow: 2px 2px 0 transparent, 4px 4px 0 var(--header-background-light),

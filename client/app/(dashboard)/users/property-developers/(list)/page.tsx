@@ -1,22 +1,26 @@
-import { TPropertyDevelopersList } from '@/app/types/types'
+import { Suspense } from 'react'
 
 import getPropertyDevelopers from '@/app/api/(users)/property-developers/list'
+import { TPropertyDevelopersList } from '@/app/types/types'
 
-import MainSectionWrapper from '@/app/components/(Layout)/Body/MainSectionWrapper'
+import DashboardMainWrapper from '@/app/components/(Layout)/(dashboard)/Body/Main/Default/DashboardMainWrapper'
+import DashboardSectionWrapper from '@/app/components/(Layout)/(dashboard)/Body/Main/Section/DashboardSectionWrapper'
+import PageTitleWrapper from '@/app/components/(Layout)/(dashboard)/Body/Main/Title/PageTitleWrapper'
+
 import PropertyDevelopersContainer from '@/app/components/(Users)/PropertyDevelopers/CRUD/list/PropertyDevelopersContainer'
-import { Suspense } from 'react'
 
 const PropertyDevelopers = async () => {
   return (
-    <MainSectionWrapper>
-      <h2>Property Developers</h2>
-
-      <Suspense fallback={<p>Loading...</p>}>
-        <PropertyDevelopersContainer
-          propertyDevelopers={await getPropertyDevelopers()}
-        />
-      </Suspense>
-    </MainSectionWrapper>
+    <DashboardMainWrapper>
+      <PageTitleWrapper>Property Developers</PageTitleWrapper>
+      <DashboardSectionWrapper>
+        <Suspense fallback={<p>Loading...</p>}>
+          <PropertyDevelopersContainer
+            propertyDevelopers={await getPropertyDevelopers()}
+          />
+        </Suspense>
+      </DashboardSectionWrapper>
+    </DashboardMainWrapper>
   )
 }
 
