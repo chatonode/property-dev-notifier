@@ -519,6 +519,11 @@ main {
   /* For Sidebar */
   position: relative;
   /* display: flex; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* align-items: center; */
 }
 
 section {
@@ -527,6 +532,7 @@ section {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  flex-grow: 1;
 }
 
 /* .dashboard-container {

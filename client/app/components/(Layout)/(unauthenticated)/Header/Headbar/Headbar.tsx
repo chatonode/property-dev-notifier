@@ -23,7 +23,7 @@ const Headbar = (props: THeadbarProps) => {
           X
         </button>
       </div>
-      <Navigation currentUser={props.currentUser} />
+      <Navigation currentUser={props.currentUser} onNavigate={props.onClose} />
     </div>
   )
 }

@@ -1,6 +1,6 @@
 .headbar-container {
   z-index: 9996;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
 
@@ -21,6 +21,7 @@
   padding: 20px 20px 10px 20px;
   border-radius: 0.2em;
   background: green;
+  /* animation: hide-headbar-collapse 0.2s ease forwards; */
 }
 
 /* button.headbar-opener {
@@ -71,5 +72,17 @@ button.headbar-closer {
   100% {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@keyframes hide-headbar-collapse {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.95);
+    transform-origin: 100% 0;
   }
 }

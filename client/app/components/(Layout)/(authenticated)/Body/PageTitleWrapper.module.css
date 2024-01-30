@@ -5,6 +5,7 @@
   /* z-index: 4; */
   background-color: #fff;
   border-bottom: 1px solid #e8e8e8;
+  width: 100%;
 }
 
 @media (min-width: 40rem) {

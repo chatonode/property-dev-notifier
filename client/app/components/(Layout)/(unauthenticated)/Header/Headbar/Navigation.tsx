@@ -6,6 +6,7 @@ import { TCurrentUser } from '@/app/api/(users)/get-current-user'
 
 type TNavigationProps = {
   currentUser: TCurrentUser
+  onNavigate: () => void
 }
 
 const Navigation = (props: TNavigationProps) => {
@@ -18,6 +19,7 @@ const Navigation = (props: TNavigationProps) => {
           <Link
             href={ERoute.Home}
             className={pathname === ERoute.Home ? classes.active : undefined}
+            onClick={props.onNavigate}
           >
             Home
           </Link>
@@ -26,6 +28,7 @@ const Navigation = (props: TNavigationProps) => {
           <Link
             href={ERoute.About}
             className={pathname === ERoute.About ? classes.active : undefined}
+            onClick={props.onNavigate}
           >
             About
           </Link>
@@ -35,6 +38,7 @@ const Navigation = (props: TNavigationProps) => {
             <Link
               href={ERoute.Login}
               className={pathname === ERoute.Login ? classes.active : undefined}
+              onClick={props.onNavigate}
             >
               Login
             </Link>
@@ -43,6 +47,7 @@ const Navigation = (props: TNavigationProps) => {
             <Link
               href={ERoute.Dashboard}
               // className={pathname === ERoute.Dashboard ? classes.active : undefined}
+              onClick={props.onNavigate}
             >
               Dashboard
             </Link>
