@@ -6,51 +6,52 @@ import { usePathname } from 'next/navigation'
 const NavigationMenu = () => {
   const pathname = usePathname()
 
+  const dashboardClasses =
+    pathname === ERoute.Dashboard ? classes.active : undefined
+  const propertyDevelopersClasses =
+    pathname === ERoute.PropertyDevelopers ? classes.active : undefined
+  const createPropertyDeveloperClasses =
+    pathname === ERoute.CreatePropertyDeveloper ? classes.active : undefined
+  const createNotificationTemplateClasses =
+    pathname === ERoute.CreateNotificationTemplate ? classes.active : undefined
+
   return (
     <nav className={classes['navigation-container']}>
       <ul className={classes['navigation-list']}>
-        <li key={ERoute.Dashboard}>
-          <Link
-            href={ERoute.Dashboard}
-            className={
-              pathname === ERoute.Dashboard ? classes.active : undefined
-            }
-          >
+        <li key={ERoute.Dashboard} className={dashboardClasses}>
+          <Link href={ERoute.Dashboard} className={dashboardClasses}>
             Dashboard
           </Link>
         </li>
-        <li key={ERoute.PropertyDevelopers}>
+        <li
+          key={ERoute.PropertyDevelopers}
+          className={propertyDevelopersClasses}
+        >
           <Link
             href={ERoute.PropertyDevelopers}
-            className={
-              pathname === ERoute.PropertyDevelopers
-                ? classes.active
-                : undefined
-            }
+            className={propertyDevelopersClasses}
           >
             Property Developers
           </Link>
         </li>
-        <li key={ERoute.CreatePropertyDeveloper}>
+        <li
+          key={ERoute.CreatePropertyDeveloper}
+          className={createPropertyDeveloperClasses}
+        >
           <Link
             href={ERoute.CreatePropertyDeveloper}
-            className={
-              pathname === ERoute.CreatePropertyDeveloper
-                ? classes.active
-                : undefined
-            }
+            className={createPropertyDeveloperClasses}
           >
-            Create a Property Developer
+            New Property Developer
           </Link>
         </li>
-        <li key={ERoute.CreateNotificationTemplate}>
+        <li
+          key={ERoute.CreateNotificationTemplate}
+          className={createNotificationTemplateClasses}
+        >
           <Link
             href={ERoute.CreateNotificationTemplate}
-            className={
-              pathname === ERoute.CreateNotificationTemplate
-                ? classes.active
-                : undefined
-            }
+            className={createNotificationTemplateClasses}
           >
             Send a Notification
           </Link>

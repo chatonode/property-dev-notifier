@@ -10,8 +10,29 @@ nav.navigation-container {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  gap: 1em;
+  list-style: none;
 }
 
-.active {
-  background: darkgreen;
+.navigation-list li {
+  padding: 0.4em 0.6em;
+  border-radius: 0.55em;
+
+  transition: padding ease, background-color ease;
+  transition-duration: var(--global-transition-duration);
+}
+
+li.active {
+  display: flex;
+  background-color: var(
+    --gradient-light-end-color
+  ); /* Final dark color of the sidebar */
+
+  /* border-right: 5px solid;
+  padding-right: 5px; */
+}
+
+a.active {
+  /* color: var(--text-secondary); */
+  color: var(--text-primary);
 }

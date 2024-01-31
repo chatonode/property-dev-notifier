@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: var(--header-logo-container-min-width);
+  width: var(--header-logo-container-width);
   flex: 0 0 auto;
 }
 

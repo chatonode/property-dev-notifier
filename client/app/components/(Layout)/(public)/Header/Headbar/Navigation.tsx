@@ -17,8 +17,8 @@ const Navigation = (props: TNavigationProps) => {
       <ul className={classes['navigation-list']}>
         <li>
           <Link
-            href={ERoute.Home}
             className={pathname === ERoute.Home ? classes.active : undefined}
+            href={ERoute.Home}
             onClick={props.onNavigate}
           >
             Home
@@ -26,8 +26,8 @@ const Navigation = (props: TNavigationProps) => {
         </li>
         <li>
           <Link
-            href={ERoute.About}
             className={pathname === ERoute.About ? classes.active : undefined}
+            href={ERoute.About}
             onClick={props.onNavigate}
           >
             About
@@ -36,8 +36,8 @@ const Navigation = (props: TNavigationProps) => {
         <li>
           {!props.currentUser && (
             <Link
-              href={ERoute.Login}
               className={pathname === ERoute.Login ? classes.active : undefined}
+              href={ERoute.Login}
               onClick={props.onNavigate}
             >
               Login
