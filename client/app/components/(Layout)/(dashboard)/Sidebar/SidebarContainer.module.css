@@ -1,5 +1,6 @@
 .sidebar-container {
   z-index: 9996;
+  font-size: 1.25em;
 
   background: #80dbff;
   position: fixed;

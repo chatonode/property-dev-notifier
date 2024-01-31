@@ -358,10 +358,6 @@ body {
 }
 
 @media (min-width: 40rem) {
-  body.authenticated {
-    flex-direction: row;
-  }
-
   /* main {
     display: flex;
   } */
@@ -470,46 +466,13 @@ a {
   overflow-wrap: anywhere;
 }
 
-/* Refresh */
-/* main {
-  -ms-flex-align: stretch;
-  -ms-flex-direction: column;
-  -ms-flex-negative: 0;
-  -ms-flex-preferred-size: auto;
-  -webkit-align-items: stretch;
-  -webkit-box-align: stretch;
-  -webkit-box-direction: normal;
-  -webkit-box-orient: vertical;
-  -webkit-flex-basis: auto;
-  -webkit-flex-direction: column;
-  -webkit-flex-shrink: 0;
-  align-items: stretch;
-  border: 0 solid black;
-  box-sizing: border-box;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  flex-basis: auto;
-  flex-direction: column;
-  flex-shrink: 0;
-  margin-bottom: 0px;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0px;
-  min-height: 0px;
-  min-width: 0px;
-  padding-bottom: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  position: relative;
-  z-index: 0;
-} */
-
 /* Customize main and section */
 /** Public Main & Section **/
+
+main {
+  font-size: 1em;
+}
+
 main.main-public {
   /* height: 100%; */
   margin: auto;
@@ -572,6 +535,8 @@ section.section-dashboard {
     6px 6px 0 var(--text-primary);
 } */
 
+
+/***********************************************/
 /* After Reset: More Customization */
 
 /** Disable Next.js Error **/
@@ -613,13 +578,6 @@ nextjs-portal {
 }
 
 /** END of Errors **/
-
-/* .logo-container {
-  padding: 20px 20px 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-} */
 
 .create-template-button {
   width: 200px;
