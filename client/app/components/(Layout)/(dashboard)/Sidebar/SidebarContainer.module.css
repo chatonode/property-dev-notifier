@@ -1,5 +1,5 @@
 .sidebar-container {
-  z-index: 9996;
+  z-index: 0;
   /* font-size: 1.25em; */
   font-size: 1em;
 
@@ -15,25 +15,34 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  transform: translate(-100%);
-  transition: transform 0.26s ease-in-out;
+
   padding: 0 1em;
   box-shadow: 0px 0px 8px 0px var(--text-primary);
+
+  /* Animation & Transition */
+  transform: translate(-100%);
+  opacity: 0.1;
+  transition: transform ease-in-out, z-index ease-in-out, opacity ease-in-out;
+  transition-duration: calc(var(--global-transition-duration));
 }
 
 .collapsed {
+  z-index: 3;
   transform: translate(0%);
+  opacity: 1;
 }
 
 @media (min-width: 40rem) {
   .sidebar-container,
   .collapsed {
+    z-index: 0;
     width: var(--sidebar-width-larger-screens);
     font-size: 0.875em;
     flex: 0 0 auto;
     /* position: relative; */
     position: sticky;
     transform: none;
+    opacity: 1;
     /* height: 100%; */
   }
   /* 

@@ -6,30 +6,25 @@
   --gradient-light-start-color: hsl(210, 38%, 95%);
   --gradient-light-end-color: hsl(208.24deg 33.33% 90%);
 
+  --unused-color-palette-start: #002337;
+  --unused-color-palette-2: #3c5062;
+  --unused-color-palette-3: #738391;
+  --unused-color-palette-4: #afb9c3;
+  --unused-color-palette-end: #edf2f7;
+
+  --text-primary-single-hue-main: #002337;
+  --text-primary-single-hue-2: #19384d;
+  --text-primary-single-hue-3: #314e64;
+  --text-primary-single-hue-4: #48657c;
+  --text-primary-single-hue-5: #5f7d95;
+  --text-primary-single-hue-6: #7796ae;
+  --text-primary-single-hue-7: #90b0c9;
+  --text-primary-single-hue-8: #aacbe4;
+  --text-primary-single-hue-9: #c4e6ff;
+
   /** Background  **/
-  /* --header-background-light: hsl(210, 100%, 95%); */
-  /* --header-box-shadow-light: 0px 2px 3px 2px var(--header-background-light); */
-  /* --header-background-light: linear-gradient(
-    to top,
-    hsl(190.99, 91.61%, 71.96%) 0%,
-    hsla(191.27, 91.34%, 71.77%, 0.996) 8.1%,
-    hsla(192.03, 90.61%, 71.22%, 0.985) 15.5%,
-    hsla(193.19, 89.54%, 70.35%, 0.968) 22.5%,
-    hsla(194.67, 88.25%, 69.2%, 0.946) 29%,
-    hsla(196.36, 86.87%, 67.8%, 0.92) 35.3%,
-    hsla(198.18, 85.49%, 66.17%, 0.891) 41.2%,
-    hsla(200.02, 84.2%, 64.34%, 0.86) 47.1%,
-    hsla(201.82, 83.07%, 62.33%, 0.83) 52.9%,
-    hsla(203.46, 82.14%, 60.17%, 0.799) 58.8%,
-    hsla(204.86, 81.45%, 57.87%, 0.77) 64.7%,
-    hsla(205.93, 81.02%, 55.46%, 0.744) 71%,
-    hsla(206.57, 80.87%, 52.96%, 0.722) 77.5%,
-    hsla(206.69, 81%, 50.39%, 0.705) 84.5%,
-    hsla(206.19, 89.06%, 47.76%, 0.694) 91.9%,
-    hsla(205.04, 100%, 45.1%, 0.69) 100%
-  ); */
   --header-background-light: var(--gradient-light-start-color);
-  /* 33 steps - rgb */
+  /* 33 steps - rgb - to right */
   --headbar-collapsed-background-light: linear-gradient(
     to right,
     hsl(210, 38.46%, 94.9%) 0%,
@@ -99,7 +94,7 @@
     hsl(208.24, 33.33%, 90%) 97%,
     hsl(208.24, 33.33%, 90%) 100%
   );
-  /* 7 steps - rgb */
+  /* 7 steps - rgb - to right */
   --sidebar-background-light: linear-gradient(
     to right,
     hsl(210, 38.46%, 94.9%) 0%,
@@ -368,6 +363,7 @@ body {
 .layout-dashboard {
   font-size: 1rem;
   flex-grow: 1;
+  z-index: 1;
 }
 
 .layout-public {

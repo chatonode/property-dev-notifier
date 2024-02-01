@@ -38,7 +38,7 @@ const CreatePropertyDeveloperContainer = () => {
 
       // const resData = await response.data
     } catch (error: any) {
-      console.error('SignupForm error response: ', error)
+      console.error('CreatePropertyDeveloperContainer error response: ', error)
       throw error
     }
 
