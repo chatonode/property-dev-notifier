@@ -1,0 +1,35 @@
+.svg-container {
+  flex: 1 0 auto;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.svg {
+  transition: transform var(--global-transition-duration) ease;
+}
+
+.svg:focus,
+.svg:hover {
+  transform: scale(1.1);
+}
+
+/* .collapse-sidebar-path {
+  transition: stroke-dashoffset 0.5s ease-in-out,
+    stroke-dasharray 0.5s ease-in-out;
+  stroke-dasharray: 3;
+  stroke-dashoffset: 100;
+}
+
+.collapse-sidebar-svg:focus .collapse-sidebar-path,
+.collapse-sidebar-svg:hover .collapse-sidebar-path {
+  stroke-dasharray: 4;
+  stroke-dashoffset: 1000;
+} */
+
+@media (min-width: 40rem) {
+  .svg-container {
+    display: none;
+  }
+}

@@ -6,13 +6,13 @@
   --gradient-light-start-color: hsl(210, 38%, 95%);
   --gradient-light-end-color: hsl(208.24deg 33.33% 90%);
 
-  --unused-color-palette-start: #002337;
-  --unused-color-palette-2: #3c5062;
-  --unused-color-palette-3: #738391;
-  --unused-color-palette-4: #afb9c3;
-  --unused-color-palette-end: #edf2f7;
+  --color-palette-start: hsl(201.82deg 100% 10.78%); /* #002337 */
+  --color-palette-2: #3c5062;
+  --color-palette-3: #738391;
+  --color-palette-4: #afb9c3;
+  --color-palette-end: #edf2f7;
 
-  --text-primary-single-hue-main: #002337;
+  --text-primary-single-hue-main: var(--color-palette-start);
   --text-primary-single-hue-2: #19384d;
   --text-primary-single-hue-3: #314e64;
   --text-primary-single-hue-4: #48657c;
@@ -217,6 +217,7 @@
   /** Text  **/
 
   --text-primary: hsl(201.82deg 100% 10.78%);
+  /* --text-primary: var(--color-palette-start); */
   --text-secondary: hsl(0, 0%, 50%);
 
   /* --footer-text-color-light: hsl(201.82deg 100% 10.78%); */
@@ -224,8 +225,8 @@
 
   /** ---  **/
 
-  --link-color: #d3c828;
-  --link-hover-color: #dbd020;
+  /* --link-color: #d3c828;
+  --link-hover-color: #dbd020; */
 
   /* To be Deleted: Tries */
   --link-color: #3c896d;

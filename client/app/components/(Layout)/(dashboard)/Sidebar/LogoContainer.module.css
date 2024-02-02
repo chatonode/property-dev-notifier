@@ -1,0 +1,8 @@
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width: var(--header-logo-container-width); */
+  /* width: 100%; */
+  flex: 0 0 auto;
+}
