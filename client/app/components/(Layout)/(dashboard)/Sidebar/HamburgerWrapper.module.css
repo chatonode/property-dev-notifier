@@ -4,7 +4,8 @@
   display: flex;
   position: absolute;
   left: 16px;
-  top: 12px;
+  /* top: 12px; */
+  top: 20px;
 }
 
 @media (min-width: 40rem) {

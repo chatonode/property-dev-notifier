@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useTransition } from 'react'
+import { memo, useState, useTransition } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
@@ -39,4 +39,4 @@ const Bottom = () => {
   )
 }
 
-export default Bottom
+export default memo(Bottom)

@@ -41,6 +41,8 @@ const SidebarContainer = (props: TSidebarContainerProps) => {
     sidebarCollapsed ? ` ${classes.collapsed}` : ''
   }`
 
+  console.log('sidebar rendered with: ', sidebarContainerClasses)
+
   return (
     <>
       <HamburgerWrapper onClick={openSidebarHandler} />

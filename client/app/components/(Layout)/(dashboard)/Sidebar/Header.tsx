@@ -1,3 +1,6 @@
+'use client'
+
+import { memo } from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 
@@ -26,7 +29,7 @@ const Header = (props: THeaderProps) => {
           //   sizes="(max-width: 768px) 100vw"
           alt="logo"
           style={{ cursor: 'pointer' }}
-          //   onClick={() => router.push(ERoute.Home)}
+          onClick={() => router.push(ERoute.Home)}
         />
       </div>
       <button className={classes['dashboard-closer']} onClick={props.onClose}>
@@ -36,4 +39,4 @@ const Header = (props: THeaderProps) => {
   )
 }
 
-export default Header
+export default memo(Header)

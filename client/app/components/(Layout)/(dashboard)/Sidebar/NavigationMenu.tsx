@@ -1,7 +1,12 @@
-import Link from 'next/link'
-import classes from './NavigationMenu.module.css'
-import { ERoute } from '@/app/types/enums'
+'use client'
+import { memo } from 'react'
+
 import { usePathname } from 'next/navigation'
+import Link from 'next/link'
+
+import classes from './NavigationMenu.module.css'
+
+import { ERoute } from '@/app/types/enums'
 
 const NavigationMenu = () => {
   const pathname = usePathname()
@@ -61,4 +66,4 @@ const NavigationMenu = () => {
   )
 }
 
-export default NavigationMenu
+export default memo(NavigationMenu)

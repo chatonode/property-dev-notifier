@@ -1,11 +1,11 @@
-import { cache } from 'react'
+// import { cache } from 'react'
 import { buildServerSender } from '@/api/(axios)/server/build-server-sender'
 import { TPropertyDevelopersList } from '@/types/types'
 import AuthRequiredError from '@/lib/errors/AuthRequiredError'
 import { permanentRedirect, redirect, useRouter } from 'next/navigation'
 import { ERoute } from '@/app/types/enums'
 
-const getPropertyDevelopers = cache(async () => {
+const getPropertyDevelopers = async () => {
   const axiosSender = buildServerSender()
 
   try {
@@ -33,6 +33,6 @@ const getPropertyDevelopers = cache(async () => {
     )
     throw error
   }
-})
+}
 
 export default getPropertyDevelopers

@@ -1,5 +1,5 @@
 .sidebar-container {
-  z-index: 0;
+  z-index: 1;
   /* font-size: 1.25em; */
   font-size: 1em;
 
@@ -21,7 +21,7 @@
 
   /* Animation & Transition */
   transform: translate(-100%);
-  opacity: 0.1;
+  opacity: 0.5;
   transition: transform ease-in-out, z-index ease-in-out, opacity ease-in-out;
   transition-duration: calc(var(--global-transition-duration));
 }
@@ -35,7 +35,7 @@
 @media (min-width: 40rem) {
   .sidebar-container,
   .collapsed {
-    z-index: 0;
+    /* z-index: 0; */
     width: var(--sidebar-width-larger-screens);
     font-size: 0.875em;
     flex: 0 0 auto;
