@@ -6,7 +6,7 @@
   padding: 0.75em 0;
 }
 
-button.dashboard-closer {
+button.dashboard-collapser {
   display: inherit;
   background: white;
   border-radius: 10px;
@@ -17,7 +17,7 @@ button.dashboard-closer {
   .header-container {
     padding: 2em 0 1.5em 0.5em;
   }
-  button.dashboard-closer {
+  button.dashboard-collapser {
     display: none;
   }
 }

@@ -10,25 +10,25 @@ import { TCurrentUser } from '@/app/api/(users)/get-current-user'
 
 type THeadbarProps = {
   currentUser: TCurrentUser
-  collapsed: boolean
-  onClose: () => void
+  expanded: boolean
+  onCollapse: () => void
 }
 
 const Headbar = (props: THeadbarProps) => {
   const headBarContainerClasses = `${classes['headbar-container']}${
-    props.collapsed ? ` ${classes.collapsed}` : ''
+    props.expanded ? ` ${classes.expanded}` : ''
   }`
   const headbarHeaderClasses = `${classes.header}`
 
   return (
     <div className={headBarContainerClasses}>
       <div className={headbarHeaderClasses}>
-        {!!props.collapsed && <LogoContainer collapsed={props.collapsed} />}
-        <button className={classes['headbar-closer']} onClick={props.onClose}>
+        {!!props.expanded && <LogoContainer expanded={props.expanded} />}
+        <button className={classes['headbar-collapser']} onClick={props.onCollapse}>
           X
         </button>
       </div>
-      <Navigation currentUser={props.currentUser} onNavigate={props.onClose} />
+      <Navigation currentUser={props.currentUser} onNavigate={props.onCollapse} />
     </div>
   )
 }

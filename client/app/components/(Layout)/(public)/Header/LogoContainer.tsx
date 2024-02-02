@@ -8,14 +8,14 @@ import logo from '@/public/assets/images/logo/SmartLogoWebMobile.png'
 import classes from './LogoContainer.module.css'
 
 type TLogoContainerProps = {
-  collapsed?: boolean
+  expanded?: boolean
 }
 
 const LogoContainer = (props: TLogoContainerProps) => {
   const router = useRouter()
 
   const logoContainerClasses = `${classes['logo-container']}${
-    props.collapsed ? ` ${classes.collapsed}` : ''
+    props.expanded ? ` ${classes.expanded}` : ''
   }`
 
   const clickHandler = useCallback(() => {
@@ -33,7 +33,7 @@ const LogoContainer = (props: TLogoContainerProps) => {
         //   sizes="(max-width: 768px) 100vw"
         alt="logo"
         style={{ cursor: 'pointer' }}
-        onClick={props.collapsed ? undefined : clickHandler}
+        onClick={props.expanded ? undefined : clickHandler}
       />
     </div>
   )

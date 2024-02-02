@@ -11,7 +11,7 @@ import logo from '@/public/assets/images/logo/SmartLogoWebMobile.png'
 import classes from './Header.module.css'
 
 type THeaderProps = {
-  onClose: () => void
+  onCollapse: () => void
 }
 
 const Header = (props: THeaderProps) => {
@@ -32,7 +32,7 @@ const Header = (props: THeaderProps) => {
           onClick={() => router.push(ERoute.Home)}
         />
       </div>
-      <button className={classes['dashboard-closer']} onClick={props.onClose}>
+      <button className={classes['dashboard-collapser']} onClick={props.onCollapse}>
         X
       </button>
     </div>

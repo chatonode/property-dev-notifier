@@ -26,7 +26,7 @@
   transition-duration: calc(var(--global-transition-duration));
 }
 
-.collapsed {
+.expanded {
   z-index: 3;
   transform: translate(0%);
   opacity: 1;
@@ -34,7 +34,7 @@
 
 @media (min-width: 40rem) {
   .sidebar-container,
-  .collapsed {
+  .expanded {
     /* z-index: 0; */
     width: var(--sidebar-width-larger-screens);
     font-size: 0.875em;

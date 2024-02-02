@@ -21,36 +21,39 @@ import Bottom from './Bottom'
 import Copyright from './Copyright'
 
 type TSidebarContainerProps = {
-  children?: ReactNode
-  // onCollapse: () => void
-  // onOpen: () => void
+  // children?: ReactNode
+  // onExpand: () => void
 }
 
 const SidebarContainer = (props: TSidebarContainerProps) => {
-  const [sidebarCollapsed, toggleSidebarCollapsed] = useState(false)
+  const [sidebarExpanded, setSidebarExpanded] = useState(false)
 
-  const clickHandler = useCallback(() => {
-    toggleSidebarCollapsed((prevSidebarState) => !prevSidebarState)
+  // const toggleSidebarHandler = useCallback(() => {
+  //   setSidebarExpanded((prevSidebarState) => !prevSidebarState)
+  // }, [])
+
+  const expandSidebarHandler = useCallback(() => {
+    setSidebarExpanded(true)
   }, [])
 
-  const openSidebarHandler = useCallback(() => {
-    toggleSidebarCollapsed(true)
+  const collapseSidebarHandler = useCallback(() => {
+    setSidebarExpanded(false)
   }, [])
 
   const sidebarContainerClasses = `${classes['sidebar-container']}${
-    sidebarCollapsed ? ` ${classes.collapsed}` : ''
+    sidebarExpanded ? ` ${classes.expanded}` : ''
   }`
 
   console.log('sidebar rendered with: ', sidebarContainerClasses)
 
   return (
     <>
-      <HamburgerWrapper onClick={openSidebarHandler} />
+      <HamburgerWrapper onClick={expandSidebarHandler} />
 
       <div className={sidebarContainerClasses}>
-        <Header onClose={clickHandler} />
+        <Header onCollapse={collapseSidebarHandler} />
         <NavigationMenu />
-        {props.children}
+        {/* {props.children} */}
         <Bottom />
         <Copyright />
       </div>

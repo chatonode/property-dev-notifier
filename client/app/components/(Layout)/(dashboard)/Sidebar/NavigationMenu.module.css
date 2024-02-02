@@ -18,15 +18,18 @@ nav.navigation-container {
   padding: 0.4em 0.6em;
   border-radius: 0.55em;
 
-  transition: padding ease, background-color ease;
-  transition-duration: var(--global-transition-duration);
+  transition: background ease;
+  transition-duration: calc(var(--global-transition-duration) * 4);
+}
+
+.navigation-list li:focus,
+.navigation-list li:hover {
+  background: var(--gradient-light-start-color);
 }
 
 li.active {
   display: flex;
-  background-color: var(
-    --gradient-light-end-color
-  ); /* Final dark color of the sidebar */
+  background: var(--gradient-light-end-color);
 
   /* border-right: 5px solid;
   padding-right: 5px; */

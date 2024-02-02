@@ -17,14 +17,14 @@ type TMainHeaderProps = {
 }
 
 const MainHeader = (props: TMainHeaderProps) => {
-  const [headbarCollapsed, toggleHeadbarCollapsed] = useState(false)
+  const [headbarExpanded, setHeadbarExpanded] = useState(false)
 
   const toggleHeadbarHandler = useCallback(() => {
-    toggleHeadbarCollapsed((prevHeadbarState) => !prevHeadbarState)
+    setHeadbarExpanded((prevHeadbarState) => !prevHeadbarState)
   }, [])
 
-  const closeHeadbarHandler = useCallback(() => {
-    toggleHeadbarCollapsed(false)
+  const collapseHeadbarHandler = useCallback(() => {
+    setHeadbarExpanded(false)
   }, [])
 
   return (
@@ -33,8 +33,8 @@ const MainHeader = (props: TMainHeaderProps) => {
         <LogoContainer />
         <Headbar
           currentUser={props.currentUser}
-          collapsed={headbarCollapsed}
-          onClose={closeHeadbarHandler}
+          expanded={headbarExpanded}
+          onCollapse={collapseHeadbarHandler}
         />
         <HamburgerSVG onClick={toggleHeadbarHandler} />
       </header>
