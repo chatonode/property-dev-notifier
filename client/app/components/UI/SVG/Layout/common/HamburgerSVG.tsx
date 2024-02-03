@@ -17,9 +17,15 @@ const HamburgerSVG = (props: THamburgerSVGProps) => {
         style={{ cursor: 'pointer' }}
         onClick={props.onClick}
       >
-        <rect width="24" height="3" rx="1.5" fill="#333" />
-        <rect y="7" width="24" height="3" rx="1.5" fill="#333" />
-        <rect y="14" width="24" height="3" rx="1.5" fill="#333" />
+        <rect width="24" height="3" rx="1.5" fill="var(--text-primary)" />
+        <rect y="7" width="24" height="3" rx="1.5" fill="var(--text-primary)" />
+        <rect
+          y="14"
+          width="24"
+          height="3"
+          rx="1.5"
+          fill="var(--text-primary)"
+        />
       </svg>
     </div>
   )

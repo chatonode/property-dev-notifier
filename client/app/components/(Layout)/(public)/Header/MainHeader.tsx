@@ -7,7 +7,7 @@ import classes from './MainHeader.module.css'
 
 import { TCurrentUser } from '@/app/api/(users)/get-current-user'
 import LogoContainer from './LogoContainer'
-import HamburgerSVG from '../../../UI/SVG/Layout/Sidebar/HamburgerSVG'
+import HamburgerSVG from '../../../UI/SVG/Layout/common/HamburgerSVG'
 import Headbar from './Headbar/Headbar'
 import { ERoute } from '@/app/types/enums'
 

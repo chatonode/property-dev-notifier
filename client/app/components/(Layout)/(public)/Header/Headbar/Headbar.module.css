@@ -30,9 +30,9 @@
   display: inherit;
 } */
 
-button.headbar-collapser {
+/* button.headbar-collapser {
   display: inherit;
-}
+} */
 
 /* No need not expanded class */
 .header {
@@ -59,8 +59,8 @@ button.headbar-collapser {
   }
 
   /* button.headbar-opener, */
-  .header,
-  button.headbar-collapser {
+  .header
+  /* , button.headbar-collapser */ {
     display: none;
   }
 }

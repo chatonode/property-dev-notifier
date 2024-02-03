@@ -1,0 +1,18 @@
+.svg-container {
+  display: inherit;
+}
+
+.svg {
+  transition: transform var(--global-transition-duration) ease;
+}
+
+.svg:focus,
+.svg:hover {
+  transform: scale(1.1);
+}
+
+@media (min-width: 40rem) {
+  .svg-container {
+    display: none;
+  }
+}

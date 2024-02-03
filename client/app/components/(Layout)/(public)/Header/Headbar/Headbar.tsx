@@ -7,6 +7,7 @@ import classes from './Headbar.module.css'
 import LogoContainer from '../LogoContainer'
 import Navigation from './Navigation'
 import { TCurrentUser } from '@/app/api/(users)/get-current-user'
+import CollapseHeadbarSVG from '@/app/components/UI/SVG/Layout/Headbar/CollapseHeadbarSVG'
 
 type THeadbarProps = {
   currentUser: TCurrentUser
@@ -24,11 +25,15 @@ const Headbar = (props: THeadbarProps) => {
     <div className={headBarContainerClasses}>
       <div className={headbarHeaderClasses}>
         {!!props.expanded && <LogoContainer expanded={props.expanded} />}
-        <button className={classes['headbar-collapser']} onClick={props.onCollapse}>
+        {/* <button className={classes['headbar-collapser']} onClick={props.onCollapse}>
           X
-        </button>
+        </button> */}
+        <CollapseHeadbarSVG onCollapse={props.onCollapse} />
       </div>
-      <Navigation currentUser={props.currentUser} onNavigate={props.onCollapse} />
+      <Navigation
+        currentUser={props.currentUser}
+        onNavigate={props.onCollapse}
+      />
     </div>
   )
 }

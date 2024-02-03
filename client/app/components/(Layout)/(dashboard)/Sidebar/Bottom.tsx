@@ -25,7 +25,7 @@ const Bottom = () => {
   }
 
   return (
-    <div>
+    <div className={classes.container}>
       <Link
         href={ERoute.GoodBye}
         className={`${classes.logout}${
@@ -33,7 +33,7 @@ const Bottom = () => {
         }`}
         onClick={!isPending && !isFetching ? sendLogoutRequest : undefined}
       >
-        <LogoutIcon /> Logout
+        <LogoutIcon /> {isPending || isFetching ? 'Logging out...' : 'Log Out'}
       </Link>
     </div>
   )

@@ -6,6 +6,7 @@
   text-align: center;
   /* padding: 0.6em 0; */
   margin: 1.25em 0 2em 0.75em;
+  color: var(--text-primary);
 }
 
 .copyright-text {

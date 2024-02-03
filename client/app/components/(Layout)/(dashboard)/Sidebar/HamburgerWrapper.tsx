@@ -1,4 +1,4 @@
-import HamburgerSVG from '@/app/components/UI/SVG/Layout/Sidebar/HamburgerSVG'
+import HamburgerSVG from '@/app/components/UI/SVG/Layout/common/HamburgerSVG'
 import classes from './HamburgerWrapper.module.css'
 import { memo } from 'react'
 

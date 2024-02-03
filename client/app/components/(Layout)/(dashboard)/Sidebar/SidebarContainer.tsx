@@ -9,20 +9,25 @@ import {
   useState,
 } from 'react'
 
+import HamburgerWrapper from './HamburgerWrapper'
+import Header from './Header'
+import UserInfo from './UserInfo'
+import NavigationMenu from './NavigationMenu'
+import Bottom from './Bottom'
+import Copyright from './Copyright'
+
 // import { createPortal } from 'react-dom'
 
 // import Backdrop from './Backdrop'
+import { TCurrentUser } from '@/app/api/(users)/get-current-user'
 
 import classes from './SidebarContainer.module.css'
-import HamburgerWrapper from './HamburgerWrapper'
-import NavigationMenu from './NavigationMenu'
-import Header from './Header'
-import Bottom from './Bottom'
-import Copyright from './Copyright'
+
 
 type TSidebarContainerProps = {
   // children?: ReactNode
   // onExpand: () => void
+  currentUser: TCurrentUser
 }
 
 const SidebarContainer = (props: TSidebarContainerProps) => {
@@ -52,6 +57,7 @@ const SidebarContainer = (props: TSidebarContainerProps) => {
 
       <div className={sidebarContainerClasses}>
         <Header onCollapse={collapseSidebarHandler} />
+        <UserInfo currentUser={props.currentUser} />
         <NavigationMenu />
         {/* {props.children} */}
         <Bottom />
