@@ -7,7 +7,14 @@ import Link from 'next/link'
 import classes from './NavigationMenu.module.css'
 
 import { ERoute } from '@/app/types/enums'
-import LogoutIcon from '@/app/components/UI/SVG/Layout/Sidebar/LogoutIcon'
+import DashboardIcon from '@/app/components/UI/Icon/Sidebar/DashboardIcon'
+import DashboardActiveIcon from '@/app/components/UI/Icon/Sidebar/DashboardActiveIcon'
+import ListUsersActiveIcon from '@/app/components/UI/Icon/Sidebar/ListUsersActiveIcon'
+import ListUsersIcon from '@/app/components/UI/Icon/Sidebar/ListUsersIcon'
+import CreateUserActiveIcon from '@/app/components/UI/Icon/Sidebar/CreateUserActiveIcon'
+import CreateUserIcon from '@/app/components/UI/Icon/Sidebar/CreateUserIcon'
+import SendNotificationActiveIcon from '@/app/components/UI/Icon/Sidebar/SendNotificationActiveIcon'
+import SendNotificationIcon from '@/app/components/UI/Icon/Sidebar/SendNotificationIcon'
 
 const NavigationMenu = () => {
   const pathname = usePathname()
@@ -26,10 +33,15 @@ const NavigationMenu = () => {
       <ul className={classes['navigation-list']}>
         <li key={ERoute.Dashboard} className={dashboardClasses}>
           <Link href={ERoute.Dashboard} className={dashboardClasses}>
-            <LogoutIcon />
+            {pathname === ERoute.Dashboard ? (
+              <DashboardActiveIcon />
+            ) : (
+              <DashboardIcon />
+            )}
             Dashboard
           </Link>
         </li>
+        <span>Property Developers</span>
         <li
           key={ERoute.PropertyDevelopers}
           className={propertyDevelopersClasses}
@@ -38,8 +50,12 @@ const NavigationMenu = () => {
             href={ERoute.PropertyDevelopers}
             className={propertyDevelopersClasses}
           >
-            <LogoutIcon />
-            Property Developers
+            {pathname === ERoute.PropertyDevelopers ? (
+              <ListUsersActiveIcon />
+            ) : (
+              <ListUsersIcon />
+            )}
+            List
           </Link>
         </li>
         <li
@@ -50,10 +66,15 @@ const NavigationMenu = () => {
             href={ERoute.CreatePropertyDeveloper}
             className={createPropertyDeveloperClasses}
           >
-            <LogoutIcon />
-            New Property Developer
+            {pathname === ERoute.CreatePropertyDeveloper ? (
+              <CreateUserActiveIcon />
+            ) : (
+              <CreateUserIcon />
+            )}
+            Create
           </Link>
         </li>
+        <span>Notifications</span>
         <li
           key={ERoute.CreateNotificationTemplate}
           className={createNotificationTemplateClasses}
@@ -62,8 +83,12 @@ const NavigationMenu = () => {
             href={ERoute.CreateNotificationTemplate}
             className={createNotificationTemplateClasses}
           >
-            <LogoutIcon />
-            Send a Notification
+            {pathname === ERoute.CreateNotificationTemplate ? (
+              <SendNotificationActiveIcon />
+            ) : (
+              <SendNotificationIcon />
+            )}
+            Send
           </Link>
         </li>
       </ul>

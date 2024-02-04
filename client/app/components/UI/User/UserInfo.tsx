@@ -3,7 +3,7 @@ import { memo } from 'react'
 import { TCurrentUser } from '@/app/api/(users)/get-current-user'
 
 import classes from './UserInfo.module.css'
-import UserAvatarIcon from '@/app/components/UI/SVG/Layout/Sidebar/UserAvatarIcon'
+import UserAvatarIcon from '@/app/components/UI/Icon/common/UserAvatarIcon'
 
 type TUserInfoProps = {
   currentUser: TCurrentUser

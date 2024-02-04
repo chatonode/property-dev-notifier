@@ -18,6 +18,10 @@ nav.navigation-container {
   padding: 0; /* to delete default padding of ul */
 }
 
+.navigation-list span {
+  margin-top: 1em;
+}
+
 .navigation-list li,
 .navigation-list li a {
   display: inherit; /* to inherit flex for icons */
@@ -45,6 +49,7 @@ nav.navigation-container {
 }
 
 .navigation-list li a {
+  flex: 1 0 auto;
   justify-content: flex-start;
   align-items: center;
   gap: var(--sidebar-menu-item-gap);

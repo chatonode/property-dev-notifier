@@ -210,6 +210,32 @@
     #c7c8c8 100%
   ); */
 
+  /* --dashboard-page-title-background: #f2dcaf; */
+  /* --dashboard-page-title-background: #f1ead9; */
+  --dashboard-page-title-background-light: linear-gradient(
+    to top,
+    hsl(244.21deg 97.29% 29.61%) 0%,
+    hsl(246.98deg 30.27% 48.47% / 81.9%) 4.4%,
+    #673ab7 7.7%,
+    hsla(41.97, 100%, 66.08%, 0.561) 10.4%,
+    hsla(41.97, 100%, 66.08%, 0.474) 12.7%,
+    hsla(41.97, 100%, 66.08%, 0.41) 14.8%,
+    hsla(41.97, 100%, 66.08%, 0.363) 17.2%,
+    hsla(41.97, 100%, 66.08%, 0.329) 20.1%,
+    hsla(41.97, 100%, 66.08%, 0.305) 23.9%,
+    hsla(41.97, 100%, 66.08%, 0.284) 28.8%,
+    hsla(41.97, 100%, 66.08%, 0.264) 35.2%,
+    hsla(41.97, 100%, 66.08%, 0.238) 43.3%,
+    hsla(41.97, 100%, 66.08%, 0.204) 53.6%,
+    hsla(41.97, 100%, 66.08%, 0.156) 66.3%,
+    hsla(41.97, 100%, 66.08%, 0.089) 81.6%,
+    hsla(41.97, 100%, 66.08%, 0) 100%
+  );
+
+  /** ---  **/
+
+  /** Animation **/
+
   --theme-color-transition-duration: 0.3s;
 
   /** ---  **/
@@ -244,7 +270,7 @@
   --header-logo-container-width: 200px;
   --sidebar-width-smaller-screens: 300px;
   --sidebar-width-larger-screens: 250px;
-  --sidebar-menu-icon-width: 32px;
+  --menu-icon-length: 32px;
   --sidebar-menu-item-gap: 0.5em;
 
   /*  ---  */

@@ -11,13 +11,9 @@ const CollapseSidebarSVG = (props: TCollapseSidebarSVGProps) => {
     <div className={classes['svg-container']} onClick={props.onCollapse}>
       <svg
         className={classes['svg']}
-        stroke="currentColor"
-        fill="var(--text-primary)"
         // strokeWidth="0.1px"
         strokeWidth="0"
         viewBox="0 0 24 24"
-        height="2.5em"
-        width="2.5em"
       >
         <path
           fill="none"

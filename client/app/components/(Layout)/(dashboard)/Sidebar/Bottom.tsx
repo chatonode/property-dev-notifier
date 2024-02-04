@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation'
 import classes from './Bottom.module.css'
 import { ERoute } from '@/app/types/enums'
 import { logUserOutFromClient } from '@/app/api/(auth)/authentication'
-import LogoutIcon from '@/app/components/UI/SVG/Layout/Sidebar/LogoutIcon'
+import LogoutIcon from '@/app/components/UI/Icon/Sidebar/LogoutIcon'
 // import LogoutIcon from '@/components/UI/Icon/Logout/LogoutIcon'
 
 const Bottom = () => {

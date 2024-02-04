@@ -7,6 +7,11 @@
 }
 
 .svg {
+  stroke: var(--text-primary);
+  fill: var(--text-primary);
+  width: 2.5em;
+  height: 2.5em;
+  
   transition: transform var(--global-transition-duration) ease;
 }
 
