@@ -3,7 +3,7 @@ import { memo } from 'react'
 import { TCurrentUser } from '@/app/api/(users)/get-current-user'
 
 import classes from './UserInfo.module.css'
-import UserAvatarSVG from '@/app/components/UI/SVG/Layout/Sidebar/UserAvatarSVG'
+import UserAvatarIcon from '@/app/components/UI/SVG/Layout/Sidebar/UserAvatarIcon'
 
 type TUserInfoProps = {
   currentUser: TCurrentUser
@@ -11,13 +11,13 @@ type TUserInfoProps = {
 
 const UserInfo = (props: TUserInfoProps) => {
   return (
-    <div className={classes.container}>
-      <UserAvatarSVG />
+    <>
+      <UserAvatarIcon />
       <div className={classes['user-info']}>
         <p>Logged in with</p>
         <span>{props.currentUser.email}</span>
       </div>
-    </div>
+    </>
   )
 }
 

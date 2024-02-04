@@ -10,18 +10,12 @@ import DashboardSectionWrapper from '@/app/components/(Layout)/(dashboard)/Body/
 import WelcomeScreen from '@/components/(Welcome)/WelcomeScreen'
 
 const Dashboard = async () => {
-  // const currentUser = await getCurrentUser()
-
-  // console.log(currentUser)
-
-  // if (!currentUser) {
-  //   return permanentRedirect(ERoute.Home)
-  // }
+  const currentUser = await getCurrentUser()
 
   return (
     <>
       <DashboardMainWrapper>
-        <PageTitleWrapper>Dashboard</PageTitleWrapper>
+        <PageTitleWrapper currentUser={currentUser}>Dashboard</PageTitleWrapper>
         <DashboardSectionWrapper>
           <WelcomeScreen />
         </DashboardSectionWrapper>

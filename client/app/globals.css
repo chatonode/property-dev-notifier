@@ -244,6 +244,8 @@
   --header-logo-container-width: 200px;
   --sidebar-width-smaller-screens: 300px;
   --sidebar-width-larger-screens: 250px;
+  --sidebar-menu-icon-width: 32px;
+  --sidebar-menu-item-gap: 0.5em;
 
   /*  ---  */
   /* Animation */
@@ -529,11 +531,13 @@ h1 {
 }
 
 h2 {
-  font-size: clamp(1.65rem, 4vw + 0.5rem, 2.5rem);
+  /* font-size: clamp(1.65rem, 4vw + 0.5rem, 2.5rem); */
+  font-size: clamp(1.65rem, 3vw + 0.5rem, 2.5rem);
 }
 
 h3 {
-  font-size: clamp(1.25rem, 3vw + 0.4rem, 2.25rem);
+  /* font-size: clamp(1.25rem, 3vw + 0.4rem, 2.25rem); */
+  font-size: clamp(1.25rem, 2vw + 0.4rem, 2.25rem);
 }
 
 /* Non-decotared anchor elements */

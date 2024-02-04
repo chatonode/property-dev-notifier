@@ -5,6 +5,8 @@ nav.navigation-container {
     justify-content: center;
     align-items: flex-start; */
   flex: 1 0 auto;
+  border-color: var(--text-primary);
+  border-top: 1px solid;
 }
 
 .navigation-list {
@@ -13,6 +15,12 @@ nav.navigation-container {
   flex-direction: column;
   gap: 1em;
   list-style: none;
+  padding: 0; /* to delete default padding of ul */
+}
+
+.navigation-list li,
+.navigation-list li a {
+  display: inherit; /* to inherit flex for icons */
 }
 
 .navigation-list li {
@@ -28,7 +36,7 @@ nav.navigation-container {
   background: var(--gradient-light-start-color);
 }
 
-li.active {
+.navigation-list li.active {
   display: flex;
   background: var(--gradient-light-end-color);
 
@@ -36,7 +44,13 @@ li.active {
   padding-right: 5px; */
 }
 
-a.active {
+.navigation-list li a {
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--sidebar-menu-item-gap);
+}
+
+.navigation-list li a.active {
   /* color: var(--text-secondary); */
   color: var(--text-primary);
 }

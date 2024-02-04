@@ -11,7 +11,7 @@ import {
 
 import HamburgerWrapper from './HamburgerWrapper'
 import Header from './Header'
-import UserInfo from './UserInfo'
+import UserInfoContainer from './UserInfoContainer'
 import NavigationMenu from './NavigationMenu'
 import Bottom from './Bottom'
 import Copyright from './Copyright'
@@ -23,7 +23,6 @@ import { TCurrentUser } from '@/app/api/(users)/get-current-user'
 
 import classes from './SidebarContainer.module.css'
 
-
 type TSidebarContainerProps = {
   // children?: ReactNode
   // onExpand: () => void
@@ -32,10 +31,6 @@ type TSidebarContainerProps = {
 
 const SidebarContainer = (props: TSidebarContainerProps) => {
   const [sidebarExpanded, setSidebarExpanded] = useState(false)
-
-  // const toggleSidebarHandler = useCallback(() => {
-  //   setSidebarExpanded((prevSidebarState) => !prevSidebarState)
-  // }, [])
 
   const expandSidebarHandler = useCallback(() => {
     setSidebarExpanded(true)
@@ -49,7 +44,7 @@ const SidebarContainer = (props: TSidebarContainerProps) => {
     sidebarExpanded ? ` ${classes.expanded}` : ''
   }`
 
-  console.log('sidebar rendered with: ', sidebarContainerClasses)
+  // console.log('sidebar rendered with: ', sidebarContainerClasses)
 
   return (
     <>
@@ -57,7 +52,7 @@ const SidebarContainer = (props: TSidebarContainerProps) => {
 
       <div className={sidebarContainerClasses}>
         <Header onCollapse={collapseSidebarHandler} />
-        <UserInfo currentUser={props.currentUser} />
+        <UserInfoContainer currentUser={props.currentUser} />
         <NavigationMenu />
         {/* {props.children} */}
         <Bottom />

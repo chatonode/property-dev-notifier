@@ -1,0 +1,12 @@
+.user-info {
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+}
+
+.user-info p {
+  font-size: 0.8em;
+  /* line-height: 1; */
+  /* font-size: 0.5em; */
+  margin-bottom: 0;
+}

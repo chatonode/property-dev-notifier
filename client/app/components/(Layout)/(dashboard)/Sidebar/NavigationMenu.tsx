@@ -7,6 +7,7 @@ import Link from 'next/link'
 import classes from './NavigationMenu.module.css'
 
 import { ERoute } from '@/app/types/enums'
+import LogoutIcon from '@/app/components/UI/SVG/Layout/Sidebar/LogoutIcon'
 
 const NavigationMenu = () => {
   const pathname = usePathname()
@@ -25,6 +26,7 @@ const NavigationMenu = () => {
       <ul className={classes['navigation-list']}>
         <li key={ERoute.Dashboard} className={dashboardClasses}>
           <Link href={ERoute.Dashboard} className={dashboardClasses}>
+            <LogoutIcon />
             Dashboard
           </Link>
         </li>
@@ -36,6 +38,7 @@ const NavigationMenu = () => {
             href={ERoute.PropertyDevelopers}
             className={propertyDevelopersClasses}
           >
+            <LogoutIcon />
             Property Developers
           </Link>
         </li>
@@ -47,6 +50,7 @@ const NavigationMenu = () => {
             href={ERoute.CreatePropertyDeveloper}
             className={createPropertyDeveloperClasses}
           >
+            <LogoutIcon />
             New Property Developer
           </Link>
         </li>
@@ -58,6 +62,7 @@ const NavigationMenu = () => {
             href={ERoute.CreateNotificationTemplate}
             className={createNotificationTemplateClasses}
           >
+            <LogoutIcon />
             Send a Notification
           </Link>
         </li>

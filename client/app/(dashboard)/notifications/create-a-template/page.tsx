@@ -7,13 +7,17 @@ import DashboardSectionWrapper from '@/app/components/(Layout)/(dashboard)/Body/
 import PageTitleWrapper from '@/app/components/(Layout)/(dashboard)/Body/Main/Title/PageTitleWrapper'
 
 import NotificationMultiForm from '@/app/components/(Notification)/NotificationMultiForm'
+import getCurrentUser from '@/app/api/(users)/get-current-user'
 
 const CreateNotificationTemplate = async () => {
   // const propertyDevelopers = await getPropertyDevelopers()
+  const currentUser = await getCurrentUser()
 
   return (
     <DashboardMainWrapper>
-      <PageTitleWrapper>Create Notification Template</PageTitleWrapper>
+      <PageTitleWrapper currentUser={currentUser}>
+        Create Notification Template
+      </PageTitleWrapper>
       <DashboardSectionWrapper>
         <Suspense fallback={<p>Loading...</p>}>
           <NotificationMultiForm

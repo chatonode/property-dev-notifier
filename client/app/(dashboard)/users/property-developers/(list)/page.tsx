@@ -8,11 +8,16 @@ import DashboardSectionWrapper from '@/app/components/(Layout)/(dashboard)/Body/
 import PageTitleWrapper from '@/app/components/(Layout)/(dashboard)/Body/Main/Title/PageTitleWrapper'
 
 import PropertyDevelopersContainer from '@/app/components/(Users)/PropertyDevelopers/CRUD/list/PropertyDevelopersContainer'
+import getCurrentUser from '@/app/api/(users)/get-current-user'
 
 const PropertyDevelopers = async () => {
+  const currentUser = await getCurrentUser()
+
   return (
     <DashboardMainWrapper>
-      <PageTitleWrapper>Property Developers</PageTitleWrapper>
+      <PageTitleWrapper currentUser={currentUser}>
+        Property Developers
+      </PageTitleWrapper>
       <DashboardSectionWrapper>
         <Suspense fallback={<p>Loading...</p>}>
           <PropertyDevelopersContainer
