@@ -1,0 +1,14 @@
+.icon-wrapper {
+  /* width: 100%; */
+  flex: 0 0 var(--menu-icon-length);
+  color: inherit;
+
+  display: flex;
+}
+
+.icon-wrapper svg {
+  width: var(--menu-icon-length);
+  height: var(--menu-icon-length);
+  stroke: currentColor;
+  fill: currentColor;
+}

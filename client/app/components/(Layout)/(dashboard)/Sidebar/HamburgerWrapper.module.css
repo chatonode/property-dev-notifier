@@ -1,0 +1,16 @@
+.hamburger-wrapper {
+  z-index: 2;
+
+  display: flex;
+  position: absolute;
+  left: 16px;
+  /* top: 12px; */
+  top: 20px;
+}
+
+@media (min-width: 40rem) {
+  .hamburger-wrapper {
+    display: none;
+    z-index: 0;
+  }
+}

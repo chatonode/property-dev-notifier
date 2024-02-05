@@ -5,7 +5,7 @@ import RouteMap from '../../../../constants/RouteMap'
 import HttpStatusCode from '../../../../constants/HTTPStatusCode'
 import { validateRequest } from '../../../../middlewares/validate-request'
 import { requireAuth } from '../../../../middlewares/require-auth'
-import { getVerifiedUserDoc } from '../../../../middlewares/get-verified-user-doc'
+import { validateTokenOwner } from '../../../../middlewares/validate-token-owner'
 
 import {
   PropertyDeveloper,
@@ -65,7 +65,7 @@ router[RouteMap.NOTIFY_PROPERTY_DEVELOPERS.method](
   ],
   validateRequest,
   requireAuth,
-  getVerifiedUserDoc,
+  validateTokenOwner,
   async (req: Request, res: Response) => {
     const { propertyDeveloperIds, content }: RequestBody = req.body
 
@@ -108,7 +108,7 @@ router[RouteMap.NOTIFY_PROPERTY_DEVELOPERS.method](
     }
 
     const newNotification = Notification.build({
-      sender: req.authenticatedUserDoc!,
+      sender: req.currentUserDoc!,
       recipients: existingPropertyDevelopers,
       content,
     })

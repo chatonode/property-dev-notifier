@@ -1,0 +1,43 @@
+.wrapper {
+  /* --single-hue-main: #002337;
+  --single-hue-2: #495a6b;
+  --single-hue-3: #6e7c8c;
+  --single-hue-4: #939ea9;
+  --single-hue-5: #b8c1c9;
+  --single-hue-6: #dcdfe4;
+  --single-hue-7: #f1f3f4;
+  --single-hue-8: #f7f8f9;
+  --single-hue-9: #fcfcfd; */
+
+  width: 100%;
+  flex: 0 1 auto;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0.75em 1em 0.6875em 4em;
+  /* z-index: 4; */
+  /* Fibonacci numbers */
+  /* background: linear-gradient(
+    352deg,
+    var(--single-hue-main),
+    var(--single-hue-2) calc(6%),
+    var(--single-hue-3) calc(14%),
+    var(--single-hue-4) calc(16%),
+    var(--single-hue-5) calc(35%),
+    var(--single-hue-6) calc(45%),
+    var(--single-hue-7) calc(61%),
+    var(--single-hue-8) calc(64%),
+    var(--single-hue-9) calc(80%)
+  ); */
+  /* background-blend-mode: color; */
+  background: var(--dashboard-page-title-background-light);
+  box-shadow: 0px 0px 13px 3px var(--text-primary);
+}
+
+@media (min-width: 40rem) {
+  .wrapper {
+    padding: 1em 1.5em;
+    justify-content: space-between;
+  }
+}

@@ -5,9 +5,9 @@ import { useEffect } from 'react'
 import { inter500 } from '@/app/fonts'
 
 import BackgroundPortal from '@/components/UI/Background/BackgroundPortal'
-import MainFooter from './components/(Layout)/Footer/MainFooter'
-import MainHeader from './components/(Layout)/Header/MainHeader'
-import ErrorLayout from './components/UI/Error/ErrorLayout'
+import MainHeader from './components/(Layout)/(public)/Header/MainHeader'
+import MainFooter from './components/(Layout)/(public)/Footer/MainFooter'
+import ErrorSectionWrapper from './components/(Layout)/Body/Error/ErrorSectionWrapper'
 
 export default function GlobalError({
   error,
@@ -26,11 +26,11 @@ export default function GlobalError({
       <body>
         {/* <MainHeader currentUser={null} /> */}
         <div className="root">
-          <ErrorLayout>
+          <ErrorSectionWrapper>
             <h2>Something went wrong!</h2>
             <p>{error.message}</p>
             <button onClick={() => reset()}>Try again</button>
-          </ErrorLayout>
+          </ErrorSectionWrapper>
         </div>
         <MainFooter />
         <BackgroundPortal />

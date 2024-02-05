@@ -1,0 +1,61 @@
+nav.navigation-container {
+  width: 100%;
+  display: flex;
+  /* flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; */
+  flex: 1 0 auto;
+  border-color: var(--text-primary);
+  border-top: 1px solid;
+}
+
+.navigation-list {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  list-style: none;
+  padding: 0; /* to delete default padding of ul */
+}
+
+.navigation-list span {
+  margin-top: 1em;
+}
+
+.navigation-list li,
+.navigation-list li a {
+  display: inherit; /* to inherit flex for icons */
+}
+
+.navigation-list li {
+  padding: 0.4em 0.6em;
+  border-radius: 0.55em;
+
+  transition: background ease;
+  transition-duration: calc(var(--global-transition-duration) * 4);
+}
+
+.navigation-list li:focus,
+.navigation-list li:hover {
+  background: var(--gradient-light-start-color);
+}
+
+.navigation-list li.active {
+  display: flex;
+  background: var(--gradient-light-end-color);
+
+  /* border-right: 5px solid;
+  padding-right: 5px; */
+}
+
+.navigation-list li a {
+  flex: 1 0 auto;
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--sidebar-menu-item-gap);
+}
+
+.navigation-list li a.active {
+  /* color: var(--text-secondary); */
+  color: var(--text-primary);
+}

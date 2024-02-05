@@ -4,8 +4,6 @@ import type { Metadata } from 'next'
 import { inter500 } from './fonts'
 import getCurrentUser from '@/api/(users)/get-current-user'
 
-import MainHeader from '@/components/(Layout)/Header/MainHeader'
-import MainFooter from '@/components/(Layout)/Footer/MainFooter'
 import BackgroundPortal from '@/components/UI/Background/BackgroundPortal'
 // import LoadingContainer from '@/components/(Loading)/LoadingContainer'
 
@@ -25,10 +23,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className={inter500.className}>
       <body>
-        <MainHeader currentUser={currentUser} />
-        {/* <LoadingContainer /> */}
-        <div className="root">{children}</div>
-        <MainFooter />
+        {children}
         <BackgroundPortal />
       </body>
     </html>
