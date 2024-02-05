@@ -234,9 +234,11 @@
 
   /** ---  **/
 
-  /** Animation **/
-
+  /* Animation */
+  /** Duration **/
   --theme-color-transition-duration: 0.3s;
+  
+  --global-transition-duration: 0.26s;
 
   /** ---  **/
 
@@ -274,9 +276,6 @@
   --sidebar-menu-item-gap: 0.5em;
 
   /*  ---  */
-  /* Animation */
-  /** Duration **/
-  --global-transition-duration: 0.26s;
 }
 
 /***___ RESET.CSS ___***/
@@ -467,6 +466,30 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+/* Template */
+.template {
+  width: 100%;
+  flex-grow: 1;
+
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  transition: opacity calc(var(--global-transition-duration) * 2) ease-in-out;
+}
+
+.template.fade-in {
+  opacity: 1;
+}
+
+.template.fade-out {
+  opacity: 0;
+}
+
+/* --- */
 
 .footer {
   font-size: 1rem;
