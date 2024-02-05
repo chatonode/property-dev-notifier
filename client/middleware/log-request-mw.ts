@@ -1,4 +1,4 @@
-import { MiddlewareFactory, PATH_REGEX } from '@/middleware'
+import { MiddlewareFactory, PATH_REGEX } from '@/middleware-unused'
 import {
   type NextMiddleware,
   type NextRequest,
