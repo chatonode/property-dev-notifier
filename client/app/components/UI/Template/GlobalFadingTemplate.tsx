@@ -1,7 +1,7 @@
 'use client'
 
 import { ReactNode, useState, useEffect, Suspense, memo } from 'react'
-import LoadingContainer from '@/components/(Loading)/LoadingContainer'
+// import LoadingContainer from '@/components/(Loading)/LoadingContainer'
 // import DashboardFallback from '../Fallback/Dashboard/DashboardFallback'
 
 type TGlobalFadingTemplateProps = {
@@ -22,9 +22,9 @@ const GlobalFadingTemplate = (props: TGlobalFadingTemplateProps) => {
   // const childrenClasses= 'template fade-in'
 
   return (
-    <Suspense fallback={<LoadingContainer />}>
+    // <Suspense fallback={<DashboardFallback />}>
       <div className={childrenClasses}>{props.children}</div>
-    </Suspense>
+    // </Suspense>
   )
 }
 

@@ -1,14 +1,14 @@
 /* styles.module.css */
 
 /* Container styles */
-.notificationMultiForm {
+/* .notificationMultiForm {
   width: 90vw;
-  max-width: 400px; /* Set a fixed width for the container */
+  max-width: 400px;
   padding: 16px;
   background-color: #f0f0f0;
   border-radius: 8px;
   margin: 16px;
-}
+} */
 
 .formContainer {
   margin-bottom: 16px;

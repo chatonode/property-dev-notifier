@@ -19,7 +19,7 @@ const PropertyDevelopers = async () => {
       </PageTitleWrapper>
       <DashboardSectionWrapper>
         <CreatePropertyDeveloperContainer />
-        <div style={{ height: '100px' }}>dummy height div</div>
+        {/* <div style={{ height: '100px' }}>dummy height div</div> */}
       </DashboardSectionWrapper>
     </DashboardMainWrapper>
   )

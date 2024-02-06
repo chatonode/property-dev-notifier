@@ -30,3 +30,5 @@ const CreateNotificationTemplate = async () => {
 }
 
 export default CreateNotificationTemplate
+
+export const dynamic = 'force-dynamic'

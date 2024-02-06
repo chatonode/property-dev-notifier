@@ -1,19 +1,28 @@
 import React from 'react'
 import classes from './DashboardFallback.module.css'
+import DashboardMainWrapper from '@/app/components/(Layout)/(dashboard)/Body/Main/Default/DashboardMainWrapper'
+import { TCurrentUser } from '@/app/api/(users)/get-current-user'
+import PageTitleWrapper from '@/app/components/(Layout)/(dashboard)/Body/Main/Title/PageTitleWrapper'
+import DashboardSectionWrapper from '@/app/components/(Layout)/(dashboard)/Body/Main/Section/DashboardSectionWrapper'
+
+const CURRENT_USER_FALLBACK: TCurrentUser = {
+  email: '***@***.***',
+  id: '##',
+  iat: 1,
+} as const
 
 const DashboardFallback = () => {
   return (
-    <main className="main-dashboard">
-      <div className={classes['skeleton-wrapper']}>
-        <div className={classes['skeleton-title']}></div>
-        <div className={classes['skeleton-user-info']}></div>
-      </div>
-      <section className="section-dashboard">
+    <DashboardMainWrapper>
+      <PageTitleWrapper currentUser={CURRENT_USER_FALLBACK}>
+        Loading...
+      </PageTitleWrapper>
+      <DashboardSectionWrapper>
         <div>
-          <button className="skeleton-button" type="button"></button>
+          <div className="skeleton-user-info"></div>
         </div>
-      </section>
-    </main>
+      </DashboardSectionWrapper>
+    </DashboardMainWrapper>
   )
 }
 

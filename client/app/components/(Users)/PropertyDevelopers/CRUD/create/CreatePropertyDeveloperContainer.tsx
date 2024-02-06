@@ -4,6 +4,8 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import classes from './CreatePropertyDeveloperContainer.module.css'
 import { buildClientSender } from '@/app/api/(axios)/client/build-client-sender'
 import BadRequestError from '@/app/lib/errors/BadRequestError'
+import FormWrapper from '@/app/components/UI/Form/Dashboard/FormWrapper'
+import { useAsyncError } from '@/app/hooks/useAsyncError'
 
 type FormData = {
   fullName: string
@@ -13,6 +15,7 @@ type FormData = {
 
 const CreatePropertyDeveloperContainer = () => {
   const { register, handleSubmit, formState, reset } = useForm<FormData>()
+  const throwError = useAsyncError()
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     // Handle form submission, e.g., send data to server
@@ -47,28 +50,27 @@ const CreatePropertyDeveloperContainer = () => {
   }
 
   return (
-    <div className={classes.container}>
-      <h2>Create Property Developer</h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label htmlFor="fullName">Full Name:</label>
-        <input {...register('fullName', { required: true })} />
+    <FormWrapper>
+      <div className={classes.container}>
+        <h2>Create Property Developer</h2>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <label htmlFor="fullName">Full Name:</label>
+          <input {...register('fullName', { required: true })} />
 
-        <label htmlFor="email">Email:</label>
-        <input
-          {...register('email', { required: true, pattern: /^\S+@\S+$/i })}
-        />
+          <label htmlFor="email">Email:</label>
+          <input
+            {...register('email', { required: true, pattern: /^\S+@\S+$/i })}
+          />
 
-        {/* Add more input fields as needed */}
+          {/* Add more input fields as needed */}
 
-        <button type="submit" disabled={formState.isSubmitting}>
-          Create Developer
-        </button>
-      </form>
-    </div>
+          <button type="submit" disabled={formState.isSubmitting}>
+            Create Developer
+          </button>
+        </form>
+      </div>
+    </FormWrapper>
   )
 }
 
 export default CreatePropertyDeveloperContainer
-function throwError(arg0: any) {
-  throw new Error('Function not implemented.')
-}

@@ -12,6 +12,7 @@ import getCurrentUser from '@/app/api/(users)/get-current-user'
 
 const PropertyDevelopers = async () => {
   const currentUser = await getCurrentUser()
+  const propertyDevelopers = await getPropertyDevelopers()
 
   return (
     <DashboardMainWrapper>
@@ -21,7 +22,7 @@ const PropertyDevelopers = async () => {
       <DashboardSectionWrapper>
         <Suspense fallback={<p>Loading...</p>}>
           <PropertyDevelopersContainer
-            propertyDevelopers={await getPropertyDevelopers()}
+            propertyDevelopers={propertyDevelopers}
           />
         </Suspense>
       </DashboardSectionWrapper>
@@ -30,3 +31,5 @@ const PropertyDevelopers = async () => {
 }
 
 export default PropertyDevelopers
+
+export const dynamic = 'force-dynamic'

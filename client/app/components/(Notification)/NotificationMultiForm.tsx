@@ -14,6 +14,7 @@ import { buildClientSender } from '@/app/api/(axios)/client/build-client-sender'
 import FinalForm from './FinalForm'
 import { redirect } from 'next/navigation'
 import { ERoute } from '@/app/types/enums'
+import FormWrapper from '../UI/Form/Dashboard/FormWrapper'
 
 /*  Types & Enums */
 type NotificationMultiFormProps = {
@@ -300,80 +301,82 @@ const NotificationMultiForm = (props: NotificationMultiFormProps) => {
     //     </div>
     //   </div>
     // </div>
-    <div className={classes.notificationMultiForm}>
-      <h3 className={classes.title}>Notification Template</h3>
-      <div className={classes.formContainer}>
-        {formStepIs1 && (
-          <div className={classes.formStep}>
-            <EmailForm
-              currentContentState={multiFormState.firstStep.content}
-              onSubmit={setEmailContentHandler}
-            />
+    <FormWrapper>
+      <div className={classes.notificationMultiForm}>
+        <h3 className={classes.title}>Notification Template</h3>
+        <div className={classes.formContainer}>
+          {formStepIs1 && (
+            <div className={classes.formStep}>
+              <EmailForm
+                currentContentState={multiFormState.firstStep.content}
+                onSubmit={setEmailContentHandler}
+              />
+            </div>
+          )}
+          {formStepIs2 && (
+            <div className={classes.formStep}>
+              <PropertyDevelopersList
+                propertyDevelopers={props.propertyDevelopers}
+                selectedPropertyDevelopers={
+                  multiFormState.secondStep.propertyDevelopers
+                }
+                onChange={setPropertyDevelopersListHandler}
+              />
+            </div>
+          )}
+          {formStepIs3 && (
+            <div className={classes.formStep}>
+              <FinalForm
+                formState={multiFormState}
+                hasError={formIsPartiallyEmpty}
+                onSubmit={sendNotificationHandler}
+              />
+            </div>
+          )}
+        </div>
+        <div className={classes.progressContainer}>
+          <div className={classes.progress}>
+            <h3>Progression</h3>
+            {formStepIs1 && <span>1/3</span>}
+            {formStepIs2 && <span>2/3</span>}
+            {formStepIs3 && <span>3/3</span>}
           </div>
-        )}
-        {formStepIs2 && (
-          <div className={classes.formStep}>
-            <PropertyDevelopersList
-              propertyDevelopers={props.propertyDevelopers}
-              selectedPropertyDevelopers={
-                multiFormState.secondStep.propertyDevelopers
+          <div className={classes.buttons}>
+            <button
+              type="button"
+              onClick={() =>
+                setFormStep((prevFormStep) => (prevFormStep - 1) as TFormStep)
               }
-              onChange={setPropertyDevelopersListHandler}
-            />
+              disabled={formStepIs1 ? true : undefined}
+              className={classes.navigationButton}
+            >
+              {'<'}
+            </button>
+            <button
+              type="button"
+              onClick={() =>
+                setFormStep((prevFormStep) => (prevFormStep + 1) as TFormStep)
+              }
+              disabled={
+                formStepIs3 || (formStepIs2 && formIsEmpty) ? true : undefined
+              }
+              className={classes.navigationButton}
+            >
+              {'>'}
+            </button>
           </div>
-        )}
-        {formStepIs3 && (
-          <div className={classes.formStep}>
-            <FinalForm
-              formState={multiFormState}
-              hasError={formIsPartiallyEmpty}
-              onSubmit={sendNotificationHandler}
-            />
+          <div className={classes.resetButtonContainer}>
+            <button
+              type="reset"
+              onClick={resetMultiFormHandler}
+              className={classes.resetButton}
+            >
+              Reset Form
+            </button>
           </div>
-        )}
-      </div>
-      <div className={classes.progressContainer}>
-        <div className={classes.progress}>
-          <h3>Progression</h3>
-          {formStepIs1 && <span>1/3</span>}
-          {formStepIs2 && <span>2/3</span>}
-          {formStepIs3 && <span>3/3</span>}
-        </div>
-        <div className={classes.buttons}>
-          <button
-            type="button"
-            onClick={() =>
-              setFormStep((prevFormStep) => (prevFormStep - 1) as TFormStep)
-            }
-            disabled={formStepIs1 ? true : undefined}
-            className={classes.navigationButton}
-          >
-            {'<'}
-          </button>
-          <button
-            type="button"
-            onClick={() =>
-              setFormStep((prevFormStep) => (prevFormStep + 1) as TFormStep)
-            }
-            disabled={
-              formStepIs3 || (formStepIs2 && formIsEmpty) ? true : undefined
-            }
-            className={classes.navigationButton}
-          >
-            {'>'}
-          </button>
-        </div>
-        <div className={classes.resetButtonContainer}>
-          <button
-            type="reset"
-            onClick={resetMultiFormHandler}
-            className={classes.resetButton}
-          >
-            Reset Form
-          </button>
         </div>
       </div>
-    </div>
+    </FormWrapper>
   )
 }
 
