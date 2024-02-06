@@ -1,7 +1,8 @@
 'use client'
 
-import { ReactNode, useState, useEffect, Suspense } from 'react'
-import LoadingContainer from '../../(Loading)/LoadingContainer'
+import { ReactNode, useState, useEffect, Suspense, memo } from 'react'
+import LoadingContainer from '@/components/(Loading)/LoadingContainer'
+// import DashboardFallback from '../Fallback/Dashboard/DashboardFallback'
 
 type TGlobalFadingTemplateProps = {
   children: ReactNode
@@ -17,14 +18,14 @@ const GlobalFadingTemplate = (props: TGlobalFadingTemplateProps) => {
     return () => setIsMounted(false)
   }, [])
 
+  const childrenClasses = `template ${isMounted ? 'fade-in' : 'fade-out'}`
+  // const childrenClasses= 'template fade-in'
 
   return (
     <Suspense fallback={<LoadingContainer />}>
-      <div className={`template ${isMounted ? 'fade-in' : 'fade-out'}`}>
-        {props.children}
-      </div>
+      <div className={childrenClasses}>{props.children}</div>
     </Suspense>
   )
 }
 
-export default GlobalFadingTemplate
+export default memo(GlobalFadingTemplate)
