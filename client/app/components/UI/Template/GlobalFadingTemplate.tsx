@@ -10,6 +10,7 @@ type TGlobalFadingTemplateProps = {
 
 const GlobalFadingTemplate = (props: TGlobalFadingTemplateProps) => {
   const [isMounted, setIsMounted] = useState(false)
+  // const { isNavigating } = useNavigationContext()
 
   useEffect(() => {
     setIsMounted(true)
@@ -18,12 +19,17 @@ const GlobalFadingTemplate = (props: TGlobalFadingTemplateProps) => {
     return () => setIsMounted(false)
   }, [])
 
-  const childrenClasses = `template ${isMounted ? 'fade-in' : 'fade-out'}`
-  // const childrenClasses= 'template fade-in'
+  // const childrenClasses = `template${isMounted ? ' fade-in' : ''}${
+  //   isNavigating ? ' fade-out' : ''
+  // }`
+  const childrenClasses = `template${isMounted ? ' fade-in' : ' fade-out'}`
+
+  // console.log(isNavigating)
+  console.log('classes: ', childrenClasses)
 
   return (
     // <Suspense fallback={<DashboardFallback />}>
-      <div className={childrenClasses}>{props.children}</div>
+    <div className={childrenClasses}>{props.children}</div>
     // </Suspense>
   )
 }

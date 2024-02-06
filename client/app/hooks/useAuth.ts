@@ -1,6 +1,6 @@
-// useAuth.ts
 import { useState, useEffect, Dispatch, SetStateAction } from 'react'
 import { useRouter } from 'next/navigation'
+// import { useRouter } from '@/hooks/next/useRouter'
 
 type TAuthenticated = boolean
 

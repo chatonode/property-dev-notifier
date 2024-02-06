@@ -1,6 +1,7 @@
 import { memo, useCallback } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
+// import { useRouter } from '@/hooks/next/useRouter'
 
 import { ERoute } from '@/app/types/enums'
 import logo from '@/public/assets/images/logo/SmartLogoWebMobile.png'

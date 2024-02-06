@@ -3,6 +3,7 @@
 import { memo, useState, useTransition } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+// import { useRouter } from '@/hooks/next/useRouter'
 
 import classes from './Bottom.module.css'
 import { ERoute } from '@/app/types/enums'
