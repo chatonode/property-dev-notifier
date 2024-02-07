@@ -52,8 +52,6 @@ type TReducerAction =
   | { type: typeof EReducerActionType.RESET_SELECTED_PROPERTY_DEVELOPERS }
   | { type: typeof EReducerActionType.RESET_MULTI_FORM }
 
-type TFormStep = 1 | 2 | 3
-
 /* Constants */
 const DEFAULT_MULTI_FORM_STATE: TMultiFormState = {
   firstStep: {
@@ -236,12 +234,13 @@ const NotificationMultiForm = (props: NotificationMultiFormProps) => {
   return (
     <FormWrapper>
       <MultiFormWrapper
-        formState={multiFormState}
-        dispatch={dispatch}
+        // formState={multiFormState}
+        // dispatch={dispatch}
         formComponents={[
           <EmailForm
             currentContentState={multiFormState.firstStep.content}
-            onSubmit={setEmailContentHandler}
+            // onSubmit={setEmailContentHandler}
+            onChange={setEmailContentHandler}
           />,
           <PropertyDevelopersList
             propertyDevelopers={props.propertyDevelopers}

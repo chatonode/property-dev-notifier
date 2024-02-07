@@ -9,8 +9,8 @@ import React, {
 import classes from './MultiFormWrapper.module.css'
 
 type MultiFormWrapperProps<TFormState, TReducerAction> = {
-  formState: TFormState
-  dispatch: React.Dispatch<TReducerAction>
+  //   formState: TFormState
+  //   dispatch: React.Dispatch<TReducerAction>
   formComponents: ReactNode[]
   onSubmit: () => void
 }
@@ -18,8 +18,8 @@ type MultiFormWrapperProps<TFormState, TReducerAction> = {
 const GLOBAL_TRANSITION_DURATION = 260 as const
 
 const MultiFormWrapper = <TFormState, TReducerAction>({
-  formState,
-  dispatch,
+  //   formState,
+  //   dispatch,
   formComponents,
   onSubmit,
 }: MultiFormWrapperProps<TFormState, TReducerAction>) => {
@@ -45,24 +45,27 @@ const MultiFormWrapper = <TFormState, TReducerAction>({
   const isFirstStep = formStep === 1
   const isLastStep = formStep === formComponents.length
 
-  const handleNextStep = () => {
+  const handleNextStep = useCallback(() => {
     if (isLastStep) {
-      onSubmit()
-    } else {
-      nextStep()
+      return onSubmit()
     }
-  }
+    // else
+    nextStep()
+  }, [isLastStep])
 
   /* Styles */
-  //   const formComponentClasses = `${classes['form-step']}`
-  const formComponentClasses = `${classes['form-step']} ${
-    isFadingOut ? classes['fade-out'] : ''
+  const formComponentClasses = `${classes['form-step']}${
+    isFadingOut ? ` ${classes['fade-out']}` : ''
   }`
+
+  const progressBarStyle = {
+    width: `${((formStep - 1) / (formComponents.length - 1)) * 100}%`,
+  }
 
   return (
     <>
       {/* Render your navigation buttons and progress indicators here */}
-      <div className={classes.progressContainer}>
+      <div className={classes.container}>
         <button
           className={classes.navigationButton}
           type="button"
@@ -72,9 +75,13 @@ const MultiFormWrapper = <TFormState, TReducerAction>({
           {'<'}
         </button>
         <div className={classes.progress}>
-          <span>
+          {/* <span>
             {formStep}/{formComponents.length}
-          </span>
+          </span> */}
+          <div
+            className={classes['progress-bar']}
+            style={progressBarStyle}
+          ></div>
         </div>
         <button
           className={classes.navigationButton}
@@ -82,7 +89,7 @@ const MultiFormWrapper = <TFormState, TReducerAction>({
           onClick={handleNextStep}
           disabled={isLastStep || isFadingOut}
         >
-          {/* {isLastStep ? 'Submit' : '>'} */}
+          {/* {isLastStep ? 'Submit' : 'Next'} */}
           {'>'}
         </button>
       </div>
@@ -91,6 +98,15 @@ const MultiFormWrapper = <TFormState, TReducerAction>({
       <div className={formComponentClasses}>
         {React.Children.toArray(formComponents)[formStep - 1]}
       </div>
+      <button
+        className={classes.navigationButton}
+        type="button"
+        onClick={handleNextStep}
+        disabled={isLastStep || isFadingOut}
+      >
+        {isLastStep ? 'Submit' : 'Next'}
+        {/* {'>'} */}
+      </button>
     </>
   )
 }

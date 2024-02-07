@@ -1,12 +1,22 @@
 'use client'
 
-import { ChangeEvent, FormEvent, useCallback, useEffect, useState } from 'react'
+import {
+  ChangeEvent,
+  FormEvent,
+  memo,
+  use,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react'
 
 import { TEmailData } from '@/app/types/types'
 
+import classes from './EmailForm.module.css'
+
 type TEmailFormProps = {
   currentContentState: TEmailData
-  onSubmit: (content: TEmailData) => void
+  onChange: (content: TEmailData) => void
   // onReset: () => void
 }
 
@@ -18,71 +28,77 @@ const EmailForm = (props: TEmailFormProps) => {
 
   console.log('Is email content being re-rendered?:', emailFormState)
 
+  const setEmailTitleHandler = useCallback(
+    (event: ChangeEvent<HTMLInputElement>): void => {
+      setEmailFormState((prevEmailFormState) => {
+        return {
+          ...prevEmailFormState,
+          title: event.target.value,
+        }
+      })
+    },
+    []
+  )
+
+  const setEmailBodyHandler = useCallback(
+    (event: ChangeEvent<HTMLTextAreaElement>): void => {
+      setEmailFormState((prevEmailFormState) => {
+        return {
+          ...prevEmailFormState,
+          body: event.target.value,
+        }
+      })
+    },
+    []
+  )
+
   useEffect(() => {
-    setEmailFormState({
-      title: props.currentContentState.title,
-      body: props.currentContentState.body,
-    })
-  }, [props.currentContentState])
+    props.onChange(emailFormState)
+  }, [emailFormState])
 
-  const setEmailTitleHandler = (event: ChangeEvent<HTMLInputElement>): void => {
-    setEmailFormState((prevEmailFormState) => {
-      return {
-        ...prevEmailFormState,
-        title: event.target.value,
-      }
-    })
-  }
+  // useEffect(() => {
+  //   setEmailFormState({
+  //     title: props.currentContentState.title,
+  //     body: props.currentContentState.body,
+  //   })
+  // }, [props.currentContentState])
 
-  const setEmailBodyHandler = (
-    event: ChangeEvent<HTMLTextAreaElement>
-  ): void => {
-    setEmailFormState((prevEmailFormState) => {
-      return {
-        ...prevEmailFormState,
-        body: event.target.value,
-      }
-    })
-  }
+  // const submitHandler = (event: FormEvent<HTMLFormElement>): void => {
+  //   event.preventDefault()
 
-  const submitHandler = (event: FormEvent<HTMLFormElement>): void => {
-    event.preventDefault()
+  //   props.onSubmit({
+  //     title: emailFormState.title,
+  //     body: emailFormState.body,
+  //   })
 
-    props.onSubmit({
-      title: emailFormState.title,
-      body: emailFormState.body,
-    })
-
-    // setEmailFormState({
-    //   title: '',
-    //   body: '',
-    // })
-  }
+  //   // setEmailFormState({
+  //   //   title: '',
+  //   //   body: '',
+  //   // })
+  // }
 
   return (
-    <form onSubmit={submitHandler}>
-      <div>
-        <div>
-          <label htmlFor="title">Title</label>
-          <input
-            id="title"
-            type="text"
-            value={emailFormState.title}
-            onChange={setEmailTitleHandler}
-          />
-        </div>
-        <div>
-          <label htmlFor="body">Body</label>
-          <textarea
-            id="body"
-            value={emailFormState.body}
-            onChange={setEmailBodyHandler}
-          />
-        </div>
+    <div className={classes.container}>
+      <div className={classes['item-group']}>
+        <label htmlFor="title">Title</label>
+        <input
+          id="title"
+          type="text"
+          value={emailFormState.title}
+          onChange={setEmailTitleHandler}
+        />
       </div>
-      <button type="submit">Save Notification</button>
-    </form>
+      <div className={classes['item-group']}>
+        <label htmlFor="body">Body</label>
+        <textarea
+          id="body"
+          value={emailFormState.body}
+          onChange={setEmailBodyHandler}
+        />
+      </div>
+      {/* <button type="submit">Save Notification</button> */}
+    </div>
   )
 }
 
-export default EmailForm
+export default memo(EmailForm)
