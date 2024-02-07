@@ -1,3 +1,6 @@
+// For making it callable from Client Components!
+'use server'
+
 // import { permanentRedirect } from 'next/navigation'
 import { buildServerSender } from '@/app/api/(axios)/server/build-server-sender'
 import { ERoute } from '@/app/types/enums'

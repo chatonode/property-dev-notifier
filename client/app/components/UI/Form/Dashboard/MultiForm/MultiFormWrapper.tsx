@@ -102,7 +102,8 @@ const MultiFormWrapper = <TFormState, TReducerAction>({
         className={classes.navigationButton}
         type="button"
         onClick={handleNextStep}
-        disabled={isLastStep || isFadingOut}
+        // disabled={isLastStep || isFadingOut}
+        disabled={isFadingOut}
       >
         {isLastStep ? 'Submit' : 'Next'}
         {/* {'>'} */}

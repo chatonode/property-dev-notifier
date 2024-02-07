@@ -16,6 +16,8 @@ import { redirect } from 'next/navigation'
 import { ERoute } from '@/app/types/enums'
 import FormWrapper from '../UI/Form/Dashboard/FormWrapper'
 import MultiFormWrapper from '../UI/Form/Dashboard/MultiForm/MultiFormWrapper'
+import { useAsyncError } from '@/app/hooks/useAsyncError'
+import BadRequestError from '@/app/lib/errors/BadRequestError'
 
 /*  Types & Enums */
 type NotificationMultiFormProps = {
@@ -130,6 +132,7 @@ const NotificationMultiForm = (props: NotificationMultiFormProps) => {
     notificationMultiFormReducer,
     DEFAULT_MULTI_FORM_STATE
   )
+  const throwError = useAsyncError()
 
   // console.log('Hello NotificationMultiForm!:', multiFormState)
 
@@ -216,8 +219,12 @@ const NotificationMultiForm = (props: NotificationMultiFormProps) => {
       }
     )
 
+    if (response.status === 400) {
+      throwError(new BadRequestError(response.data.errors[0].message))
+    }
+
     if (response.status !== 206) {
-      throw new Error('Notifying Failed!')
+      throwError('Notifying Failed!')
     }
 
     const data = await response.data

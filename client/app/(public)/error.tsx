@@ -2,19 +2,11 @@
 
 import { useCallback, useEffect } from 'react'
 import Link from 'next/link'
-import ErrorSectionWrapper from '@/app/components/(Layout)/Body/Error/ErrorSectionWrapper'
+import { TErrorProps } from '@/types/error'
 import { ERoute } from '@/types/enums'
+import ErrorSectionWrapper from '@/app/components/(Layout)/Body/Error/ErrorSectionWrapper'
 
-type TNextError = Error & { digest?: string }
-
-type TError = TNextError & { detail: string }
-
-type TErrorProps = {
-  error: TError
-  reset: () => void
-}
-
-const Error = ({ error, reset }: TErrorProps) => {
+const PublicError = ({ error, reset }: TErrorProps) => {
   const resetHandler = useCallback(() => {
     reset()
   }, [reset])
@@ -54,4 +46,4 @@ const Error = ({ error, reset }: TErrorProps) => {
   )
 }
 
-export default Error
+export default PublicError
