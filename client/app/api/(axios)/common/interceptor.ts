@@ -1,6 +1,6 @@
+import { AxiosError, AxiosInstance } from 'axios'
 import AuthRequiredError from '@/app/lib/errors/AuthRequiredError'
 import { ERoute } from '@/app/types/enums'
-import { AxiosError, AxiosInstance } from 'axios'
 import { redirect } from 'next/navigation'
 
 const inServer = typeof window === 'undefined'
@@ -27,7 +27,10 @@ const activateResponseInterceptor = (instance: AxiosInstance) => {
           case 401:
             console.error('Interceptor: 401')
             // const router = useRouter()
-            return redirect(ERoute.Unauthorized)
+            return inServer
+              ? redirect(ERoute.Unauthorized)
+              : Promise.resolve(error.response)
+
           case 403:
             console.error('Interceptor: 403')
             return redirect(ERoute.Forbidden)
@@ -55,4 +58,4 @@ const activateResponseInterceptor = (instance: AxiosInstance) => {
   )
 }
 
-export { activateResponseInterceptor }
+// export { activateResponseInterceptor }
