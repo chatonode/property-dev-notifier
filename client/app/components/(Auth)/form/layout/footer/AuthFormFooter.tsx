@@ -1,6 +1,6 @@
 'use client'
 
-import { PropsWithChildren } from 'react'
+import { PropsWithChildren, memo } from 'react'
 
 import classes from './AuthFormFooter.module.css'
 
@@ -20,4 +20,4 @@ const AuthFormFooter = (props: TAuthFormFooterProps) => {
   )
 }
 
-export default AuthFormFooter
+export default memo(AuthFormFooter)

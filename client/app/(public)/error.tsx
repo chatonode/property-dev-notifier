@@ -1,25 +1,26 @@
 'use client'
 
-import { useCallback, useEffect } from 'react'
+import { memo, useCallback } from 'react'
 import Link from 'next/link'
+
+import useCurrentUserAfterError from '@/hooks/useCurrentUserAfterError'
+
 import { TErrorProps } from '@/types/error'
 import { ERoute } from '@/types/enums'
-import ErrorSectionWrapper from '@/app/components/(Layout)/Body/Error/ErrorSectionWrapper'
+
+import PublicMainWrapper from '@/components/(Layout)/(public)/Body/Main/Default/PublicMainWrapper'
+import PublicSectionWrapper from '@/components/(Layout)/(public)/Body/Main/Section/PublicSectionWrapper'
 
 const PublicError = ({ error, reset }: TErrorProps) => {
+  const { currentUser } = useCurrentUserAfterError({ error })
+
   const resetHandler = useCallback(() => {
     reset()
   }, [reset])
-
-  useEffect(() => {
-    console.log('ERROR TSX:', error.name)
-    // Log the error to an error reporting service
-    console.error('error.tsx: ', error.digest)
-  }, [error])
-
+  
   return (
-    <ErrorSectionWrapper>
-      <div>
+    <PublicMainWrapper>
+      <PublicSectionWrapper>
         <h2>Whoopsie...</h2>
         {/* <h3>{error.name}</h3> */}
         <h3>{error.name}</h3>
@@ -41,9 +42,9 @@ const PublicError = ({ error, reset }: TErrorProps) => {
           </ul>
         )} */}
         <Link href={ERoute.Home}>Return to Home Page</Link>
-      </div>
-    </ErrorSectionWrapper>
+      </PublicSectionWrapper>
+    </PublicMainWrapper>
   )
 }
 
-export default PublicError
+export default memo(PublicError)

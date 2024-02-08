@@ -4,7 +4,7 @@ export const enum ERoute {
   Login = '/login',
   GoodBye = '/goodbye',
   Dashboard = '/dashboard',
-  
+
   About = '/about',
 
   CreateNotificationTemplate = '/notifications/create-a-template',
@@ -18,6 +18,12 @@ export const enum ERoute {
   Forbidden = '/forbidden',
   NetworkError = '/network-error',
   GenericError = '/generic-error',
+
+  // DashboardUnauthorized = '/dashboard/unauthorized',
+  // *DashboardInternalServerError = '/dashboard/internal-server-error',
+  // *DashboardForbidden = '/dashboard/forbidden',
+  // *DashboardNetworkError = '/dashboard/network-error',
+  // *DashboardGenericError = '/dashboard/generic-error',
 }
 
 export const enum EFormType {

@@ -1,48 +1,23 @@
 'use client'
 
-import { useCallback, useEffect, useState } from 'react'
+import { memo, useCallback } from 'react'
 import Link from 'next/link'
+
+import useCurrentUserAfterError from '@/hooks/useCurrentUserAfterError'
+
 import { ERoute } from '@/types/enums'
 import { TErrorProps } from '@/types/error'
-// import ErrorSectionWrapper from '@/app/components/(Layout)/Body/Error/ErrorSectionWrapper'
-import getCurrentUser, { TCurrentUser } from '@/api/(users)/get-current-user'
+
 import DashboardMainWrapper from '@/components/(Layout)/(dashboard)/Body/Main/Default/DashboardMainWrapper'
 import PageTitleWrapper from '@/components/(Layout)/(dashboard)/Body/Main/Title/PageTitleWrapper'
 import DashboardSectionWrapper from '@/components/(Layout)/(dashboard)/Body/Main/Section/DashboardSectionWrapper'
 
 const DashboardError = ({ error, reset }: TErrorProps) => {
-  const [currentUser, setCurrentUser] = useState<TCurrentUser>({
-    email: '***@***.***',
-    iat: 0,
-    id: '###',
-  })
+  const { currentUser } = useCurrentUserAfterError({ error })
 
   const resetHandler = useCallback(() => {
     reset()
   }, [reset])
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // Fetch the current user data
-        const user = await getCurrentUser()
-
-        console.log('Dashboard Error: user ->> ', user)
-
-        // Set the fetched user data to the state
-        setCurrentUser(user)
-      } catch (error) {
-        console.error('Error fetching current user:', error)
-      }
-    }
-
-    // Call the fetchData function
-    fetchData()
-
-    console.log('ERROR TSX:', error.name)
-    // Log the error to an error reporting service
-    console.error('error.tsx: ', error.digest)
-  }, [error])
 
   return (
     <DashboardMainWrapper>
@@ -78,4 +53,4 @@ const DashboardError = ({ error, reset }: TErrorProps) => {
   )
 }
 
-export default DashboardError
+export default memo(DashboardError)

@@ -53,6 +53,17 @@ const Navigation = (props: TNavigationProps) => {
             </Link>
           )}
         </li>
+        <li>
+          {!props.currentUser && (
+            <Link
+              className={pathname === ERoute.Signup ? classes.active : undefined}
+              href={ERoute.Signup}
+              onClick={props.onNavigate}
+            >
+              Signup
+            </Link>
+          )}
+        </li>
       </ul>
     </nav>
   )

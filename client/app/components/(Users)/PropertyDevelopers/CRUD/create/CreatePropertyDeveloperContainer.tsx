@@ -1,11 +1,15 @@
 'use client'
 
+import { redirect } from 'next/navigation'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import classes from './CreatePropertyDeveloperContainer.module.css'
 import { buildClientSender } from '@/app/api/(axios)/client/build-client-sender'
 import BadRequestError from '@/app/lib/errors/BadRequestError'
 import FormWrapper from '@/app/components/UI/Form/Dashboard/FormWrapper'
 import { useAsyncError } from '@/app/hooks/useAsyncError'
+import { ERoute } from '@/app/types/enums'
+import AuthRequiredError from '@/app/lib/errors/AuthRequiredError'
+import { revalidatePath } from 'next/cache'
 
 type FormData = {
   fullName: string
@@ -35,9 +39,17 @@ const CreatePropertyDeveloperContainer = () => {
         throwError(new BadRequestError(response.data.errors[0].message))
       }
 
+      if (response.status === 401) {
+        // redirect(ERoute.Unauthorized)
+        throwError(new AuthRequiredError(response.data.errors[0].message))
+      }
+
       if (response.status !== 201) {
         throw new Error('Creating a new Property Developer Failed!')
       }
+
+      revalidatePath(ERoute.PropertyDevelopers)
+      revalidatePath(ERoute.CreateNotificationTemplate)
 
       // const resData = await response.data
     } catch (error: any) {

@@ -17,6 +17,7 @@ const activateResponseInterceptor = (instance: AxiosInstance) => {
     (error) => {
       // Handle response errors here
       console.log(`ERROR: I'm in the interceptor!!!`)
+      console.log('Environment: ', inServer ? 'server' : 'client')
 
       if (error.response && error.response.status) {
         switch (error.response.status) {
