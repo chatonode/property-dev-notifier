@@ -13,7 +13,7 @@ import EmailForm from './EmailForm'
 import { buildClientSender } from '@/app/api/(axios)/client/build-client-sender'
 import FinalForm from './FinalForm'
 import { redirect, useRouter } from 'next/navigation'
-import { ELoginRedirectReason, ERoute } from '@/app/types/enums'
+import { ELoginErrorParam, ERoute } from '@/app/types/enums'
 import FormWrapper from '../UI/Form/Dashboard/FormWrapper'
 import MultiFormWrapper from '../UI/Form/Dashboard/MultiForm/MultiFormWrapper'
 import { useAsyncError } from '@/app/hooks/useAsyncError'
@@ -228,7 +228,7 @@ const NotificationMultiForm = (props: NotificationMultiFormProps) => {
       if (response.status === 401) {
         await logUserOutFromClient()
         return router.replace(
-          `${ERoute.Login}?error=${ELoginRedirectReason.InvalidToken}`
+          `${ERoute.Login}?error=${ELoginErrorParam.InvalidToken}`
         )
       }
 

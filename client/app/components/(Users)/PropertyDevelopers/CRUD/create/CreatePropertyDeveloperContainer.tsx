@@ -7,7 +7,7 @@ import { buildClientSender } from '@/app/api/(axios)/client/build-client-sender'
 import BadRequestError from '@/app/lib/errors/BadRequestError'
 import FormWrapper from '@/app/components/UI/Form/Dashboard/FormWrapper'
 import { useAsyncError } from '@/app/hooks/useAsyncError'
-import { ELoginRedirectReason, ERoute } from '@/app/types/enums'
+import { ELoginErrorParam, ERoute } from '@/app/types/enums'
 import AuthRequiredError from '@/app/lib/errors/AuthRequiredError'
 import logUserOutFromClient from '@/app/api/(client)/auth/logout'
 
@@ -45,7 +45,7 @@ const CreatePropertyDeveloperContainer = () => {
         // throwError(new AuthRequiredError(response.data.errors[0].message))
         await logUserOutFromClient()
         return router.replace(
-          `${ERoute.Login}?error=${ELoginRedirectReason.InvalidToken}`
+          `${ERoute.Login}?error=${ELoginErrorParam.InvalidToken}`
         )
       }
 

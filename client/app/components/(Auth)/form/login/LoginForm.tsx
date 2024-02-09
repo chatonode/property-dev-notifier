@@ -22,6 +22,7 @@ import AuthFormFooter from '../layout/footer/AuthFormFooter'
 import { useAsyncError } from '@/app/hooks/useAsyncError'
 import InvalidFormInputsError from '@/app/lib/errors/InvalidFormInputsError'
 import BadRequestError from '@/app/lib/errors/BadRequestError'
+// import useLoginSubmittedParams from '@/app/hooks/useLoginSubmittedParams'
 
 const DEFAULT_LOGIN_FORM_STATE: TFormDataType[EFormType.LOGIN] = {
   email: '',
@@ -45,6 +46,7 @@ const LoginForm = () => {
     defaultValues: DEFAULT_LOGIN_FORM_STATE,
   })
 
+  // const loginErrorParam = useLoginErrorParams()
   const router = useRouter()
   const throwError = useAsyncError()
   const [_, setIsAuthenticated] = useAuth(false)
@@ -89,7 +91,12 @@ const LoginForm = () => {
       timeout = setTimeout(() => {
         setIsAuthenticated(true)
 
-        // Redirect to another page
+        // TODO: Redirect back to the operation
+        // if (loginSubmittedParam) {
+        //   console.log('loginSubmittedParam: ',loginSubmittedParam)
+        //   return router.back()
+        // }
+
         return router.replace(ERoute.Dashboard)
       }, 3000)
     }

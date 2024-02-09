@@ -1,8 +1,11 @@
 'use client'
 
 import { ReactNode, memo, useCallback, useState } from 'react'
+import { usePathname, useRouter } from 'next/navigation'
 
-import useLoginRedirectReason from '@/app/hooks/useLoginRedirectReason'
+import { ERoute } from '@/app/types/enums'
+
+import useLoginErrorParams from '@/hooks/useLoginErrorParams'
 
 import classes from './LoginParamToast.module.css'
 
@@ -13,7 +16,7 @@ type TLoginParamToastProps = {
 
 const LoginParamToast = (props: TLoginParamToastProps) => {
   const [isClosed, setIsClosed] = useState<boolean>(false)
-  const loginRedirectReason = useLoginRedirectReason()
+  const loginErrorSearchParam = useLoginErrorParams()
 
   const closeHandler = useCallback(() => {
     setIsClosed(true)
@@ -21,10 +24,12 @@ const LoginParamToast = (props: TLoginParamToastProps) => {
 
   return (
     <>
-      {loginRedirectReason && !isClosed && (
+      {loginErrorSearchParam && !isClosed && (
         <div className={classes.toast}>
-          <p className={classes.message}>{loginRedirectReason}</p>
-          <button className={classes.close} onClick={closeHandler}>X</button>
+          <p className={classes.message}>{loginErrorSearchParam}</p>
+          <button className={classes.close} onClick={closeHandler}>
+            X
+          </button>
         </div>
       )}
     </>
