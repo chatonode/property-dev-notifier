@@ -1,6 +1,7 @@
 import { Suspense } from 'react'
 
-import getPropertyDevelopers from '@/app/api/(users)/property-developers/list'
+import getCurrentUser from '@/app/api/(server)/auth/get-current-user'
+import getPropertyDevelopers from '@/app/api/(server)/users/property-developers/list'
 import { TPropertyDevelopersList } from '@/app/types/types'
 
 import DashboardMainWrapper from '@/app/components/(Layout)/(dashboard)/Body/Main/Default/DashboardMainWrapper'
@@ -8,7 +9,6 @@ import DashboardSectionWrapper from '@/app/components/(Layout)/(dashboard)/Body/
 import PageTitleWrapper from '@/app/components/(Layout)/(dashboard)/Body/Main/Title/PageTitleWrapper'
 
 import PropertyDevelopersContainer from '@/app/components/(Users)/PropertyDevelopers/CRUD/list/PropertyDevelopersContainer'
-import getCurrentUser from '@/app/api/(users)/get-current-user'
 
 const PropertyDevelopers = async () => {
   const currentUser = await getCurrentUser()

@@ -1,0 +1,32 @@
+.toast {
+  flex: 0 0 auto;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap-reverse;
+
+  background: var(--color-palette-2);
+  color: white;
+}
+
+p.message {
+  /* height: 100%; */
+  width: 90%;
+  margin: 1em;
+  flex: 1 0 auto;
+  text-align: center;
+  /* flex-wrap: wrap; */
+  /* min-width: 0; */
+  /* min-height: 0; */
+}
+
+button.close {
+  flex: 0 0 30px;
+  /* border-radius: 0.5em; */
+  margin: 1em;
+  background: inherit;
+  color: inherit;
+  border: none;
+}

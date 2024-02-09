@@ -62,7 +62,7 @@ const LoginForm = () => {
     try {
       const response = await axiosSender.post('/api/auth/login', data)
 
-      console.log('LoginForm response:', response)
+      // console.log('LoginForm response:', response)
 
       if (response.status === 400) {
         throwError(new BadRequestError(response.data.errors[0].message))
@@ -74,7 +74,7 @@ const LoginForm = () => {
 
       // const resData = await response.data
     } catch (error: any) {
-      console.error('LoginForm error response: ', error)
+      // console.error('LoginForm error response: ', error)
       throw error
     }
 

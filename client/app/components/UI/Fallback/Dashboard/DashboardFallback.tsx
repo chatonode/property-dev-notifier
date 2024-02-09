@@ -1,7 +1,7 @@
 import React from 'react'
 import classes from './DashboardFallback.module.css'
 import DashboardMainWrapper from '@/app/components/(Layout)/(dashboard)/Body/Main/Default/DashboardMainWrapper'
-import { TCurrentUser } from '@/app/api/(users)/get-current-user'
+import { TCurrentUser } from '@/app/api/(server)/auth/get-current-user'
 import PageTitleWrapper from '@/app/components/(Layout)/(dashboard)/Body/Main/Title/PageTitleWrapper'
 import DashboardSectionWrapper from '@/app/components/(Layout)/(dashboard)/Body/Main/Section/DashboardSectionWrapper'
 

@@ -2,7 +2,7 @@ import { PropsWithChildren } from 'react'
 import { Metadata } from 'next'
 import { permanentRedirect } from 'next/navigation'
 
-import getCurrentUser from '@/api/(users)/get-current-user'
+import getCurrentUser from '@/app/api/(server)/auth/get-current-user'
 import SidebarContainer from '@/components/(Layout)/(dashboard)/Sidebar/SidebarContainer'
 import { ERoute } from '@/types/enums'
 

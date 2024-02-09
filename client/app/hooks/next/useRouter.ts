@@ -57,7 +57,6 @@
 
 /* ************************************* */
 
-
 /* ************** With Context ********* */
 /* ************************************* */
 
@@ -73,7 +72,7 @@ type TRouterInstanceMethodProps = (
 
 const useRouter = () => {
   const router = originalUseRouter()
-  const { isNavigating, setIsNavigating } = useNavigationContext()
+  const [isNavigating, setIsNavigating] = useNavigationContext()
   const [targetUrl, setTargetUrl] = useState<string | null>(null)
   const [method, setMethod] = useState<'push' | 'replace' | 'refresh' | null>(
     null

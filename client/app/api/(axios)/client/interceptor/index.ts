@@ -5,6 +5,8 @@ import { ERoute } from '@/app/types/enums'
 
 // import { useAsyncError } from '@/app/hooks/useAsyncError'
 import BadRequestError from '@/app/lib/errors/BadRequestError'
+import logUserOutFromClient from '@/app/api/(client)/auth/logout'
+import { NextResponse } from 'next/server'
 
 const inClient = !(typeof window === 'undefined')
 
@@ -28,30 +30,35 @@ const activateClientResponseInterceptor = (instance: AxiosInstance) => {
         console.log(`ERROR: I'm in the client interceptor!!!`)
 
         if (error.response && error.response.status) {
+          return Promise.resolve(error.response)
           switch (error.response.status) {
             case 400: // Custom Errors can be used (Client Components are responded with BadRequest).
               console.error('Client Interceptor: 400')
-              //   return Promise.resolve(error.response)
-              throw new BadRequestError(error.response.data.errors[0].message)
+              return Promise.resolve(error.response)
+            // throw new BadRequestError(error.response.data.errors[0].message)
             case 401:
               console.error('Client Interceptor: 401')
               //   return router.push(ERoute.Unauthorized)
-              return window.history.pushState(null, '', ERoute.Unauthorized)
+              // return window.history.pushState(null, '', ERoute.Unauthorized) /* Partially working, need refresh */
+              // logUserOutFromClient().then((value) => console.log('logging out response value:', value))
+              // return (window.location.href = ERoute.Unauthorized)
+              // return Promise.resolve(error.response)
+              return Promise.resolve(error.response)
             case 403:
               console.error('Client Interceptor: 403')
-              //   return router.push(ERoute.Forbidden)
-              return window.history.pushState(null, '', ERoute.Forbidden)
+            //   return router.push(ERoute.Forbidden)
+            // return window.history.pushState(null, '', ERoute.Forbidden)
             case 404:
               console.error('Client Interceptor: 404')
               return Promise.resolve(error.response)
             case 500:
               console.error('Client Interceptor: 500')
-              //   return router.push(ERoute.InternalServerError)
-              return window.history.pushState(
-                null,
-                '',
-                ERoute.InternalServerError
-              )
+            //   return router.push(ERoute.InternalServerError)
+            // return window.history.pushState(
+            //   null,
+            //   '',
+            //   ERoute.InternalServerError
+            // )
             default:
               return Promise.reject(error)
           }
@@ -59,12 +66,14 @@ const activateClientResponseInterceptor = (instance: AxiosInstance) => {
           // Network-related errors (e.g., timeout, no response)
           console.error('Client Interceptor: Network error')
           //   return router.push(ERoute.NetworkError)
-          return window.history.pushState(null, '', ERoute.NetworkError)
+          // return window.history.pushState(null, '', ERoute.NetworkError)
+          return Promise.resolve(error.response)
         } else {
           // Other unexpected errors
           console.error('Client Interceptor: Unexpected error', error.message)
           //   return router.push(ERoute.GenericError)
-          return window.history.pushState(null, '', ERoute.GenericError)
+          // return window.history.pushState(null, '', ERoute.GenericError)
+          return Promise.resolve(error.response)
         }
       }
     )

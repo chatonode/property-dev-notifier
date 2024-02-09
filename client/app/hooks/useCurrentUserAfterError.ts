@@ -3,17 +3,21 @@
 import { useEffect, useState } from 'react'
 
 import { TErrorProps } from '@/types/error'
-import getCurrentUser, { TCurrentUser } from '@/api/(users)/get-current-user'
+import getCurrentUser, {
+  TCurrentUser,
+} from '@/app/api/(server)/auth/get-current-user'
 
 const useCurrentUserAfterError = ({
   error,
 }: //   reset,
 Pick<TErrorProps, 'error'>) => {
-  const [currentUser, setCurrentUser] = useState<TCurrentUser>({
-    email: 'Loading...',
-    iat: 0,
-    id: '###',
-  })
+  const [currentUser, setCurrentUser] = useState<TCurrentUser>(null)
+
+  // {
+  //   email: '',
+  //   iat: 0,
+  //   id: '',
+  // }
 
   useEffect(() => {
     const fetchData = async () => {

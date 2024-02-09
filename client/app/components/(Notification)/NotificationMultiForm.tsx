@@ -12,12 +12,13 @@ import PropertyDevelopersList from '../(Users)/PropertyDevelopers/PropertyDevelo
 import EmailForm from './EmailForm'
 import { buildClientSender } from '@/app/api/(axios)/client/build-client-sender'
 import FinalForm from './FinalForm'
-import { redirect } from 'next/navigation'
-import { ERoute } from '@/app/types/enums'
+import { redirect, useRouter } from 'next/navigation'
+import { ELoginRedirectReason, ERoute } from '@/app/types/enums'
 import FormWrapper from '../UI/Form/Dashboard/FormWrapper'
 import MultiFormWrapper from '../UI/Form/Dashboard/MultiForm/MultiFormWrapper'
 import { useAsyncError } from '@/app/hooks/useAsyncError'
 import BadRequestError from '@/app/lib/errors/BadRequestError'
+import logUserOutFromClient from '@/app/api/(client)/auth/logout'
 
 /*  Types & Enums */
 type NotificationMultiFormProps = {
@@ -132,6 +133,7 @@ const NotificationMultiForm = (props: NotificationMultiFormProps) => {
     notificationMultiFormReducer,
     DEFAULT_MULTI_FORM_STATE
   )
+  const router = useRouter()
   const throwError = useAsyncError()
 
   // console.log('Hello NotificationMultiForm!:', multiFormState)
@@ -207,29 +209,39 @@ const NotificationMultiForm = (props: NotificationMultiFormProps) => {
       multiFormState.secondStep.propertyDevelopers.map(
         (propertyDeveloper) => propertyDeveloper.id
       )
+    try {
+      const response = await axiosSender.post(
+        '/api/users/property-developers/notifications',
+        {
+          content: {
+            title: multiFormState.firstStep.content.title,
+            body: multiFormState.firstStep.content.body,
+          },
+          propertyDeveloperIds: [...propertyDeveloperIds],
+        }
+      )
 
-    const response = await axiosSender.post(
-      '/api/users/property-developers/notifications',
-      {
-        content: {
-          title: multiFormState.firstStep.content.title,
-          body: multiFormState.firstStep.content.body,
-        },
-        propertyDeveloperIds: [...propertyDeveloperIds],
+      if (response.status === 400) {
+        throwError(new BadRequestError(response.data.errors[0].message))
       }
-    )
 
-    if (response.status === 400) {
-      throwError(new BadRequestError(response.data.errors[0].message))
+      if (response.status === 401) {
+        await logUserOutFromClient()
+        return router.replace(
+          `${ERoute.Login}?error=${ELoginRedirectReason.InvalidToken}`
+        )
+      }
+
+      if (response.status !== 206) {
+        throwError('Notifying Failed!')
+      }
+
+      const data = await response.data
+
+      console.log('response data:', data)
+    } catch (error) {
+      throwError(error)
     }
-
-    if (response.status !== 206) {
-      throwError('Notifying Failed!')
-    }
-
-    const data = await response.data
-
-    console.log('response data:', data)
 
     dispatch({
       type: EReducerActionType.RESET_MULTI_FORM,

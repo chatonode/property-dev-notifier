@@ -10,7 +10,7 @@ import { ERoute } from '@/types/enums'
 const WelcomeScreen = () => {
   const router = useRouter()
   const clickHandler = useCallback(() => {
-    router.push(ERoute.CreateNotificationTemplate)
+    return router.push(ERoute.CreateNotificationTemplate)
   }, [])
   return (
     <div>

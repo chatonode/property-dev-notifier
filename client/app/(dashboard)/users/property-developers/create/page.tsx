@@ -2,7 +2,7 @@
 
 // import getPropertyDevelopers from '@/app/api/(users)/property-developers/get'
 
-import getCurrentUser from '@/app/api/(users)/get-current-user'
+import getCurrentUser from '@/app/api/(server)/auth/get-current-user'
 import DashboardMainWrapper from '@/app/components/(Layout)/(dashboard)/Body/Main/Default/DashboardMainWrapper'
 import DashboardSectionWrapper from '@/app/components/(Layout)/(dashboard)/Body/Main/Section/DashboardSectionWrapper'
 import PageTitleWrapper from '@/app/components/(Layout)/(dashboard)/Body/Main/Title/PageTitleWrapper'
@@ -26,3 +26,5 @@ const PropertyDevelopers = async () => {
 }
 
 export default PropertyDevelopers
+
+export const dynamic = 'force-dynamic'

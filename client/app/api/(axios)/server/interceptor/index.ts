@@ -1,4 +1,4 @@
-import { redirect } from 'next/navigation'
+import { RedirectType, redirect } from 'next/navigation'
 import { AxiosError, AxiosInstance } from 'axios'
 
 import { ERoute } from '@/app/types/enums'
@@ -27,7 +27,7 @@ const activateServerResponseInterceptor = (instance: AxiosInstance) => {
               return Promise.resolve(error.response)
             case 401:
               console.error('Interceptor: 401')
-              redirect(ERoute.Unauthorized)
+              redirect(ERoute.Unauthorized, RedirectType.push) /* Default */
             case 403:
               console.error('Interceptor: 403')
               return redirect(ERoute.Forbidden)

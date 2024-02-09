@@ -12,7 +12,7 @@ type TLinkProps = {
 }
 
 const Link = ({ href, as, className, children }: TLinkProps) => {
-  //   const { setIsNavigating } = useNavigationContext();
+  //   const [_, setIsNavigating] = useNavigationContext();
   const router = useRouter()
 
   const handleClick = useCallback(() => {

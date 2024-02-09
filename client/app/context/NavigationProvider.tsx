@@ -14,15 +14,15 @@ type TNavigationProviderProps = {
   children: ReactNode
 }
 
-type TNavigationContextType = {
-  isNavigating: boolean
-  setIsNavigating: Dispatch<SetStateAction<boolean>>
-}
+type TNavigationContextType = [
+  boolean, // isNavigating
+  Dispatch<SetStateAction<boolean>> // setIsNavigating
+]
 
-const DEFAULT_NAVIGATION_CONTEXT: TNavigationContextType = {
-  isNavigating: false,
-  setIsNavigating: () => {}, // A dummy function
-}
+const DEFAULT_NAVIGATION_CONTEXT: TNavigationContextType = [
+  false,
+  () => {}, // A dummy function
+]
 
 const NavigationContext = createContext<TNavigationContextType>(
   DEFAULT_NAVIGATION_CONTEXT
@@ -42,10 +42,7 @@ export const NavigationProvider = ({ children }: TNavigationProviderProps) => {
     }
   }, [])
 
-  const value: TNavigationContextType = {
-    isNavigating,
-    setIsNavigating,
-  }
+  const value: TNavigationContextType = [isNavigating, setIsNavigating]
 
   return (
     <NavigationContext.Provider value={value}>

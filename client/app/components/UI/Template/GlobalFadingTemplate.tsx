@@ -10,7 +10,7 @@ type TGlobalFadingTemplateProps = {
 
 const GlobalFadingTemplate = (props: TGlobalFadingTemplateProps) => {
   const [isMounted, setIsMounted] = useState(false)
-  // const { isNavigating } = useNavigationContext()
+  // const [ isNavigating, _] = useNavigationContext()
 
   useEffect(() => {
     setIsMounted(true)

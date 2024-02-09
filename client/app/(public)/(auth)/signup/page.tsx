@@ -1,7 +1,7 @@
 import { permanentRedirect } from 'next/navigation'
 
 import { ERoute } from '@/types/enums'
-import getCurrentUser from '@/api/(users)/get-current-user'
+import getCurrentUser from '@/app/api/(server)/auth/get-current-user'
 
 import PublicMainWrapper from '@/app/components/(Layout)/(public)/Body/Main/Default/PublicMainWrapper'
 import PublicSectionWrapper from '@/app/components/(Layout)/(public)/Body/Main/Section/PublicSectionWrapper'

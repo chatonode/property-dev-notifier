@@ -26,6 +26,11 @@ export const enum ERoute {
   // *DashboardGenericError = '/dashboard/generic-error',
 }
 
+export const enum ELoginRedirectReason {
+  InvalidToken = 'invalid_token',
+  ExpiredToken = 'expired_token',
+}
+
 export const enum EFormType {
   SIGNUP = 'signup',
   LOGIN = 'login',

@@ -59,7 +59,7 @@ const SignupForm = () => {
     try {
       const response = await axiosSender.post('/api/auth/signup', data)
 
-      console.log('SignupForm response:', response)
+      // console.log('SignupForm response:', response)
 
       if (response.status === 400) {
         throwError(new BadRequestError(response.data.errors[0].message))
@@ -71,7 +71,7 @@ const SignupForm = () => {
 
       // const resData = await response.data
     } catch (error: any) {
-      console.error('SignupForm error response: ', error)
+      // console.error('SignupForm error response: ', error)
       throw error
     }
 

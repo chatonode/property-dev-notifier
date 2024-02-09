@@ -6,7 +6,7 @@ import classes from './Headbar.module.css'
 
 import LogoContainer from '../LogoContainer'
 import Navigation from './Navigation'
-import { TCurrentUser } from '@/app/api/(users)/get-current-user'
+import { TCurrentUser } from '@/app/api/(server)/auth/get-current-user'
 import CollapseHeadbarSVG from '@/app/components/UI/SVG/Layout/Headbar/CollapseHeadbarSVG'
 
 type THeadbarProps = {

@@ -19,7 +19,7 @@ import Copyright from './Copyright'
 // import { createPortal } from 'react-dom'
 
 // import Backdrop from './Backdrop'
-import { TCurrentUser } from '@/app/api/(users)/get-current-user'
+import { TCurrentUser } from '@/app/api/(server)/auth/get-current-user'
 
 import classes from './SidebarContainer.module.css'
 
@@ -52,7 +52,9 @@ const SidebarContainer = (props: TSidebarContainerProps) => {
 
       <div className={sidebarContainerClasses}>
         <Header onCollapse={collapseSidebarHandler} />
-        <UserInfoContainer currentUser={props.currentUser} />
+        {!!props.currentUser && (
+          <UserInfoContainer currentUser={props.currentUser} />
+        )}
         <NavigationMenu />
         {/* {props.children} */}
         <Bottom />

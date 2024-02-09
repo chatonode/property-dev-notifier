@@ -1,5 +1,5 @@
 import { permanentRedirect } from 'next/navigation'
-import getCurrentUser from '@/api/(users)/get-current-user'
+// import getCurrentUser from '@/app/api/(server)/auth/get-current-user'
 import { ERoute } from '@/types/enums'
 
 import PublicMainWrapper from '@/app/components/(Layout)/(public)/Body/Main/Default/PublicMainWrapper'
@@ -7,13 +7,13 @@ import PublicSectionWrapper from '@/app/components/(Layout)/(public)/Body/Main/S
 import GoodByeScreen from '@/components/(GoodBye)/GoodByeScreen'
 
 const GoodBye = async () => {
-  const currentUser = await getCurrentUser()
+  // const currentUser = await getCurrentUser()
 
-  // console.log(currentUser)
+  // // console.log(currentUser)
 
-  if (currentUser) {
-    return permanentRedirect(ERoute.Dashboard)
-  }
+  // if (currentUser) {
+  //   return permanentRedirect(ERoute.Dashboard)
+  // }
 
   return (
     <PublicMainWrapper>

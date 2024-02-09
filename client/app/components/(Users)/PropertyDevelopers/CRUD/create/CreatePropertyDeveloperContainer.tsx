@@ -7,9 +7,9 @@ import { buildClientSender } from '@/app/api/(axios)/client/build-client-sender'
 import BadRequestError from '@/app/lib/errors/BadRequestError'
 import FormWrapper from '@/app/components/UI/Form/Dashboard/FormWrapper'
 import { useAsyncError } from '@/app/hooks/useAsyncError'
-import { ERoute } from '@/app/types/enums'
+import { ELoginRedirectReason, ERoute } from '@/app/types/enums'
 import AuthRequiredError from '@/app/lib/errors/AuthRequiredError'
-
+import logUserOutFromClient from '@/app/api/(client)/auth/logout'
 
 type FormData = {
   fullName: string
@@ -36,15 +36,18 @@ const CreatePropertyDeveloperContainer = () => {
 
       console.log('CreatePropertyDevForm response:', response)
 
-      // if (response.status === 400) {
-      //   throwError(new BadRequestError(response.data.errors[0].message))
-      // }
+      if (response.status === 400) {
+        throwError(new BadRequestError(response.data.errors[0].message))
+      }
 
-      // if (response.status === 401) {
-      //   // redirect(ERoute.Unauthorized)
-      //   // throwError(new AuthRequiredError(response.data.errors[0].message))
-      //   router.push(ERoute.Unauthorized)
-      // }
+      if (response.status === 401) {
+        // redirect(ERoute.Unauthorized)
+        // throwError(new AuthRequiredError(response.data.errors[0].message))
+        await logUserOutFromClient()
+        return router.replace(
+          `${ERoute.Login}?error=${ELoginRedirectReason.InvalidToken}`
+        )
+      }
 
       if (response.status !== 201) {
         throw new Error('Creating a new Property Developer Failed!')
@@ -52,8 +55,8 @@ const CreatePropertyDeveloperContainer = () => {
 
       // const resData = await response.data
     } catch (error: any) {
-      console.error('CreatePropertyDeveloperContainer error response: ', error)
-      throw error
+      // console.error('CreatePropertyDeveloperContainer error response: ', error)
+      throwError(error)
     }
 
     // Reset form

@@ -237,7 +237,7 @@
   /* Animation */
   /** Duration **/
   --theme-color-transition-duration: 0.3s;
-  
+
   --global-transition-duration: 0.26s;
 
   /** ---  **/
@@ -336,7 +336,8 @@ a:not([class]) {
 
 /* Make images easier to work with */
 img,
-picture {
+picture,
+video {
   max-width: 100%;
   display: block;
 }
@@ -609,8 +610,8 @@ h5,
 h6,
 p,
 span,
-button,
 label,
+button,
 a {
   /* overflow-wrap: break-word; */
   overflow-wrap: anywhere;
