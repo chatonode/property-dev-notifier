@@ -16,7 +16,7 @@ type TLoginParamToastProps = {
 
 const LoginParamToast = (props: TLoginParamToastProps) => {
   const [isClosed, setIsClosed] = useState<boolean>(false)
-  const loginErrorSearchParam = useLoginErrorParams()
+  const loginErrorSearchParam = useLoginErrorParams(isClosed)
 
   const closeHandler = useCallback(() => {
     setIsClosed(true)
@@ -24,7 +24,7 @@ const LoginParamToast = (props: TLoginParamToastProps) => {
 
   return (
     <>
-      {loginErrorSearchParam && !isClosed && (
+      {!isClosed && loginErrorSearchParam && (
         <div className={classes.toast}>
           <p className={classes.message}>{loginErrorSearchParam}</p>
           <button className={classes.close} onClick={closeHandler}>
