@@ -1,42 +1,16 @@
 import { ERoute } from '@/app/types/enums'
 import classes from './HomeContainer.module.css'
 import Link from 'next/link'
+import DropSVG from '../UI/SVG/lib/drop/DropSVG'
+import DropSVGDark from '../UI/SVG/lib/drop/DropSVGDark'
+import DropSVGDarkRandomStops from '../UI/SVG/lib/drop/DropSVGDarkRandomStops'
 
 const HomeContainer = () => {
   return (
-    <div className={`base ${classes.container}`}>
-      <div className={`base ${classes.content}`}>
-        <h2>Property Developers are ready!</h2>
-        <h3>Join now!</h3>
-
-        <div className={`base ${classes.actions}`}>
-          {/* <div className={`base ${classes.item}`}>
-            <button>Sign up with Google</button>
-          </div>
-
-          <div className={`base ${classes.item}`}>
-            <button>Sign up with Apple</button>
-          </div>
-          <div
-            className={`base ${classes.item} ${classes['alternative-text']}`}
-          >
-            <p>--- or alternatively ---</p>
-          </div> */}
-
-          <div className={`base ${classes.item}`}>
-            <Link href={ERoute.Signup}>Sign up</Link>
-            <span className={classes['signup-agree']}>
-              By signing up, you agree to the Terms of Service and Privacy
-              Policy, including Cookie Use.
-            </span>
-          </div>
-
-          <div className={`base ${classes.item}`}>
-            <h5>Already have an account?</h5>
-            <Link href={ERoute.Login}>Log in</Link>
-          </div>
-        </div>
-      </div>
+    <div className={`${classes.container}`}>
+      <DropSVG />
+      <DropSVGDark />
+      <DropSVGDarkRandomStops />
     </div>
   )
 }

@@ -1,0 +1,32 @@
+.svg {
+  width: 200px;
+  height: 200px;
+  transition: transform ease-in-out;
+  transition-duration: calc(var(--global-transition-duration) * 2);
+}
+
+.linear-gradient stop {
+  stop-opacity: 0.5;
+  transition: stop-color ease-in-out, stop-opacity ease-in-out;
+  transition-duration: calc(var(--global-transition-duration) * 2);
+}
+
+.svg:focus,
+.svg:hover {
+  transform: scale(1.2) rotateY(45deg);
+}
+
+.svg:focus defs .linear-gradient stop,
+.svg:hover defs .linear-gradient stop {
+  stop-opacity: 1;
+}
+
+/* .drop-path {
+  transition: fill ease-in-out;
+  transition-duration: calc(var(--global-transition-duration) * 2);
+}
+
+.svg:focus .drop-path,
+.svg:hover .drop-path {
+  fill: url(#myGradientDark);
+} */

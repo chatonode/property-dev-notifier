@@ -22,9 +22,9 @@ const Home = async () => {
       <PublicSectionWrapper>
         <HomeContainer />
       </PublicSectionWrapper>
-      <PublicSectionWrapper>
+      {/* <PublicSectionWrapper>
         <HomeContainer />
-      </PublicSectionWrapper>
+      </PublicSectionWrapper> */}
     </PublicMainWrapper>
   )
 }

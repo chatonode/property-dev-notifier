@@ -1,8 +1,14 @@
 .container {
-  min-height: auto;
-  background-color: #c4c4c4;
-  font-size: 1.325rem;
-  padding: 0.5em;
+  width: 100%;
+  flex: 1 0 auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #c4c4c4; */
+  background-color: hsl(201.82, 100%, 10.78%);
+  background-color: hsl(202.14, 100%, 16.43%);
+  /* background: linear-gradient(45deg, black, transparent); */
 }
 
 .content {
