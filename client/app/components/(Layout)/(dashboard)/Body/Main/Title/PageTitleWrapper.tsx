@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 
 import classes from './PageTitleWrapper.module.css'
 import UserInfoContainer from './UserInfoContainer'
-import { TCurrentUser } from '@/app/api/(users)/get-current-user'
+import { TCurrentUser } from '@/app/api/(server)/auth/get-current-user'
 
 type TPageTitleWrapperProps = {
   children: ReactNode
@@ -13,7 +13,9 @@ const PageTitleWrapper = (props: TPageTitleWrapperProps) => {
   return (
     <div className={classes.wrapper}>
       <h2>{props.children}</h2>
-      <UserInfoContainer currentUser={props.currentUser} />
+      {!!props.currentUser && (
+        <UserInfoContainer currentUser={props.currentUser} />
+      )}
     </div>
   )
 }

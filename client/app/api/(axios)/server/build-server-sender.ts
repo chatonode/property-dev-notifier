@@ -1,7 +1,7 @@
 // For Server Components only!
 import axios, { AxiosInstance } from 'axios'
 import { cookies } from 'next/headers'
-import { activateResponseInterceptor } from '../common/interceptor'
+import { activateServerResponseInterceptor } from './interceptor'
 
 // Local
 const ingressNginxURL =
@@ -9,6 +9,10 @@ const ingressNginxURL =
 
 // Prod
 // const ingressNginxURL = 'http://www.your-domain.com'
+
+/* ***************** */
+
+const inServer = typeof window === 'undefined'
 
 /**
  * Builds a server-side Axios instance for sending HTTP requests.
@@ -18,7 +22,7 @@ const ingressNginxURL =
  */
 const buildServerSender = (): AxiosInstance => {
   // Server || Browser
-  if (typeof window === 'undefined') {
+  if (inServer) {
     // We are on the server!
     // console.log('We are on the server!')
     const cookieStore = cookies()
@@ -34,7 +38,7 @@ const buildServerSender = (): AxiosInstance => {
       withCredentials: true,
     })
 
-    activateResponseInterceptor(axiosInstance)
+    activateServerResponseInterceptor(axiosInstance)
 
     return axiosInstance
   } else {

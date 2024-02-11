@@ -1,0 +1,38 @@
+.small {
+  font: italic 13px sans-serif;
+}
+.heavy {
+  font: bold 30px sans-serif;
+}
+
+/* Note that the color of the text is set with the    *
+   * fill property, the color property is for HTML only */
+.Rrrrr {
+  font: italic 40px serif;
+  /* fill: red; */
+}
+
+.svg {
+  background: cyan;
+  width: 100%;
+  flex: 1 0 auto;
+}
+
+.svg text {
+  fill: none;
+
+  stroke: green;
+  stroke-width: 0.5px;
+
+  stroke-dasharray: 3;
+  stroke-dashoffset: 1000;
+
+  transition: stroke ease-in-out, stroke-dasharray ease-in-out;
+  transition-duration: 0.5s;
+}
+
+.svg:focus text,
+.svg:hover text {
+  stroke: purple;
+  stroke-dasharray: 1;
+}

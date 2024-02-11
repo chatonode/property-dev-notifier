@@ -3,10 +3,11 @@
 import { memo, useState, useTransition } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+// import { useRouter } from '@/hooks/next/useRouter'
 
 import classes from './Bottom.module.css'
 import { ERoute } from '@/app/types/enums'
-import { logUserOutFromClient } from '@/app/api/(auth)/authentication'
+import logUserOutFromClient from '@/app/api/(client)/auth/logout'
 import LogoutIcon from '@/app/components/UI/Icon/Sidebar/LogoutIcon'
 // import LogoutIcon from '@/components/UI/Icon/Logout/LogoutIcon'
 

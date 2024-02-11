@@ -1,15 +1,16 @@
 import { permanentRedirect } from 'next/navigation'
 
 import { ERoute } from '@/types/enums'
-import getCurrentUser from '@/api/(users)/get-current-user'
+// import getCurrentUser from '@/app/api/(server)/auth/get-current-user'
 
 import PublicMainWrapper from '@/app/components/(Layout)/(public)/Body/Main/Default/PublicMainWrapper'
 import PublicSectionWrapper from '../components/(Layout)/(public)/Body/Main/Section/PublicSectionWrapper'
 import HomeContainer from '@/components/(Home)/HomeContainer'
+import HeroContainer from '@/components/(Home)/HeroContainer'
 
 const Home = async () => {
   // const router = useRouter()
-  const currentUser = await getCurrentUser()
+  // const currentUser = await getCurrentUser()
 
   // console.log(currentUser)
 
@@ -20,7 +21,7 @@ const Home = async () => {
   return (
     <PublicMainWrapper>
       <PublicSectionWrapper>
-        <HomeContainer />
+        <HeroContainer />
       </PublicSectionWrapper>
       <PublicSectionWrapper>
         <HomeContainer />

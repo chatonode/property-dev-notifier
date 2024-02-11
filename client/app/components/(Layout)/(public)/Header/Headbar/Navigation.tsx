@@ -2,7 +2,7 @@ import Link from 'next/link'
 import classes from './Navigation.module.css'
 import { ERoute } from '@/app/types/enums'
 import { usePathname } from 'next/navigation'
-import { TCurrentUser } from '@/app/api/(users)/get-current-user'
+import { TCurrentUser } from '@/app/api/(server)/auth/get-current-user'
 
 type TNavigationProps = {
   currentUser: TCurrentUser
@@ -50,6 +50,17 @@ const Navigation = (props: TNavigationProps) => {
               onClick={props.onNavigate}
             >
               Dashboard
+            </Link>
+          )}
+        </li>
+        <li>
+          {!props.currentUser && (
+            <Link
+              className={pathname === ERoute.Signup ? classes.active : undefined}
+              href={ERoute.Signup}
+              onClick={props.onNavigate}
+            >
+              Signup
             </Link>
           )}
         </li>

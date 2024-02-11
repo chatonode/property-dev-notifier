@@ -1,4 +1,3 @@
-// CreateUserActiveSVG.jsx
 import { memo } from 'react'
 
 const CreateUserActiveSVG = () => {

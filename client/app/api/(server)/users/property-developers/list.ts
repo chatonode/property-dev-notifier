@@ -4,6 +4,7 @@ import { TPropertyDevelopersList } from '@/types/types'
 import AuthRequiredError from '@/lib/errors/AuthRequiredError'
 import { permanentRedirect, redirect, useRouter } from 'next/navigation'
 import { ERoute } from '@/app/types/enums'
+import logUserOutFromServer from '../../auth/logout'
 
 const getPropertyDevelopers = async () => {
   const axiosSender = buildServerSender()
@@ -14,7 +15,8 @@ const getPropertyDevelopers = async () => {
     if (response.status === 401) {
       console.log('Can i reach here?')
       //   throw new AuthRequiredError(response.data.errors[0].message)
-    //   return redirect(ERoute.Unauthorized)
+      await logUserOutFromServer()
+      return redirect(ERoute.Unauthorized)
     }
 
     const { propertyDevelopers } = (await response.data) as {
@@ -22,15 +24,7 @@ const getPropertyDevelopers = async () => {
     }
 
     return propertyDevelopers
-  } catch (error: any) {
-    console.error(
-      'CreateNotificationTemplate error response: ',
-      error.name,
-      '(((((((---)))))))',
-      error.message,
-      '(((((((---)))))))',
-      error.detail
-    )
+  } catch (error) {
     throw error
   }
 }

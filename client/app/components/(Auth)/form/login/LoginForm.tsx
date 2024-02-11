@@ -2,6 +2,7 @@
 
 import React, { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+// import { useRouter } from '@/hooks/next/useRouter'
 import { useForm, RegisterOptions } from 'react-hook-form'
 
 import Link from 'next/link'
@@ -21,6 +22,7 @@ import AuthFormFooter from '../layout/footer/AuthFormFooter'
 import { useAsyncError } from '@/app/hooks/useAsyncError'
 import InvalidFormInputsError from '@/app/lib/errors/InvalidFormInputsError'
 import BadRequestError from '@/app/lib/errors/BadRequestError'
+// import useLoginSubmittedParams from '@/app/hooks/useLoginSubmittedParams'
 
 const DEFAULT_LOGIN_FORM_STATE: TFormDataType[EFormType.LOGIN] = {
   email: '',
@@ -44,6 +46,7 @@ const LoginForm = () => {
     defaultValues: DEFAULT_LOGIN_FORM_STATE,
   })
 
+  // const loginErrorParam = useLoginErrorParams()
   const router = useRouter()
   const throwError = useAsyncError()
   const [_, setIsAuthenticated] = useAuth(false)
@@ -61,7 +64,7 @@ const LoginForm = () => {
     try {
       const response = await axiosSender.post('/api/auth/login', data)
 
-      console.log('LoginForm response:', response)
+      // console.log('LoginForm response:', response)
 
       if (response.status === 400) {
         throwError(new BadRequestError(response.data.errors[0].message))
@@ -73,7 +76,7 @@ const LoginForm = () => {
 
       // const resData = await response.data
     } catch (error: any) {
-      console.error('LoginForm error response: ', error)
+      // console.error('LoginForm error response: ', error)
       throw error
     }
 
@@ -88,7 +91,12 @@ const LoginForm = () => {
       timeout = setTimeout(() => {
         setIsAuthenticated(true)
 
-        // Redirect to another page
+        // TODO: Redirect back to the operation
+        // if (loginSubmittedParam) {
+        //   console.log('loginSubmittedParam: ',loginSubmittedParam)
+        //   return router.back()
+        // }
+
         return router.replace(ERoute.Dashboard)
       }, 3000)
     }

@@ -2,6 +2,7 @@
 
 import { memo, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
+// import { useRouter } from '@/hooks/next/useRouter'
 import Image from 'next/image'
 
 import { ERoute } from '@/app/types/enums'
@@ -16,8 +17,10 @@ const LogoContainer = () => {
     return router.push(ERoute.Home)
   }, [])
 
+  const logoContainerClasses = `${classes['logo-container']}`
+
   return (
-    <div className={classes['logo-container']}>
+    <div className={logoContainerClasses}>
       <Image
         priority={true}
         src={logo.src}

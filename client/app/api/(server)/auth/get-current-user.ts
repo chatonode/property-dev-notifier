@@ -1,3 +1,6 @@
+// For making it callable from Client Components!
+'use server'
+
 // import { permanentRedirect } from 'next/navigation'
 import { buildServerSender } from '@/app/api/(axios)/server/build-server-sender'
 import { ERoute } from '@/app/types/enums'
@@ -6,7 +9,7 @@ export type TCurrentUser = {
   id: string
   email: string
   iat: number
-}
+} | null
 
 /**
  * @function
@@ -15,16 +18,19 @@ export type TCurrentUser = {
  */
 const getCurrentUser = async () => {
   const axiosSender = buildServerSender()
+  try {
+    const response = await axiosSender.get('/api/auth/current-user')
 
-  const response = await axiosSender.get('/api/auth/current-user')
+    if (response.status !== 200) {
+      throw new Error('Failed to fetch current user!')
+    }
 
-  if (response.status !== 200) {
-    throw new Error('Failed to fetch current user!')
+    const { currentUser }: { currentUser: TCurrentUser } = await response.data
+
+    return currentUser
+  } catch (error) {
+    throw error
   }
-
-  const { currentUser }: { currentUser: TCurrentUser } = await response.data
-
-  return currentUser
 }
 
 export default getCurrentUser

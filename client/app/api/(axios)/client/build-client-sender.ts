@@ -1,5 +1,10 @@
+// For Client Components only!
 import axios, { AxiosInstance } from 'axios'
-import { activateResponseInterceptor } from '../common/interceptor'
+import { activateClientResponseInterceptor } from './interceptor'
+
+/* ***************** */
+
+const inClient = !(typeof window === 'undefined')
 
 /**
  * Builds a client-side Axios instance for sending HTTP requests.
@@ -9,12 +14,7 @@ import { activateResponseInterceptor } from '../common/interceptor'
  */
 const buildClientSender = (): AxiosInstance => {
   // Server || Browser
-  if (typeof window === 'undefined') {
-    // We are on the server!
-    // console.log('We are on the server!')
-
-    throw new Error('This sender works with Client Components only!')
-  } else {
+  if (inClient) {
     // We are on the browser!
 
     const axiosInstance = axios.create({
@@ -23,9 +23,14 @@ const buildClientSender = (): AxiosInstance => {
       },
     })
 
-    activateResponseInterceptor(axiosInstance)
+    activateClientResponseInterceptor(axiosInstance)
 
     return axiosInstance
+  } else {
+    // We are on the server!
+    // console.log('We are on the server!')
+
+    throw new Error('This sender works with Client Components only!')
   }
 }
 

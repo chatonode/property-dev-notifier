@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react'
 import { Metadata } from 'next'
 
-import getCurrentUser from '@/api/(users)/get-current-user'
+import getCurrentUser from '@/app/api/(server)/auth/get-current-user'
 import MainFooter from '@/app/components/(Layout)/(public)/Footer/MainFooter'
 import MainHeader from '@/components/(Layout)/(public)/Header/MainHeader'
 

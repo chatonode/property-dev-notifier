@@ -1,6 +1,6 @@
 import { memo } from 'react'
 
-import { TCurrentUser } from '@/app/api/(users)/get-current-user'
+import { TCurrentUser } from '@/app/api/(server)/auth/get-current-user'
 
 import classes from './UserInfoContainer.module.css'
 import UserInfo from '@/app/components/UI/User/UserInfo'
