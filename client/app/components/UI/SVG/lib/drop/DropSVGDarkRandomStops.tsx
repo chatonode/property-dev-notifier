@@ -1,8 +1,9 @@
 'use client'
 
-import { useState } from 'react'
-import classes from './DropSVGDark.module.css'
+import { useEffect, useState } from 'react'
+import classes from './DropSVGDarkRandomStops.module.css'
 import commonClasses from './common.module.css'
+import useRandomColor from '@/app/hooks/useRandomColor'
 
 type TStopProps = {
   offset: `${string}%`
@@ -276,25 +277,69 @@ const INITIAL_STOP_PROPS_LIST: TStopProps[] = [
   },
 ] as const
 
+const getRandomIntegerBetween0And100 = () => {
+  const randomNumber = Math.floor(Math.random() * 101)
+  console.log(randomNumber)
+
+  return randomNumber
+}
+
 const DropSVGDarkRandomStops = () => {
   const [stopPropsList, setStopPropsList] = useState(INITIAL_STOP_PROPS_LIST)
+  const [randomNumber, setRandomNumber] = useState<number>(
+    getRandomIntegerBetween0And100()
+  )
+  const [generateRandomColor] = useRandomColor()
 
   const reverseAndRender = () => {
     // Reverse the array and update the state
-    setStopPropsList([...stopPropsList].reverse())
+    setStopPropsList((prevStopPropsList) => {
+      return [...prevStopPropsList].reverse()
+    })
   }
+
+  const changeColors = () => {
+    setStopPropsList((prevStopPropsList) => {
+      return prevStopPropsList.map((prevStopProps, index) => {
+        if (index === randomNumber) {
+          return {
+            offset: prevStopProps.offset,
+            // stopColor: 'hsl(74, 73%, 51%)',
+            stopColor: generateRandomColor(),
+          }
+        }
+
+        return {
+          ...prevStopProps,
+        }
+      })
+    })
+  }
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setRandomNumber(getRandomIntegerBetween0And100())
+      changeColors()
+    }, 500)
+
+    return () => {
+      clearInterval(timeout)
+    }
+  }, [randomNumber])
 
   return (
     <>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 200 200"
-        className={commonClasses.svg}
+        className={classes.svg}
       >
         <defs>
+          {/* <radialGradient */}
           <linearGradient
             id="myGradientDarkRandomStops"
-            className={commonClasses['linear-gradient']}
+            className={classes['linear-gradient']}
+            gradientTransform="rotate(90)"
           >
             {stopPropsList.map((stopProps, index) => (
               <stop
@@ -304,15 +349,17 @@ const DropSVGDarkRandomStops = () => {
               />
             ))}
           </linearGradient>
+          {/* </radialGradient> */}
         </defs>
         <path
           id="abstractShape"
-          className={commonClasses['drop-path']}
+          className={classes['drop-path']}
           d="M100,10 C145,70 160,120 100,190 C40,120 55,70 100,10 Z"
           fill="url(#myGradientDarkRandomStops)"
         />
       </svg>
       <button onClick={reverseAndRender}>Reverse Stops</button>
+      <button onClick={changeColors}>Change Colors</button>
     </>
   )
 }

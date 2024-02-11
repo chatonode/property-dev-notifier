@@ -6,6 +6,7 @@ import { ERoute } from '@/types/enums'
 import PublicMainWrapper from '@/app/components/(Layout)/(public)/Body/Main/Default/PublicMainWrapper'
 import PublicSectionWrapper from '../components/(Layout)/(public)/Body/Main/Section/PublicSectionWrapper'
 import HomeContainer from '@/components/(Home)/HomeContainer'
+import HeroContainer from '@/components/(Home)/HeroContainer'
 
 const Home = async () => {
   // const router = useRouter()
@@ -20,11 +21,11 @@ const Home = async () => {
   return (
     <PublicMainWrapper>
       <PublicSectionWrapper>
+        <HeroContainer />
+      </PublicSectionWrapper>
+      <PublicSectionWrapper>
         <HomeContainer />
       </PublicSectionWrapper>
-      {/* <PublicSectionWrapper>
-        <HomeContainer />
-      </PublicSectionWrapper> */}
     </PublicMainWrapper>
   )
 }
