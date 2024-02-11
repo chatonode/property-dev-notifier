@@ -2,7 +2,11 @@ import classes from './HeroTitleSVG.module.css'
 
 const HeroTitleSVG = () => {
   return (
-    <svg viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg" className={classes.svg}>
+    <svg
+      viewBox="0 0 240 80"
+      xmlns="http://www.w3.org/2000/svg"
+      className={classes.svg}
+    >
       <text x="20" y="35" className={classes.small}>
         Notify
       </text>
