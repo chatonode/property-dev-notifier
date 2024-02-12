@@ -1,7 +1,7 @@
 'use client'
 
-import { useCallback, useEffect, useReducer, useState } from 'react'
-import classes from './DropSVGDarkRandomStops.module.css'
+import { memo, useCallback, useEffect, useReducer, useState } from 'react'
+import classes from './AnimatedGradientStops.module.css'
 
 import { STOP_PROPS_LIST_START } from './stop-color'
 import {
@@ -40,7 +40,7 @@ const DEFAULT_STOP_PROPS_STATE: TStopPropsState = {
   isStopColorTransitionEnded: false,
 } as const
 
-const DropSVGDarkRandomStops = () => {
+const AnimatedGradientStops = (props: { gradientId: string }) => {
   const [state, dispatch] = useReducer(
     stopPropsReducer,
     DEFAULT_STOP_PROPS_STATE
@@ -82,38 +82,47 @@ const DropSVGDarkRandomStops = () => {
 
   return (
     <>
-      <svg
+      {/* <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 200 200"
         className={classes.svg}
-      >
-        <defs>
-          {/* <radialGradient */}
-          <linearGradient
-            id="myGradientDarkRandomStops"
-            className={classes['linear-gradient']}
-            // gradientTransform="rotate(90)"
-          >
-            {state.stopPropsList.map((stopProps, index) => (
-              <stop
-                key={index}
-                offset={stopProps.offset}
-                stopColor={stopProps.stopColor}
-              />
-            ))}
-          </linearGradient>
-          {/* </radialGradient> */}
-        </defs>
-        <path
+      > */}
+      <defs>
+        {/* <radialGradient */}
+        <linearGradient
+          id={props.gradientId}
+          className={classes['linear-gradient']}
+          // gradientTransform="rotate(90)"
+        >
+          {state.stopPropsList.map((stopProps, index) => (
+            <stop
+              key={index}
+              offset={stopProps.offset}
+              stopColor={stopProps.stopColor}
+            />
+          ))}
+        </linearGradient>
+        {/* </radialGradient> */}
+      </defs>
+      {/* <path
           className={classes['drop-path']}
           d="M100,10 C145,70 160,120 100,190 C40,120 55,70 100,10 Z"
           fill="url(#myGradientDarkRandomStops)"
-        />
-      </svg>
-      <button onClick={reverseAndRender}>Reverse Stops</button>
-      <button onClick={changeColors}>Change Colors</button>
+        /> */}
+      {/* <text
+          x="65"
+          y="55"
+          width="200px"
+          height="200px"
+          fill="url(#myGradientDarkRandomStops)"
+        >
+          Property
+        </text> */}
+      {/* </svg> */}
+      {/* <button onClick={reverseAndRender}>Reverse Stops</button>
+      <button onClick={changeColors}>Change Colors</button> */}
     </>
   )
 }
 
-export default DropSVGDarkRandomStops
+export default memo(AnimatedGradientStops)

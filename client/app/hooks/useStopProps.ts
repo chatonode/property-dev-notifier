@@ -1,14 +1,14 @@
 // utils/useStopProps.ts
 import React, { useEffect, useState } from 'react'
 // import { TStopProps } from "../components/UI/SVG/lib/drop/random-stop-color/stop-color";
-// import { THslColorProps, TStopProps } from "../types";
+// import { THslColorStr, TStopProps } from "../types";
 
-export type THslColorProps = `hsl(${string}, ${string}%, ${string}%)`
-export type THslArrayProps = [number, number, number]
+export type THslColorStr = `hsl(${string}, ${string}%, ${string}%)`
+export type THslArray = [number, number, number]
 
 type TStopProps = {
   offset: `${string}%`
-  stopColor: THslColorProps
+  stopColor: THslColorStr
 }
 
 // A function that interpolates between two HSL colors
@@ -20,7 +20,7 @@ const interpolateHSL = (
   s2: number,
   l2: number,
   offset: number
-): THslArrayProps => {
+): THslArray => {
   // Clamp the offset between 0 and 1
   offset = Math.max(0, Math.min(1, offset))
   // Calculate the new hue, saturation, and lightness values
@@ -34,7 +34,8 @@ const interpolateHSL = (
 // A custom React hook that generates an array of stop properties for a gradient
 const useStopProps = (
   startColor: ReturnType<typeof interpolateHSL>,
-  endColor: ReturnType<typeof interpolateHSL>
+  endColor: ReturnType<typeof interpolateHSL>,
+  numberOfSteps: number
 ): TStopProps[] => {
   // Initialize the state of the stop properties with an empty array
   const [stopProps, setStopProps] = useState<TStopProps[]>([])
@@ -45,7 +46,7 @@ const useStopProps = (
     const [h1, s1, l1]: ReturnType<typeof interpolateHSL> = startColor
     const [h2, s2, l2]: ReturnType<typeof interpolateHSL> = endColor
     // Define the number of steps for the gradient
-    const steps = 55
+    const steps = numberOfSteps
     // Initialize an empty array for the new stop properties
     const newStopProps: TStopProps[] = []
     // Loop through the steps and generate a stop property for each one
@@ -55,7 +56,7 @@ const useStopProps = (
       // Interpolate the stop color
       const [newH, newS, newL] = interpolateHSL(h1, s1, l1, h2, s2, l2, offset)
 
-      const stopColorStr: THslColorProps = `hsl(${newH}, ${newS}%, ${newL}%)`
+      const stopColorStr: THslColorStr = `hsl(${newH}, ${newS}%, ${newL}%)`
 
       // Push the stop property to the array
       newStopProps.push({

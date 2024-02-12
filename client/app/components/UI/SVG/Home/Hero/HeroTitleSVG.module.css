@@ -13,26 +13,30 @@
 }
 
 .svg {
-  background: cyan;
+  /* background: cyan; */
+  max-width: 100%;
+  background: radial-gradient(#399dff4d, #c54c68a3 100%);
   width: 100%;
   flex: 1 0 auto;
 }
 
 .svg text {
-  fill: none;
+  fill: transparent;
 
-  stroke: green;
+  /* stroke: green; */
+  stroke: var(--text-secondary);
   stroke-width: 0.5px;
 
   stroke-dasharray: 3;
   stroke-dashoffset: 1000;
 
-  transition: stroke ease-in-out, stroke-dasharray ease-in-out;
+  transition: stroke ease-in-out, stroke-dasharray ease-in-out, fill ease-in-out;
   transition-duration: 0.5s;
 }
 
 .svg:focus text,
 .svg:hover text {
-  stroke: purple;
+  fill: var(--text-primary);
+  stroke: var(--text-primary);
   stroke-dasharray: 1;
 }

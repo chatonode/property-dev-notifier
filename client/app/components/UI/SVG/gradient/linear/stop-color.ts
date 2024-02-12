@@ -1,8 +1,8 @@
-type THslColorProps = `hsl(${string}, ${string}%, ${string}%)`
+type THslColorStr = `hsl(${string}, ${string}%, ${string}%)`
 
 export type TStopProps = {
   offset: `${string}%`
-  stopColor: THslColorProps
+  stopColor: THslColorStr
 }
 
 export const STOP_PROPS_LIST_START: TStopProps[] = [
@@ -542,8 +542,8 @@ export const STOP_PROPS_LIST_END: TStopProps[] = [
 /* Merged List */
 
 type TMergedStopColorProps = {
-  start: THslColorProps
-  end: THslColorProps
+  start: THslColorStr
+  end: THslColorStr
 }
 
 type TMergedStopProps = Pick<TStopProps, 'offset'> & {
