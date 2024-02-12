@@ -3,6 +3,8 @@
   height: 200px;
   transition: transform ease-in-out;
   transition-duration: calc(var(--global-transition-duration) * 2);
+  /* width: 100vw;
+  height: auto; */
 }
 
 .linear-gradient stop {
