@@ -1,6 +1,8 @@
 .small {
   font: italic 13px sans-serif;
+  text-shadow: transparent;
 }
+
 .heavy {
   font: bold 30px sans-serif;
 }
@@ -9,18 +11,27 @@
    * fill property, the color property is for HTML only */
 .Rrrrr {
   font: italic 40px serif;
-  /* fill: red; */
+  text-shadow: transparent;
+}
+
+.Rrrrr:focus,
+.Rrrrr:hover,
+.small:focus,
+.small:hover {
+  text-shadow: -1px 2px 9px #3e8a6e, 1px 2px 12px #a91638;
 }
 
 .svg {
   /* background: cyan; */
   max-width: 100%;
   background: radial-gradient(#399dff4d, #c54c68a3 100%);
+  background: radial-gradient(#e1d3d3, navajowhite);
   width: 100%;
   flex: 1 0 auto;
 }
 
 .svg text {
+  user-select: none;
   fill: transparent;
 
   /* stroke: green; */
@@ -30,7 +41,8 @@
   stroke-dasharray: 3;
   stroke-dashoffset: 1000;
 
-  transition: stroke ease-in-out, stroke-dasharray ease-in-out, fill ease-in-out;
+  transition: stroke ease-in-out, stroke-dasharray ease-in-out, fill ease-in-out,
+    text-shadow 0.26s ease-in-out;
   transition-duration: 0.5s;
 }
 
