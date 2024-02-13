@@ -1,4 +1,4 @@
-import AnimatedGradientStops from '../../gradient/linear/AnimatedGradientStops'
+// import AnimatedGradientStops from '../../gradient/linear/AnimatedGradientStops'
 import classes from './HeroTitleSVG.module.css'
 
 const HeroTitleSVG = () => {
@@ -6,20 +6,20 @@ const HeroTitleSVG = () => {
 
   return (
     <svg
-      viewBox="0 0 240 80"
+      viewBox="0 0 240 240"
       xmlns="http://www.w3.org/2000/svg"
       className={classes.svg}
     >
-      <text x="20" y="35" className={classes.small}>
+      <text x="5" y="35" className={classes.small}>
         Notify
       </text>
-      <text x="55" y="35" className={classes.Rrrrr}>
+      <text x="48" y="35" className={classes.Rrrrr}>
         Property
       </text>
-      <text x="55" y="55" className={classes.small}>
+      <text x="4" y="78" className={classes.small}>
         Developers
       </text>
-      <text x="130" y="65" className={classes.heavy}>
+      <text x="20" y="150" className={classes.heavy}>
         now!
       </text>
     </svg>

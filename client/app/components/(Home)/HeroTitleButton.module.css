@@ -1,0 +1,15 @@
+.button {
+  position: absolute;
+  font-size: 1.5em;
+  top: calc(100% - 300px);
+  left: 20%;
+  background: yellow;
+  border-radius: 8px;
+  z-index: 1;
+}
+
+.button:focus,
+.button:hover {
+    cursor: pointer;
+  box-shadow: 0 0 15px 0 white;
+}
