@@ -3,10 +3,11 @@ import GradientStopMaker from '../../lib/gradient-stop-maker/GradientStopMaker'
 import { THslArray } from '@/app/hooks/useStopProps'
 
 const HeroSliderSVG = () => {
-  // const endColor: THslArray = [214, 33, 4]
-  const startColor = '#070a0d'
   // const startColor: THslArray = [220, 46.15, 5.1]
-  const endColor = '#080a0f'
+  // const endColor: THslArray = [214, 33, 4]
+  // const startColor = '#070a0d'
+  const startColor = '#1c3f65'
+  const endColor = '#030915'
   const gradientId = `gradient-hero-slider-${startColor}-${endColor}`
 
   return (
@@ -20,7 +21,7 @@ const HeroSliderSVG = () => {
       version="1.1"
       // transform="rotate(180)"
     >
-      <linearGradient id={gradientId}>
+      <linearGradient id={gradientId} gradientTransform="rotate(90)">
         <stop offset={'0%'} stopColor={endColor} />
         <stop offset={'100%'} stopColor={startColor} />
       </linearGradient>

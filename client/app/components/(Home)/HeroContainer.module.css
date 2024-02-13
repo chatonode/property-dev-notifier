@@ -15,9 +15,20 @@
   position: relative;
   height: 100vh;
   background-size: cover;
-  background-position: center;
+  /* background-position: center; */
+  background-position: bottom;
   background-repeat: no-repeat;
   overflow: hidden;
+
+  transition: background-position ease-in-out;
+  transition-duration: var(--global-transition-duration);
+}
+
+@media (min-width: 40rem) {
+  .container {
+    /* height: 50vh; */
+    background-position-y: 70%;
+  }
 }
 
 .title {
