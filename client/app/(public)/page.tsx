@@ -23,9 +23,9 @@ const Home = async () => {
       <PublicSectionWrapper>
         <HeroContainer />
       </PublicSectionWrapper>
-      <PublicSectionWrapper>
+      {/* <PublicSectionWrapper>
         <HomeContainer />
-      </PublicSectionWrapper>
+      </PublicSectionWrapper> */}
     </PublicMainWrapper>
   )
 }
