@@ -14,6 +14,7 @@ import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 // Import images of key and lock icons
 import keyIcon from './images/key.png'
 import lockIcon from './images/lock.png'
+import AnimatedRocket from '../../UI/Animated/AnimatedRocket'
 
 const HeroContainer = () => {
   return (
@@ -36,6 +37,7 @@ const HeroContainer = () => {
 
           {/* Key icon layer */}
           <ParallaxLayer offset={0} speed={0.8} style={{ opacity: 0.8 }}>
+            <AnimatedRocket />
             <div style={{ width: '10%', marginLeft: '10%' }}>key</div>
             <div style={{ width: '15%', marginLeft: '40%' }}>key</div>
             <div className={classes.content}>
