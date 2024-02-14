@@ -6,7 +6,7 @@ import { ERoute } from '@/types/enums'
 import PublicMainWrapper from '@/app/components/(Layout)/(public)/Body/Main/Default/PublicMainWrapper'
 import PublicSectionWrapper from '../components/(Layout)/(public)/Body/Main/Section/PublicSectionWrapper'
 import HomeContainer from '@/components/(Home)/HomeContainer'
-import HeroContainer from '@/components/(Home)/HeroContainer'
+import HeroContainer from '@/app/components/(Home)/hero/HeroContainer'
 
 const Home = async () => {
   // const router = useRouter()

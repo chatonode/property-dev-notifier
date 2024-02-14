@@ -2,7 +2,7 @@ import React from 'react'
 import GradientStopMaker from '../../lib/gradient-stop-maker/GradientStopMaker'
 import { THslArray } from '@/app/hooks/useStopProps'
 
-const HeroSliderSVG = () => {
+const HeroBottomDividerSVG = () => {
   // const startColor: THslArray = [220, 46.15, 5.1]
   // const endColor: THslArray = [214, 33, 4]
   // const startColor = '#070a0d'
@@ -36,4 +36,4 @@ const HeroSliderSVG = () => {
   )
 }
 
-export default HeroSliderSVG
+export default HeroBottomDividerSVG
