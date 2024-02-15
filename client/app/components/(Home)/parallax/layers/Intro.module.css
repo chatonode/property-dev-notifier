@@ -1,0 +1,14 @@
+.content {
+  /* max-width: 800px; */
+  margin: 0 auto;
+  font-size: 1.5em;
+}
+
+.title {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  font-size: 1.2em;
+}

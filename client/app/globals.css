@@ -133,7 +133,7 @@
     hsl(202.14, 100%, 16.43%) 97%,
     hsl(202.14, 100%, 16.43%) 100%
   );
-  
+
   /* 7 steps - rgb - to right */
   --sidebar-background-light: linear-gradient(
     to right,
@@ -413,7 +413,7 @@ html {
 
 /* Layout */
 body {
-  background: var(--global-background-light);
+  /* background: var(--global-background-light); */
   font-size: var(--default-font-size);
 
   margin: 0;
@@ -428,13 +428,7 @@ body {
   align-items: center; */
 }
 
-.layout-public,
-.layout-dashboard {
-  font-size: 1rem;
-  flex-grow: 1;
-  z-index: 1;
-}
-
+.layout-homepage,
 .layout-public {
   display: flex;
   flex-direction: column;
@@ -449,7 +443,18 @@ body {
   /* gap: 1em; */
 }
 
-/* body, */
+.layout-homepage,
+.layout-public,
+.layout-dashboard {
+  font-size: 1rem;
+  flex-grow: 1;
+  /* z-index: 1; */
+}
+
+.root {
+  z-index: 1; /* For showing BackgroundPortal animation */
+}
+
 .header,
 .root,
 .footer {
@@ -457,7 +462,10 @@ body {
 }
 
 /* Color Change */
-/* body, */
+/* .layout-homepage */ /* Has fixed colors */
+.layout-public,
+.layout-dashboard,
+/* .root, */
 .header,
 .footer {
   transition: background var(--theme-color-transition-duration) linear;
@@ -486,13 +494,23 @@ body {
   box-shadow: 0 -1px 5px 0px var(--text-primary);
 } */
 
+.layout-homepage {
+  /* background: linear-gradient(#e66465, #9198e5); */
+  background: linear-gradient(rgb(36, 41, 47), #9198e5);
+}
+
+.layout-public,
+.layout-dashboard {
+  background: var(--global-background-light);
+}
+
 .header {
   font-size: 1.25rem;
 
   background: var(--header-background-light);
   /* box-shadow: var(--header-box-shadow-light); */
   /* padding: 20px 20px 10px 20px; */
-  
+
   padding: 0.8em;
   display: flex;
   justify-content: space-between;
@@ -508,6 +526,20 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.footer {
+  font-size: 1rem;
+
+  background: var(--footer-background-light);
+  color: var(--footer-text-color-light);
+  /* box-shadow: var(--footer-box-shadow-light); */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0.6em 0;
 }
 
 /* Template */
@@ -533,20 +565,6 @@ body {
 }
 
 /* --- */
-
-.footer {
-  font-size: 1rem;
-
-  background: var(--footer-background-light);
-  /* box-shadow: var(--footer-box-shadow-light); */
-  color: var(--footer-text-color-light);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 0.6em 0;
-}
 
 @media (min-width: 40rem) {
   /* main {
