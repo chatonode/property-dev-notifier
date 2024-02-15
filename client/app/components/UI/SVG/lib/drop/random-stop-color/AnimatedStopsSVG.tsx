@@ -13,12 +13,12 @@ const AnimatedStopsSVG = () => {
         className={classes.svg}
       >
         <AnimatedGradientStops gradientId={gradientId} />
-        {/* <path
+        <path
           className={classes['drop-path']}
           d="M100,10 C145,70 160,120 100,190 C40,120 55,70 100,10 Z"
           fill={`url(#${gradientId})`}
-        /> */}
-        <text
+        />
+        {/* <text
           x="65"
           y="55"
           width="200px"
@@ -26,7 +26,7 @@ const AnimatedStopsSVG = () => {
           fill={`url(#${gradientId})`}
         >
           Property
-        </text>
+        </text> */}
       </svg>
     </>
   )

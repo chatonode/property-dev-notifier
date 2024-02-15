@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@react-spring/parallax": "^9.7.3",
+    "@use-gesture/react": "^10.3.0",
     "axios": "^1.6.0",
     "next": "latest",
     "react": "latest",

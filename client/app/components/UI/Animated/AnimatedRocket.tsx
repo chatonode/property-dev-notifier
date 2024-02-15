@@ -4,6 +4,7 @@ import { scale, dist } from 'vec-la'
 import { useDrag } from 'react-use-gesture'
 
 import classes from './AnimatedRocket.module.css'
+import AnimatedStopsSVG from '../SVG/lib/drop/random-stop-color/AnimatedStopsSVG'
 
 const AnimatedRocket = () => {
   const [{ pos }, api] = useSpring(() => ({ pos: [0, 0] }))
@@ -41,7 +42,9 @@ const AnimatedRocket = () => {
           ([x, y], a) => `translate3d(${x}px,${y}px,0) rotate(${a}rad)`
         ),
       }}
-    />
+    >
+      <AnimatedStopsSVG />
+    </animated.div>
   )
 }
 

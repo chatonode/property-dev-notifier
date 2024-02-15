@@ -1,6 +1,6 @@
 .svg {
-  width: 500px;
-  height: 500px;
+  /* width: 500px;
+  height: 500px; */
   transition: transform ease-in-out;
   transition-duration: calc(var(--global-transition-duration) * 2);
   /* width: 100vw;
