@@ -24,6 +24,7 @@
   width: 40%;
   text-align: center;
   border-radius: 10px;
+  /* box-shadow: 0 0 8px 0px #ffffff, 0 0 16px 16px #aaaaaa, 0 0 32px 32px transparent, 0 0 64px 64px black; */
 }
 
 .parallax {
@@ -35,19 +36,38 @@
   background-color: #ff6d6d;
 }
 
-.blue {
+/* .blue {
   background-color: #5b65ad;
   color: white;
+} */
+
+.moon {
+  width: 107px;
+  height: 107px;
+  border-radius: 50%;
+
+  background: radial-gradient(#d0d0d0, #d0d0d0, #d0d0d0);
+  box-shadow: 0 0 8px 0px #d0d0d0, 0 0 16px 16px #b0b0b0, 0 0 32px 0px #a0a0a0,
+    0 0 64px 16px #909090, 0 10px 128px 128px #b0b0b0;
 }
 
-.purple {
-  background-color: #9d65d0;
+.sun {
+  /* background-color: #9d65d0; */
+  width: 107px;
+  height: 107px;
+  border-radius: 50%;
+
+  background: radial-gradient(#ffeb3b, #ffeb3b, #ffeb3b);
+  /* box-shadow: 0 0 8px 0px #ffeb3b, 0 0 16px 16px #ffc107, 0 0 32px 0px #ff9800,
+    0 0 64px 16px #ff5722; */
+  box-shadow: 0 0 8px 0px #ffeb3b, 0 0 16px 16px #ffc107, 0 0 32px 0px #ff9800,
+    0 0 64px 16px #ff5722, 0 10px 128px 128px #ffc83b;
 }
 
 @media (min-width: 40rem) {
-  .card {
+  /* .card {
     width: 25%;
-  }
+  } */
 
   .parallax {
     margin-right: 15%;

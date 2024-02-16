@@ -428,7 +428,7 @@ body {
   align-items: center; */
 }
 
-.layout-homepage,
+/* .layout-homepage, */
 .layout-public {
   display: flex;
   flex-direction: column;
@@ -443,7 +443,7 @@ body {
   /* gap: 1em; */
 }
 
-.layout-homepage,
+/* .layout-homepage, */
 .layout-public,
 .layout-dashboard {
   font-size: 1rem;
@@ -462,7 +462,7 @@ body {
 }
 
 /* Color Change */
-/* .layout-homepage */ /* Has fixed colors */
+/* .layout-homepage */ /* Has fixed colors */ /* but unused */
 .layout-public,
 .layout-dashboard,
 /* .root, */
@@ -494,10 +494,9 @@ body {
   box-shadow: 0 -1px 5px 0px var(--text-primary);
 } */
 
-.layout-homepage {
-  /* background: linear-gradient(#e66465, #9198e5); */
+/* .layout-homepage {
   background: linear-gradient(rgb(36, 41, 47), #9198e5);
-}
+} */
 
 .layout-public,
 .layout-dashboard {

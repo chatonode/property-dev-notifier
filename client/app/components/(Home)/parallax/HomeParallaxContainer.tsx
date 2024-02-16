@@ -30,42 +30,107 @@ const HomeParallaxContainer = () => {
           <ParallaxLayer
             offset={0}
             speed={0.5}
-            style={{ ...alignCenter, justifyContent: 'center' }}
+            style={{ ...alignCenter, justifyContent: 'center', zIndex: 3 }}
           >
             {/* <p className={classes.scrollText}>Scroll down</p> */}
             <Intro />
           </ParallaxLayer>
 
+          {/* Sticky Left */}
           <ParallaxLayer
             sticky={{ start: 1, end: 3 }}
-            style={{ ...alignCenter, justifyContent: 'flex-start' }}
+            style={{
+              ...alignCenter,
+              justifyContent: 'flex-start',
+              zIndex: 2,
+              pointerEvents: 'none',
+            }}
           >
             <div className={`${classes.card} ${classes.sticky}`}>
               <p>I'm a sticky layer</p>
             </div>
           </ParallaxLayer>
 
+          {/* Sticky Right */}
+          {/* <ParallaxLayer
+            sticky={{ start: 1, end: 3 }}
+            style={{ ...alignCenter, justifyContent: 'center', zIndex: 3 }}
+          >
+            <div className={`${classes.card} ${classes.sticky}`}>
+              <p>sticky layer!!!</p>
+            </div>
+          </ParallaxLayer> */}
+
+          {/* Sticky Background */}
+          {/* <ParallaxLayer
+            sticky={{ start: 1.5, end: 3 }}
+            style={{
+              background:
+                'linear-gradient(to bottom, rgb(145, 152, 229), black)',
+                // opacity: 0.5,
+              zIndex: 3,
+              pointerEvents: 'none',
+            }}
+          ></ParallaxLayer> */}
+
+          {/* Mid */}
           <ParallaxLayer
             offset={1.5}
+            speed={1}
+            // style={{ backgroundColor: '#FFFFFF' }}
+            style={{
+              // background: 'linear-gradient(rgb(36, 41, 47), #9198e5)',
+              background:
+                'linear-gradient(rgb(226, 239, 255), rgb(145, 152, 229))',
+              zIndex: 3,
+            }}
+            // style={{width: '100%', height: '100%'}}
+          >
+            <Bottom />
+          </ParallaxLayer>
+
+          <ParallaxLayer
+            offset={1}
             speed={1.5}
-            style={{ ...alignCenter, justifyContent: 'flex-end' }}
+            style={{
+              ...alignCenter,
+              justifyContent: 'flex-end',
+              zIndex: 2,
+              pointerEvents: 'none',
+            }}
           >
             <div
-              className={`${classes.card} ${classes.parallax} ${classes.purple}`}
+              className={`${classes.card} ${classes.parallax} ${classes.sun}`}
             >
-              <p>I'm not</p>
+              {/* <p>I'm not</p> */}
             </div>
           </ParallaxLayer>
+
+          {/* Moon Background */}
+          <ParallaxLayer
+            offset={2.2}
+            factor={1.1}
+            speed={1.2}
+            style={{
+              zIndex: 2,
+              background: 'radial-gradient(rgb(199, 190, 190), black)',
+            }}
+          ></ParallaxLayer>
 
           <ParallaxLayer
             offset={2.5}
             speed={1.5}
-            style={{ ...alignCenter, justifyContent: 'flex-end' }}
+            style={{
+              ...alignCenter,
+              justifyContent: 'flex-end',
+              zIndex: 3,
+              pointerEvents: 'none',
+            }}
           >
             <div
-              className={`${classes.card} ${classes.parallax} ${classes.blue}`}
+              className={`${classes.card} ${classes.parallax} ${classes.moon}`}
             >
-              <p>Neither am I</p>
+              {/* <p>Neither am I</p> */}
             </div>
           </ParallaxLayer>
 
@@ -74,7 +139,11 @@ const HomeParallaxContainer = () => {
           <ParallaxLayer
             offset={4}
             speed={0}
-            style={{ backgroundColor: '#FFFFFF' }}
+            // style={{ backgroundColor: '#FFFFFF' }}
+            style={{
+              background: 'linear-gradient(#9198e5, rgb(36, 41, 47))',
+              zIndex: 3,
+            }}
             // style={{width: '100%', height: '100%'}}
           >
             <Bottom />
