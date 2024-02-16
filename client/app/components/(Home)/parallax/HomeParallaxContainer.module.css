@@ -65,6 +65,16 @@
     0 0 64px 16px #ff5722, 0 10px 128px 128px #ffc83b;
 }
 
+.cloud {
+  /* margin-right: 15%; */
+  width: 25%;
+  height: 25%;
+}
+
+.cloud.small {
+  transform: scale(0.3);
+}
+
 @media (min-width: 40rem) {
   /* .card {
     width: 25%;
@@ -76,5 +86,10 @@
 
   .sticky {
     margin-left: 15%;
+  }
+
+  .cloud {
+    width: 220px;
+    height: 220px;
   }
 }

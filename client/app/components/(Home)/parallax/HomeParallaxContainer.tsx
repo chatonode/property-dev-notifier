@@ -1,6 +1,13 @@
 'use client'
 
-import { MutableRefObject, Suspense, useEffect, useRef, useState } from 'react'
+import {
+  MutableRefObject,
+  Suspense,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { IParallax, Parallax, ParallaxLayer } from '@react-spring/parallax'
@@ -21,68 +28,18 @@ import Intro from './layers/Intro'
 import Bottom from './layers/Bottom'
 import { animated, SpringValue, useScroll } from '@react-spring/web'
 import CloudSVG from '../../UI/SVG/Home/Parallax/CloudSVG'
+import CloudSVGFilled from '../../UI/SVG/Home/Parallax/CloudSVGFilled'
 
 const HomeParallaxContainer = () => {
-  // const containerRef = useRef<HTMLDivElement>(null!)
   const parallaxRef = useRef<IParallax | null>(null!)
 
-  const [currentOffset, setCurrentOffset] = useState<number>(0)
-
+  // const alignLeft = { display: 'flex', alignItems: 'flex-start' }
   const alignCenter = { display: 'flex', alignItems: 'center' }
-
-  // TODO: give container ref and test it
-  // const { scrollYProgress } = useScroll({
-  //   container:
-  //     containerRef as MutableRefObject<HTMLDivElement> /* Give ref of whole container */,
-  //   onChange: ({ value: { scrollYProgress } }) => {
-  //     if (scrollYProgress > 0.7) {
-  //       console.log(`I'm gonna be finished soon!!!`)
-  //     } else {
-  //       console.log(`It's still more time...`)
-  //     }
-  //   },
-  //   default: {
-  //     immediate: true,
-  //   },
-  // })
-
-  // useEffect(() => {
-
-  // }, [scrollYProgress])
-
-  const handleScroll = () => {
-    // console.log(parallaxRef.current)
-    if (parallaxRef.current) {
-      // console.log(
-      //   'current offset: ',
-      //   +(parallaxRef.current.current / parallaxRef.current.space).toFixed(1)
-      // ) // i.e.: 1.0, 2.1, 3.7
-
-      setCurrentOffset(
-        +(parallaxRef.current.current / parallaxRef.current.space).toFixed(1) // i.e.: 1.0, 2.1, 3.7
-      )
-    }
-  }
-
-  useEffect(() => {
-    const containerElem = document.querySelector('.parallax')!
-    containerElem.addEventListener('scroll', handleScroll)
-    return () => {
-      containerElem.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
-
-  useEffect(() => {
-    if (currentOffset < 2.5) {
-      console.log('I am still before the  mid section!')
-    }
-  }, [currentOffset])
-
-  console.log('currentOffset: ', currentOffset)
+  // const alignRight = { display: 'flex', alignItems: 'flex-end' }
 
   return (
     <>
-      <div className={`${classes.container}`}>
+      <animated.div className={`${classes.container}`}>
         <Parallax pages={5} ref={parallaxRef} className="parallax">
           <ParallaxLayer
             offset={0}
@@ -94,31 +51,71 @@ const HomeParallaxContainer = () => {
           </ParallaxLayer>
 
           {/* Clouds */}
-          {/* <ParallaxLayer
-            offset={1.2}
-            speed={0.5}
+
+          <ParallaxLayer
+            offset={1.1}
+            speed={0.2}
             style={{
-              zIndex: 3,
+              ...alignCenter,
+              justifyContent: 'flex-end',
+              zIndex: 4,
               pointerEvents: 'none',
             }}
           >
-            <animated.div
+            <div
+              className={classes.cloud}
               style={{
-                marginLeft: `${currentOffset * 5}%`,
-                // transition: 'margin-left 0.26s ease-in-out',
-              }}
-            ></animated.div>
-            <CloudSVG />
-
-            <animated.div
-              style={{
-                marginRight: `${currentOffset * 5}%`,
-                // transition: 'margin-right 0.26s ease-in-out',
+                marginRight: '17%',
+                // transition: 'margin-right 0.52s ease-in-out',
               }}
             >
-              <CloudSVG />
-            </animated.div>
-          </ParallaxLayer> */}
+              {/* <CloudSVG /> */}
+              <CloudSVGFilled />
+            </div>
+          </ParallaxLayer>
+
+          <ParallaxLayer
+            offset={1}
+            speed={-0.5}
+            style={{
+              ...alignCenter,
+              justifyContent: 'flex-start',
+              zIndex: 2,
+              pointerEvents: 'none',
+            }}
+          >
+            <div
+              className={`${classes.cloud} ${classes.small}`}
+              style={{
+                marginLeft: '11%',
+                // transition: 'margin-right 0.52s ease-in-out',
+              }}
+            >
+              <CloudSVGFilled />
+            </div>
+          </ParallaxLayer>
+
+          <ParallaxLayer
+            offset={1}
+            speed={0.5}
+            style={{
+              ...alignCenter,
+              justifyContent: 'flex-end',
+              zIndex: 4,
+              pointerEvents: 'none',
+            }}
+          >
+            <div
+              className={classes.cloud}
+              style={{
+                marginRight: '11%',
+                transition: 'margin-right 0.52s ease-in-out',
+              }}
+            >
+              <CloudSVGFilled />
+            </div>
+          </ParallaxLayer>
+
           {/* *** */}
 
           {/* Sticky Left */}
@@ -130,12 +127,11 @@ const HomeParallaxContainer = () => {
               zIndex: 2,
               pointerEvents: 'none',
               // marginLeft: `${currentOffset * 5}%`,
-              
+
               // transform: `scale(${currentOffset * 2})`,
               // transition: 'transform 0.26s ease-in-out',
               // height: `${currentOffset * 100}px`,
               //               transition: 'height 0.26s ease-in-out',
-
             }}
           >
             <div className={`${classes.card} ${classes.sticky}`}>
@@ -241,7 +237,7 @@ const HomeParallaxContainer = () => {
             <Bottom />
           </ParallaxLayer>
         </Parallax>
-      </div>
+      </animated.div>
     </>
   )
 }
