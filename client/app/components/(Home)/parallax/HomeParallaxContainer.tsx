@@ -42,7 +42,7 @@ import { NodeNextRequest } from 'next/dist/server/base-http/node'
 import UnfilledCircleSVG from '../../UI/SVG/Home/Parallax/UnfilledCircleSVG'
 
 const HomeParallaxContainer = () => {
-  const parallaxRef = useRef<IParallax | null>(null!)
+  // const parallaxRef = useRef<IParallax | null>(null!)
   // const [refCloudFar, cloudFarInView] = useInView()
   // const [refCloudSecondary, cloudSecondaryInView] = useInView()
   // const [refCloudMain, cloudMainInView] = useInView()
@@ -116,7 +116,11 @@ const HomeParallaxContainer = () => {
   return (
     <>
       <animated.div className={`${classes.container}`}>
-        <Parallax pages={5} ref={parallaxRef} className="parallax">
+        <Parallax
+          pages={5}
+          // ref={parallaxRef}
+          className="parallax"
+        >
           <ParallaxLayer
             offset={0}
             speed={0.5}
@@ -127,20 +131,16 @@ const HomeParallaxContainer = () => {
           </ParallaxLayer>
 
           {/* Top-to-mid */}
-          <ParallaxLayer
+          {/* <ParallaxLayer
             offset={0.8}
             speed={0.8}
             factor={1.6}
             style={{
-              // background: 'linear-gradient(rgb(36, 41, 47), #9198e5)',
               background: 'linear-gradient(transparent, rgb(145 152 229))',
               zIndex: 2,
               pointerEvents: 'none',
             }}
-            // style={{width: '100%', height: '100%'}}
-          >
-            {/* <p>hellaaaaa</p> */}
-          </ParallaxLayer>
+          ></ParallaxLayer> */}
           {/* *** */}
 
           {/* Clouds */}
@@ -341,9 +341,10 @@ const HomeParallaxContainer = () => {
             speed={1.5}
             style={{
               ...alignCenter,
-              justifyContent: 'flex-end',
+              justifyContent: 'flex-start',
               zIndex: 3,
-              pointerEvents: 'none',
+              // pointerEvents: 'none', // To enable hover
+              // overflow: 'auto', // To enable overflow box-shadow of the moon
             }}
           >
             <div className={`${classes.planetary} ${classes.moon}`}>
@@ -375,13 +376,17 @@ const HomeParallaxContainer = () => {
             speed={1}
             // style={{ backgroundColor: '#FFFFFF' }}
             style={{
+              ...alignCenter,
+              justifyContent: 'flex-end',
               zIndex: 3,
               // background: 'linear-gradient(rgb(36, 41, 47), #9198e5)',
               // background:
               //   'linear-gradient(rgba(154, 154, 154, 0), rgb(55, 55, 55))', /* black one */
               background:
                 'linear-gradient(rgb(146 146 146 / 0%), rgb(19 19 26))',
+              // TODO: move below to the AfterMoon
               color: 'white',
+              textAlign: 'right',
             }}
             // style={{width: '100%', height: '100%'}}
           >
