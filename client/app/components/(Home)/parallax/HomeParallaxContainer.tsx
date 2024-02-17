@@ -203,8 +203,8 @@ const HomeParallaxContainer = () => {
 
           {/* Sticky Frame */}
           {/* <ParallaxLayer
-            sticky={{ start: 1.4, end: 1.5 }}
-            factor={0.1}
+            sticky={{ start: 1, end: 1.1 }}
+            speed={-2}
             style={{
               ...alignCenter,
               justifyContent: 'flex-end',
