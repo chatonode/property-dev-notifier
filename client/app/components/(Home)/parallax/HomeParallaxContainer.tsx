@@ -29,6 +29,8 @@ import Bottom from './layers/Bottom'
 import { animated, SpringValue, useScroll } from '@react-spring/web'
 import CloudSVG from '../../UI/SVG/Home/Parallax/CloudSVG'
 import CloudSVGFilled from '../../UI/SVG/Home/Parallax/CloudSVGFilled'
+import CloudSVGFilledMain from '../../UI/SVG/Home/Parallax/CloudSVGFilledMain'
+import AfterMoon from './layers/AfterMoon'
 
 const HomeParallaxContainer = () => {
   const parallaxRef = useRef<IParallax | null>(null!)
@@ -53,51 +55,31 @@ const HomeParallaxContainer = () => {
           {/* Clouds */}
 
           <ParallaxLayer
-            offset={1.1}
-            speed={0.2}
+            offset={1}
+            speed={0.3}
             style={{
               ...alignCenter,
               justifyContent: 'flex-end',
-              zIndex: 4,
+              zIndex: 5,
               pointerEvents: 'none',
             }}
           >
             <div
-              className={classes.cloud}
+              className={`${classes.cloud} ${classes.big}`}
               style={{
                 marginRight: '17%',
                 // transition: 'margin-right 0.52s ease-in-out',
               }}
             >
               {/* <CloudSVG /> */}
-              <CloudSVGFilled />
+              {/* <CloudSVGFilled /> */}
+              <CloudSVGFilledMain />
             </div>
           </ParallaxLayer>
 
           <ParallaxLayer
-            offset={1}
-            speed={-0.5}
-            style={{
-              ...alignCenter,
-              justifyContent: 'flex-start',
-              zIndex: 2,
-              pointerEvents: 'none',
-            }}
-          >
-            <div
-              className={`${classes.cloud} ${classes.small}`}
-              style={{
-                marginLeft: '11%',
-                // transition: 'margin-right 0.52s ease-in-out',
-              }}
-            >
-              <CloudSVGFilled />
-            </div>
-          </ParallaxLayer>
-
-          <ParallaxLayer
-            offset={1}
-            speed={0.5}
+            offset={0.8}
+            speed={-0.2}
             style={{
               ...alignCenter,
               justifyContent: 'flex-end',
@@ -116,10 +98,33 @@ const HomeParallaxContainer = () => {
             </div>
           </ParallaxLayer>
 
+          {/** Far-left Cloud **/}
+          <ParallaxLayer
+            offset={1.2}
+            speed={-0.5}
+            factor={0.8}
+            style={{
+              ...alignCenter,
+              justifyContent: 'flex-start',
+              zIndex: 2,
+              pointerEvents: 'none',
+            }}
+          >
+            <div
+              className={`${classes.cloud} ${classes.small}`}
+              style={{
+                marginLeft: '11%',
+                // transition: 'margin-right 0.52s ease-in-out',
+              }}
+            >
+              <CloudSVGFilled />
+            </div>
+          </ParallaxLayer>
+
           {/* *** */}
 
           {/* Sticky Left */}
-          <ParallaxLayer
+          {/* <ParallaxLayer
             sticky={{ start: 1, end: 3 }}
             style={{
               ...alignCenter,
@@ -137,7 +142,7 @@ const HomeParallaxContainer = () => {
             <div className={`${classes.card} ${classes.sticky}`}>
               <p>I'm a sticky layer</p>
             </div>
-          </ParallaxLayer>
+          </ParallaxLayer> */}
 
           {/* Sticky Right */}
           {/* <ParallaxLayer
@@ -206,7 +211,7 @@ const HomeParallaxContainer = () => {
           ></ParallaxLayer> */}
 
           <ParallaxLayer
-            offset={2.5}
+            offset={2}
             speed={1.5}
             style={{
               ...alignCenter,
@@ -220,6 +225,24 @@ const HomeParallaxContainer = () => {
             >
               {/* <p>Neither am I</p> */}
             </div>
+          </ParallaxLayer>
+
+          <ParallaxLayer
+            offset={2.5}
+            speed={1}
+            // style={{ backgroundColor: '#FFFFFF' }}
+            style={{
+              zIndex: 3,
+              // background: 'linear-gradient(rgb(36, 41, 47), #9198e5)',
+              // background:
+              //   'linear-gradient(rgba(154, 154, 154, 0), rgb(55, 55, 55))', /* black one */
+              background:
+                'linear-gradient(rgb(146 146 146 / 0%), rgb(19 19 26))',
+              color: 'white',
+            }}
+            // style={{width: '100%', height: '100%'}}
+          >
+            <AfterMoon />
           </ParallaxLayer>
 
           {/* End */}

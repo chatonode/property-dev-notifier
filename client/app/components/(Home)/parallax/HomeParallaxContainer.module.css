@@ -72,7 +72,11 @@
 }
 
 .cloud.small {
-  transform: scale(0.3);
+  transform: scale(0.3) rotateX(45deg);
+}
+
+.cloud.big {
+  transform: scale(1.5) rotateY(180deg);
 }
 
 @media (min-width: 40rem) {
