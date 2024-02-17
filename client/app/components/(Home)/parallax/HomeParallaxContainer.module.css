@@ -27,10 +27,6 @@
   /* box-shadow: 0 0 8px 0px #ffffff, 0 0 16px 16px #aaaaaa, 0 0 32px 32px transparent, 0 0 64px 64px black; */
 }
 
-.parallax {
-  margin-right: 1.5rem;
-}
-
 .sticky {
   margin-left: 1.5rem;
   background-color: #ff6d6d;
@@ -41,15 +37,8 @@
   color: white;
 } */
 
-.moon {
-  width: 107px;
-  height: 107px;
-  border-radius: 50%;
-
-  background: radial-gradient(#d0d0d0, #d0d0d0, #d0d0d0);
-  box-shadow: 0 0 8px 0px #d0d0d0, 0 0 16px 16px #b0b0b0, 0 0 32px 0px #a0a0a0,
-    0 0 64px 16px #909090, 0 10px 128px 128px #b0b0b0,
-    0 0 600px 300px black /* ending spreads to the page */;
+.planetary {
+  margin-right: 1.5rem;
 }
 
 .sun {
@@ -67,16 +56,62 @@
 
 .cloud {
   /* margin-right: 15%; */
-  width: 25%;
-  height: 25%;
+  width: 100%;
+  height: 100%;
 }
 
-.cloud.small {
+.cloud.far {
   transform: scale(0.3) rotateX(45deg);
 }
 
-.cloud.big {
+.cloud.main {
   transform: scale(1.5) rotateY(180deg);
+}
+
+.moon {
+  position: relative;
+
+  width: 107px;
+  height: 107px;
+  border-radius: 50%;
+
+  background: radial-gradient(#d0d0d0, #d0d0d0, #d0d0d0);
+  box-shadow: 0 0 8px 0px #d0d0d0, 0 0 16px 16px #b0b0b0, 0 0 32px 0px #a0a0a0,
+    0 0 64px 16px #909090, 0 10px 128px 128px #b0b0b0,
+    0 0 600px 300px black /* ending spreads to the page */;
+}
+
+.moon-orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+  width: 160.5px;
+  height: 160.5px;
+}
+
+/* .moon-outer-orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+  width: 321px;
+  height: 321px;
+} */
+
+.frame {
+  margin-right: 1.6rem;
+
+  stroke: black;
+  stroke-width: 1px;
+  width: 1px;
+  height: 100%;
+
+  border: 1px solid black;
 }
 
 @media (min-width: 40rem) {
@@ -84,16 +119,24 @@
     width: 25%;
   } */
 
-  .parallax {
-    margin-right: 15%;
-  }
-
   .sticky {
     margin-left: 15%;
+  }
+
+  .planetary {
+    margin-right: 15%;
   }
 
   .cloud {
     width: 220px;
     height: 220px;
+  }
+
+  /* .moon-orbit {
+    margin-right: 13.25%;
+  }  */
+
+  .frame {
+    margin-right: 15%;
   }
 }
