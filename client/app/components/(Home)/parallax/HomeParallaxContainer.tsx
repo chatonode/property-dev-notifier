@@ -41,6 +41,7 @@ import { Waypoint } from 'react-waypoint'
 import { NodeNextRequest } from 'next/dist/server/base-http/node'
 import UnfilledCircleSVG from '@/components/UI/SVG/Home/Parallax/UnfilledCircleSVG'
 import StarsLayerSVG from '@/components/UI/SVG/Home/Parallax/StarsLayerSVG'
+import StarsLayerDarkBlueSVG from '../../UI/SVG/Home/Parallax/StarsLayerDarkBlueSVG'
 
 const HomeParallaxContainer = () => {
   // const parallaxRef = useRef<IParallax | null>(null!)
@@ -299,8 +300,10 @@ const HomeParallaxContainer = () => {
             // style={{ backgroundColor: '#FFFFFF' }}
             style={{
               // background: 'linear-gradient(rgb(36, 41, 47), #9198e5)',
+              // background:
+              //   'linear-gradient(rgb(226, 239, 255), rgb(145, 152, 229))',
               background:
-                'linear-gradient(rgb(226, 239, 255), rgb(145, 152, 229))',
+                'linear-gradient(to bottom, rgb(0 229 255 / 0.21), rgb(0 229 255), transparent)',
               zIndex: 4,
             }}
             // style={{width: '100%', height: '100%'}}
@@ -343,10 +346,11 @@ const HomeParallaxContainer = () => {
                 width: '100%',
                 height: 'auto',
                 // opacity: 0.9,
-                filter: 'blur(1px)'
+                // filter: 'blur(1px)',
               }}
             >
-              <StarsLayerSVG />
+              {/* <StarsLayerSVG /> */}
+              <StarsLayerDarkBlueSVG />
             </div>
           </ParallaxLayer>
           {/* *** */}
@@ -409,8 +413,11 @@ const HomeParallaxContainer = () => {
               // background: 'linear-gradient(rgb(36, 41, 47), #9198e5)',
               // background:
               //   'linear-gradient(rgba(154, 154, 154, 0), rgb(55, 55, 55))', /* black one */
+              // background:
+              //   'linear-gradient(rgb(146 146 146 / 0%), rgb(19 19 26))',
+              // background: 'linear-gradient(to bottom, rgb(0 0 0 / 0.21), rgb(0 0 0), transparent)',
               background:
-                'linear-gradient(rgb(146 146 146 / 0%), rgb(19 19 26))',
+                'linear-gradient(rgba(0, 5, 8, 0.21), rgb(0, 5, 8), transparent)',
               // TODO: move below to the AfterMoon
               color: 'white',
               textAlign: 'right',

@@ -4,17 +4,16 @@
 }
 
 /* .svg {
-  color: rgb(255, 255, 173);
+  color: #ffffff82;
   stroke: currentColor;
-  stroke-width: 1px;
+  stroke-width: 0.1px;
 
-  stroke-dasharray: 1;
-  stroke-dashoffset: 150;
-  animation: rotate 2s linear infinite;
+
+  animation: emphasize 26s linear infinite;
 }
 
-@keyframes rotate {
+@keyframes emphasize {
   to {
-    stroke-dashoffset: 0;
+    stroke-width: 0.5px;
   }
 } */
