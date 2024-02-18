@@ -39,7 +39,8 @@ import CloudSVGFilledMain from '../../UI/SVG/Home/Parallax/CloudSVGFilledMain'
 import AfterMoon from './layers/AfterMoon'
 import { Waypoint } from 'react-waypoint'
 import { NodeNextRequest } from 'next/dist/server/base-http/node'
-import UnfilledCircleSVG from '../../UI/SVG/Home/Parallax/UnfilledCircleSVG'
+import UnfilledCircleSVG from '@/components/UI/SVG/Home/Parallax/UnfilledCircleSVG'
+import StarsLayerSVG from '@/components/UI/SVG/Home/Parallax/StarsLayerSVG'
 
 const HomeParallaxContainer = () => {
   // const parallaxRef = useRef<IParallax | null>(null!)
@@ -323,6 +324,32 @@ const HomeParallaxContainer = () => {
               {/* <p>I'm not</p> */}
             </div>
           </ParallaxLayer>
+
+          {/* Mid to Moon */}
+
+          <ParallaxLayer
+            offset={2}
+            // speed={0.75}
+            speed={1}
+            factor={2}
+            style={{
+              // background: 'linear-gradient(transparent, rgb(145 152 229))',
+              zIndex: 2,
+              pointerEvents: 'none',
+            }}
+          >
+            <div
+              style={{
+                width: '100%',
+                height: 'auto',
+                opacity: 0.9,
+                // filter: 'blur(1px)'
+              }}
+            >
+              <StarsLayerSVG />
+            </div>
+          </ParallaxLayer>
+          {/* *** */}
 
           {/* Moon */}
           {/** Moon Background **/}
