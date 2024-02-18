@@ -342,8 +342,8 @@ const HomeParallaxContainer = () => {
               style={{
                 width: '100%',
                 height: 'auto',
-                opacity: 0.9,
-                // filter: 'blur(1px)'
+                // opacity: 0.9,
+                filter: 'blur(1px)'
               }}
             >
               <StarsLayerSVG />
