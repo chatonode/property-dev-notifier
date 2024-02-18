@@ -32,16 +32,18 @@ import {
   useInView,
   useScroll,
   useSpring,
+  useTransition,
 } from '@react-spring/web'
 import CloudSVG from '../../UI/SVG/Home/Parallax/CloudSVG'
 import CloudSVGFilled from '../../UI/SVG/Home/Parallax/CloudSVGFilled'
 import CloudSVGFilledMain from '../../UI/SVG/Home/Parallax/CloudSVGFilledMain'
-import AfterMoon from './layers/AfterMoon'
+import Moony from './layers/Moony'
 import { Waypoint } from 'react-waypoint'
 import { NodeNextRequest } from 'next/dist/server/base-http/node'
 import UnfilledCircleSVG from '@/components/UI/SVG/Home/Parallax/UnfilledCircleSVG'
 import StarsLayerSVG from '@/components/UI/SVG/Home/Parallax/StarsLayerSVG'
 import StarsLayerDarkBlueSVG from '../../UI/SVG/Home/Parallax/StarsLayerDarkBlueSVG'
+import Sunny from './layers/Sunny'
 
 const HomeParallaxContainer = () => {
   // const parallaxRef = useRef<IParallax | null>(null!)
@@ -50,6 +52,7 @@ const HomeParallaxContainer = () => {
   // const [refCloudMain, cloudMainInView] = useInView()
 
   // console.log(cloudFarInView, cloudSecondaryInView, cloudMainInView)
+  // const textTimeoutRef = useRef<ReturnType<typeof setTimeout>>()
 
   const [cloudFarInView, setCloudFarInView] = useState<boolean>(false)
   const [cloudMainInView, setCloudMainInView] = useState<boolean>(false)
@@ -101,18 +104,17 @@ const HomeParallaxContainer = () => {
 
   const alignCenter = { display: 'flex', alignItems: 'center' }
 
-  // const handleScroll = () => {
-  //   if (parallaxRef.current) {
-  //     console.log(parallaxRef.current.current)
-  //   }
-  // }
+  // const reset = useCallback(() => {
+  //   textTimeoutRef.current!.ref.
+  //   // textTimeoutRef.current = []
+  //   textTimeoutRef.current.push(setTimeout(() => set(['Apples', 'Oranges', 'Kiwis']), 2000))
+  //   ref.current.push(setTimeout(() => set(['Apples', 'Kiwis']), 5000))
+  //   ref.current.push(setTimeout(() => set(['Apples', 'Bananas', 'Kiwis']), 8000))
+  // }, [])
 
   // useEffect(() => {
-  //   const containerElem = document.querySelector('.parallax')
-  //   containerElem!.addEventListener('scroll', handleScroll)
-  //   return () => {
-  //     containerElem!.removeEventListener('scroll', handleScroll)
-  //   }
+  //   reset()
+  //   return () => ref.current.forEach(clearTimeout)
   // }, [])
 
   return (
@@ -293,7 +295,7 @@ const HomeParallaxContainer = () => {
             }}
           ></ParallaxLayer> */}
 
-          {/* Mid */}
+          {/* Sunny */}
           <ParallaxLayer
             offset={1.5}
             speed={1}
@@ -305,10 +307,11 @@ const HomeParallaxContainer = () => {
               background:
                 'linear-gradient(to bottom, rgb(0 229 255 / 0.21), rgb(0 229 255), transparent)',
               zIndex: 4,
+              borderTopRightRadius: '50%',
             }}
             // style={{width: '100%', height: '100%'}}
           >
-            <Bottom />
+            <Sunny />
           </ParallaxLayer>
 
           {/* Sun */}
@@ -407,8 +410,8 @@ const HomeParallaxContainer = () => {
             speed={1}
             // style={{ backgroundColor: '#FFFFFF' }}
             style={{
-              ...alignCenter,
-              justifyContent: 'flex-end',
+              // ...alignCenter,
+              // justifyContent: 'flex-end',
               zIndex: 3,
               // background: 'linear-gradient(rgb(36, 41, 47), #9198e5)',
               // background:
@@ -420,11 +423,12 @@ const HomeParallaxContainer = () => {
                 'linear-gradient(rgba(0, 5, 8, 0.21), rgb(0, 5, 8), transparent)',
               // TODO: move below to the AfterMoon
               color: 'white',
-              textAlign: 'right',
+              // textAlign: 'right',
+              borderTopLeftRadius: '50%',
             }}
             // style={{width: '100%', height: '100%'}}
           >
-            <AfterMoon />
+            <Moony />
           </ParallaxLayer>
 
           {/* End */}

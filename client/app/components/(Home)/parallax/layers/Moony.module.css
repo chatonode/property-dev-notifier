@@ -1,0 +1,38 @@
+.container {
+  margin: 5%;
+  margin-top: 10%;
+
+  text-align: right;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 2em;
+}
+
+/* .title {
+  margin-bottom: 20px;
+} */
+
+.transitions-item {
+  overflow: hidden;
+  width: 100%;
+  /* color: white; */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 3em;
+  font-weight: 800;
+  text-transform: uppercase;
+  will-change: transform, opacity, height;
+  /* white-space: nowrap; */
+  /* cursor: pointer; */
+  line-height: 80px;
+}
+
+@media (min-width: 40rem) {
+  /* .container {
+    margin: 10%;
+  } */
+}

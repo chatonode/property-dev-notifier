@@ -7,9 +7,9 @@ const Intro = () => {
       <p className={classes.subtitle}>
         Manage and notify property developers with ease
       </p>
+      <button>Get Started</button>
     </div>
   )
 }
 
 export default Intro
-

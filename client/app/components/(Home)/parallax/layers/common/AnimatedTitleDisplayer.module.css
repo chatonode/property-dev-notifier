@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.trails-text {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  line-height: 80px;
+  /* color: black; */
+  /* font-size: 6em; */
+  font-size: 3em;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  will-change: transform, opacity;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+
+.trails-text > div {
+  padding-right: 0.05em;
+  overflow: hidden;
+}

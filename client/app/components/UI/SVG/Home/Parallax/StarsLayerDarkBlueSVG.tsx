@@ -3989,9 +3989,9 @@ const StarsLayerDarkBlueSVG = () => {
             y2="1"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#fff" />
-            <stop offset=".3" stop-color="#fff" stop-opacity=".1" />
-            <stop offset=".7" stop-color="#fff" stop-opacity="0" />
+            <stop stopColor="#fff" />
+            <stop offset=".3" stopColor="#fff" stopOpacity=".1" />
+            <stop offset=".7" stopColor="#fff" stopOpacity="0" />
           </linearGradient>
         </defs>
         <rect width="182.307" height="3.5" rx="3.5" ry="3.5" fill="url(#a)" />
