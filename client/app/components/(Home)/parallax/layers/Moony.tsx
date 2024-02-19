@@ -3,6 +3,7 @@ import { animated, useTransition } from '@react-spring/web'
 
 import classes from './Moony.module.css'
 import { Waypoint } from 'react-waypoint'
+import MoonyImageContainer from './Moony/MoonyImageContainer'
 
 const Moony = () => {
   console.log('am iiiii')
@@ -61,25 +62,30 @@ const Moony = () => {
   return (
     <Waypoint onEnter={start} onLeave={reset}>
       <div className={classes.container}>
-        {/* <h1>Property Developer Notifier</h1> */}
-        <div className={classes.title}>
-          {transitions(({ innerHeight, ...rest }, item) => (
-            <animated.div
-              className={classes['transitions-item']}
-              style={rest}
-              // onClick={reset}
-            >
-              <animated.div style={{ overflow: 'hidden', height: innerHeight }}>
-                {item}
+        <MoonyImageContainer />
+
+        <div className={classes.content}>
+          <div className={classes.title}>
+            {transitions(({ innerHeight, ...rest }, item) => (
+              <animated.div
+                className={classes['transitions-item']}
+                style={rest}
+                // onClick={reset}
+              >
+                <animated.div
+                  style={{ overflow: 'hidden', height: innerHeight }}
+                >
+                  {item}
+                </animated.div>
               </animated.div>
-            </animated.div>
-          ))}
+            ))}
+          </div>
+          <p>
+            The app that lets you manage and communicate with property
+            developers in an easy and efficient way.
+          </p>
+          <button>Get Started</button>
         </div>
-        <p>
-          The app that lets you manage and communicate with property developers
-          in an easy and efficient way.
-        </p>
-        <button>Get Started</button>
       </div>
     </Waypoint>
   )

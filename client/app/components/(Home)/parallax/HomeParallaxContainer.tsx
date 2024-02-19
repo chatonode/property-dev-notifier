@@ -315,6 +315,7 @@ const HomeParallaxContainer = () => {
                 'linear-gradient(to bottom, rgb(0 229 255 / 0.21), rgb(0 229 255), transparent)',
               zIndex: 4,
               borderTopRightRadius: '50%',
+              overflow: 'hidden',
             }}
             // style={{width: '100%', height: '100%'}}
           >
@@ -446,8 +447,8 @@ const HomeParallaxContainer = () => {
               background:
                 'linear-gradient(rgba(0, 5, 8, 0.21), rgb(3, 45, 73), transparent)',
               // TODO: move below to the AfterMoon
-              color: 'white',
               borderTopLeftRadius: '50%',
+              overflow: 'hidden',
             }}
             // style={{width: '100%', height: '100%'}}
           >

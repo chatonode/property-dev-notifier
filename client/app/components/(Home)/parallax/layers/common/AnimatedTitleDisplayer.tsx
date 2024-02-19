@@ -18,7 +18,7 @@ const Trail = memo(({ open, children }: TTrailProps) => {
     from: { opacity: 0, x: 20, height: 0 },
   })
   return (
-    <div>
+    <div className={classes['trail-container']}>
       {trail.map(({ height, ...style }, index) => (
         <animated.div
           key={index}
@@ -47,7 +47,7 @@ const AnimatedTitleDisplayer = (props: TAnimatedTitleDisplayerProps) => {
     >
       <Trail open={true}>
         {props.words.map((word) => {
-          return <span>{word}</span>
+          return <span key={word}>{word}</span>
         })}
       </Trail>
     </div>

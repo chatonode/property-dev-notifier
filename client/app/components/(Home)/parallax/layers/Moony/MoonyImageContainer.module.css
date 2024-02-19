@@ -1,0 +1,30 @@
+.image {
+  /* width: 50%; */
+  flex: 0.5 1 auto;
+  height: auto;
+  position: relative;
+
+  /* margin-top: 50%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* box-shadow: -15px 15px 20px -8px black,
+      5px -4px 5px 1px #0de6fe; */
+  box-shadow: 20px -7px 2px 0px rgb(208 208 208);
+  border-radius: 100% 50%;
+  overflow: hidden;
+}
+
+.image img {
+  border-radius: 'inherit';
+}
+
+@media (min-width: 40rem) {
+  /* .container {
+        margin-top: 10%;
+      } */
+
+  .image {
+    justify-content: flex-end;
+  }
+}
