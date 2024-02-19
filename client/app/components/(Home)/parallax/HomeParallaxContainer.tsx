@@ -127,7 +127,7 @@ const HomeParallaxContainer = () => {
         >
           <ParallaxLayer
             offset={0}
-            speed={0.5}
+            // speed={0.5}
             style={{ ...alignCenter, justifyContent: 'center', zIndex: 3 }}
           >
             {/* <p className={classes.scrollText}>Scroll down</p> */}
@@ -229,7 +229,8 @@ const HomeParallaxContainer = () => {
             style={{
               ...alignCenter,
               justifyContent: 'flex-start',
-              zIndex: 3,
+              // zIndex: 3,
+              zIndex: 2,
               pointerEvents: 'none',
             }}
           >
@@ -295,12 +296,18 @@ const HomeParallaxContainer = () => {
             }}
           ></ParallaxLayer> */}
 
+          {/* EXPLODE THE CODE!!!!!!! */}
+
           {/* Sunny */}
           <ParallaxLayer
             offset={1.5}
             speed={1}
+            factor={1}
             // style={{ backgroundColor: '#FFFFFF' }}
             style={{
+              display: 'flex',
+              alignItems: 'flex-start',
+              justifyContent: 'flex-start',
               // background: 'linear-gradient(rgb(36, 41, 47), #9198e5)',
               // background:
               //   'linear-gradient(rgb(226, 239, 255), rgb(145, 152, 229))',
@@ -333,11 +340,31 @@ const HomeParallaxContainer = () => {
 
           {/* Mid to Moon */}
 
+          {/* Color Transition Layer */}
+          {/* <ParallaxLayer
+            offset={2}
+            speed={0.95}
+            factor={0.5}
+            // factor={0.1}
+            // style={{ backgroundColor: '#FFFFFF' }}
+            style={{
+              // ...alignCenter,
+              // justifyContent: 'flex-end',
+              zIndex: 3,
+              // background: 'linear-gradient(rgb(224, 232, 240), rgb(0, 229, 255), rgb(0, 5, 8))',
+              // background: 'linear-gradient(rgb(224, 232, 240), rgb(231, 237, 243), #d0d0d0, rgb(0, 5, 8))',
+              // background:
+              //   'linear-gradient(rgb(224, 232, 240) 0%, rgb(231, 237, 243) 1%, rgb(208, 208, 208) 2%, rgba(0, 5, 8, 0) 9%)',
+              background: 'linear-gradient(rgb(57 27 55) 0%, rgba(0, 159, 255, 0))',
+            }}
+            // style={{width: '100%', height: '100%'}}
+          ></ParallaxLayer> */}
+
           <ParallaxLayer
             offset={2}
             // speed={0.75}
             speed={1}
-            factor={2}
+            factor={1}
             style={{
               // background: 'linear-gradient(transparent, rgb(145 152 229))',
               zIndex: 2,
@@ -345,12 +372,14 @@ const HomeParallaxContainer = () => {
             }}
           >
             <div
-              style={{
-                width: '100%',
-                height: 'auto',
-                // opacity: 0.9,
-                // filter: 'blur(1px)',
-              }}
+              style={
+                {
+                  // width: '100%',
+                  // height: '100%',
+                  // opacity: 0.9,
+                  // filter: 'blur(1px)',
+                }
+              }
             >
               {/* <StarsLayerSVG /> */}
               <StarsLayerDarkBlueSVG />
@@ -410,20 +439,14 @@ const HomeParallaxContainer = () => {
             speed={1}
             // style={{ backgroundColor: '#FFFFFF' }}
             style={{
-              // ...alignCenter,
-              // justifyContent: 'flex-end',
+              display: 'flex',
+              alignItems: 'flex-start',
+              justifyContent: 'flex-end',
               zIndex: 3,
-              // background: 'linear-gradient(rgb(36, 41, 47), #9198e5)',
-              // background:
-              //   'linear-gradient(rgba(154, 154, 154, 0), rgb(55, 55, 55))', /* black one */
-              // background:
-              //   'linear-gradient(rgb(146 146 146 / 0%), rgb(19 19 26))',
-              // background: 'linear-gradient(to bottom, rgb(0 0 0 / 0.21), rgb(0 0 0), transparent)',
               background:
-                'linear-gradient(rgba(0, 5, 8, 0.21), rgb(0, 5, 8), transparent)',
+                'linear-gradient(rgba(0, 5, 8, 0.21), rgb(3, 45, 73), transparent)',
               // TODO: move below to the AfterMoon
               color: 'white',
-              // textAlign: 'right',
               borderTopLeftRadius: '50%',
             }}
             // style={{width: '100%', height: '100%'}}
