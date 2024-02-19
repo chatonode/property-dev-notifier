@@ -16,7 +16,7 @@
 }
 
 .image img {
-  border-radius: 'inherit';
+  border-radius: inherit;
 }
 
 @media (min-width: 40rem) {
