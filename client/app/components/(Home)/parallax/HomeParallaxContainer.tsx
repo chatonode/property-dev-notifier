@@ -44,6 +44,9 @@ import UnfilledCircleSVG from '@/components/UI/SVG/Home/Parallax/UnfilledCircleS
 import StarsLayerSVG from '@/components/UI/SVG/Home/Parallax/StarsLayerSVG'
 import StarsLayerDarkBlueSVG from '../../UI/SVG/Home/Parallax/StarsLayerDarkBlueSVG'
 import Sunny from './layers/Sunny'
+import {
+  HOME_PARALLAX_BG_LINEAR,
+} from './utils/color'
 
 const HomeParallaxContainer = () => {
   // const parallaxRef = useRef<IParallax | null>(null!)
@@ -125,6 +128,36 @@ const HomeParallaxContainer = () => {
           // ref={parallaxRef}
           className="parallax"
         >
+          {/* Global Color Layers */}
+
+          <ParallaxLayer
+            offset={1}
+            factor={4}
+            style={{
+              background: HOME_PARALLAX_BG_LINEAR,
+              zIndex: 2,
+              pointerEvents: 'none',
+              content: 'asdasd',
+            }}
+          />
+
+          {/* {HOME_PARALLAX_BG_LINEAR_LIST.map((linearGradient) => {
+            return (
+              <ParallaxLayer
+                offset={linearGradient.offset}
+                speed={1}
+                factor={linearGradient.factor}
+                style={{
+                  background: linearGradient.gradientString,
+                  zIndex: 2,
+                  pointerEvents: 'none',
+                }}
+              />
+            )
+          })} */}
+
+          {/* *************** */}
+
           <ParallaxLayer
             offset={0}
             // speed={0.5}

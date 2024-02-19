@@ -5,25 +5,26 @@ import classes from './SunnyImageContainer.module.css'
 
 import sunnyColorfulImage from '@/public/assets/images/home/parallax/sunny/color-ful.jpg'
 import sunnyColorpopImage from '@/public/assets/images/home/parallax/sunny/color-popped.jpg'
+import useFocusHover from '@/app/hooks/useFocusHover'
 
 const SunnyImageContainer = () => {
-  const [hovered, setHovered] = useState<boolean>(false)
+  const { isFocused, isHovered, eventHandlers } =
+    useFocusHover<HTMLDivElement>()
 
-  const hoverHandler = useCallback(() => {
-    setHovered(true)
-  }, [])
-  const unhoverHandler = useCallback(() => {
-    setHovered(false)
-  }, [])
+  const isFocusedHovered = isFocused || isHovered
+  const imageSrc = isFocusedHovered ? sunnyColorfulImage : sunnyColorpopImage
+  const imageAlt = isFocusedHovered
+    ? 'Enjoy with the sun!'
+    : 'Enjoying with the sun!'
 
   return (
-    <div className={classes.image}>
-      {hovered && (
+    <div className={classes.container} {...eventHandlers}>
+      <div className={classes.image}>
         <Image
-          onMouseLeave={unhoverHandler}
           // layout="fill"
           // key={imagePaths[currentImageIndex]!.src}
-          src={sunnyColorfulImage.src}
+          src={imageSrc}
+          alt={imageAlt}
           quality={100}
           width={512}
           height={1024}
@@ -31,29 +32,10 @@ const SunnyImageContainer = () => {
           // layout="fill"
           // objectFit="contain"
           //   sizes="(max-width: 768px) 100vw"
-          alt={'Connecting Notifier'}
           // custom loading
           priority={true}
         />
-      )}
-      {!hovered && (
-        <Image
-          onMouseOver={hoverHandler}
-          // layout="fill"
-          // key={imagePaths[currentImageIndex]!.src}
-          src={sunnyColorpopImage.src}
-          quality={100}
-          width={512}
-          height={1024}
-          style={{ height: 'auto' }}
-          // layout="fill"
-          // objectFit="contain"
-          //   sizes="(max-width: 768px) 100vw"
-          alt={'Connecting Notifier'}
-          // custom loading
-          priority={true}
-        />
-      )}
+      </div>
     </div>
   )
 }

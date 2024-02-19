@@ -5,25 +5,26 @@ import classes from './MoonyImageContainer.module.css'
 
 import moonyColorfulImage from '@/public/assets/images/home/parallax/moony/color-ful.jpg'
 import moonyColorpopImage from '@/public/assets/images/home/parallax/moony/color-popped.jpg'
+import useFocusHover from '@/app/hooks/useFocusHover'
 
 const MoonyImageContainer = () => {
-  const [hovered, setHovered] = useState<boolean>(false)
+  const { isFocused, isHovered, eventHandlers } =
+    useFocusHover<HTMLDivElement>()
 
-  const hoverHandler = useCallback(() => {
-    setHovered(true)
-  }, [])
-  const unhoverHandler = useCallback(() => {
-    setHovered(false)
-  }, [])
+  const isFocusedHovered = isFocused || isHovered
+  const imageSrc = isFocusedHovered ? moonyColorfulImage : moonyColorpopImage
+  const imageAlt = isFocusedHovered
+    ? 'Celebrate the uniqueness of our solar system!'
+    : 'Celebrating the uniqueness of our solar system!'
 
   return (
-    <div className={classes.image}>
-      {hovered && (
+    <div className={classes.container} {...eventHandlers}>
+      <div className={classes.image}>
         <Image
-          onMouseLeave={unhoverHandler}
           // layout="fill"
           // key={imagePaths[currentImageIndex]!.src}
-          src={moonyColorfulImage.src}
+          src={imageSrc}
+          alt={imageAlt}
           quality={100}
           width={512}
           height={1024}
@@ -31,29 +32,10 @@ const MoonyImageContainer = () => {
           // layout="fill"
           // objectFit="contain"
           //   sizes="(max-width: 768px) 100vw"
-          alt={'Connecting Notifier'}
           // custom loading
           priority={true}
         />
-      )}
-      {!hovered && (
-        <Image
-          onMouseOver={hoverHandler}
-          // layout="fill"
-          // key={imagePaths[currentImageIndex]!.src}
-          src={moonyColorpopImage.src}
-          quality={100}
-          width={512}
-          height={1024}
-          style={{ height: 'auto' }}
-          // layout="fill"
-          // objectFit="contain"
-          //   sizes="(max-width: 768px) 100vw"
-          alt={'Connecting Notifier'}
-          // custom loading
-          priority={true}
-        />
-      )}
+      </div>
     </div>
   )
 }
