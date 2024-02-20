@@ -11,8 +11,60 @@
   height: 100%;
 }
 
-.scrollText {
-  font-size: 1.5rem;
+/* .parallax {
+  
+} */
+
+/* width */
+.parallax::-webkit-scrollbar {
+  width: 10px;
+}
+
+.parallax::-webkit-scrollbar-track,
+.parallax::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+
+/* Track */
+.parallax::-webkit-scrollbar-track {
+  /* background: #f1f1f1; */
+  /* background: linear-gradient(
+    to bottom,
+    rgba(255, 236, 236, 0.767),
+    rgba(255, 255, 0, 0.767),
+    rgba(0, 0, 255, 0.767),
+    rgba(0, 0, 0, 0.767),
+    rgb(255, 236, 236, 0.767)
+  ); */
+
+  background: linear-gradient(
+    transparent 0%,
+    rgb(255, 235, 146) 20%,
+    rgb(121 114 82) 25%,
+    rgb(0, 5, 8) 30%,
+    rgb(0, 5, 8) 60%,
+    transparent 70%
+  );
+}
+
+/* Handle */
+.parallax::-webkit-scrollbar-thumb {
+  /* background: #888; */
+  background: rgba(255, 255, 255, 0.767);
+}
+
+/* Handle on hover */
+.parallax::-webkit-scrollbar-thumb:hover {
+  /* background: #555; */
+  /* background: linear-gradient(
+    to bottom,
+    rgb(255, 236, 236),
+    yellow,
+    blue,
+    black,
+    rgb(255, 236, 236)
+  ); */
+  background: rgb(255, 255, 255);
 }
 
 .card {
@@ -55,20 +107,6 @@
   /* ending spreads to the container */
   box-shadow: 0 0 8px 0px #ffeb3b, 0 0 16px 16px #ffc107, 0 0 32px 0px #ff9800,
     0 0 64px 16px #ff5722, 0 10px 128px 128px #ffc83b, 0 0 20px 300px #969ee6;
-}
-
-.cloud {
-  /* margin-right: 15%; */
-  width: 100%;
-  height: 100%;
-}
-
-.cloud.far {
-  transform: scale(0.3) rotateX(45deg);
-}
-
-.cloud.main {
-  transform: scale(1.5) rotateY(180deg);
 }
 
 .moon {
@@ -162,11 +200,6 @@
   }
   .moon {
     margin-left: 15%;
-  }
-
-  .cloud {
-    width: 220px;
-    height: 220px;
   }
 
   /* .moon-orbit {

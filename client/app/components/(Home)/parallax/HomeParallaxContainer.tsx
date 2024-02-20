@@ -16,116 +16,47 @@ import { ERoute } from '@/app/types/enums'
 import classes from './HomeParallaxContainer.module.css'
 
 import HeroTitleSVG from '@/app/components/UI/SVG/Home/Hero/unused/HeroTitleSVG'
-import AnimatedGradientStops from '@/components/UI/SVG/gradient/linear/AnimatedGradientStops'
-import ImageSpinner from '@/components/UI/SVG/Loading/ImageSpinner'
 
-import mainBackgroundImage from '@/public/assets/images/home/parallax/Designer.png'
+// import mainBackgroundImage from '@/public/assets/images/home/parallax/Designer.png'
 // import mainBackgroundImage from '@/public/assets/images/home/parallax/Designer (2).png'
 // import mainBackgroundImage from '@/public/assets/images/home/parallax/pattern_waves-18_1_2_0-0_0_1__ffffff_805ad5.png'
 
 import AnimatedRocket from '../../UI/Animated/AnimatedRocket'
-import Intro from './layers/Intro'
-import Bottom from './layers/Bottom'
-import {
-  animated,
-  SpringValue,
-  useInView,
-  useScroll,
-  useSpring,
-  useTransition,
-} from '@react-spring/web'
-import CloudSVG from '../../UI/SVG/Home/Parallax/CloudSVG'
-import CloudSVGFilled from '../../UI/SVG/Home/Parallax/CloudSVGFilled'
-import CloudSVGFilledMain from '../../UI/SVG/Home/Parallax/CloudSVGFilledMain'
-import Moony from './layers/Moony'
-import { Waypoint } from 'react-waypoint'
-import { NodeNextRequest } from 'next/dist/server/base-http/node'
-import UnfilledCircleSVG from '@/components/UI/SVG/Home/Parallax/UnfilledCircleSVG'
-import StarsLayerSVG from '@/components/UI/SVG/Home/Parallax/StarsLayerSVG'
-import StarsLayerDarkBlueSVG from '../../UI/SVG/Home/Parallax/StarsLayerDarkBlueSVG'
-import Sunny from './layers/Sunny'
+
 import { HOME_PARALLAX_BG_LINEAR } from './utils/color'
+import Intro from './layers/Intro'
+import CloudParallaxLayers from './layers/Clouds/CloudParallaxLayers'
+import Sunny from './layers/Sunny'
 import StarsLayerSVG1X1 from '../../UI/SVG/Home/Parallax/StarsLayerSVG1X1'
+import Moony from './layers/Moony'
+import UnfilledCircleSVG from '@/components/UI/SVG/Home/Parallax/UnfilledCircleSVG'
+import Bottom from './layers/Bottom'
+
+// import {
+//   animated,
+//   SpringValue,
+//   useInView,
+//   useScroll,
+//   useSpring,
+//   useTransition,
+// } from '@react-spring/web'
 
 const HomeParallaxContainer = () => {
   // const parallaxRef = useRef<IParallax | null>(null!)
-  // const [refCloudFar, cloudFarInView] = useInView()
-  // const [refCloudSecondary, cloudSecondaryInView] = useInView()
-  // const [refCloudMain, cloudMainInView] = useInView()
-
-  // console.log(cloudFarInView, cloudSecondaryInView, cloudMainInView)
-  // const textTimeoutRef = useRef<ReturnType<typeof setTimeout>>()
-
-  const [cloudFarInView, setCloudFarInView] = useState<boolean>(false)
-  const [cloudMainInView, setCloudMainInView] = useState<boolean>(false)
-  const [cloudSecondaryInView, setCloudSecondaryInView] =
-    useState<boolean>(false)
-
-  const openCloudFarHandler = useCallback(() => {
-    console.log('cloud far is opening...')
-    setCloudFarInView(true)
-  }, [])
-  const closeCloudFarHandler = useCallback(() => {
-    console.log('cloud far is closing...')
-    setCloudFarInView(false)
-  }, [])
-  const openCloudMainHandler = useCallback(() => {
-    setCloudMainInView(true)
-  }, [])
-  const closeCloudMainHandler = useCallback(() => {
-    setCloudMainInView(false)
-  }, [])
-  const openCloudSecondaryHandler = useCallback(() => {
-    setCloudSecondaryInView(true)
-  }, [])
-  const closeCloudSecondaryHandler = useCallback(() => {
-    setCloudSecondaryInView(false)
-  }, [])
-
-  const transitionCloudFar = useSpring({
-    delay: 500,
-    to: {
-      y: !cloudFarInView ? 24 : 0,
-      opacity: !cloudFarInView ? 0 : 1,
-    },
-  })
-  const transitionCloudMain = useSpring({
-    delay: 500,
-    to: {
-      y: !cloudMainInView ? 24 : 0,
-      opacity: !cloudMainInView ? 0 : 1,
-    },
-  })
-  const transitionCloudSecondary = useSpring({
-    delay: 500,
-    to: {
-      y: !cloudSecondaryInView ? 24 : 0,
-      opacity: !cloudSecondaryInView ? 0 : 1,
-    },
-  })
 
   const alignCenter = { display: 'flex', alignItems: 'center' }
-
-  // const reset = useCallback(() => {
-  //   textTimeoutRef.current!.ref.
-  //   // textTimeoutRef.current = []
-  //   textTimeoutRef.current.push(setTimeout(() => set(['Apples', 'Oranges', 'Kiwis']), 2000))
-  //   ref.current.push(setTimeout(() => set(['Apples', 'Kiwis']), 5000))
-  //   ref.current.push(setTimeout(() => set(['Apples', 'Bananas', 'Kiwis']), 8000))
-  // }, [])
-
-  // useEffect(() => {
-  //   reset()
-  //   return () => ref.current.forEach(clearTimeout)
-  // }, [])
+  // const scrollSnapCenterYProx = {
+  //   scrollSnapAlign: 'center',
+  //   scrollSnapType: 'y proximity',
+  // }
 
   return (
     <>
-      <animated.div className={`${classes.container}`}>
+      <div className={`${classes.container}`}>
         <Parallax
           pages={5}
           // ref={parallaxRef}
-          className="parallax"
+          className={classes.parallax}
         >
           {/* Global Color Layers */}
 
@@ -139,21 +70,6 @@ const HomeParallaxContainer = () => {
             }}
           />
 
-          {/* {HOME_PARALLAX_BG_LINEAR_LIST.map((linearGradient) => {
-            return (
-              <ParallaxLayer
-                offset={linearGradient.offset}
-                speed={1}
-                factor={linearGradient.factor}
-                style={{
-                  background: linearGradient.gradientString,
-                  zIndex: 2,
-                  pointerEvents: 'none',
-                }}
-              />
-            )
-          })} */}
-
           {/* *************** */}
 
           <ParallaxLayer
@@ -161,9 +77,10 @@ const HomeParallaxContainer = () => {
             // speed={0.5}
             style={{ ...alignCenter, justifyContent: 'center', zIndex: 3 }}
           >
-            {/* <p className={classes.scrollText}>Scroll down</p> */}
             <Intro />
           </ParallaxLayer>
+
+          <CloudParallaxLayers />
 
           {/* Top-to-mid */}
           {/* <ParallaxLayer
@@ -177,64 +94,6 @@ const HomeParallaxContainer = () => {
             }}
           ></ParallaxLayer> */}
           {/* *** */}
-
-          {/* Clouds */}
-
-          <ParallaxLayer
-            offset={1}
-            speed={0.3}
-            style={{
-              ...alignCenter,
-              justifyContent: 'flex-end',
-              zIndex: 6,
-              pointerEvents: 'none',
-            }}
-          >
-            <Waypoint
-              onEnter={openCloudMainHandler}
-              onLeave={closeCloudMainHandler}
-            >
-              <animated.div
-                style={{
-                  ...transitionCloudMain,
-                  marginRight: '17%',
-                }}
-              >
-                <div className={`${classes.cloud} ${classes.main}`}>
-                  {/* <CloudSVG /> */}
-                  {/* <CloudSVGFilled /> */}
-                  <CloudSVGFilledMain />
-                </div>
-              </animated.div>
-            </Waypoint>
-          </ParallaxLayer>
-
-          <ParallaxLayer
-            offset={0.8}
-            speed={-0.2}
-            style={{
-              ...alignCenter,
-              justifyContent: 'flex-end',
-              zIndex: 5,
-              pointerEvents: 'none',
-            }}
-          >
-            <Waypoint
-              onEnter={openCloudSecondaryHandler}
-              onLeave={closeCloudSecondaryHandler}
-            >
-              <animated.div
-                style={{
-                  ...transitionCloudSecondary,
-                  marginRight: '11%',
-                }}
-              >
-                <div className={classes.cloud}>
-                  <CloudSVGFilled />
-                </div>
-              </animated.div>
-            </Waypoint>
-          </ParallaxLayer>
 
           {/* Sticky Frame */}
           {/* <ParallaxLayer
@@ -251,38 +110,6 @@ const HomeParallaxContainer = () => {
               <p>I'm a sticky frame</p>
             </div>
           </ParallaxLayer> */}
-
-          {/** Far-left Cloud **/}
-          <ParallaxLayer
-            offset={1}
-            speed={0.5}
-            // factor={0.5}
-            style={{
-              ...alignCenter,
-              justifyContent: 'flex-start',
-              // zIndex: 3,
-              zIndex: 2,
-              pointerEvents: 'none',
-            }}
-          >
-            <Waypoint
-              onEnter={openCloudFarHandler}
-              onLeave={closeCloudFarHandler}
-            >
-              <animated.div
-                style={{
-                  ...transitionCloudFar,
-                  marginLeft: '11%',
-                }}
-              >
-                <div className={`${classes.cloud} ${classes.far}`}>
-                  <CloudSVGFilled />
-                </div>
-              </animated.div>
-            </Waypoint>
-          </ParallaxLayer>
-
-          {/* *** */}
 
           {/* Sticky Left */}
           {/* <ParallaxLayer
@@ -314,20 +141,6 @@ const HomeParallaxContainer = () => {
               <p>sticky layer!!!</p>
             </div>
           </ParallaxLayer> */}
-
-          {/* Sticky Background */}
-          {/* <ParallaxLayer
-            sticky={{ start: 1.5, end: 3 }}
-            style={{
-              background:
-                'linear-gradient(to bottom, rgb(145, 152, 229), black)',
-                // opacity: 0.5,
-              zIndex: 3,
-              pointerEvents: 'none',
-            }}
-          ></ParallaxLayer> */}
-
-          {/* EXPLODE THE CODE!!!!!!! */}
 
           {/* Sunny */}
           <ParallaxLayer
@@ -370,27 +183,7 @@ const HomeParallaxContainer = () => {
             </div>
           </ParallaxLayer>
 
-          {/* Mid to Moon */}
-
-          {/* Color Transition Layer */}
-          {/* <ParallaxLayer
-            offset={2}
-            speed={0.95}
-            factor={0.5}
-            // factor={0.1}
-            // style={{ backgroundColor: '#FFFFFF' }}
-            style={{
-              // ...alignCenter,
-              // justifyContent: 'flex-end',
-              zIndex: 3,
-              // background: 'linear-gradient(rgb(224, 232, 240), rgb(0, 229, 255), rgb(0, 5, 8))',
-              // background: 'linear-gradient(rgb(224, 232, 240), rgb(231, 237, 243), #d0d0d0, rgb(0, 5, 8))',
-              // background:
-              //   'linear-gradient(rgb(224, 232, 240) 0%, rgb(231, 237, 243) 1%, rgb(208, 208, 208) 2%, rgba(0, 5, 8, 0) 9%)',
-              background: 'linear-gradient(rgb(57 27 55) 0%, rgba(0, 159, 255, 0))',
-            }}
-            // style={{width: '100%', height: '100%'}}
-          ></ParallaxLayer> */}
+          {/* Stars from Sun to Moon */}
 
           <ParallaxLayer
             offset={2}
@@ -456,16 +249,6 @@ const HomeParallaxContainer = () => {
           </ParallaxLayer>
 
           {/* Moon First Orbit */}
-          {/* <ParallaxLayer
-            offset={2}
-            speed={1.5}
-            style={{
-              ...alignCenter,
-              justifyContent: 'flex-end',
-              zIndex: 3,
-              pointerEvents: 'none',
-            }}
-          ></ParallaxLayer> */}
 
           <ParallaxLayer
             offset={2.5}
@@ -503,7 +286,7 @@ const HomeParallaxContainer = () => {
             <Bottom />
           </ParallaxLayer>
         </Parallax>
-      </animated.div>
+      </div>
     </>
   )
 }
