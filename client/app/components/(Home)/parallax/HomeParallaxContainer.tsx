@@ -44,9 +44,8 @@ import UnfilledCircleSVG from '@/components/UI/SVG/Home/Parallax/UnfilledCircleS
 import StarsLayerSVG from '@/components/UI/SVG/Home/Parallax/StarsLayerSVG'
 import StarsLayerDarkBlueSVG from '../../UI/SVG/Home/Parallax/StarsLayerDarkBlueSVG'
 import Sunny from './layers/Sunny'
-import {
-  HOME_PARALLAX_BG_LINEAR,
-} from './utils/color'
+import { HOME_PARALLAX_BG_LINEAR } from './utils/color'
+import StarsLayerSVG1X1 from '../../UI/SVG/Home/Parallax/StarsLayerSVG1X1'
 
 const HomeParallaxContainer = () => {
   // const parallaxRef = useRef<IParallax | null>(null!)
@@ -137,7 +136,6 @@ const HomeParallaxContainer = () => {
               background: HOME_PARALLAX_BG_LINEAR,
               zIndex: 2,
               pointerEvents: 'none',
-              content: 'asdasd',
             }}
           />
 
@@ -256,9 +254,9 @@ const HomeParallaxContainer = () => {
 
           {/** Far-left Cloud **/}
           <ParallaxLayer
-            offset={1.2}
-            speed={-0.5}
-            factor={0.8}
+            offset={1}
+            speed={0.5}
+            // factor={0.5}
             style={{
               ...alignCenter,
               justifyContent: 'flex-start',
@@ -398,7 +396,7 @@ const HomeParallaxContainer = () => {
             offset={2}
             // speed={0.75}
             speed={1}
-            factor={1}
+            // factor={1}
             style={{
               // background: 'linear-gradient(transparent, rgb(145 152 229))',
               zIndex: 2,
@@ -416,7 +414,8 @@ const HomeParallaxContainer = () => {
               }
             >
               {/* <StarsLayerSVG /> */}
-              <StarsLayerDarkBlueSVG />
+              {/* <StarsLayerDarkBlueSVG /> */}
+              <StarsLayerSVG1X1 />
             </div>
           </ParallaxLayer>
           {/* *** */}
@@ -495,7 +494,8 @@ const HomeParallaxContainer = () => {
             speed={0}
             // style={{ backgroundColor: '#FFFFFF' }}
             style={{
-              background: 'linear-gradient(#9198e5, rgb(36, 41, 47))',
+              ...alignCenter,
+              // background: 'linear-gradient(#9198e5, rgb(36, 41, 47))',
               zIndex: 3,
             }}
             // style={{width: '100%', height: '100%'}}

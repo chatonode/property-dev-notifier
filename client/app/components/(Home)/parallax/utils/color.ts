@@ -1,11 +1,13 @@
 const linearGradients = [
   'transparent 0%',
-  '#ffeb92 20%',
+  '#ffeb92 20%', // rgb(255, 235, 146) 20%
+  'rgb(121 114 82) 25%',
   'rgb(0, 5, 8) 30%',
   'rgb(0, 5, 8) 60%',
-  'rgb(120, 127, 188) 80%',
-  'transparent 100%',
+  'transparent 70%',
 ] as const
+
+// linear-gradient(transparent 0%, rgb(255, 235, 146) 20%, rgb(0 5 8 / 81%) 27%, rgb(0 5 8) 60%, #ffffff 80%)
 
 const linearGradientString = `linear-gradient(${linearGradients.join(
   ', '
