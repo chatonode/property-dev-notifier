@@ -1,0 +1,38 @@
+.container {
+  flex: 0 1 auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50% 100%;
+}
+
+.image,
+.image img {
+  border-radius: inherit;
+}
+
+.image {
+  /* width: 50%; */
+  height: auto;
+  position: relative;
+
+  box-shadow: -20px -7px 2px 0px yellow;
+  /* overflow: hidden; */
+  /* overflow: clip;
+  clip-path: ellipse(calc(200% / 2) calc(104% / 2) at 50% 50%); */
+}
+
+.image img {
+  pointer-events: none;
+}
+
+@media (min-width: 40rem) {
+  /* .container {
+      margin-top: 10%;
+    } */
+
+  .container {
+    justify-content: flex-start;
+  }
+}

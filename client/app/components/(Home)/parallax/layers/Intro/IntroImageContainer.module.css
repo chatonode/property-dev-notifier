@@ -1,0 +1,42 @@
+.container {
+  flex: 1 1 20%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  box-shadow: 0 0 0 0 transparent;
+}
+
+.image,
+.image img {
+  border-radius: inherit;
+}
+
+.image {
+  height: auto;
+  position: relative;
+}
+
+.image img {
+  pointer-events: none;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(90%);
+  transition: filter ease-in-out;
+  transition-duration: var(--global-transition-duration);
+}
+
+.image:focus img,
+.image:hover img {
+  filter: brightness(100%);
+}
+
+@media (min-width: 40rem) {
+  .container {
+    justify-content: flex-start;
+    box-shadow: 8px 8px 0px 4px var(--text-primary);
+  }
+}

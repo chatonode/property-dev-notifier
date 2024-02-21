@@ -1,0 +1,17 @@
+.rocket {
+  /* background: url('/public/assets/images/forms/avatar/expressionist/_3c49204a-0da2-4ee6-b292-1f17e7c1b375.jpg')
+    no-repeat; */
+    /* background-size: contain; */
+  width: 140px;
+  height: 140px;
+  cursor: -webkit-grab;
+  will-change: transform;
+  user-select: none;
+  /* background: radial-gradient(orange, brown); */
+
+  border-radius: 50px;
+}
+
+.rocket:active {
+  cursor: -webkit-grabbing;
+}

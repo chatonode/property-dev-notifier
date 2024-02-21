@@ -9,12 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-spring/parallax": "^9.7.3",
+    "@react-spring/web": "^9.7.3",
+    "@use-gesture/react": "^10.3.0",
     "axios": "^1.6.0",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
     "react-hook-form": "^7.46.2",
-    "react-swipeable": "^7.0.1"
+    "react-swipeable": "^7.0.1",
+    "react-waypoint": "^10.3.0",
+    "vec-la": "^1.5.0"
   },
   "devDependencies": {
     "@types/node": "latest",

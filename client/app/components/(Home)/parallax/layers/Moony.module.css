@@ -1,0 +1,173 @@
+/* .container {
+  height: 100%;
+
+
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 2em;
+
+  margin: 5%;
+  margin-top: 10%;
+} */
+
+.container {
+  /* height: 100%; */
+  /* flex: 1 0 auto; */
+  width: 100%;
+  max-height: 100%;
+
+  text-align: right;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  /* gap: 2em; */
+
+  /* margin: 5%; */
+  /* margin-top: 10%; */
+  margin-right: 5%;
+
+  color: white;
+}
+
+.content {
+  z-index: 5;
+  height: 100%;
+  /* flex: 1 0 auto; */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  /* gap: 2em; */
+  gap: 1em;
+
+  /* margin: 5%; */
+  /* margin-top: 10%; */
+}
+
+.title {
+  margin-top: 5%;
+}
+
+.transitions-item {
+  overflow: hidden;
+  width: 100%;
+  /* color: white; */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 2.5em;
+  height: 60px;
+  line-height: 60px;
+  font-weight: 800;
+  will-change: transform, opacity, height;
+  /* white-space: nowrap; */
+  /* cursor: pointer; */
+  line-height: 80px;
+}
+
+/* ********** */
+
+.tech {
+  /* Use flexbox to align the tech stack and the tools horizontally */
+  display: flex;
+  /* Use some margin to create some space around the tech section */
+  margin: 2rem;
+  /* Use a media query to change the flex direction on small screens */
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.stack,
+.tools {
+  /* Use flexbox to align the subtitle and the list vertically */
+  display: flex;
+  flex-direction: column;
+  /* Use some padding to create some space inside the stack and the tools */
+  padding: 1rem;
+  /* Use some margin to create some space between the stack and the tools */
+  margin: 1rem;
+  /* Use a border to create a visual separation for the stack and the tools */
+  border: 1px solid #ae2d59;
+  /* Use a border radius to create rounded corners for the stack and the tools */
+  border-radius: 10px;
+  /* Use a box shadow to create a subtle depth effect for the stack and the tools */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+  /* Use a smaller font size for the subtitle */
+  font-size: 1.25rem;
+  /* Use a bold font weight for the subtitle */
+  font-weight: bold;
+  /* Use some margin to create some space between the subtitle and the list */
+  margin-bottom: 0.5rem;
+}
+
+.list {
+  /* Use a normal font size for the list */
+  font-size: 1rem;
+  /* Use a lighter font weight for the list */
+  font-weight: 300;
+  /* Use a list-style-type to create bullet points for the list */
+  list-style-type: disc;
+  /* Use some padding to create some indentation for the list */
+  padding-left: 1.5rem;
+}
+
+.metrics {
+  /* Use flexbox to align the subtitle and the graphs vertically */
+  display: flex;
+  flex-direction: column;
+  /* Use some margin to create some space around the metrics section */
+  margin: 2rem;
+}
+
+.graphs {
+  /* Use flexbox to align the graphs horizontally */
+  display: flex;
+  /* Use some margin to create some space between the graphs */
+  margin: 1rem;
+  /* Use a media query to change the flex direction on small screens */
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.graph {
+  /* Use some padding to create some space inside the graph */
+  padding: 1rem;
+  /* Use some margin to create some space between the graph and the subtitle */
+  margin-top: 0.5rem;
+  /* Use a border to create a visual separation for the graph */
+  border: 1px solid #ae2d59;
+  /* Use a border radius to create rounded corners for the graph */
+  border-radius: 10px;
+  /* Use a box shadow to create a subtle depth effect for the graph */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Use a max-width to limit the graph width on large screens */
+  max-width: 300px;
+  /* Use an object-fit to preserve the graph aspect ratio */
+  object-fit: cover;
+}
+
+@media (min-width: 40rem) {
+  /* .container {
+    margin: 10%;
+  } */
+
+  .transitions-item {
+    font-size: 3em;
+    text-transform: uppercase;
+    height: 80px;
+    line-height: 80px;
+  }
+
+  /* ********** */
+}

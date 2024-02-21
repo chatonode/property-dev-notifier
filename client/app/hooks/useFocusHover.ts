@@ -1,9 +1,16 @@
 import { useState, HTMLProps } from 'react'
 
+
+type TFocusHoverResult<T extends HTMLElement> = {
+  isHovered: boolean
+  isFocused: boolean
+  eventHandlers: HTMLProps<T>
+}
+
 /**
  * A custom React hook that provides state and event handlers for detecting hover and focus states.
  *
- * @template T - The type of HTML element.
+ * @template T - The type of HTML element. Inconsistent unless exact type is passed like HTMLDivElement
  *
  * @returns {Object} An object containing the hover and focus state, along with event handlers.
  * @property {boolean} isHovered - Indicates whether the component is currently being hovered.
@@ -15,23 +22,21 @@ import { useState, HTMLProps } from 'react'
  * @property {function} eventHandlers.onBlur - Event handler for blur.
  *
  * @example
- * const { isHovered, isFocused, eventHandlers } = useFocusHover();
+ * const { isHovered, isFocused, eventHandlers } = useFocusHover<HTMLDivElement>()
+ * 
+ * // 'image_hovered_or_focused.jpg' : 'default_image.jpg'
+ * const imageSrc = isHovered || isFocused ? exampleOneImage.src : exampleTwoImage.src
+ * const imageAlt = isFocusedHovered ? 'Example-One image is here!' : 'Example-Two image is here!'
  *
  * return (
  *   <div {...eventHandlers}>
  *     <Image
- *       src={isHovered || isFocused ? 'image_hovered_or_focused.jpg' : 'default_image.jpg'}
- *       alt="Your Image"
+ *       src={imageSrc}
+ *       alt={imageAlt}
  *     />
  *   </div>
  * );
  */
-type TFocusHoverResult<T extends HTMLElement> = {
-  isHovered: boolean
-  isFocused: boolean
-  eventHandlers: HTMLProps<T>
-}
-
 const useFocusHover = <T extends HTMLElement>(): TFocusHoverResult<T> => {
   const [isHovered, setIsHovered] = useState(false)
   const [isFocused, setIsFocused] = useState(false)

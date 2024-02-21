@@ -1,0 +1,43 @@
+.button {
+  --button-width: 225px;
+  --button-padding-top-bottom: 0.1em;
+  --button-padding-left-right: 0.4em;
+
+  z-index: 1;
+
+  position: absolute;
+  /* font-size: 1.5em; */
+  font-size: clamp(1.5em, calc(1.5em + 0.5vw), 2.2em);
+  line-height: 2;
+
+  width: var(--button-width);
+  padding: var(--button-padding-top-bottom) var(--button-padding-left-right);
+  left: calc(
+    50% - (var(--button-padding-left-right) + (var(--button-width) / 2))
+  );
+  top: calc(100% - 300px);
+  /* left: 20%; */
+
+  border-radius: 8px;
+}
+
+@media (min-width: 40rem) {
+  .button {
+    left: calc(0% + 15vw);
+  }
+}
+
+.button {
+  background: yellow;
+  border: none;
+  transition: transform ease-in-out;
+  transition-duration: var(--global-transition-duration);
+  color: var(--text-primary);
+}
+
+.button:focus,
+.button:hover {
+  cursor: pointer;
+  box-shadow: 0 0 15px 0 white;
+  transform: scale(1.1);
+}

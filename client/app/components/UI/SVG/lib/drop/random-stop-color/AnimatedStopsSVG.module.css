@@ -1,0 +1,35 @@
+.svg {
+  /* width: 500px;
+  height: 500px; */
+  transition: transform ease-in-out;
+  transition-duration: calc(var(--global-transition-duration) * 2);
+  /* width: 100vw;
+  height: auto; */
+}
+
+/* .svg stop {
+  stop-opacity: 0.5;
+  transition: stop-opacity ease-in-out;
+  transition-duration: calc(var(--global-transition-duration) * 4);
+} */
+
+.svg:focus,
+.svg:hover {
+  transform: scale(1.2);
+}
+
+/* 
+.svg:focus stop,
+.svg:hover stop {
+  stop-opacity: 1;
+} */
+
+/* .drop-path {
+    transition: fill ease-in-out;
+    transition-duration: calc(var(--global-transition-duration) * 2);
+  }
+  
+  .svg:focus .drop-path,
+  .svg:hover .drop-path {
+    fill: url(#myGradientDark);
+  } */

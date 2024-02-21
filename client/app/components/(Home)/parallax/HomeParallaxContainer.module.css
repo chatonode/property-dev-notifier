@@ -1,0 +1,209 @@
+.container {
+  /* background: linear-gradient(#e66465, #9198e5); */
+  /* position: absolute; */
+  /* top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0; */
+  /* width: 100vw;
+  height: 100vh; */
+  position: relative;
+  flex: 1 0 auto;
+  width: 100%;
+}
+/* 
+.parallax {
+  scroll-snap-type: y proximity;
+} */
+
+/* width */
+.parallax::-webkit-scrollbar {
+  width: 10px;
+  height: 100%;
+}
+
+.parallax::-webkit-scrollbar-track,
+.parallax::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+
+/* Track */
+.parallax::-webkit-scrollbar-track {
+  /* background: #f1f1f1; */
+  /* background: linear-gradient(
+    to bottom,
+    rgba(255, 236, 236, 0.767),
+    rgba(255, 255, 0, 0.767),
+    rgba(0, 0, 255, 0.767),
+    rgba(0, 0, 0, 0.767),
+    rgb(255, 236, 236, 0.767)
+  ); */
+
+  background: transparent;
+}
+
+/* Handle */
+.parallax::-webkit-scrollbar-thumb {
+  /* background: #888; */
+  /* background: rgba(255, 255, 255, 0.767); */
+  background: var(--color-palette-start);
+}
+
+/* Handle on hover */
+.parallax::-webkit-scrollbar-thumb:hover {
+  /* background: #555; */
+  /* background: linear-gradient(
+    to bottom,
+    rgb(255, 236, 236),
+    yellow,
+    blue,
+    black,
+    rgb(255, 236, 236)
+  ); */
+  /* background: rgb(255, 255, 255); */
+  background: var(--color-palette-2);
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  height: 10rem;
+  width: 40%;
+  text-align: center;
+  border-radius: 10px;
+  /* box-shadow: 0 0 8px 0px #ffffff, 0 0 16px 16px #aaaaaa, 0 0 32px 32px transparent, 0 0 64px 64px black; */
+}
+
+.sticky {
+  margin-left: 1.5rem;
+  background-color: #ff6d6d;
+}
+
+/* .blue {
+  background-color: #5b65ad;
+  color: white;
+} */
+
+.planetary {
+  width: 107px;
+  height: 107px;
+  border-radius: 50%;
+}
+
+.sun {
+  margin-right: 1.5rem;
+
+  background: radial-gradient(#ffeb3b, #ffeb3b, #ffeb3b);
+  /* box-shadow: 0 0 8px 0px #ffeb3b, 0 0 16px 16px #ffc107, 0 0 32px 0px #ff9800,
+    0 0 64px 16px #ff5722; */
+  /* box-shadow: 0 0 8px 0px #ffeb3b, 0 0 16px 16px #ffc107, 0 0 32px 0px #ff9800,
+    0 0 64px 16px #ff5722, 0 10px 128px 128px #ffc83b; */
+
+  /* ending spreads to the container */
+  box-shadow: 0 0 8px 0px #ffeb3b, 0 0 16px 16px #ffc107, 0 0 32px 0px #ff9800,
+    0 0 64px 16px #ff5722, 0 10px 128px 128px #ffc83b, 0 0 20px 300px #969ee6;
+}
+
+.moon {
+  margin-left: 1.5rem;
+
+  z-index: 5;
+  position: relative;
+
+  /* overflow: visible; */
+
+  background: radial-gradient(#d0d0d0, #d0d0d0, #d0d0d0);
+  /* disabled - ending spreads to the page */
+  /* box-shadow: 0 0 8px 0px #d0d0d0, 0 0 16px 16px #b0b0b0, 0 0 32px 0px #a0a0a0,
+    0 0 64px 16px #909090, 0 10px 128px 128px #b0b0b0,
+    0 0 600px 300px black ; */
+
+  /* ending spreads to the container */
+  box-shadow: 0 0 8px 0px #d0d0d0, 0 0 16px 16px #b0b0b0, 0 0 32px 0px #a0a0a0,
+    0 0 64px 16px #909090, 0 10px 128px 128px #b0b0b0, 0 0 20px 300px black;
+}
+
+.moon::before {
+  content: '';
+  z-index: 4;
+
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  /* width: 100%;
+  height: 100%; */
+  background: repeating-radial-gradient(#ffeb3bbf, transparent 80%);
+  box-shadow: 0 0 0 0 transparent;
+  opacity: 0;
+  transition: opacity 0.4s linear, box-shadow 0.5s linear;
+}
+
+.moon:focus::before,
+.moon:hover::before {
+  opacity: 1;
+  box-shadow: 0 0 8px 0px #ffeb3b36, 0 0 16px 16px #fffbef91,
+    0 0 32px 0px #ffc10733, 0 0 64px 16px #ffe0b28f,
+    0 10px 128px 128px #ffffff45;
+}
+
+.moon-orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+  width: 160.5px;
+  height: 160.5px;
+}
+
+/* .moon-outer-orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+  width: 321px;
+  height: 321px;
+} */
+
+.frame {
+  margin-right: 1.6rem;
+
+  stroke: black;
+  stroke-width: 1px;
+  width: 25%;
+  height: 25%;
+
+  border-right: 1px solid black;
+  border-top: 1px solid black;
+}
+
+@media (min-width: 40rem) {
+  /* .card {
+    width: 25%;
+  } */
+
+  .sticky {
+    margin-left: 15%;
+  }
+
+  .sun {
+    margin-right: 15%;
+  }
+  .moon {
+    margin-left: 15%;
+  }
+
+  /* .moon-orbit {
+    margin-right: 13.25%;
+  }  */
+
+  .frame {
+    margin-right: 15%;
+  }
+}
