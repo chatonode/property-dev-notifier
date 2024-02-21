@@ -17,33 +17,16 @@
 
 .intro {
   /* Set the height and width of the hero section to fill the viewport */
-  height: 100vh;
-  width: 100vw;
+  /* height: 100vh;
+  width: 100vw; */
+  height: 100%;
   /* Use flexbox to center the content vertically and horizontally */
   display: flex;
   justify-content: center;
   align-items: center;
   /* Use a pseudo-element to create a background image with a tint effect */
   position: relative;
-}
-
-.intro::before {
-  /* Use an empty content attribute */
-  content: '';
-  /* Position the pseudo-element to cover the entire hero section */
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  /* Use the city.jpg image as the background */
-  background-image: url('/city.jpg');
-  /* Adjust the background image to fit the hero section */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  /* Use a filter to darken the image and create a contrast with the text */
-  filter: brightness(60%);
+  flex-wrap: wrap-reverse;
 }
 
 .container {
@@ -52,7 +35,7 @@
   /* Use a max-width to limit the content width on large screens */
   max-width: 1200px;
   /* Use a margin to create some space around the content */
-  margin: 2rem;
+  margin: 1rem;
 }
 
 .title {
@@ -61,7 +44,7 @@
   /* Use a bold font weight for the title */
   font-weight: bold;
   /* Use a white color for the title */
-  color: white;
+  /* color: white; */
 }
 
 .subtitle {
@@ -70,7 +53,7 @@
   /* Use a lighter font weight for the subtitle */
   font-weight: 300;
   /* Use a white color for the subtitle */
-  color: white;
+  /* color: white; */
   /* Use some margin to create some space between the title and the subtitle */
   margin-top: 1rem;
 }
@@ -104,6 +87,10 @@
 
 /* Use a media query to show the image on large screens */
 @media (min-width: 768px) {
+  .container {
+    margin: 2rem;
+  }
+
   .image {
     /* Show the image on large screens */
     display: block;

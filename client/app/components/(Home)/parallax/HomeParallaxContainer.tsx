@@ -83,34 +83,6 @@ const HomeParallaxContainer = () => {
           <CloudParallaxLayers />
 
           {/* Top-to-mid */}
-          {/* <ParallaxLayer
-            offset={0.8}
-            speed={0.8}
-            factor={1.6}
-            style={{
-              background: 'linear-gradient(transparent, rgb(145 152 229))',
-              zIndex: 2,
-              pointerEvents: 'none',
-            }}
-          ></ParallaxLayer> */}
-          {/* *** */}
-
-          {/* Sticky Frame */}
-          {/* <ParallaxLayer
-            sticky={{ start: 1, end: 1.1 }}
-            speed={-2}
-            style={{
-              ...alignCenter,
-              justifyContent: 'flex-end',
-              zIndex: 6,
-              pointerEvents: 'none',
-            }}
-          >
-            <div className={`${classes.frame}`}>
-              <p>I'm a sticky frame</p>
-            </div>
-          </ParallaxLayer> */}
-
           {/* Sticky Left */}
           {/* <ParallaxLayer
             sticky={{ start: 1, end: 3 }}
@@ -132,15 +104,22 @@ const HomeParallaxContainer = () => {
             </div>
           </ParallaxLayer> */}
 
-          {/* Sticky Right */}
-          {/* <ParallaxLayer
-            sticky={{ start: 1, end: 3 }}
-            style={{ ...alignCenter, justifyContent: 'center', zIndex: 3 }}
+          {/* Sun */}
+          <ParallaxLayer
+            offset={1}
+            speed={1.5}
+            style={{
+              ...alignCenter,
+              justifyContent: 'flex-end',
+              zIndex: 2,
+              pointerEvents: 'none',
+              // marginLeft: '15%',
+            }}
           >
-            <div className={`${classes.card} ${classes.sticky}`}>
-              <p>sticky layer!!!</p>
+            <div className={`${classes.planetary} ${classes.sun}`}>
+              {/* <p>I'm not</p> */}
             </div>
-          </ParallaxLayer> */}
+          </ParallaxLayer>
 
           {/* Sunny */}
           <ParallaxLayer
@@ -164,23 +143,6 @@ const HomeParallaxContainer = () => {
             // style={{width: '100%', height: '100%'}}
           >
             <Sunny />
-          </ParallaxLayer>
-
-          {/* Sun */}
-          <ParallaxLayer
-            offset={1}
-            speed={1.5}
-            style={{
-              ...alignCenter,
-              justifyContent: 'flex-end',
-              zIndex: 2,
-              pointerEvents: 'none',
-              // marginLeft: '15%',
-            }}
-          >
-            <div className={`${classes.planetary} ${classes.sun}`}>
-              {/* <p>I'm not</p> */}
-            </div>
           </ParallaxLayer>
 
           {/* Stars from Sun to Moon */}
@@ -213,17 +175,7 @@ const HomeParallaxContainer = () => {
           </ParallaxLayer>
           {/* *** */}
 
-          {/* Moon */}
-          {/** Moon Background **/}
-          {/* <ParallaxLayer
-            offset={2.2}
-            factor={1.1}
-            speed={1.2}
-            style={{
-              zIndex: 2,
-              background: 'radial-gradient(rgb(199, 190, 190), black)',
-            }}
-          ></ParallaxLayer> */}
+          {/* Moon First Orbit */}
 
           <ParallaxLayer
             offset={2}
@@ -240,15 +192,10 @@ const HomeParallaxContainer = () => {
               <div className={`${classes['moon-orbit']}`}>
                 <UnfilledCircleSVG />
               </div>
-              {/* <div className={`${classes['moon-outer-orbit']}`}>
-                <UnfilledCircleSVG />
-              </div> */}
-              {/* <UnfilledCircleSVG /> */}
-              {/* <p>Neither am I</p> */}
             </div>
           </ParallaxLayer>
 
-          {/* Moon First Orbit */}
+          {/* Moon */}
 
           <ParallaxLayer
             offset={2.5}

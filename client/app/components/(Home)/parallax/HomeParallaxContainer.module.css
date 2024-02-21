@@ -1,23 +1,25 @@
 .container {
   /* background: linear-gradient(#e66465, #9198e5); */
-  position: absolute;
-  top: 0;
+  /* position: absolute; */
+  /* top: 0;
   bottom: 0;
   right: 0;
-  left: 0;
+  left: 0; */
   /* width: 100vw;
   height: 100vh; */
+  position: relative;
   flex: 1 0 auto;
-  height: 100%;
+  width: 100%;
 }
-
-/* .parallax {
-  
+/* 
+.parallax {
+  scroll-snap-type: y proximity;
 } */
 
 /* width */
 .parallax::-webkit-scrollbar {
   width: 10px;
+  height: 100%;
 }
 
 .parallax::-webkit-scrollbar-track,
@@ -37,20 +39,14 @@
     rgb(255, 236, 236, 0.767)
   ); */
 
-  background: linear-gradient(
-    transparent 0%,
-    rgb(255, 235, 146) 20%,
-    rgb(121 114 82) 25%,
-    rgb(0, 5, 8) 30%,
-    rgb(0, 5, 8) 60%,
-    transparent 70%
-  );
+  background: transparent;
 }
 
 /* Handle */
 .parallax::-webkit-scrollbar-thumb {
   /* background: #888; */
-  background: rgba(255, 255, 255, 0.767);
+  /* background: rgba(255, 255, 255, 0.767); */
+  background: var(--color-palette-start);
 }
 
 /* Handle on hover */
@@ -64,7 +60,8 @@
     black,
     rgb(255, 236, 236)
   ); */
-  background: rgb(255, 255, 255);
+  /* background: rgb(255, 255, 255); */
+  background: var(--color-palette-2);
 }
 
 .card {

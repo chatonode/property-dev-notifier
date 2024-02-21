@@ -1,4 +1,5 @@
 import classes from './Intro.module.css'
+import IntroImageContainer from './Intro/IntroImageContainer'
 
 // const Intro = () => {
 //   return (
@@ -26,7 +27,8 @@ const Intro = () => {
         </p>
         <button className={classes.button}>Get Started</button>
       </div>
-      <img className={classes.image} src="/city.jpg" alt="City skyline" />
+      {/* <img className={classes.image} src="/city.jpg" alt="City skyline" /> */}
+      <IntroImageContainer />
     </div>
   )
 }

@@ -686,8 +686,8 @@ main {
 main.main-public {
   /* height: 100%; */
   margin: auto;
-  padding-top: 1em;
-  padding-bottom: 1.2em;
+  /* padding-top: 1em; */
+  /* padding-bottom: 1.2em; */
   flex-grow: 1;
 
   /* For Sidebar */
@@ -706,7 +706,11 @@ section.section-public {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  flex-grow: 1;
+  width: 100%;
+  flex: 1 0 auto;
+
+  /* Parallax */
+  position: relative;
 }
 
 /** **/
