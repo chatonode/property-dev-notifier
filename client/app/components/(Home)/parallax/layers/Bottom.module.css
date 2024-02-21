@@ -11,9 +11,57 @@
   margin: 5%;
 }
 
-.pattern {
+/* .pattern {
   position: absolute;
   width: 100%;
   top: 0;
   left: 0;
+} */
+
+.title {
+  /* Use a large font size for the title */
+  font-size: 2rem;
+  /* Use a bold font weight for the title */
+  font-weight: bold;
+  /* Use a white color for the title */
+  /* color: white; */
+  /* Use some padding to create some space inside the title */
+  padding: 1rem;
+  /* Use some margin to create some space between the title and the text */
+  margin-bottom: 0.5rem;
 }
+
+.text {
+  /* Use a smaller font size for the text */
+  font-size: 1.25rem;
+  /* Use a lighter font weight for the text */
+  font-weight: 300;
+  /* Use a white color for the text */
+  /* color: white; */
+  /* Use some padding to create some space inside the text */
+  padding: 1rem;
+  /* Use some margin to create some space between the text and the button */
+  margin-bottom: 0.5rem;
+}
+
+.button {
+  /* Use a background color that contrasts with the bottom section */
+  /* background-color: white; */
+  /* Use a color that matches the bottom section for the button text */
+  color: #ae2d59;
+  /* Use a border with the same color as the background */
+  /* border: 1px solid white; */
+  /* Use some padding to create some space inside the button */
+  padding: 0.75rem 1.5rem;
+  /* Use a margin to create some space between the button and the bottom section */
+  margin: 1rem;
+  /* Use a cursor pointer to indicate that the button is clickable */
+  cursor: pointer;
+}
+
+/* .button:hover { */
+/* Use a lighter background color for the button hover effect */
+/* background-color: #f0f0f0; */
+/* Use a lighter border color for the button hover effect */
+/* border: 1px solid #f0f0f0; */
+/* } */

@@ -1,20 +1,20 @@
 import { memo } from 'react'
-import BottomPatternSVG from '@/app/components/UI/SVG/Home/Parallax/BottomPatternSVG'
 
 import classes from './Bottom.module.css'
 
 const Bottom = () => {
   return (
     <div className={classes.container}>
-      {/* <div className={classes.pattern}>
-        <BottomPatternSVG />
-      </div> */}
-      <h1>Property Developer Notifier</h1>
-      <p>
-        The app that lets you manage and communicate with property developers in
-        an easy and efficient way.
+      {/* Between here */}
+      <h2 className={classes.title}>
+        Ready to Boost Your Productivity and Profits?
+      </h2>
+      <p className={classes.text}>
+        Sign Up today and start managing and contacting property developers like
+        a pro!
       </p>
-      <button>Get Started</button>
+      <button className={classes.button}>Sign Up Now</button>
+      {/* and here */}
     </div>
   )
 }

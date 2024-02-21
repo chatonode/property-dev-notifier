@@ -45,7 +45,8 @@ const Moony = () => {
 
   const start = useCallback(() => {
     ref.current.push(
-      setTimeout(() => set(['Property', 'Developer', 'Notifier']), 1000)
+      // setTimeout(() => set(['Property', 'Developer', 'Notifier']), 1000)
+      setTimeout(() => set(['Advancing', 'the', 'Technology']), 1000)
     )
 
     // ref.current.push(setTimeout(() => set(['Apples', 'Kiwis']), 5000))
@@ -80,11 +81,52 @@ const Moony = () => {
               </animated.div>
             ))}
           </div>
-          <p>
-            The app that lets you manage and communicate with property
-            developers in an easy and efficient way.
-          </p>
-          <button>Get Started</button>
+          {/* Between here */}
+          <div className={classes.tech}>
+            <div className={classes.stack}>
+              <h3 className={classes.subtitle}>Tech stack</h3>
+              <ul className={classes.list}>
+                <li className={classes.item}>
+                  MERN (MongoDB, Express, React, Node)
+                </li>
+                <li className={classes.item}>Next.js 13.4</li>
+                <li className={classes.item}>RSC (React Server Components)</li>
+                <li className={classes.item}>TS (TypeScript)</li>
+                <li className={classes.item}>Module CSS</li>
+              </ul>
+            </div>
+            <div className={classes.tools}>
+              <h3 className={classes.subtitle}>Tools</h3>
+              <ul className={classes.list}>
+                <li className={classes.item}>Docker</li>
+                <li className={classes.item}>Kubernetes</li>
+                <li className={classes.item}>GitHub</li>
+                <li className={classes.item}>GitHub Actions</li>
+                <li className={classes.item}>Sendgrid</li>
+              </ul>
+            </div>
+          </div>
+          <div className={classes.metrics}>
+            <h3 className={classes.subtitle}>Performance metrics</h3>
+            <div className={classes.graphs}>
+              <img
+                className={classes.graph}
+                src="/speed.jpg"
+                alt="Speed graph"
+              />
+              <img
+                className={classes.graph}
+                src="/reliability.jpg"
+                alt="Reliability graph"
+              />
+              <img
+                className={classes.graph}
+                src="/security.jpg"
+                alt="Security graph"
+              />
+            </div>
+          </div>
+          {/* and here */}
         </div>
       </div>
     </Waypoint>

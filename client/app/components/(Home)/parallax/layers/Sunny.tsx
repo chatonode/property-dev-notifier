@@ -28,11 +28,33 @@ const Sunny = () => {
               words={['Property', 'Developer', 'Notifier']}
             />
           )}
-          <p>
-            The app that lets you manage and communicate with property
-            developers in an easy and efficient way.
-          </p>
-          <button>Get Started</button>
+          {/* Between here */}
+          <div className={classes.features}>
+            <div className={classes.feature}>
+              <i className={classes.icon}>👩‍💼</i>
+              <h3 className={classes.subtitle}>CRUD operations</h3>
+              <p className={classes.text}>
+                Create, read, update, and delete property developers with ease
+              </p>
+            </div>
+            <div className={classes.feature}>
+              <i className={classes.icon}>📧</i>
+              <h3 className={classes.subtitle}>Customized emails</h3>
+              <p className={classes.text}>
+                Send personalized and professional emails to property developers
+                with your own title and body
+              </p>
+            </div>
+            <div className={classes.feature}>
+              <i className={classes.icon}>🔐</i>
+              <h3 className={classes.subtitle}>Admin authorization</h3>
+              <p className={classes.text}>
+                Only authorized admins can access and manage the app's features
+                and data
+              </p>
+            </div>
+          </div>
+          {/* and here */}
         </div>
         <SunnyImageContainer />
       </div>

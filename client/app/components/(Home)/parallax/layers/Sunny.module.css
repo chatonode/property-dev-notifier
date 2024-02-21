@@ -15,6 +15,59 @@
   margin-left: 5%;
 }
 
+/* ********** */
+
+.features {
+  /* Use flexbox to align the features horizontally */
+  display: flex;
+  /* Use some margin to create some space around the features */
+  margin: 2rem;
+  /* Use a media query to change the flex direction on small screens */
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.feature {
+  /* Use flexbox to align the feature icon, title, and text vertically */
+  display: flex;
+  flex-direction: column;
+  /* Use some padding to create some space inside the feature */
+  padding: 1rem;
+  /* Use some margin to create some space between the features */
+  margin: 1rem;
+  /* Use a border to create a visual separation for the features */
+  border: 1px solid #ae2d59;
+  /* Use a border radius to create rounded corners for the features */
+  border-radius: 10px;
+  /* Use a box shadow to create a subtle depth effect for the features */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+  /* Use a large font size for the feature icon */
+  font-size: 3rem;
+  /* Use a color that matches your app's theme for the feature icon */
+  color: #ae2d59;
+  /* Use some margin to create some space between the icon and the title */
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  /* Use a smaller font size for the feature title */
+  font-size: 1.25rem;
+  /* Use a bold font weight for the feature title */
+  font-weight: bold;
+  /* Use some margin to create some space between the title and the text */
+  margin-bottom: 0.25rem;
+}
+
+.text {
+  /* Use a normal font size for the feature text */
+  font-size: 1rem;
+  /* Use a lighter font weight for the feature text */
+  font-weight: 300;
+}
 .content {
   z-index: 5;
   height: 100%;
