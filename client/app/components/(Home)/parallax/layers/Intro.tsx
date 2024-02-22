@@ -19,8 +19,8 @@ import IntroImageContainer from './Intro/IntroImageContainer'
 
 const Intro = () => {
   return (
-    <div className={classes.intro}>
-      <div className={classes.container}>
+    <div className={classes.container}>
+      <div className={classes.content}>
         <h1 className={classes.title}>Property Developer Notifier</h1>
         <p className={classes.subtitle}>
           The ultimate app for managing and contacting property developers

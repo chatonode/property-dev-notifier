@@ -18,8 +18,8 @@ const IntroImageContainer = () => {
           src={imageSrc}
           alt={imageAlt}
           quality={100}
-          width={400}
-          height={300}
+          width={1600}
+          height={1200}
           style={{ height: 'auto' }}
           // layout="fill"
           // objectFit="contain"
