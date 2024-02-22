@@ -90,6 +90,8 @@
   width: 107px;
   height: 107px;
   border-radius: 50%;
+
+  transform: scale(0.5);
 }
 
 .sun {
@@ -103,7 +105,7 @@
 
   /* ending spreads to the container */
   box-shadow: 0 0 8px 0px #ffeb3b, 0 0 16px 16px #ffc107, 0 0 32px 0px #ff9800,
-    0 0 64px 16px #ff5722, 0 10px 128px 128px #ffc83b, 0 0 20px 300px #969ee6;
+    0 0 64px 16px #ff5722, 0 10px 128px 128px #ffc83b; /* , 0 0 20px 300px #969ee6 */
 }
 
 .moon {
@@ -122,7 +124,7 @@
 
   /* ending spreads to the container */
   box-shadow: 0 0 8px 0px #d0d0d0, 0 0 16px 16px #b0b0b0, 0 0 32px 0px #a0a0a0,
-    0 0 64px 16px #909090, 0 10px 128px 128px #b0b0b0, 0 0 20px 300px black;
+    0 0 64px 16px #909090, 0 10px 128px 128px #b0b0b0; /* , 0 0 20px 300px black */
 }
 
 .moon::before {
@@ -190,6 +192,10 @@
 
   .sticky {
     margin-left: 15%;
+  }
+
+  .planetary {
+    transform: scale(1);
   }
 
   .sun {
