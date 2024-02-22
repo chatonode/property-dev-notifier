@@ -15,7 +15,7 @@
 
 /* ********** */
 
-.intro {
+.container {
   /* Set the height and width of the hero section to fill the viewport */
   /* height: 100vh;
   width: 100vw; */
@@ -27,15 +27,14 @@
   /* Use a pseudo-element to create a background image with a tint effect */
   position: relative;
   flex-wrap: wrap-reverse;
+  overflow: hidden;
 }
 
-.container {
-  /* Position the container element relative to the hero section */
+.content {
+  width: 25%;
+  flex: 1 0.5 auto;
   position: relative;
-  /* Use a max-width to limit the content width on large screens */
-  max-width: 1200px;
-  /* Use a margin to create some space around the content */
-  margin: 1rem;
+  padding: 1rem;
 }
 
 .title {
@@ -87,7 +86,7 @@
 
 /* Use a media query to show the image on large screens */
 @media (min-width: 768px) {
-  .container {
+  .content {
     margin: 2rem;
   }
 

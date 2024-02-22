@@ -91,12 +91,6 @@ const HomeParallaxContainer = () => {
               justifyContent: 'flex-start',
               zIndex: 2,
               pointerEvents: 'none',
-              // marginLeft: `${currentOffset * 5}%`,
-
-              // transform: `scale(${currentOffset * 2})`,
-              // transition: 'transform 0.26s ease-in-out',
-              // height: `${currentOffset * 100}px`,
-              //               transition: 'height 0.26s ease-in-out',
             }}
           >
             <div className={`${classes.card} ${classes.sticky}`}>
