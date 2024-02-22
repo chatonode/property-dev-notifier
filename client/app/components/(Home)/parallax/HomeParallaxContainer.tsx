@@ -84,7 +84,7 @@ const HomeParallaxContainer = () => {
 
           {/* Top-to-mid */}
           {/* Sticky Left */}
-          <ParallaxLayer
+          {/* <ParallaxLayer
             sticky={{ start: 1, end: 3 }}
             style={{
               ...alignCenter,
@@ -96,7 +96,7 @@ const HomeParallaxContainer = () => {
             <div className={`${classes.card} ${classes.sticky}`}>
               <p>I'm a sticky layer</p>
             </div>
-          </ParallaxLayer>
+          </ParallaxLayer> */}
 
           {/* Sun */}
           <ParallaxLayer
