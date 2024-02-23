@@ -162,6 +162,17 @@
   height: 160.5px;
 }
 
+.stars {
+  max-height: 100%;
+
+  width: 100%;
+  height: auto;
+  /* position: relative; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* .moon-outer-orbit {
   position: absolute;
   top: 50%;
@@ -172,18 +183,6 @@
   width: 321px;
   height: 321px;
 } */
-
-.frame {
-  margin-right: 1.6rem;
-
-  stroke: black;
-  stroke-width: 1px;
-  width: 25%;
-  height: 25%;
-
-  border-right: 1px solid black;
-  border-top: 1px solid black;
-}
 
 @media (min-width: 40rem) {
   /* .card {
@@ -208,8 +207,4 @@
   /* .moon-orbit {
     margin-right: 13.25%;
   }  */
-
-  .frame {
-    margin-right: 15%;
-  }
 }

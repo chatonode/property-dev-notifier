@@ -63,6 +63,7 @@ const HomeParallaxContainer = () => {
           <ParallaxLayer
             offset={1}
             factor={4}
+            speed={0.9}
             style={{
               background: HOME_PARALLAX_BG_LINEAR,
               zIndex: 2,
@@ -100,7 +101,7 @@ const HomeParallaxContainer = () => {
 
           {/* Sun */}
           <ParallaxLayer
-            offset={1}
+            offset={2} // previous: 1
             speed={1.5}
             style={{
               ...alignCenter,
@@ -117,7 +118,7 @@ const HomeParallaxContainer = () => {
 
           {/* Sunny */}
           <ParallaxLayer
-            offset={1.5}
+            offset={2.5} // previous: 1.5
             speed={1}
             factor={1}
             // style={{ backgroundColor: '#FFFFFF' }}
@@ -129,7 +130,8 @@ const HomeParallaxContainer = () => {
               // background:
               //   'linear-gradient(rgb(226, 239, 255), rgb(145, 152, 229))',
               background:
-                'linear-gradient(to bottom, rgb(0 229 255 / 0.21), rgb(0 229 255), transparent)',
+                // 'linear-gradient(to bottom, rgb(0 229 255 / 0.21), rgb(0 229 255), transparent)',
+                'linear-gradient(rgb(255 235 146 / 75%), rgb(255, 235, 146), transparent)',
               zIndex: 4,
               borderTopRightRadius: '50%',
               overflow: 'hidden',
@@ -142,9 +144,9 @@ const HomeParallaxContainer = () => {
           {/* Stars from Sun to Moon */}
 
           <ParallaxLayer
-            offset={2}
+            offset={1} // previous: 2
             // speed={0.75}
-            speed={1}
+            speed={1.1}
             // factor={1}
             style={{
               // background: 'linear-gradient(transparent, rgb(145 152 229))',
@@ -152,16 +154,7 @@ const HomeParallaxContainer = () => {
               pointerEvents: 'none',
             }}
           >
-            <div
-              style={
-                {
-                  // width: '100%',
-                  // height: '100%',
-                  // opacity: 0.9,
-                  // filter: 'blur(1px)',
-                }
-              }
-            >
+            <div className={classes.stars}>
               {/* <StarsLayerSVG /> */}
               {/* <StarsLayerDarkBlueSVG /> */}
               <StarsLayerSVG1X1 />
@@ -169,10 +162,10 @@ const HomeParallaxContainer = () => {
           </ParallaxLayer>
           {/* *** */}
 
-          {/* Moon First Orbit */}
+          {/* Moon & First Orbit */}
 
           <ParallaxLayer
-            offset={2}
+            offset={1} // previous: 2
             speed={1.5}
             style={{
               ...alignCenter,
@@ -192,7 +185,7 @@ const HomeParallaxContainer = () => {
           {/* Moon */}
 
           <ParallaxLayer
-            offset={2.5}
+            offset={1.5} // previous: 2.5
             speed={1}
             // style={{ backgroundColor: '#FFFFFF' }}
             style={{

@@ -5,7 +5,8 @@
   width: 100%;
   height: 100%;
 
-  box-shadow: 0 0 30px 30px #000508;
+  /* box-shadow: 0 0 30px 30px #000508; */
+  box-shadow: 0 0 60px 100px #000508;
 }
 
 /* .svg {
