@@ -1,4 +1,5 @@
 .svg {
+  --main-color-dark: #000508;
   max-width: 100%;
   max-height: 100%;
 
@@ -6,7 +7,9 @@
   height: 100%;
 
   /* box-shadow: 0 0 30px 30px #000508; */
-  box-shadow: 0 0 60px 100px #000508;
+  /* box-shadow: 0 0 60px 100px #000508; */
+  color: var(--main-color-dark);
+  box-shadow: 0 -150px 60px 100px var(--main-color-dark);
 }
 
 /* .svg {

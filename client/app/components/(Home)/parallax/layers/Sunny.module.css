@@ -54,10 +54,11 @@
   /* Use a box shadow to create a subtle depth effect for the features */
   /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
 
-  background: linear-gradient(45deg, #ffe500, #ffe924, #fda920);
+  /* background: linear-gradient(45deg, #ffe500, #ffe924, #fda920); */
   box-shadow: 0 0 1px 0px #ffeb3b, 0 0 2px 2px #ffc107, 0 0 3px 0px #ff9800,
     0 0 4px 1px #ff5722, 0 1px 5px 5px #ffc83b;
   /* 0 0 2px 6px #969ee6; */
+  background: linear-gradient(#C2B280, #f6d7b0);
 }
 
 .icon {

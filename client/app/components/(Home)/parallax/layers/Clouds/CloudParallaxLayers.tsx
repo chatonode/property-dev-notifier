@@ -129,7 +129,7 @@ const CloudParallaxLayers = () => {
           ...alignCenter,
           justifyContent: 'flex-start',
           // zIndex: 3,
-          zIndex: 2,
+          zIndex: 3,
           pointerEvents: 'none',
         }}
       >
