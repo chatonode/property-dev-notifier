@@ -27,8 +27,8 @@ const linearGradients = [
   'rgb(1, 21, 35) 42%',
 
   'rgb(135, 206, 235) 44%',
-  'rgb(135, 206, 235) 52%',
-  'transparent 70%',
+  'rgb(135, 206, 235) 94%',
+  'transparent 98%',
 ] as const
 
 const linearGradientString = `linear-gradient(${linearGradients.join(
