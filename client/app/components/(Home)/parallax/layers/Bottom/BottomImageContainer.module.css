@@ -1,0 +1,88 @@
+.container {
+  /* width: 50%; */
+  /* flex: 0 1 auto; */
+  flex: 0 1 1024px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 1rem;
+}
+
+.scene {
+  width: 100%;
+  height: 100%;
+  flex: 1 0 auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scene img {
+  height: auto;
+  width: auto;
+  max-height: 100%;
+  pointer-events: none;
+
+  background-size: cover;
+  background-position: center;
+
+  border-radius: inherit;
+}
+
+.sender {
+  width: 70%;
+  height: 100%;
+  flex: 1 0 70%;
+
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 10px;
+}
+
+.clients {
+  width: 30%;
+  height: 100%;
+  flex: 0 1 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.client {
+  width: 100%;
+  flex: 1 0 33%;
+  height: auto;
+  position: relative;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  border-radius: 50%;
+}
+
+/* .image,
+.image img {
+  border-radius: inherit;
+} */
+
+/* .image {
+  height: auto;
+  position: relative;
+}
+
+.image img {
+  height: auto;
+  pointer-events: none;
+
+  background-size: cover;
+  background-position: center;
+} */

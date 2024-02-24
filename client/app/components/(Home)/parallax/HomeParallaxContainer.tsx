@@ -255,6 +255,7 @@ const HomeParallaxContainer = () => {
             style={{
               ...alignCenter,
               justifyContent: 'center',
+              flexDirection: 'column',
               // background: 'linear-gradient(90deg, rgb(135 206 235) 12%, transparent 17%, transparent 81%, rgba(0, 5, 8) 83%)',
               zIndex: 3,
             }}
