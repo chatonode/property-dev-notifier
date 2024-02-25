@@ -55,7 +55,8 @@
   /* left: calc(50% + 18.75%); */
   left: calc(50% + 19.35%);
   width: 0;
-  height: 3px;
+  /* height: 3px; */
+  height: 2px;
   background: var(--text-primary);
   animation: data-flow 3s ease-in-out forwards;
   text-align: left;
