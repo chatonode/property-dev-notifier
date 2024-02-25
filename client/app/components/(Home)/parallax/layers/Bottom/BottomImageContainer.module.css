@@ -18,6 +18,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  /* background: repeating-linear-gradient(90deg, #fbf859, #000000); */
+  /* padding: 1em; */
+  border-radius: 20px;
 }
 
 .scene img {
@@ -57,25 +60,37 @@
   width: 0;
   /* height: 3px; */
   height: 2px;
-  background: var(--text-primary);
+  /* background: var(--text-primary); */
+  box-shadow: 0 0 0 0 transparent;
   animation: data-flow 3s ease-in-out forwards;
-  text-align: left;
+  text-align: left; /* ?? */
+  border-radius: 1px;
 }
 
+/* @media (min-width: 40rem) {
+  .line {
+    animation-duration: 6s;
+  }
+} */
+
 .line.one {
+  --main-color: #04235f;
   top: 17.5%;
   animation-delay: 0.3s;
-  background: #04235f;
+  background: var(--main-color);
 }
+
 .line.two {
+  --main-color: #fe6ccb;
   top: 50.5%;
   animation-delay: 0.6s;
-  background: #fe6ccb;
+  background: var(--main-color);
 }
 .line.three {
+  --main-color: #341f91;
   top: 82.5%;
   animation-delay: 0.9s;
-  background: #341f91;
+  background: var(--main-color);
 }
 
 @keyframes data-flow {
@@ -84,7 +99,9 @@
   }
   100% {
     /* width: 31.25%; */
-    width: 31%;
+    /* width: 31%; */
+    width: 46%;
+    box-shadow: 0 0 15px 0 var(--main-color);
   }
 }
 
@@ -105,10 +122,43 @@
   position: relative;
 
   display: flex;
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
+  justify-content: center;
   align-items: center;
 
   border-radius: 50%;
+}
+
+.client img {
+  box-shadow: 0 0 6px 0 transparent;
+  opacity: 0;
+}
+
+.client.entered img {
+  animation: appear 1s ease-in-out forwards;
+}
+
+.client.one.entered img {
+  animation-delay: 2.8s; /* 3.3s - 0.5s */
+}
+.client.two.entered img {
+  animation-delay: 3.1s; /* 3.6s - 0.5s */
+}
+.client.three.entered img {
+  animation-delay: 3.4s; /* 3.9s - 0.5s */
+}
+
+@keyframes appear {
+  50% {
+    opacity: 0.3;
+    box-shadow: 20px 0 1px 0 #eece0c, 10px 0 3px 0px #fee960;
+  }
+
+  100% {
+    opacity: 1;
+    /* box-shadow: 0 0 4px 4px #eece0c, 0 0 8px 8px #fee960; */
+    box-shadow: 0px 0 1px 1px #eece0c, 0 0 2px 2px #fee960;
+  }
 }
 
 /* .image,

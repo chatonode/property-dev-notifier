@@ -60,7 +60,11 @@ const BottomImageContainer = () => {
             />
           </div>
           <div className={classes.clients}>
-            <div className={classes.client}>
+            <div
+              className={`${classes.client} ${classes.one}${
+                isVisible ? ` ${classes.entered}` : ''
+              }`}
+            >
               <Image
                 // layout="fill"
                 // key={imagePaths[currentImageIndex]!.src}
@@ -77,7 +81,11 @@ const BottomImageContainer = () => {
                 priority={true}
               />
             </div>
-            <div className={classes.client}>
+            <div
+              className={`${classes.client} ${classes.two}${
+                isVisible ? ` ${classes.entered}` : ''
+              }`}
+            >
               <Image
                 // layout="fill"
                 // key={imagePaths[currentImageIndex]!.src}
@@ -94,7 +102,11 @@ const BottomImageContainer = () => {
                 priority={true}
               />
             </div>
-            <div className={classes.client}>
+            <div
+              className={`${classes.client} ${classes.three}${
+                isVisible ? ` ${classes.entered}` : ''
+              }`}
+            >
               <Image
                 // layout="fill"
                 // key={imagePaths[currentImageIndex]!.src}
