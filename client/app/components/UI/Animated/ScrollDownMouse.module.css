@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-mouse {
+  width: 60px;
+  height: 100px;
+  border-radius: 30px;
+  /* background-color: #333; */
+  background-color: #002337;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  position: relative;
+}
+
+.scroll-wheel {
+  position: absolute;
+  top: -28px;
+  width: 3px;
+  height: 24px;
+  /* background-color: #ddd; */
+  background-color: #002337;
+
+  border-radius: 5px;
+  /* margin-top: auto; */
+  animation: wheelMove 2s infinite 1s;
+}
+
+@keyframes wheelMove {
+  0% {
+    transform: translateY(0);
+    background-color: #002337;
+  }
+  33% {
+    background-color: #ddd;
+  }
+  50% {
+    transform: translateY(48px);
+  }
+  89% {
+    background-color: #002337;
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
