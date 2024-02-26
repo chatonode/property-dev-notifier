@@ -25,11 +25,12 @@ import AnimatedRocket from '../../UI/Animated/AnimatedRocket'
 
 import { HOME_PARALLAX_BG_LINEAR } from './utils/color'
 import Intro from './layers/Intro'
+import StarsLayerDarkSVG from '../../UI/SVG/Home/Parallax/StarsLayerDarkSVG'
+import UnfilledCircleSVG from '@/components/UI/SVG/Home/Parallax/UnfilledCircleSVG'
+import Moony from './layers/Moony'
+import StarsLayerLightSVG from '@/app/components/UI/SVG/Home/Parallax/StarsLayerLightSVG'
 import CloudParallaxLayers from './layers/Clouds/CloudParallaxLayers'
 import Sunny from './layers/Sunny'
-import StarsLayerSVG1X1 from '../../UI/SVG/Home/Parallax/StarsLayerSVG1X1'
-import Moony from './layers/Moony'
-import UnfilledCircleSVG from '@/components/UI/SVG/Home/Parallax/UnfilledCircleSVG'
 import Bottom from './layers/Bottom'
 
 // import {
@@ -54,7 +55,7 @@ const HomeParallaxContainer = () => {
     <>
       <div className={`${classes.container}`}>
         <Parallax
-          pages={5}
+          pages={4.5}
           // ref={parallaxRef}
           className={classes.parallax}
         >
@@ -63,6 +64,7 @@ const HomeParallaxContainer = () => {
           <ParallaxLayer
             offset={1}
             factor={4}
+            speed={0.9}
             style={{
               background: HOME_PARALLAX_BG_LINEAR,
               zIndex: 2,
@@ -74,13 +76,11 @@ const HomeParallaxContainer = () => {
 
           <ParallaxLayer
             offset={0}
-            // speed={0.5}
+            speed={1}
             style={{ ...alignCenter, justifyContent: 'center', zIndex: 3 }}
           >
             <Intro />
           </ParallaxLayer>
-
-          <CloudParallaxLayers />
 
           {/* Top-to-mid */}
           {/* Sticky Left */}
@@ -98,51 +98,10 @@ const HomeParallaxContainer = () => {
             </div>
           </ParallaxLayer> */}
 
-          {/* Sun */}
-          <ParallaxLayer
-            offset={1}
-            speed={1.5}
-            style={{
-              ...alignCenter,
-              justifyContent: 'flex-end',
-              zIndex: 2,
-              pointerEvents: 'none',
-              // marginLeft: '15%',
-            }}
-          >
-            <div className={`${classes.planetary} ${classes.sun}`}>
-              {/* <p>I'm not</p> */}
-            </div>
-          </ParallaxLayer>
-
-          {/* Sunny */}
-          <ParallaxLayer
-            offset={1.5}
-            speed={1}
-            factor={1}
-            // style={{ backgroundColor: '#FFFFFF' }}
-            style={{
-              display: 'flex',
-              alignItems: 'flex-start',
-              justifyContent: 'flex-start',
-              // background: 'linear-gradient(rgb(36, 41, 47), #9198e5)',
-              // background:
-              //   'linear-gradient(rgb(226, 239, 255), rgb(145, 152, 229))',
-              background:
-                'linear-gradient(to bottom, rgb(0 229 255 / 0.21), rgb(0 229 255), transparent)',
-              zIndex: 4,
-              borderTopRightRadius: '50%',
-              overflow: 'hidden',
-            }}
-            // style={{width: '100%', height: '100%'}}
-          >
-            <Sunny />
-          </ParallaxLayer>
-
-          {/* Stars from Sun to Moon */}
+          {/* Stars of Moon */}
 
           <ParallaxLayer
-            offset={2}
+            offset={1} // previous: 2
             // speed={0.75}
             speed={1}
             // factor={1}
@@ -152,27 +111,16 @@ const HomeParallaxContainer = () => {
               pointerEvents: 'none',
             }}
           >
-            <div
-              style={
-                {
-                  // width: '100%',
-                  // height: '100%',
-                  // opacity: 0.9,
-                  // filter: 'blur(1px)',
-                }
-              }
-            >
-              {/* <StarsLayerSVG /> */}
-              {/* <StarsLayerDarkBlueSVG /> */}
-              <StarsLayerSVG1X1 />
+            <div className={classes.stars}>
+              <StarsLayerDarkSVG />
             </div>
           </ParallaxLayer>
           {/* *** */}
 
-          {/* Moon First Orbit */}
+          {/* Moon & First Orbit */}
 
           <ParallaxLayer
-            offset={2}
+            offset={1} // previous: 2
             speed={1.5}
             style={{
               ...alignCenter,
@@ -189,10 +137,10 @@ const HomeParallaxContainer = () => {
             </div>
           </ParallaxLayer>
 
-          {/* Moon */}
+          {/* Moony */}
 
           <ParallaxLayer
-            offset={2.5}
+            offset={1.5} // previous: 2.5
             speed={1}
             // style={{ backgroundColor: '#FFFFFF' }}
             style={{
@@ -211,15 +159,104 @@ const HomeParallaxContainer = () => {
             <Moony />
           </ParallaxLayer>
 
-          {/* End */}
+          {/* Sky of Sun */}
 
           <ParallaxLayer
+            offset={2.5} // previous: 2
+            // speed={0.75}
+            speed={1}
+            // factor={1}
+            style={{
+              // background: 'linear-gradient(transparent, rgb(145 152 229))',
+              zIndex: 2,
+              pointerEvents: 'none',
+            }}
+          >
+            <div className={classes.stars}>
+              {/* <StarsLayerSVG /> */}
+              {/* <StarsLayerDarkBlueSVG /> */}
+              <StarsLayerLightSVG />
+            </div>
+          </ParallaxLayer>
+          {/* *** */}
+
+          <CloudParallaxLayers />
+
+          {/* Sun */}
+          <ParallaxLayer
+            offset={2} // previous: 1
+            speed={1.5}
+            style={{
+              ...alignCenter,
+              justifyContent: 'flex-end',
+              zIndex: 2,
+              pointerEvents: 'none',
+              // marginLeft: '15%',
+            }}
+          >
+            <div className={`${classes.planetary} ${classes.sun}`}>
+              {/* <p>I'm not</p> */}
+            </div>
+          </ParallaxLayer>
+
+          {/* Sunny */}
+          <ParallaxLayer
+            offset={2.5} // previous: 1.5
+            speed={1}
+            factor={1}
+            // style={{ backgroundColor: '#FFFFFF' }}
+            style={{
+              display: 'flex',
+              alignItems: 'flex-start',
+              justifyContent: 'flex-start',
+              // background: 'linear-gradient(rgb(36, 41, 47), #9198e5)',
+              // background:
+              //   'linear-gradient(rgb(226, 239, 255), rgb(145, 152, 229))',
+              background:
+                // 'linear-gradient(to bottom, rgb(0 229 255 / 0.21), rgb(0 229 255), transparent)',
+                'linear-gradient(rgb(255 235 146 / 75%), rgb(255, 235, 146), transparent)',
+              zIndex: 4,
+              borderTopRightRadius: '50%',
+              overflow: 'hidden',
+            }}
+            // style={{width: '100%', height: '100%'}}
+          >
+            <Sunny />
+          </ParallaxLayer>
+
+          {/* End */}
+
+          {/** Sun & Moon **/}
+          {/* <ParallaxLayer
             offset={4}
+            speed={1.1}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              zIndex: 4,
+              pointerEvents: 'none',
+              filter: 'blur(1px)',
+            }}
+          >
+            <div className={`${classes.planetary} ${classes.sun}`}></div>
+            <div className={`${classes.planetary} ${classes.moon}`}>
+              <div className={`${classes['moon-orbit']}`}>
+                <UnfilledCircleSVG />
+              </div>
+            </div>
+          </ParallaxLayer> */}
+
+          {/** Bottom  **/}
+          <ParallaxLayer
+            offset={3.5}
             speed={0}
             // style={{ backgroundColor: '#FFFFFF' }}
             style={{
               ...alignCenter,
-              // background: 'linear-gradient(#9198e5, rgb(36, 41, 47))',
+              justifyContent: 'center',
+              flexDirection: 'column',
+              // background: 'linear-gradient(90deg, rgb(135 206 235) 12%, transparent 17%, transparent 81%, rgba(0, 5, 8) 83%)',
               zIndex: 3,
             }}
             // style={{width: '100%', height: '100%'}}

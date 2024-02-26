@@ -1,13 +1,35 @@
-const linearGradients = [
-  'transparent 0%',
-  '#ffeb92 20%', // rgb(255, 235, 146) 20%
-  'rgb(121 114 82) 25%',
-  'rgb(0, 5, 8) 30%',
-  'rgb(0, 5, 8) 60%',
-  'transparent 70%',
-] as const
+// const linearGradients = [
+//   'transparent 0%',
+//   '#ffeb92 20%', // rgb(255, 235, 146) 20%
+//   'rgb(121 114 82) 25%',
+//   'rgb(0, 5, 8) 30%',
+//   'rgb(0, 5, 8) 60%',
+//   'transparent 70%',
+// ] as const
 
-// linear-gradient(transparent 0%, rgb(255, 235, 146) 20%, rgb(0 5 8 / 81%) 27%, rgb(0 5 8) 60%, #ffffff 80%)
+// const linearGradients = [
+//   'rgba(0, 5, 8, 0) 0%',
+//   // 'rgba(0, 5, 8, 0.45) 4%',
+//   'rgba(0, 5, 8, 0) 4%',
+//   'rgba(0, 5, 8, 0.35) 8%',
+//   'rgb(0 5 8) 26%',
+//   'rgb(0, 159, 255) 30%',
+//   'rgb(45, 176, 255) 50%',
+//   'transparent 70%',
+// ] as const
+
+const linearGradients = [
+  'rgba(0, 5, 8, 0) 0%',
+  'rgba(0, 5, 8, 0) 4%',
+  'rgba(0, 5, 8, 0.85) 8%',
+  'rgba(0, 5, 8, 1) 18%',
+  'rgb(0, 5, 8) 40%',
+  'rgb(1, 21, 35) 42%',
+
+  'rgb(135, 206, 235) 44%',
+  'rgb(135, 206, 235) 94%',
+  'transparent 98%',
+] as const
 
 const linearGradientString = `linear-gradient(${linearGradients.join(
   ', '

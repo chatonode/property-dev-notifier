@@ -65,7 +65,7 @@ const CloudParallaxLayers = () => {
       {/* Clouds */}
 
       <ParallaxLayer
-        offset={1}
+        offset={2} // previous: 1
         speed={0.3}
         style={{
           ...alignCenter,
@@ -94,7 +94,7 @@ const CloudParallaxLayers = () => {
       </ParallaxLayer>
 
       <ParallaxLayer
-        offset={0.8}
+        offset={1.8} // previous: 0.8
         speed={-0.2}
         style={{
           ...alignCenter,
@@ -122,14 +122,14 @@ const CloudParallaxLayers = () => {
 
       {/** Far-left Cloud **/}
       <ParallaxLayer
-        offset={1}
+        offset={2} // previous: 1
         speed={0.5}
         // factor={0.5}
         style={{
           ...alignCenter,
           justifyContent: 'flex-start',
           // zIndex: 3,
-          zIndex: 2,
+          zIndex: 3,
           pointerEvents: 'none',
         }}
       >

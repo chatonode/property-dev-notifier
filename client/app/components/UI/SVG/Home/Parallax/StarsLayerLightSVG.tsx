@@ -1,7 +1,7 @@
 import { memo } from 'react'
-import classes from './StarsLayerSVG.module.css'
+import classes from './StarsLayerLightSVG.module.css'
 
-const StarsLayerSVG1X1 = () => {
+const StarsLayerLightSVG = () => {
   return (
     // <svg viewBox="0 0 2000 4000" xmlns="http://www.w3.org/2000/svg" className={classes.svg}>
     <svg
@@ -9,7 +9,7 @@ const StarsLayerSVG1X1 = () => {
       xmlns="http://www.w3.org/2000/svg"
       className={classes.svg}
     >
-      <path fill="#000508" d="M0 0h2000v2000H0z" />
+      <path fill="currentColor" d="M0 0h2000v2000H0z" />
       <ellipse
         cx="70.488"
         cy="54.433"
@@ -4039,4 +4039,4 @@ const StarsLayerSVG1X1 = () => {
   )
 }
 
-export default memo(StarsLayerSVG1X1)
+export default memo(StarsLayerLightSVG)
