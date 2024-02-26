@@ -21,6 +21,12 @@
   align-items: center;
 }
 
+@media (min-width: 40rem) {
+  .content {
+    flex-basis: 36%;
+  }
+}
+
 .title {
   /* Use a large font size for the title */
   font-size: 2rem;

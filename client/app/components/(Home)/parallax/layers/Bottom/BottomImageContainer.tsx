@@ -4,9 +4,9 @@ import { Waypoint } from 'react-waypoint'
 
 import classes from './BottomImageContainer.module.css'
 
-import image from '@/public/assets/images/home/Designer.png'
 import bananaGuardian from '@/public/assets/images/home/parallax/bottom/banana-guardian.jpg'
 // import bananaGuardian from '@/public/assets/images/home/parallax/bottom/banana-guardian-color-popped.jpg'
+// import bananaGuardian from '@/public/assets/images/home/parallax/bottom/banana-guardian-alternative.jpg'
 import finnJake from '@/public/assets/images/home/parallax/bottom/finn-jake.jpg'
 import princessBubblegum from '@/public/assets/images/home/parallax/bottom/princess-bubblegum.jpg'
 import iceKing from '@/public/assets/images/home/parallax/bottom/ice-king.jpg'

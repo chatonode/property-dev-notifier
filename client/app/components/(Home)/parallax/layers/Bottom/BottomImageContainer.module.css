@@ -64,10 +64,11 @@
   /* background: var(--text-primary); */
   /* box-shadow: 0 0 15px 0 transparent; */
   box-shadow: 0 0 8px 0 transparent, 0 0 15px 0 transparent;
-  
+
   animation: data-flow 3s ease-in-out forwards;
   text-align: left; /* ?? */
   border-radius: 1px;
+  /* z-index: 5; */
 }
 
 /* @media (min-width: 40rem) {
@@ -78,23 +79,35 @@
 
 .line.one {
   --main-color: #04235f;
-  top: 17.5%;
+  --top-start: 50.5%;
+  --top-end: 17.5%;
   animation-delay: 0.3s;
+
+  top: var(--top-end);
+
   /* background: var(--main-color); */
   background: linear-gradient(90deg, #d9aa00, var(--main-color));
 }
 
 .line.two {
   --main-color: #fe6ccb;
-  top: 50.5%;
+  --top-start: 50.5%;
+  --top-end: 50.5%;
   animation-delay: 0.6s;
+
+  top: var(--top-end);
+
   /* background: var(--main-color); */
   background: linear-gradient(90deg, #d9aa00, var(--main-color));
 }
 .line.three {
   --main-color: #341f91;
-  top: 82.5%;
+  --top-start: 50.5%;
+  --top-end: 82.5%;
   animation-delay: 0.9s;
+
+  top: var(--top-end);
+
   /* background: var(--main-color); */
   background: linear-gradient(90deg, #d9aa00, var(--main-color));
 }
@@ -102,6 +115,7 @@
 @keyframes data-flow {
   0% {
     width: 0;
+
     /* box-shadow: 0 0 15px 0 transparent; */
     box-shadow: 0 0 8px 0 transparent, 0 0 15px 0 transparent;
   }
@@ -109,7 +123,8 @@
     /* width: 31.25%; */
     /* width: 31%; */
     /* width: 46%; */
-    width: 75.8%;
+    width: 80%;
+
     /* box-shadow: 0 0 15px 0 var(--main-color); */
     box-shadow: 0 0 8px 0 #d9aa00, 0 0 15px 0 var(--main-color);
   }
@@ -142,6 +157,13 @@
 .client img {
   box-shadow: 0 0 6px 0 transparent;
   opacity: 0;
+  transform: scale(0.75);
+  transition: transform 0.5s ease-in-out;
+}
+
+.client:focus img,
+.client:hover img {
+  transform: scale(1);
 }
 
 .client.entered img {
@@ -170,7 +192,7 @@
 
 @keyframes appear {
   50% {
-    opacity: 0.3;
+    opacity: 0;
     /* box-shadow: 20px 0 1px 0 #eece0c, 10px 0 3px 0px #fee960; */
     box-shadow: 20px 0 1px 0 var(--main-color),
       10px 0 3px 1px var(--secondary-color);
