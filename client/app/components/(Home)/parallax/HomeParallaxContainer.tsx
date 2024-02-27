@@ -32,6 +32,7 @@ import StarsLayerLightSVG from '@/app/components/UI/SVG/Home/Parallax/StarsLayer
 import CloudParallaxLayers from './layers/Clouds/CloudParallaxLayers'
 import Sunny from './layers/Sunny'
 import Bottom from './layers/Bottom'
+import ScrollDownSVG from '../../UI/SVG/Home/Parallax/ScrollDownSVG'
 
 // import {
 //   animated,
@@ -43,7 +44,7 @@ import Bottom from './layers/Bottom'
 // } from '@react-spring/web'
 
 const HomeParallaxContainer = () => {
-  // const parallaxRef = useRef<IParallax | null>(null!)
+  const parallaxRef = useRef<IParallax | null>(null!)
 
   const alignCenter = { display: 'flex', alignItems: 'center' }
   // const scrollSnapCenterYProx = {
@@ -51,14 +52,14 @@ const HomeParallaxContainer = () => {
   //   scrollSnapType: 'y proximity',
   // }
 
+  const introScrollButtonClickHandler = useCallback(() => {
+    parallaxRef.current?.scrollTo(1)
+  }, [])
+
   return (
     <>
       <div className={`${classes.container}`}>
-        <Parallax
-          pages={4.5}
-          // ref={parallaxRef}
-          className={classes.parallax}
-        >
+        <Parallax pages={4.5} ref={parallaxRef} className={classes.parallax}>
           {/* Global Color Layers */}
 
           <ParallaxLayer
@@ -77,9 +78,15 @@ const HomeParallaxContainer = () => {
           <ParallaxLayer
             offset={0}
             speed={1}
-            style={{ ...alignCenter, justifyContent: 'center', zIndex: 3 }}
+            style={{
+              ...alignCenter,
+              justifyContent: 'center',
+              zIndex: 3,
+              position: 'relative',
+            }}
           >
-            <Intro />
+            <Intro onScrollDownClick={introScrollButtonClickHandler} />
+            {/* <ScrollDownSVG onClick={introScrollButtonClickHandler} /> */}
           </ParallaxLayer>
 
           {/* Top-to-mid */}

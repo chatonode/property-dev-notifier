@@ -1,5 +1,7 @@
+import ScrollDownMouse from '@/app/components/UI/Animated/ScrollDownMouse'
 import classes from './Intro.module.css'
 import IntroImageContainer from './Intro/IntroImageContainer'
+import ScrollDownSVG from '@/app/components/UI/SVG/Home/Parallax/ScrollDownSVG'
 
 // const Intro = () => {
 //   return (
@@ -17,7 +19,11 @@ import IntroImageContainer from './Intro/IntroImageContainer'
 
 /* *********** */
 
-const Intro = () => {
+type TIntroProps = {
+  onScrollDownClick: () => void
+}
+
+const Intro = (props: TIntroProps) => {
   return (
     <div className={classes.container}>
       <div className={classes.content}>
@@ -29,6 +35,10 @@ const Intro = () => {
       </div>
       {/* <img className={classes.image} src="/city.jpg" alt="City skyline" /> */}
       <IntroImageContainer />
+      
+      {/* absolute */}
+      {/* <ScrollDownMouse /> */}
+      <ScrollDownSVG onClick={props.onScrollDownClick} />
     </div>
   )
 }
