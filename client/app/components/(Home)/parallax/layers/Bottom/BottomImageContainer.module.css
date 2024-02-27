@@ -26,7 +26,6 @@
 .scene img {
   z-index: 4; /* to hide lines */
 
-
   height: auto;
   width: auto;
   max-height: 100%;
@@ -36,13 +35,6 @@
   background-position: center;
 
   border-radius: inherit;
-  box-shadow: -12px 15px 5px 0px rgb(90 81 76);
-}
-
-@media (min-width: 40rem) {
-  .scene img {
-    box-shadow: -6px 7px 5px 0px rgb(90 81 76);
-  }
 }
 
 .sender {
@@ -57,6 +49,16 @@
   align-items: center;
 
   border-radius: 30px;
+}
+
+.sender img {
+  box-shadow: -6px 7px 2.5px 0px rgb(90 81 76);
+}
+
+@media (min-width: 40rem) {
+  .sender img {
+    box-shadow: -12px 15px 5px 0px rgb(90 81 76);
+  }
 }
 
 .line {
@@ -179,7 +181,21 @@
 }
 
 .client.entered img {
+  --animated-box-shadow-50: 10px 0 1px 0 var(--secondary-color),
+    5px 0 3px 1px var(--main-color);
+  --animated-box-shadow-100: 0px 0 4px 2px var(--secondary-color),
+    0 0 4px 4px var(--main-color);
+
   animation: appear 1s ease-in-out forwards;
+}
+
+@media (min-width: 40rem) {
+  .client.entered img {
+    --animated-box-shadow-50: 20px 0 1px 0 var(--secondary-color),
+      10px 0 3px 1px var(--main-color);
+    --animated-box-shadow-100: 0px 0 8px 4px var(--secondary-color),
+      0 0 8px 8px var(--main-color);
+  }
 }
 
 .client.one.entered img {
@@ -206,8 +222,7 @@
   50% {
     opacity: 0;
     /* box-shadow: 20px 0 1px 0 #eece0c, 10px 0 3px 0px #fee960; */
-    box-shadow: 20px 0 1px 0 var(--secondary-color),
-      10px 0 3px 1px var(--main-color);
+    box-shadow: var(--animated-box-shadow-50);
   }
 
   100% {
@@ -216,8 +231,7 @@
     /* box-shadow: 0px 0 1px 1px #eece0c, 0 0 2px 2px #fee960; */
     /* box-shadow: 0px 0 1px 1px var(--main-color),
       0 0 2px 2px var(--secondary-color); */
-    box-shadow: 0px 0 8px 4px var(--secondary-color),
-      0 0 8px 8px var(--main-color);
+    box-shadow: var(--animated-box-shadow-100);
   }
 }
 

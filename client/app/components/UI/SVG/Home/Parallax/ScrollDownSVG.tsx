@@ -1,12 +1,18 @@
-import React, { memo } from 'react'
-
+import React, { memo, useEffect, useState } from 'react'
 import classes from './ScrollDownSVG.module.css'
+import useDelayedRender from '@/app/hooks/useDelayedRender'
 
 type TScrollDownSVGProps = {
   onClick: () => void
 }
 
 const ScrollDownSVG = (props: TScrollDownSVGProps) => {
+  const isRendered = useDelayedRender(4000) // Adjust the delay time as needed (in milliseconds)
+
+  if (!isRendered) {
+    return null
+  }
+
   return (
     <div className={classes.container}>
       <svg

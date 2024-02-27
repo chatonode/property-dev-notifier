@@ -37,7 +37,7 @@
 .content {
   z-index: 5;
   height: 100%;
-  /* flex: 1 0 auto; */
+  flex: 1 0.5 auto;
 
   display: flex;
   flex-direction: column;
@@ -50,26 +50,6 @@
   /* margin-top: 10%; */
 }
 
-.title {
-  margin-top: 5%;
-}
-
-.transitions-item {
-  overflow: hidden;
-  width: 100%;
-  /* color: white; */
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  font-size: 2.5em;
-  height: 60px;
-  line-height: 60px;
-  font-weight: 800;
-  will-change: transform, opacity, height;
-  /* white-space: nowrap; */
-  /* cursor: pointer; */
-  line-height: 80px;
-}
 
 /* ********** */
 
@@ -162,12 +142,41 @@
     margin: 10%;
   } */
 
-  .transitions-item {
-    font-size: 3em;
-    text-transform: uppercase;
-    height: 80px;
-    line-height: 80px;
-  }
-
   /* ********** */
 }
+
+
+/* UPDATED */
+/* 
+.content {
+  padding: 16px;
+} */
+
+/* .tech,
+.tools,
+.metrics {
+  margin-top: 16px;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+}
+
+.list {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.item {
+  margin-bottom: 8px;
+}
+
+.graphs {
+  display: flex;
+  flex-direction: column;
+}
+
+.graph {
+  width: 100%;
+  margin-bottom: 8px;
+} */

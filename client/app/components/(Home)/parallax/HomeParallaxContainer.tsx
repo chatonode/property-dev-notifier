@@ -155,8 +155,8 @@ const HomeParallaxContainer = () => {
               alignItems: 'flex-start',
               justifyContent: 'flex-end',
               zIndex: 3,
-              background:
-                'linear-gradient(rgba(0, 5, 8, 0.21), rgb(3, 45, 73), transparent)',
+              // background:
+              //   'linear-gradient(rgba(0, 5, 8, 0.21), rgb(3, 45, 73), transparent)',
               // TODO: move below to the AfterMoon
               borderTopLeftRadius: '50%',
               overflow: 'hidden',
@@ -219,9 +219,8 @@ const HomeParallaxContainer = () => {
               // background: 'linear-gradient(rgb(36, 41, 47), #9198e5)',
               // background:
               //   'linear-gradient(rgb(226, 239, 255), rgb(145, 152, 229))',
-              background:
-                // 'linear-gradient(to bottom, rgb(0 229 255 / 0.21), rgb(0 229 255), transparent)',
-                'linear-gradient(rgb(255 235 146 / 75%), rgb(255, 235, 146), transparent)',
+              // background:
+              //   'linear-gradient(rgb(255 235 146 / 75%), rgb(255, 235, 146), transparent)',
               zIndex: 4,
               borderTopRightRadius: '50%',
               overflow: 'hidden',

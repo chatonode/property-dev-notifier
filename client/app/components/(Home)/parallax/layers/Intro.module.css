@@ -85,7 +85,7 @@
 }
 
 /* Use a media query to show the image on large screens */
-@media (min-width: 768px) {
+@media (min-width: 40rem) {
   .content {
     margin: 2rem;
   }

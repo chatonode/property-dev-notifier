@@ -25,7 +25,7 @@ const Sunny = () => {
         <div className={classes.content}>
           {containerEntered && (
             <AnimatedTitleDisplayer
-              words={['Property', 'Developer', 'Notifier']}
+              words={['For', 'Your', 'Business']}
             />
           )}
           {/* Between here */}

@@ -1,9 +1,12 @@
+
 .container {
   display: flex;
   align-items: center;
   /* height: 100%; */
   justify-content: center;
   margin-top: 5%;
+
+  --height: 50px;
 }
 
 .trail-container {
@@ -14,8 +17,8 @@
   position: relative;
   width: 100%;
 
-  height: 60px;
-  line-height: 60px;
+  height: var(--height);
+  line-height: var(--height);
   /* color: black; */
   /* font-size: 6em; */
   /* font-size: 3em; */
@@ -33,10 +36,15 @@
 }
 
 @media (min-width: 40rem) {
+
+  .container {
+    --height: 110px;
+  }
+
   .trails-text {
     font-size: 3em;
     text-transform: uppercase;
-    height: 80px;
-    line-height: 80px;
+    /* height: 110px; */
+    /* line-height: 110px; */
   }
 }
