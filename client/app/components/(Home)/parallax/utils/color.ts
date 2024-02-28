@@ -1,24 +1,4 @@
-// const linearGradients = [
-//   'transparent 0%',
-//   '#ffeb92 20%', // rgb(255, 235, 146) 20%
-//   'rgb(121 114 82) 25%',
-//   'rgb(0, 5, 8) 30%',
-//   'rgb(0, 5, 8) 60%',
-//   'transparent 70%',
-// ] as const
-
-// const linearGradients = [
-//   'rgba(0, 5, 8, 0) 0%',
-//   // 'rgba(0, 5, 8, 0.45) 4%',
-//   'rgba(0, 5, 8, 0) 4%',
-//   'rgba(0, 5, 8, 0.35) 8%',
-//   'rgb(0 5 8) 26%',
-//   'rgb(0, 159, 255) 30%',
-//   'rgb(45, 176, 255) 50%',
-//   'transparent 70%',
-// ] as const
-
-const linearGradients = [
+const globalBgLinearGradients = [
   'rgba(0, 5, 8, 0) 0%',
   'rgba(0, 5, 8, 0) 4%',
   'rgba(0, 5, 8, 0.85) 8%',
@@ -32,45 +12,36 @@ const linearGradients = [
   'transparent 98%',
 ] as const
 
-const linearGradientString = `linear-gradient(${linearGradients.join(
-  ', '
-)})` as const
+const globalBgLinearGradientString =
+  `linear-gradient(${globalBgLinearGradients.join(', ')})` as const
 
-/* **** */
+/* *** */
 
-type TParallaxLayerLinearGradient = {
-  gradientString: `linear-gradient(to bottom, ${string}, ${string})`
-  offset: number
-  factor: number
+type TBottomImageContainerClientColor = {
+  primaryColor: `#${string}`
+  secondaryColor: `#${string}`
 }
 
-type TParallaxLayerLinearGradientList = TParallaxLayerLinearGradient[]
+type TBottomImageContainerClientColors = TBottomImageContainerClientColor[]
 
-const layerLinearGradients: TParallaxLayerLinearGradientList = [
+const bottomImageContainerClientColors: TBottomImageContainerClientColors = [
   {
-    gradientString: 'linear-gradient(to bottom, transparent, #ffeb92)',
-    offset: 1,
-    factor: 1,
-  }, // offset: from 0/5 to 1/5
+    primaryColor: '#04235f',
+    secondaryColor: '#8cecf5',
+  },
   {
-    gradientString: 'linear-gradient(to bottom, #ffeb92, transparent)',
-    offset: 2,
-    factor: 1,
-  }, // offset: from 1/5 to 1.5/5
+    primaryColor: '#fe6ccb',
+    secondaryColor: '#f5c8fc',
+  },
   {
-    gradientString: 'linear-gradient(to bottom, transparent, gray)',
-    offset: 3,
-    factor: 1,
-  }, // offset: from 1.5/5 to 2.5/5
-  {
-    gradientString: 'linear-gradient(to bottom, gray, transparent)',
-    offset: 4,
-    factor: 1,
-  }, // offset: from 2/5 to 2.5/5
-  //   {string: 'transparent 100%', offset: 4, factor: 1} // offset: from 2.5/5 to the end
-] as const
+    primaryColor: '#341f91',
+    secondaryColor: '#a6eafc',
+  },
+]
+
+/* *** */
 
 export {
-  linearGradientString as HOME_PARALLAX_BG_LINEAR,
-  //   layerLinearGradients as HOME_PARALLAX_BG_LINEAR_LIST,
+  globalBgLinearGradientString as HOME_PARALLAX_BG_LINEAR,
+  bottomImageContainerClientColors as BOTTOM_IMAGE_CONTAINER_CLIENT_COLORS,
 }
