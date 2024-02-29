@@ -56,7 +56,7 @@ const Sunny = () => {
           </div>
           {/* and here */}
         </div>
-        <SunnyImageContainer />
+        {/* <SunnyImageContainer /> */}
       </div>
     </Waypoint>
   )

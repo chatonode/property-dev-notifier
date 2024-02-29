@@ -20,7 +20,7 @@ const Moony = () => {
   return (
     <Waypoint onEnter={enterHandler} onLeave={leaveHandler}>
       <div className={classes.container}>
-        <MoonyImageContainer />
+        {/* <MoonyImageContainer /> */}
 
         <div className={classes.content}>
           {containerEntered && (

@@ -1,105 +1,59 @@
-/* .content {
-  margin: 0 auto;
-  font-size: 1.5em;
-  text-align: center;
-}
-
-.title {
-  font-size: 2.5em;
-  margin-bottom: 20px;
-}
-
-.subtitle {
-  font-size: 1.2em;
-} */
-
-/* ********** */
-
 .container {
-  /* Set the height and width of the hero section to fill the viewport */
   /* height: 100vh;
   width: 100vw; */
   height: 100%;
-  /* Use flexbox to center the content vertically and horizontally */
   display: flex;
   justify-content: center;
   align-items: center;
-  /* Use a pseudo-element to create a background image with a tint effect */
   position: relative;
+  /* flex-wrap: wrap-reverse; */
   flex-wrap: wrap-reverse;
   overflow: hidden;
 }
 
 .content {
-  width: 25%;
-  flex: 1 0.5 auto;
+  /* width: 25%; */
+  /* flex: 1 0.5 auto; */
+  flex: 1 0 50%;
   position: relative;
   padding: 1rem;
 }
 
 .title {
-  /* Use a large font size for the title */
   font-size: 3rem;
-  /* Use a bold font weight for the title */
   font-weight: bold;
-  /* Use a white color for the title */
-  /* color: white; */
 }
 
 .subtitle {
-  /* Use a smaller font size for the subtitle */
   font-size: 1.5rem;
-  /* Use a lighter font weight for the subtitle */
   font-weight: 300;
-  /* Use a white color for the subtitle */
-  /* color: white; */
-  /* Use some margin to create some space between the title and the subtitle */
   margin-top: 1rem;
 }
 
 .button {
-  /* Use a background color that matches your app's theme */
   background-color: #ae2d59;
-  /* Use a white color for the button text */
   color: white;
-  /* Use a border with the same color as the background */
   border: 1px solid #ae2d59;
-  /* Use some padding to create some space inside the button */
   padding: 0.75rem 1.5rem;
-  /* Use a margin to create some space between the subtitle and the button */
   margin-top: 3rem;
-  /* Use a cursor pointer to indicate that the button is clickable */
   cursor: pointer;
 }
 
 .button:hover {
-  /* Use a lighter background color for the button hover effect */
   background-color: #cb376a;
-  /* Use a lighter border color for the button hover effect */
   border: 1px solid #db7598;
 }
 
-.image {
-  /* Hide the image on small screens */
-  display: none;
-}
 
-/* Use a media query to show the image on large screens */
 @media (min-width: 40rem) {
+  .container {
+    /* flex-direction: column-reverse; */
+    flex-wrap: nowrap;
+  }
+
   .content {
     margin: 2rem;
   }
 
-  .image {
-    /* Show the image on large screens */
-    display: block;
-    /* Position the image absolute to the hero section */
-    position: absolute;
-    /* Align the image to the right of the hero section */
-    right: 0;
-    /* Use a max-height to limit the image height */
-    max-height: 80vh;
-    /* Use an object-fit to preserve the image aspect ratio */
-    object-fit: cover;
-  }
+
 }

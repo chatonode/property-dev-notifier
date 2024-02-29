@@ -1,5 +1,6 @@
 .container {
-  flex: 0 1 800px;
+  flex: 0 1 1024px;
+  /* flex: 1 0 40%; */
 
   display: flex;
   justify-content: center;

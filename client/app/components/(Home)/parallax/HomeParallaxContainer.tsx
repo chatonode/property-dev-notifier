@@ -53,7 +53,7 @@ const HomeParallaxContainer = () => {
   // }
 
   const introScrollButtonClickHandler = useCallback(() => {
-    parallaxRef.current?.scrollTo(1)
+    parallaxRef.current?.scrollTo(1.1)
   }, [])
 
   return (
@@ -89,7 +89,6 @@ const HomeParallaxContainer = () => {
             {/* <ScrollDownSVG onClick={introScrollButtonClickHandler} /> */}
           </ParallaxLayer>
 
-          {/* Top-to-mid */}
           {/* Sticky Left */}
           {/* <ParallaxLayer
             sticky={{ start: 1, end: 3 }}
@@ -127,7 +126,7 @@ const HomeParallaxContainer = () => {
           {/* Moon & First Orbit */}
 
           <ParallaxLayer
-            offset={1} // previous: 2
+            offset={1.1} // previous: 2
             speed={1.5}
             style={{
               ...alignCenter,
@@ -154,11 +153,11 @@ const HomeParallaxContainer = () => {
               display: 'flex',
               alignItems: 'flex-start',
               justifyContent: 'flex-end',
-              zIndex: 3,
+              zIndex: 2,
               // background:
               //   'linear-gradient(rgba(0, 5, 8, 0.21), rgb(3, 45, 73), transparent)',
               // TODO: move below to the AfterMoon
-              borderTopLeftRadius: '50%',
+              // borderTopLeftRadius: '50%',
               overflow: 'hidden',
             }}
             // style={{width: '100%', height: '100%'}}
@@ -191,12 +190,12 @@ const HomeParallaxContainer = () => {
 
           {/* Sun */}
           <ParallaxLayer
-            offset={2} // previous: 1
+            offset={2.1} // previous: 1
             speed={1.5}
             style={{
               ...alignCenter,
               justifyContent: 'flex-end',
-              zIndex: 2,
+              zIndex: 3,
               pointerEvents: 'none',
               // marginLeft: '15%',
             }}
@@ -221,8 +220,8 @@ const HomeParallaxContainer = () => {
               //   'linear-gradient(rgb(226, 239, 255), rgb(145, 152, 229))',
               // background:
               //   'linear-gradient(rgb(255 235 146 / 75%), rgb(255, 235, 146), transparent)',
-              zIndex: 4,
-              borderTopRightRadius: '50%',
+              zIndex: 2,
+              // borderTopRightRadius: '50%',
               overflow: 'hidden',
             }}
             // style={{width: '100%', height: '100%'}}

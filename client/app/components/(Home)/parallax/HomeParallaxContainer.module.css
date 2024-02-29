@@ -124,7 +124,7 @@
 
   /* ending spreads to the container */
   box-shadow: 0 0 8px 0px #d0d0d0, 0 0 16px 16px #b0b0b0, 0 0 32px 0px #a0a0a0,
-    0 0 64px 16px #909090, 0 10px 128px 128px #b0b0b0; /* , 0 0 20px 300px black */
+    0 0 64px 16px #909090, 0 10px 128px 128px #b0b0b0c4; /* , 0 0 20px 300px black */
 }
 
 .moon::before {
