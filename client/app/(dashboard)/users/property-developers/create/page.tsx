@@ -9,7 +9,7 @@ import PageTitleWrapper from '@/app/components/(Layout)/(dashboard)/Body/Main/Ti
 
 import CreatePropertyDeveloperContainer from '@/app/components/(Users)/PropertyDevelopers/CRUD/create/CreatePropertyDeveloperContainer'
 
-const PropertyDevelopers = async () => {
+const CreatePropertyDeveloper = async () => {
   const currentUser = await getCurrentUser()
 
   return (
@@ -25,6 +25,6 @@ const PropertyDevelopers = async () => {
   )
 }
 
-export default PropertyDevelopers
+export default CreatePropertyDeveloper
 
 export const dynamic = 'force-dynamic'
