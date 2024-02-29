@@ -411,6 +411,49 @@ html {
   min-height: auto;
 }
 
+/* Scrollbar */
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 100%;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+
+/* ::-webkit-scrollbar-track-piece {
+} */
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  /* background: #888; */
+  /* background: rgba(255, 255, 255, 0.767); */
+  background: var(--color-palette-start);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:focus,
+::-webkit-scrollbar-thumb:hover {
+  /* background: #555; */
+  /* background: linear-gradient(
+    to bottom,
+    rgb(255, 236, 236),
+    yellow,
+    blue,
+    black,
+    rgb(255, 236, 236)
+  ); */
+  /* background: rgb(255, 255, 255); */
+  background: var(--color-palette-2);
+}
+
 /* Layout */
 body {
   /* background: var(--global-background-light); */

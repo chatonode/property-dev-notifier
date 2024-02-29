@@ -1,14 +1,14 @@
 import { Suspense } from 'react'
 
-import getCurrentUser from '@/app/api/(server)/auth/get-current-user'
-import getPropertyDevelopers from '@/app/api/(server)/users/property-developers/list'
-import { TPropertyDevelopersList } from '@/app/types/types'
+import getCurrentUser from '@/api/(server)/auth/get-current-user'
+import getPropertyDevelopers from '@/api/(server)/users/property-developers/list'
+import { TPropertyDevelopersList } from '@/types/types'
 
-import DashboardMainWrapper from '@/app/components/(Layout)/(dashboard)/Body/Main/Default/DashboardMainWrapper'
-import DashboardSectionWrapper from '@/app/components/(Layout)/(dashboard)/Body/Main/Section/DashboardSectionWrapper'
-import PageTitleWrapper from '@/app/components/(Layout)/(dashboard)/Body/Main/Title/PageTitleWrapper'
+import DashboardMainWrapper from '@/components/(Layout)/(dashboard)/Body/Main/Default/DashboardMainWrapper'
+import DashboardSectionWrapper from '@/components/(Layout)/(dashboard)/Body/Main/Section/DashboardSectionWrapper'
+import PageTitleWrapper from '@/components/(Layout)/(dashboard)/Body/Main/Title/PageTitleWrapper'
 
-import PropertyDevelopersContainer from '@/app/components/(Users)/PropertyDevelopers/CRUD/list/PropertyDevelopersContainer'
+import PropertyDevelopersContainer from '@/components/(Users)/PropertyDevelopers/CRUD/list/PropertyDevelopersContainer'
 
 const PropertyDevelopers = async () => {
   const currentUser = await getCurrentUser()
