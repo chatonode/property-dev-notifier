@@ -35,6 +35,8 @@
   background-position: center;
 
   border-radius: inherit;
+
+  user-select: none;
 }
 
 .sender {
@@ -171,7 +173,6 @@
   transform: scale(0.75);
   transition: transform 0.5s ease-in-out;
 
-  user-select: none;
 }
 
 .client:focus img,

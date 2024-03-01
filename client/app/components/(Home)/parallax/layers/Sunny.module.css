@@ -37,65 +37,88 @@
 
 /* ********** */
 
-.features {
-  display: flex;
-  /* flex-direction: column; */
-  flex-wrap: wrap;
+.details {
+  /* Mobile-first styling */
+  padding: 10px;
+  width: 100%;
 }
 
-.feature {
+.icons {
+  /* Mobile-first styling for the icons */
+  display: flex;
+  justify-content: space-around;
+  /* font-size: 20px; */
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* .icons i {
+
+} */
+
+.icon-container {
+  cursor: pointer;
+
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: gray;
+}
+.icon-container.active {
+  background: yellow;
+}
+
+/* @media (min-width: 768px) {
+  .details-container {
+    padding: 20px;
+  }
+
+  .icons {
+    font-size: 24px;
+  }
+} */
+
+/* ***** */
+
+.detail {
   display: flex;
   flex-direction: column;
-  padding: 0.5rem;
-  margin: 0.5rem;
-  /* border: 1px solid #ae2d59; */
-  /* border: 1px solid #ffeb3b; */
-  border-radius: 10px;
-  /* background: linear-gradient(225deg, #ffeb3b, transparent); */
-  border-radius: 10px;
-  /* Use a box shadow to create a subtle depth effect for the features */
-  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  opacity: 0;
+  transform: translateX(100%);
 
-  /* background: linear-gradient(45deg, #ffe500, #ffe924, #fda920); */
-  box-shadow: 0 0 1px 0px #ffeb3b, 0 0 2px 2px #ffc107, 0 0 3px 0px #ff9800,
-    0 0 4px 1px #ff5722, 0 1px 5px 5px #ffc83b;
-  /* 0 0 2px 6px #969ee6; */
-  background: linear-gradient(#C2B280, #f6d7b0);
+  animation: fade-in ease-in-out forwards;
+  animation-duration: calc(var(--global-animation-duration) * 4);
 }
 
-.icon {
-  /* Use a large font size for the feature icon */
-  font-size: 3rem;
-  /* Use a color that matches your app's theme for the feature icon */
-  color: #ae2d59;
-  /* Use some margin to create some space between the icon and the title */
-  margin-bottom: 0.5rem;
+.detail::after {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  background: rgb(43, 42, 42);
+  width: 50%;
+  height: 4px;
+  left: 25%;
+  border-radius: 50%;
+  filter: blur(3px);
 }
 
-.subtitle {
-  font-size: 1.25rem;
-  font-weight: bold;
-  font-family: 'Space Mono', monospace;
-
-  margin-bottom: 0.25rem;
-}
-
-.text {
-  /* Use a normal font size for the feature text */
-  font-size: 1rem;
-  /* Use a lighter font weight for the feature text */
-  font-weight: 300;
-}
-
-@media (min-width: 40rem) {
-  .features {
-    /* flex-direction: row; */
-    margin: 2rem;
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
   }
-
-  .feature {
-    margin: 1rem;
-    padding: 1rem;
+  50% {
+    opacity: 0.5;
+    transform: translateX(-5%);
   }
-  
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
