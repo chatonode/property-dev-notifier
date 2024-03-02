@@ -8,6 +8,7 @@
   justify-content: center;
   align-items: center;
   /* margin: 5%; */
+  background: linear-gradient(0deg, #e2d9cc, transparent 70%);
 }
 
 .content {

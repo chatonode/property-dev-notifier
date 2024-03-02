@@ -52,9 +52,9 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: brightness(90%);
+  filter: brightness(80%);
   transition: filter ease-in-out;
-  transition-duration: var(--global-transition-duration);
+  transition-duration: calc(var(--global-transition-duration) * 5);
 }
 
 .image:focus img,
