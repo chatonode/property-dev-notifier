@@ -1,0 +1,27 @@
+.container {
+  width: 100%;
+  height: auto;
+  flex: 1 0 40%;
+}
+
+.svg path {
+  stroke: #002337;
+  stroke-width: 50px;
+  stroke-dashoffset: 150;
+  stroke-dasharray: 1 2 1;
+  fill: #002337;
+  animation: dash 5s ease-in-out forwards;
+}
+
+@keyframes dash {
+  50% {
+    fill: yellow;
+    stroke-dasharray: 2 1 2;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+
+    fill: transparent;
+  }
+}

@@ -8,15 +8,13 @@ import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import { ERoute } from '@/app/types/enums'
 import classes from './HomeParallaxContainer.module.css'
 
-import HeroTitleSVG from '@/app/components/UI/SVG/Home/Hero/unused/HeroTitleSVG'
-import AnimatedGradientStops from '@/components/UI/SVG/gradient/linear/AnimatedGradientStops'
-import ImageSpinner from '@/components/UI/SVG/Loading/ImageSpinner'
+// import HeroTitleSVG from '@/app/components/UI/SVG/Home/Hero/unused/HeroTitleSVG'
+// import AnimatedGradientStops from '@/components/UI/SVG/gradient/linear/AnimatedGradientStops'
+// import ImageSpinner from '@/components/UI/SVG/Loading/ImageSpinner'
 
-import mainBackgroundImage from '@/public/assets/images/home/parallax/Designer.png'
-// import mainBackgroundImage from '@/public/assets/images/home/parallax/Designer (2).png'
-// import mainBackgroundImage from '@/public/assets/images/home/parallax/pattern_waves-18_1_2_0-0_0_1__ffffff_805ad5.png'
+import heroImage from '@/public/assets/images/home/parallax/Designer.png'
 
-import AnimatedRocket from '../../../UI/Animated/AnimatedRocket'
+// import AnimatedRocket from '../../../UI/Animated/AnimatedRocket'
 
 const HomeParallaxContainer = () => {
   return (
@@ -67,7 +65,7 @@ const HomeParallaxContainer = () => {
             <Image
               // layout="fill"
               // key={imagePaths[currentImageIndex]!.src}
-              src={mainBackgroundImage.src}
+              src={heroImage.src}
               quality={100}
               // width={4096}
               // height={4096}

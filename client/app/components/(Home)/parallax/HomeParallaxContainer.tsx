@@ -32,6 +32,7 @@ import StarsLayerLightSVG from '@/app/components/UI/SVG/Home/Parallax/StarsLayer
 import CloudParallaxLayers from './layers/Clouds/CloudParallaxLayers'
 import Sunny from './layers/Sunny'
 import Bottom from './layers/Bottom'
+import ScrollDownSVG from '../../UI/SVG/Home/Parallax/ScrollDownSVG'
 
 // import {
 //   animated,
@@ -43,7 +44,7 @@ import Bottom from './layers/Bottom'
 // } from '@react-spring/web'
 
 const HomeParallaxContainer = () => {
-  // const parallaxRef = useRef<IParallax | null>(null!)
+  const parallaxRef = useRef<IParallax | null>(null!)
 
   const alignCenter = { display: 'flex', alignItems: 'center' }
   // const scrollSnapCenterYProx = {
@@ -51,14 +52,14 @@ const HomeParallaxContainer = () => {
   //   scrollSnapType: 'y proximity',
   // }
 
+  const introScrollButtonClickHandler = useCallback(() => {
+    parallaxRef.current?.scrollTo(1.1)
+  }, [])
+
   return (
     <>
       <div className={`${classes.container}`}>
-        <Parallax
-          pages={4.5}
-          // ref={parallaxRef}
-          className={classes.parallax}
-        >
+        <Parallax pages={4.5} ref={parallaxRef} className={classes.parallax}>
           {/* Global Color Layers */}
 
           <ParallaxLayer
@@ -77,12 +78,17 @@ const HomeParallaxContainer = () => {
           <ParallaxLayer
             offset={0}
             speed={1}
-            style={{ ...alignCenter, justifyContent: 'center', zIndex: 3 }}
+            style={{
+              ...alignCenter,
+              justifyContent: 'center',
+              zIndex: 3,
+              position: 'relative',
+            }}
           >
-            <Intro />
+            <Intro onScrollDownClick={introScrollButtonClickHandler} />
+            {/* <ScrollDownSVG onClick={introScrollButtonClickHandler} /> */}
           </ParallaxLayer>
 
-          {/* Top-to-mid */}
           {/* Sticky Left */}
           {/* <ParallaxLayer
             sticky={{ start: 1, end: 3 }}
@@ -120,7 +126,7 @@ const HomeParallaxContainer = () => {
           {/* Moon & First Orbit */}
 
           <ParallaxLayer
-            offset={1} // previous: 2
+            offset={1.1} // previous: 2
             speed={1.5}
             style={{
               ...alignCenter,
@@ -147,11 +153,11 @@ const HomeParallaxContainer = () => {
               display: 'flex',
               alignItems: 'flex-start',
               justifyContent: 'flex-end',
-              zIndex: 3,
-              background:
-                'linear-gradient(rgba(0, 5, 8, 0.21), rgb(3, 45, 73), transparent)',
+              zIndex: 2,
+              // background:
+              //   'linear-gradient(rgba(0, 5, 8, 0.21), rgb(3, 45, 73), transparent)',
               // TODO: move below to the AfterMoon
-              borderTopLeftRadius: '50%',
+              // borderTopLeftRadius: '50%',
               overflow: 'hidden',
             }}
             // style={{width: '100%', height: '100%'}}
@@ -184,12 +190,12 @@ const HomeParallaxContainer = () => {
 
           {/* Sun */}
           <ParallaxLayer
-            offset={2} // previous: 1
+            offset={2.1} // previous: 1
             speed={1.5}
             style={{
               ...alignCenter,
               justifyContent: 'flex-end',
-              zIndex: 2,
+              zIndex: 3,
               pointerEvents: 'none',
               // marginLeft: '15%',
             }}
@@ -212,11 +218,10 @@ const HomeParallaxContainer = () => {
               // background: 'linear-gradient(rgb(36, 41, 47), #9198e5)',
               // background:
               //   'linear-gradient(rgb(226, 239, 255), rgb(145, 152, 229))',
-              background:
-                // 'linear-gradient(to bottom, rgb(0 229 255 / 0.21), rgb(0 229 255), transparent)',
-                'linear-gradient(rgb(255 235 146 / 75%), rgb(255, 235, 146), transparent)',
-              zIndex: 4,
-              borderTopRightRadius: '50%',
+              // background:
+              //   'linear-gradient(rgb(255 235 146 / 75%), rgb(255, 235, 146), transparent)',
+              zIndex: 2,
+              // borderTopRightRadius: '50%',
               overflow: 'hidden',
             }}
             // style={{width: '100%', height: '100%'}}

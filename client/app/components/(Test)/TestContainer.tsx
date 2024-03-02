@@ -4,6 +4,9 @@ import { memo, useCallback, useState } from 'react'
 import Modal from '../UI/Overlay/Modal'
 import SwipeableCardContainer from '../UI/Swipeable/SwipeableCardContainer'
 
+import grainynoiseSvg from '@/public/assets/svg/grainy-noise.svg'
+import AnimatedEnvelope from '../UI/Animated/AnimatedEnvelope'
+
 const TestContainer = () => {
   const [modalIsVisible, setModalIsVisible] = useState(false)
 
@@ -21,7 +24,7 @@ const TestContainer = () => {
         <button type="button" onClick={openModalHandler}>
           {modalIsVisible ? 'Opened Modal' : 'Open Modal'}
         </button>
-        {modalIsVisible && (
+        {/* {modalIsVisible && (
           <Modal
             title="Hello Developerzzzzzzzzzz! This is Non-Closable Backdropped Overlay Component!.. How is Internationalization things going on over there? Lemme see your pneumonoultramicroscopicsilicovolcanoconiosis"
             isBackdropClosable={false}
@@ -54,8 +57,18 @@ const TestContainer = () => {
               </p>
             </div>
           </Modal>
-        )}
-        <SwipeableCardContainer />
+        )} */}
+        {/* <SwipeableCardContainer /> */}
+        {/* <h2
+          style={{
+            width: '100%',
+            textAlign: 'center',
+            background: `linear-gradient(45deg, green, transparent), url(${grainynoiseSvg.src});`,
+          }}
+        >
+          Test Noise SVG
+        </h2> */}
+        <AnimatedEnvelope />
       </div>
     </>
   )
