@@ -7,6 +7,7 @@ import PublicMainWrapper from '@/app/components/(Layout)/(public)/Body/Main/Defa
 import PublicSectionWrapper from '../components/(Layout)/(public)/Body/Main/Section/PublicSectionWrapper'
 import HomeContainer from '@/components/(Home)/HomeContainer'
 import HomeParallaxContainer from '@/app/components/(Home)/parallax/HomeParallaxContainer'
+import HomeMainWrapper from '../components/(Layout)/(public)/Body/Main/HomeMainWrapper'
 
 const Home = async () => {
   // const router = useRouter()
@@ -19,14 +20,14 @@ const Home = async () => {
   // }
 
   return (
-    <PublicMainWrapper>
+    <HomeMainWrapper>
       <PublicSectionWrapper>
         <HomeParallaxContainer />
       </PublicSectionWrapper>
       {/* <PublicSectionWrapper>
         <HomeContainer />
       </PublicSectionWrapper> */}
-    </PublicMainWrapper>
+    </HomeMainWrapper>
   )
 }
 

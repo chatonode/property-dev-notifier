@@ -727,11 +727,11 @@ main {
   font-size: 1em;
 }
 
+main.main-home,
 main.main-public {
   /* height: 100%; */
   margin: auto;
-  /* padding-top: 1em; */
-  /* padding-bottom: 1.2em; */
+
   flex-grow: 1;
 
   /* For Sidebar */
@@ -742,6 +742,11 @@ main.main-public {
   flex-direction: column;
   justify-content: flex-start;
   /* align-items: center; */
+}
+
+main.main-public {
+  padding-top: 1em;
+  padding-bottom: 1.2em;
 }
 
 section.section-public {
@@ -784,6 +789,16 @@ section.section-dashboard {
   justify-content: flex-start;
   align-items: center;
   flex-grow: 1;
+
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+@media (min-width: 40rem) {
+  section.section-dashboard {
+    margin-left: 1em;
+    margin-right: 1em;
+  }
 }
 
 /** **/

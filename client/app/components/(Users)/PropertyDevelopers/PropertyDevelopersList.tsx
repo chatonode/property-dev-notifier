@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, memo } from 'react'
 import { poppins500 } from '@/app/fonts'
 
 import { TPropertyDevelopersList } from '@/app/types/types'
@@ -93,4 +93,4 @@ const PropertyDevelopersList = (props: TPropertyDevelopersListProps) => {
   )
 }
 
-export default PropertyDevelopersList
+export default memo(PropertyDevelopersList)
