@@ -15,6 +15,7 @@ import UserInfoContainer from './UserInfoContainer'
 import NavigationMenu from './NavigationMenu'
 import Bottom from './Bottom'
 import Copyright from './Copyright'
+import SidebarHouseSVG from '@/components/UI/SVG/Layout/Sidebar/background/SidebarHouseSVG'
 
 // import { createPortal } from 'react-dom'
 
@@ -59,6 +60,9 @@ const SidebarContainer = (props: TSidebarContainerProps) => {
         {/* {props.children} */}
         <Bottom />
         <Copyright />
+        <div className={classes['sidebar-svg']}>
+          <SidebarHouseSVG />
+        </div>
       </div>
     </>
   )

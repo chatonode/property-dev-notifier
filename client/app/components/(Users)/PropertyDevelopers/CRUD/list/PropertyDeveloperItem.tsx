@@ -11,8 +11,15 @@ type TPropertyDeveloperItemProps = {
 const PropertyDeveloperItem = ({ developer }: TPropertyDeveloperItemProps) => {
   return (
     <div className={classes.item}>
-      <h3 className={classes["full-name"]}>{developer.fullName}</h3>
-      <p className={classes.email}>{developer.email}</p>
+      <div className={classes['user-info']}>
+        <h4 className={classes['full-name']}>{developer.fullName}</h4>
+        <p className={classes.email}>{developer.email}</p>
+      </div>
+      <div className={classes.actions}>
+        <div>.</div>
+        <div>.</div>
+        <div>.</div>
+      </div>
       {/* Add more property developer information as needed */}
     </div>
   )

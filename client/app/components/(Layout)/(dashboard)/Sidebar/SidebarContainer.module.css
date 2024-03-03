@@ -16,6 +16,8 @@
   justify-content: space-between;
   align-items: flex-start;
 
+  overflow: hidden;
+
   padding: 0 1em;
   box-shadow: 0px 0px 8px 0px var(--text-primary);
 
@@ -24,6 +26,25 @@
   opacity: 0.5;
   transition: transform ease-in-out, z-index ease-in-out, opacity ease-in-out;
   transition-duration: calc(var(--global-transition-duration));
+}
+
+.sidebar-svg {
+  content: '';
+  position: absolute;
+  bottom: 10%;
+  left: 0%;
+  width: 100%;
+  transform: rotateY(180deg);
+
+  height: 39%;
+  opacity: 0.1;
+}
+
+@media (min-width: 40rem) {
+  .sidebar-svg {
+    height: 20%;
+    opacity: 0.4;
+  }
 }
 
 .expanded {
