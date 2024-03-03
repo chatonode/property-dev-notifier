@@ -3,6 +3,7 @@
 import { TPropertyDevelopersList } from '@/app/types/types'
 import PropertyDeveloperItem from './PropertyDeveloperItem'
 import classes from './PropertyDevelopersContainer.module.css'
+import NewPropertyDeveloperButton from './header/NewPropertyDeveloperButton'
 
 type TPropertyDevelopersContainerProps = {
   propertyDevelopers: TPropertyDevelopersList
@@ -24,7 +25,7 @@ const PropertyDevelopersContainer = ({
           {/* <h3>Name</h3> */}
           {/* <h3>Action</h3> */}
         </div>
-        <span className={classes["new-user"]}>+ New</span>
+        <NewPropertyDeveloperButton className={classes['new-user']!} />
       </div>
       {propertyDevelopers.length === 0 && (
         <div className={classes['no-developers']}>

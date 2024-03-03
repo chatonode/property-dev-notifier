@@ -21,8 +21,6 @@ import HeroTitleSVG from '@/app/components/UI/SVG/Home/Hero/unused/HeroTitleSVG'
 // import mainBackgroundImage from '@/public/assets/images/home/parallax/Designer (2).png'
 // import mainBackgroundImage from '@/public/assets/images/home/parallax/pattern_waves-18_1_2_0-0_0_1__ffffff_805ad5.png'
 
-import AnimatedRocket from '../../UI/Animated/AnimatedRocket'
-
 import { HOME_PARALLAX_BG_LINEAR } from './utils/color'
 import Intro from './layers/Intro'
 import StarsLayerDarkSVG from '../../UI/SVG/Home/Parallax/StarsLayerDarkSVG'
