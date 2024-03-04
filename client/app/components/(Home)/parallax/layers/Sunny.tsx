@@ -72,29 +72,39 @@ const Sunny = () => {
 
             {contentDetail === 'user-management' && (
               <div className={classes.detail}>
-                <h3>Enhanced User Management</h3>
+                <h3>Effortless Developer Management</h3>
                 <p>
-                  Create, read, update, and delete property developers with ease
+                  Streamline your property developer database with our enhanced
+                  user management system. Effortlessly create, view, update, and
+                  remove developer profiles, ensuring your information is always
+                  up-to-date and accurate. With a user-friendly interface,
+                  managing your developer list has never been this efficient.
                 </p>
               </div>
             )}
 
             {contentDetail === 'email' && (
               <div className={classes.detail}>
-                <h3>Customized E-mails</h3>
+                <h3>Personalized Communication Hub</h3>
                 <p>
-                  Send personalized and professional emails to property
-                  developers with your own title and body
+                  Craft personalized and professional emails tailored to your
+                  property developers. Our customized email feature allows you
+                  to send messages with your own subject lines and body content,
+                  enhancing communication and engagement. Keep your developers
+                  informed and connected with ease.
                 </p>
               </div>
             )}
 
             {contentDetail === 'security' && (
               <div className={classes.detail}>
-                <h3>Secure Experience</h3>
+                <h3>Fortified Security Measures</h3>
                 <p>
-                  Only authorized admins can access and manage the app's
-                  features and data
+                  Prioritize the safety of your app and data. Our secure
+                  experience ensures that only authorized admins can access and
+                  manage the application's features and data. Rest easy knowing
+                  that your property developer information is protected and
+                  handled with the utmost security.
                 </p>
               </div>
             )}

@@ -11,7 +11,7 @@ type TTrailProps = {
 const Trail = memo(({ open, children }: TTrailProps) => {
   const items = React.Children.toArray(children)
   const trail = useTrail(items.length, {
-    config: { mass: 5, tension: 2000, friction: 200 },
+    config: { mass: 5, tension: 800, friction: 100 },
     opacity: open ? 1 : 0,
     x: open ? 0 : 20,
     height: open ? 110 : 0,

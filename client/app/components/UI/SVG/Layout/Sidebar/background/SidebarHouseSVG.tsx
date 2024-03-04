@@ -3,7 +3,7 @@ import classes from './SidebarHouseSVG.module.css'
 
 const SidebarHouseSVG = () => {
   // className={classes.svg}
-  console.log('SidebarHouseSVG is rendered.')
+  // console.log('SidebarHouseSVG is rendered.')
   return (
     <svg
       className={classes.svg}
