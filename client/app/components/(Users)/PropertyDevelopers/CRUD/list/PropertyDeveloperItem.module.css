@@ -4,7 +4,7 @@
   ---item-flex-basis: 85px;
 
   width: 100%;
-  flex: 0 0 var(---item-flex-basis);
+  flex: 1 1 var(---item-flex-basis);
 
   display: flex;
   justify-content: space-between;
@@ -21,13 +21,15 @@
 
 .item.expanded {
   flex: 1 0 auto;
+
+  background-color: var(--color-palette-3);
+  box-shadow: 0 0 15px 0 var(--color-palette-2);
 }
 
 .transitioning {
   animation: expand linear forwards;
   animation-duration: var(--global-animation-duration);
   cursor: progress;
-  /* pointer-events: none; */
 }
 
 .transitioning.expanded {
@@ -36,7 +38,7 @@
 
 @keyframes minimize {
   100% {
-    flex: 0 0 var(---item-flex-basis);
+    flex: 1 1 var(---item-flex-basis);
   }
 }
 
@@ -69,6 +71,11 @@
 .item:focus,
 .item:hover {
   background-color: var(--color-palette-4);
+}
+
+.item:focus.expanded,
+.item:hover.expanded {
+  background-color: inherit;
 }
 
 .user-info {
@@ -120,6 +127,15 @@
 .item:focus .email,
 .item:hover .email {
   color: var(--color-palette-end);
+}
+
+.item.expanded .email {
+  color: var(--color-palette-end);
+}
+
+.item:focus.expanded .email,
+.item:hover.expanded .email {
+  color: inherit;
 }
 
 .actions {

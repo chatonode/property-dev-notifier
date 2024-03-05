@@ -23,12 +23,33 @@ const ViewPropertyDeveloper = async ({
 }: TViewPropertyDeveloperProps) => {
   // const currentUser = await getCurrentUser()
 
+  const propertyDevelopers = await getPropertyDevelopers()
   const propertyDeveloperId = params.propertyDeveloperId
   const propertyDeveloper = await getPropertyDeveloper(propertyDeveloperId)
 
   return (
     <>
-      <PropertyDeveloperItem developer={propertyDeveloper} isExpanded={true} />
+      {propertyDevelopers.map((developer) => {
+        if (developer.id === propertyDeveloper.id) {
+          return (
+            <PropertyDeveloperItem
+              key={developer.id}
+              developer={developer}
+              isExpanded={true}
+              // onClick={itemClickHandler}
+            />
+          )
+        }
+
+        return (
+          <PropertyDeveloperItem
+            key={developer.id}
+            developer={developer}
+            isExpanded={false}
+            // onClick={itemClickHandler}
+          />
+        )
+      })}
     </>
   )
 }

@@ -7,6 +7,7 @@ import { ERoute } from '@/app/types/enums'
 import { TPropertyDeveloper } from '@/app/types/types'
 
 import classes from './PropertyDeveloperItem.module.css'
+import useLongPress from '@/app/hooks/useLongPress'
 
 type TPropertyDeveloperItemProps = {
   developer: TPropertyDeveloper
@@ -30,6 +31,10 @@ TPropertyDeveloperItemProps) => {
     setOnTransition(true)
   }, [])
 
+  const longPressHandlers = useLongPress({
+    callback: toggleItemHandler,
+  })
+
   useEffect(() => {
     if (onTransition) {
       const transitionInterval = setTimeout(() => {
@@ -46,7 +51,11 @@ TPropertyDeveloperItemProps) => {
   }, [onTransition])
 
   return (
-    <div className={itemClassNames} onClick={toggleItemHandler}>
+    <div
+      className={itemClassNames}
+      onClick={toggleItemHandler}
+      {...longPressHandlers}
+    >
       <div className={classes['user-info']}>
         <h4 className={classes['full-name']}>{developer.fullName}</h4>
         <span className={classes.email}>{developer.email}</span>

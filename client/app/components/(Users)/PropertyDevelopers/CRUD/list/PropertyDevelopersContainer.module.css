@@ -9,7 +9,7 @@
   align-items: center;
   gap: 1em;
 
-  overflow: hidden visible;
+  overflow: visible visible;
 }
 
 .header {
