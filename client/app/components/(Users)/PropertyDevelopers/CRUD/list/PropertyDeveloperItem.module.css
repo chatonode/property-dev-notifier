@@ -1,8 +1,10 @@
 /* PropertyDeveloperItem.module.css */
 
 .item {
+  ---item-flex-basis: 85px;
+
   width: 100%;
-  flex: 0 0 85px;
+  flex: 0 0 var(---item-flex-basis);
 
   display: flex;
   justify-content: space-between;
@@ -13,7 +15,7 @@
   margin: 0 1em;
 
   background-color: var(--color-palette-end);
-  transition: background-color ease-in, flex ease-in;
+  transition: background-color ease-in;
   transition-duration: var(--global-transition-duration);
 }
 
@@ -21,9 +23,42 @@
   flex: 1 0 auto;
 }
 
+.transitioning {
+  animation: expand linear forwards;
+  animation-duration: var(--global-animation-duration);
+  cursor: progress;
+  /* pointer-events: none; */
+}
+
+.transitioning.expanded {
+  animation-name: minimize;
+}
+
+@keyframes minimize {
+  100% {
+    flex: 0 0 var(---item-flex-basis);
+  }
+}
+
+@keyframes expand {
+  100% {
+    flex: 1 0 auto;
+  }
+}
+
+/* .item:not(.transitioning) {
+  animation: fade-out 1s linear forwards;
+}
+
+@keyframes fade-out {
+  100% {
+    opacity: 0;
+  }
+} */
+
 @media (min-width: 40rem) {
   .item {
-    flex-basis: 65px;
+    ---item-flex-basis: 65px;
   }
 
   .item.expanded {
