@@ -13,12 +13,21 @@
   margin: 0 1em;
 
   background-color: var(--color-palette-end);
-  transition: background-color var(--global-transition-duration) ease-in;
+  transition: background-color ease-in, flex ease-in;
+  transition-duration: var(--global-transition-duration);
+}
+
+.item.expanded {
+  flex: 1 0 auto;
 }
 
 @media (min-width: 40rem) {
   .item {
     flex-basis: 65px;
+  }
+
+  .item.expanded {
+    flex: 1 0 auto;
   }
 }
 

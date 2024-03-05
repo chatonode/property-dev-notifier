@@ -152,10 +152,6 @@ const HomeParallaxContainer = () => {
               alignItems: 'flex-start',
               justifyContent: 'flex-end',
               zIndex: 2,
-              // background:
-              //   'linear-gradient(rgba(0, 5, 8, 0.21), rgb(3, 45, 73), transparent)',
-              // TODO: move below to the AfterMoon
-              // borderTopLeftRadius: '50%',
               overflow: 'hidden',
             }}
             // style={{width: '100%', height: '100%'}}

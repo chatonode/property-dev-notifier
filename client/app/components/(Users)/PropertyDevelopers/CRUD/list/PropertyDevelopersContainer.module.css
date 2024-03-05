@@ -8,6 +8,8 @@
   flex-direction: column;
   align-items: center;
   gap: 1em;
+
+  overflow: hidden visible;
 }
 
 .header {
