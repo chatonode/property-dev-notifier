@@ -8,11 +8,11 @@ import { TPropertyDeveloper } from '@/app/types/types'
 
 import classes from './PropertyDeveloperItem.module.css'
 import useLongPress from '@/app/hooks/useLongPress'
+import ActiveItemForm from './ActiveItemForm'
 
 type TPropertyDeveloperItemProps = {
   developer: TPropertyDeveloper
   isExpanded: boolean
-  // onClick?: () => void
 }
 
 const PropertyDeveloperItem = ({
@@ -31,9 +31,11 @@ TPropertyDeveloperItemProps) => {
     setOnTransition(true)
   }, [])
 
-  const longPressHandlers = useLongPress({
-    callback: toggleItemHandler,
-  })
+  const longPressHandlers = !isExpanded
+    ? useLongPress({
+        callback: toggleItemHandler,
+      })
+    : undefined
 
   useEffect(() => {
     if (onTransition) {
@@ -53,18 +55,29 @@ TPropertyDeveloperItemProps) => {
   return (
     <div
       className={itemClassNames}
-      onClick={toggleItemHandler}
+      onClick={!isExpanded ? toggleItemHandler : undefined}
       {...longPressHandlers}
     >
-      <div className={classes['user-info']}>
-        <h4 className={classes['full-name']}>{developer.fullName}</h4>
-        <span className={classes.email}>{developer.email}</span>
-      </div>
-      <div className={classes.actions}>
-        <div>.</div>
-        <div>.</div>
-        <div>.</div>
-      </div>
+      {!isExpanded && (
+        <>
+          <div className={classes['user-info']}>
+            <h4 className={classes['full-name']}>{developer.fullName}</h4>
+            <span className={classes.email}>{developer.email}</span>
+          </div>
+          <div className={classes.actions}>
+            <div>.</div>
+            <div>.</div>
+            <div>.</div>
+          </div>
+        </>
+      )}
+
+      {isExpanded && (
+        <>
+          {/* // generate this component */}
+          <ActiveItemForm developer={developer} onCancel={toggleItemHandler} />
+        </>
+      )}
     </div>
   )
 }
