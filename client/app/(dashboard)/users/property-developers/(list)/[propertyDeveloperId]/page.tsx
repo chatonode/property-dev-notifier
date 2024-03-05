@@ -11,6 +11,7 @@ import PageTitleWrapper from '@/components/(Layout)/(dashboard)/Body/Main/Title/
 
 import PropertyDevelopersContainer from '@/components/(Users)/PropertyDevelopers/CRUD/list/PropertyDevelopersContainer'
 import PropertyDeveloperItem from '@/components/(Users)/PropertyDevelopers/CRUD/list/PropertyDeveloperItem'
+import BackdropPortal from '@/app/components/UI/Overlay/BackdropPortal'
 
 type TViewPropertyDeveloperProps = {
   params: {
@@ -32,12 +33,14 @@ const ViewPropertyDeveloper = async ({
       {propertyDevelopers.map((developer) => {
         if (developer.id === propertyDeveloper.id) {
           return (
-            <PropertyDeveloperItem
-              key={developer.id}
-              developer={developer}
-              isExpanded={true}
-              // onClick={itemClickHandler}
-            />
+            <BackdropPortal>
+              <PropertyDeveloperItem
+                key={developer.id}
+                developer={developer}
+                isExpanded={true}
+                // onClick={itemClickHandler}
+              />
+            </BackdropPortal>
           )
         }
 

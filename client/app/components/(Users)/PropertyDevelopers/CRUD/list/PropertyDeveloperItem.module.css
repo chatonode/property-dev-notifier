@@ -4,7 +4,8 @@
   ---item-flex-basis: 85px;
 
   width: 100%;
-  flex: 1 1 var(---item-flex-basis);
+  flex: 0 0 var(---item-flex-basis);
+  /* order: 0; */
 
   display: flex;
   justify-content: space-between;
@@ -20,31 +21,82 @@
 }
 
 .item.expanded {
-  flex: 1 0 auto;
+  /* flex: 1 0 auto; */
+  /* order: -1; */
+  z-index: 9999;
+  position: absolute;
+
+  width: 90%;
+  height: 90%;
+  margin-right: 0;
+
+  margin-left: 0;
 
   background-color: var(--color-palette-3);
   box-shadow: 0 0 15px 0 var(--color-palette-2);
+  opacity: 0;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  animation-duration: calc(var(--global-animation-duration));
+  animation-name: fade-in;
+}
+
+@media (min-width: 40rem) {
+  .item {
+    ---item-flex-basis: 65px;
+  }
+
+  .item.expanded {
+    /* flex: 1 0 auto; */
+    width: 40%;
+    height: 60%;
+    margin-left: calc(0% + var(--sidebar-width-larger-screens));
+  }
 }
 
 .transitioning {
-  animation: expand linear forwards;
-  animation-duration: var(--global-animation-duration);
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  animation-duration: calc(var(--global-animation-duration));
   cursor: progress;
+
+  /* animation-name: expand; */
+  animation-name: fade-out;
 }
 
 .transitioning.expanded {
-  animation-name: minimize;
+  /* animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  animation-duration: calc(var(--global-animation-duration) * 2); */
+  
+  /* animation-name: minimize; */
+  animation-name: fade-out;
 }
 
-@keyframes minimize {
+/* @keyframes minimize {
   100% {
-    flex: 1 1 var(---item-flex-basis);
+    flex: 0 0 var(---item-flex-basis);
   }
 }
 
 @keyframes expand {
   100% {
     flex: 1 0 auto;
+  }
+} */
+
+@keyframes fade-in {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
@@ -57,16 +109,6 @@
     opacity: 0;
   }
 } */
-
-@media (min-width: 40rem) {
-  .item {
-    ---item-flex-basis: 65px;
-  }
-
-  .item.expanded {
-    flex: 1 0 auto;
-  }
-}
 
 .item:focus,
 .item:hover {

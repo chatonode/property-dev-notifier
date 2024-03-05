@@ -28,7 +28,9 @@ const PropertyDevelopersContainer = ({
       {propertyDevelopers.length === 0 && (
         <NoDevelopersFound className={classes['no-developers'] as string} />
       )}
-      {propertyDevelopers.length > 0 && children}
+      {propertyDevelopers.length > 0 && (
+        <div className={classes['items-container']}>{children}</div>
+      )}
     </div>
   )
 }

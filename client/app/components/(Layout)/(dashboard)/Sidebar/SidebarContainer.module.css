@@ -1,4 +1,6 @@
 .sidebar-container {
+  --width: var(--sidebar-width-smaller-screens);
+
   z-index: 1;
   /* font-size: 1.25em; */
   font-size: 1em;
@@ -9,7 +11,7 @@
   top: 0;
   left: 0;
   /* width: 100%; */
-  width: var(--sidebar-width-smaller-screens);
+  width: var(--width);
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -58,8 +60,9 @@
 @media (min-width: 40rem) {
   .sidebar-container,
   .expanded {
+    --width: var(--sidebar-width-larger-screens);
     /* z-index: 0; */
-    width: var(--sidebar-width-larger-screens);
+    width: var(--width);
     font-size: 0.875em;
     flex: 0 0 auto;
     /* position: relative; */
