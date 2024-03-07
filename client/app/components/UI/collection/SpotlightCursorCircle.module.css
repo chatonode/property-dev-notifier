@@ -13,13 +13,23 @@
   border-radius: 50%;
   /* clip-path: border-box; */
   cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
 }
 
 .children {
-  width: 100%;
   height: 100%;
+  flex: 1 0 auto;
+
+  overflow: hidden;
   position: relative;
+
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
