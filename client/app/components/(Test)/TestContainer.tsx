@@ -6,6 +6,7 @@ import SwipeableCardContainer from '../UI/Swipeable/SwipeableCardContainer'
 
 import grainynoiseSvg from '@/public/assets/svg/grainy-noise.svg'
 import AnimatedEnvelope from '../UI/Animated/AnimatedEnvelope'
+import SpotlightCursorCircle from '../UI/collection/SpotlightCursorCircle'
 
 const TestContainer = () => {
   const [modalIsVisible, setModalIsVisible] = useState(false)
@@ -19,12 +20,21 @@ const TestContainer = () => {
   }, [])
 
   return (
-    <>
-      <div>
-        <button type="button" onClick={openModalHandler}>
-          {modalIsVisible ? 'Opened Modal' : 'Open Modal'}
-        </button>
-        {/* {modalIsVisible && (
+    <div
+      style={{
+        position: 'relative',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
+        height: '100%',
+      }}
+    >
+      {/* <button type="button" onClick={openModalHandler}>
+        {modalIsVisible ? 'Opened Modal' : 'Open Modal'}
+      </button> */}
+      {/* {modalIsVisible && (
           <Modal
             title="Hello Developerzzzzzzzzzz! This is Non-Closable Backdropped Overlay Component!.. How is Internationalization things going on over there? Lemme see your pneumonoultramicroscopicsilicovolcanoconiosis"
             isBackdropClosable={false}
@@ -58,8 +68,8 @@ const TestContainer = () => {
             </div>
           </Modal>
         )} */}
-        {/* <SwipeableCardContainer /> */}
-        {/* <h2
+      {/* <SwipeableCardContainer /> */}
+      {/* <h2
           style={{
             width: '100%',
             textAlign: 'center',
@@ -68,9 +78,16 @@ const TestContainer = () => {
         >
           Test Noise SVG
         </h2> */}
-        <AnimatedEnvelope />
-      </div>
-    </>
+      {/* <AnimatedEnvelope /> */}
+      <SpotlightCursorCircle
+        size={800}
+        backgroundColor="var(--color-palette-start)"
+      >
+        <p style={{ color: 'var(--color-palette-start)' }}>
+          DARKNESS COMES FROM THE INSIDE...
+        </p>
+      </SpotlightCursorCircle>
+    </div>
   )
 }
 
