@@ -1,13 +1,6 @@
 'use client'
 
-import {
-  PropsWithChildren,
-  ReactNode,
-  memo,
-  useCallback,
-  useEffect,
-  useState,
-} from 'react'
+import { memo, useCallback, useState } from 'react'
 
 import HamburgerWrapper from './HamburgerWrapper'
 import Header from './Header'
@@ -15,14 +8,12 @@ import UserInfoContainer from './UserInfoContainer'
 import NavigationMenu from './NavigationMenu'
 import Bottom from './Bottom'
 import Copyright from './Copyright'
-import SidebarHouseSVG from '@/components/UI/SVG/Layout/Sidebar/background/SidebarHouseSVG'
+// import SidebarHouseSVG from '@/components/UI/SVG/Layout/Sidebar/background/SidebarHouseSVG'
 
-// import { createPortal } from 'react-dom'
-
-// import Backdrop from './Backdrop'
 import { TCurrentUser } from '@/app/api/(server)/auth/get-current-user'
 
 import classes from './SidebarContainer.module.css'
+import ModernHouseImageContainer from './ModernHouseImageContainer'
 
 type TSidebarContainerProps = {
   // children?: ReactNode
@@ -60,9 +51,11 @@ const SidebarContainer = (props: TSidebarContainerProps) => {
         {/* {props.children} */}
         <Bottom />
         <Copyright />
-        <div className={classes['sidebar-svg']}>
+        {/* <div className={classes['sidebar-svg']}>
           <SidebarHouseSVG />
-        </div>
+        </div> */}
+        <ModernHouseImageContainer />
+        {/* <div */}
       </div>
     </>
   )

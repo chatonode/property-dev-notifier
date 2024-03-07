@@ -80,12 +80,20 @@ const TestContainer = () => {
         </h2> */}
       {/* <AnimatedEnvelope /> */}
       <SpotlightCursorCircle
-        size={800}
+        // size={800}
         backgroundColor="var(--color-palette-start)"
       >
-        <p style={{ color: 'var(--color-palette-start)' }}>
-          DARKNESS COMES FROM THE INSIDE...
-        </p>
+        {[...Array(10)].map((_, index) => (
+          <p
+            key={index}
+            style={{
+              color: 'var(--color-palette-start)',
+              transform: 'rotate(315deg)',
+            }}
+          >
+            DARKNESS COMES FROM THE INSIDE...
+          </p>
+        ))}
       </SpotlightCursorCircle>
     </div>
   )
