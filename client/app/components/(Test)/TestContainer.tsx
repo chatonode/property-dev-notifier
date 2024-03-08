@@ -34,6 +34,7 @@ const TestContainer = () => {
       {/* <button type="button" onClick={openModalHandler}>
         {modalIsVisible ? 'Opened Modal' : 'Open Modal'}
       </button> */}
+
       {/* {modalIsVisible && (
           <Modal
             title="Hello Developerzzzzzzzzzz! This is Non-Closable Backdropped Overlay Component!.. How is Internationalization things going on over there? Lemme see your pneumonoultramicroscopicsilicovolcanoconiosis"
@@ -78,27 +79,44 @@ const TestContainer = () => {
         >
           Test Noise SVG
         </h2> */}
+
       {/* <AnimatedEnvelope /> */}
+
       <SpotlightCursorCircle
         size={800}
         backgroundColor="var(--color-palette-start)"
       >
-        {[...Array(35)].map((_, index) => (
-          <div
-            className="asd"
-            style={{ transform: 'rotate3d(1, 1, 1, 300deg)' }}
-          >
-            <p
+        <div
+          style={{
+            height: '200%',
+            flex: '0 0 305px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            overflow: 'hidden',
+          }}
+        >
+          {[...Array(35)].map((_, index) => (
+            <div
               key={index}
-              style={{
-                color: 'var(--color-palette-start)',
-                // color: 'var(--color-palette-end)',
-              }}
+              className="asd"
+              // style={{ transform: 'rotate3d(1, 1, 1, 300deg)' }}
+              style={{ transform: 'rotate3d(0.2, 0.4, 0.2, 300deg)' }}
             >
-              DARKNESS COMES FROM THE INSIDE...
-            </p>
-          </div>
-        ))}
+              <p
+                style={{
+                  flex: '0 0 20px',
+                  color: 'var(--color-palette-start)',
+                  // transform: 'rotate3d(0.2, 0.4, 0.2, 300deg)'
+                  // color: 'var(--color-palette-end)',
+                }}
+              >
+                DARKNESS IS OVER UNDER THE LIGHT
+              </p>
+            </div>
+          ))}
+        </div>
       </SpotlightCursorCircle>
     </div>
   )

@@ -1,8 +1,10 @@
-// SpotlightCursorCircle.js
+'use client'
 
-import React, { ReactNode, useEffect, useState } from 'react'
+import React, { ReactNode } from 'react'
 
 import classes from './SpotlightCursorCircle.module.css'
+import useCursorPosition from '@/app/hooks/useCursorPosition'
+import useAnimationLoop from '@/app/hooks/useAnimationLoop'
 
 type TSizeProps = number | `100%`
 type TBackgroundColorProps = `#${string}` | `var(${string})`
@@ -13,43 +15,17 @@ type TSpotlightCursorCircleProps = {
   backgroundColor: TBackgroundColorProps
 }
 
-/**
- * @type {Object} TSpotlightCursorCircleProps
- * @property {ReactNode} children - The content to be displayed within the circle.
- * @property {TSizeProps} size - The diameter of the circle in pixels or percentage. Default to `100%`
- * @property {TBackgroundColorProps} backgroundColor - The background color of the circle, specified as a hex color or a CSS variable.
- */
-
-/**
- * A React component that renders a circle with a background color that follows the cursor, creating a spotlight effect.
- *
- * The background color outside the spotlight is transparent, allowing the underlying content to be visible.
- *
- * @param {TSpotlightCursorCircleProps} props - The properties that define the circle and its content.
- * @returns {JSX.Element} The SpotlightCursorCircle component.
- */
 const SpotlightCursorCircle = ({
   children,
   size = '100%',
   backgroundColor,
 }: TSpotlightCursorCircleProps) => {
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
-
-  let timeoutId: NodeJS.Timeout
+  const { cursorPosition, updateCursorPosition } = useCursorPosition()
+  useAnimationLoop()
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect()
-    timeoutId = setTimeout(() => {
-      setCursorPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top })
-    }, 100)
+    updateCursorPosition(e, 100) // Pass the delay value (100ms) as the second argument
   }
-
-  useEffect(() => {
-    return () => {
-      // Clear the timeout when component is unmounting
-      clearTimeout(timeoutId)
-    }
-  }, [])
 
   const circleStyle = {
     background: `radial-gradient(circle at ${cursorPosition.x}px ${cursorPosition.y}px, transparent 70px, ${backgroundColor} 120px)`,
