@@ -8,9 +8,7 @@ import DashboardMainWrapper from '@/components/(Layout)/(dashboard)/Body/Main/De
 import DashboardSectionWrapper from '@/components/(Layout)/(dashboard)/Body/Main/Section/DashboardSectionWrapper'
 import PageTitleWrapper from '@/components/(Layout)/(dashboard)/Body/Main/Title/PageTitleWrapper'
 
-import PropertyDevelopersContainer from '@/components/(Users)/PropertyDevelopers/CRUD/list/PropertyDevelopersContainer'
-import PropertyDeveloperItem from '@/app/components/(Users)/PropertyDevelopers/CRUD/list/PropertyDeveloperItem'
-import NoDevelopersFound from '@/app/components/(Users)/PropertyDevelopers/CRUD/list/body/NoDevelopersFound'
+import PropertyDevelopersLayoutContainer from '@/app/components/(Users)/PropertyDevelopers/CRUD/list/layout/PropertyDevelopersLayoutContainer'
 
 type TPropertyDevelopersLayoutProps = {
   children: ReactNode
@@ -28,9 +26,11 @@ const PropertyDevelopersLayout = async ({
         Property Developers
       </PageTitleWrapper>
       <DashboardSectionWrapper>
-        <PropertyDevelopersContainer propertyDevelopers={propertyDevelopers}>
+        <PropertyDevelopersLayoutContainer
+          propertyDevelopers={propertyDevelopers}
+        >
           {children}
-        </PropertyDevelopersContainer>
+        </PropertyDevelopersLayoutContainer>
       </DashboardSectionWrapper>
     </DashboardMainWrapper>
   )

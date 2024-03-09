@@ -9,19 +9,19 @@ import DashboardMainWrapper from '@/components/(Layout)/(dashboard)/Body/Main/De
 import DashboardSectionWrapper from '@/components/(Layout)/(dashboard)/Body/Main/Section/DashboardSectionWrapper'
 import PageTitleWrapper from '@/components/(Layout)/(dashboard)/Body/Main/Title/PageTitleWrapper'
 
-import PropertyDevelopersContainer from '@/components/(Users)/PropertyDevelopers/CRUD/list/PropertyDevelopersContainer'
-import PropertyDeveloperItem from '@/components/(Users)/PropertyDevelopers/CRUD/list/PropertyDeveloperItem'
+import PropertyDevelopersContainer from '@/app/components/(Users)/PropertyDevelopers/CRUD/list/layout/PropertyDevelopersLayoutContainer'
+import PropertyDeveloperItem from '@/app/components/(Users)/PropertyDevelopers/CRUD/list/body/item/PropertyDeveloperItem'
 import BackdropPortal from '@/app/components/UI/Overlay/BackdropPortal'
 
-type TViewPropertyDeveloperProps = {
+type TEditPropertyDeveloperProps = {
   params: {
     propertyDeveloperId: string
   }
 }
 
-const ViewPropertyDeveloper = async ({
+const EditPropertyDeveloper = async ({
   params,
-}: TViewPropertyDeveloperProps) => {
+}: TEditPropertyDeveloperProps) => {
   // const currentUser = await getCurrentUser()
 
   const propertyDevelopers = await getPropertyDevelopers()
@@ -57,6 +57,6 @@ const ViewPropertyDeveloper = async ({
   )
 }
 
-export default ViewPropertyDeveloper
+export default EditPropertyDeveloper
 
 export const dynamic = 'force-dynamic'

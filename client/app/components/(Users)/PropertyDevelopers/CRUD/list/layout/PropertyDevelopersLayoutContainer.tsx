@@ -2,17 +2,17 @@
 
 import { ReactNode } from 'react'
 import { TPropertyDevelopersList } from '@/app/types/types'
-import PropertyDeveloperItem from './PropertyDeveloperItem'
-import classes from './PropertyDevelopersContainer.module.css'
-import NewPropertyDeveloperButton from './header/NewPropertyDeveloperButton'
-import NoDevelopersFound from './body/NoDevelopersFound'
+import PropertyDeveloperItem from '../body/item/PropertyDeveloperItem'
+import classes from './PropertyDevelopersLayoutContainer.module.css'
+import NewPropertyDeveloperButton from '../header/NewPropertyDeveloperButton'
+import NoDevelopersFound from '../body/NoDevelopersFound'
 
 type TPropertyDevelopersContainerProps = {
   propertyDevelopers: TPropertyDevelopersList
   children: ReactNode | ReactNode[]
 }
 
-const PropertyDevelopersContainer = ({
+const PropertyDevelopersLayoutContainer = ({
   propertyDevelopers,
   children,
 }: TPropertyDevelopersContainerProps) => {
@@ -35,4 +35,4 @@ const PropertyDevelopersContainer = ({
   )
 }
 
-export default PropertyDevelopersContainer
+export default PropertyDevelopersLayoutContainer

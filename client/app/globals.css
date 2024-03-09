@@ -316,6 +316,10 @@
   --menu-icon-length: 32px;
   --sidebar-menu-item-gap: 0.5em;
 
+  /** --- **/
+  /** z-index **/
+  --overlay-z-index: 1000;
+
   /*  ---  */
 }
 

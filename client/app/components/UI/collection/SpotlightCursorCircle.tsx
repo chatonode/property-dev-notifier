@@ -28,7 +28,11 @@ const SpotlightCursorCircle = ({
   }
 
   const circleStyle = {
-    background: `radial-gradient(circle at ${cursorPosition.x}px ${cursorPosition.y}px, transparent 70px, ${backgroundColor} 120px)`,
+    // TODO: Try new radial gradient at second line of `background`
+    background: `
+    radial-gradient(circle at ${cursorPosition.x}px ${cursorPosition.y}px, transparent 70px, ${backgroundColor} 120px),
+    radial-gradient(black 10px, yellow 20px, transparent 30px) 
+    `,
     width: size,
     height: size,
   }
