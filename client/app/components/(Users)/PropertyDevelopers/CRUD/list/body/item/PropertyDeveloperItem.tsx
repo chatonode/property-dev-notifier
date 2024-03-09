@@ -1,6 +1,6 @@
 'use client'
 
-import { memo, useCallback, useEffect, useState } from 'react'
+import { FormEvent, memo, useCallback, useEffect, useState } from 'react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 
 import { ERoute } from '@/app/types/enums'
@@ -9,9 +9,8 @@ import { TPropertyDeveloper } from '@/app/types/types'
 import classes from './PropertyDeveloperItem.module.css'
 import useLongPress from '@/app/hooks/useLongPress'
 import { GLOBAL_TRANSITION_DURATION } from '@/app/types/styles'
-import ActivePropertyDeveloperItem from './edit/ActivePropertyDeveloperItem'
-import BackgroundPortal from '@/app/components/UI/Background/BackgroundPortal'
-import BackdropPortal from '@/app/components/UI/Overlay/BackdropPortal'
+import DashboardModalWrapper from '@/app/components/(Layout)/(dashboard)/Body/Modal/DashboardModalWrapper'
+import EditPropertyDeveloperFormElements from './edit/EditPropertyDeveloperFormElements'
 
 type TPropertyDeveloperItemProps = {
   developer: TPropertyDeveloper
@@ -45,15 +44,21 @@ TPropertyDeveloperItemProps) => {
       const transitionInterval = setTimeout(() => {
         // setOnTransition(false)
 
-        // if (isExpanded) {
-        //   router.push(ERoute.PropertyDevelopers)
-        // } else {
-        router.push(`${ERoute.PropertyDevelopers}/${developer.id}`)
-        // }
+        if (isExpanded) {
+          router.push(ERoute.PropertyDevelopers)
+        } else {
+          router.push(`${ERoute.PropertyDevelopers}/${developer.id}`)
+        }
       }, GLOBAL_TRANSITION_DURATION)
       return () => clearTimeout(transitionInterval)
     }
   }, [onTransition])
+
+  const handleSubmit = useCallback((e: FormEvent) => {
+    e.preventDefault()
+    // onUpdateDeveloper(editedDeveloper)
+    console.log('Submit Function is running...', e)
+  }, [])
 
   return (
     <>
@@ -77,14 +82,13 @@ TPropertyDeveloperItemProps) => {
         )}
       </div>
       {isExpanded && (
-        <>
-          <BackdropPortal>
-            <ActivePropertyDeveloperItem
-              developer={developer}
-              // onCancel={toggleItemHandler}
-            />
-          </BackdropPortal>
-        </>
+        <DashboardModalWrapper
+          title="Update Property Developer"
+          onClose={toggleItemHandler}
+          onSubmit={handleSubmit}
+        >
+          <EditPropertyDeveloperFormElements developer={developer} />
+        </DashboardModalWrapper>
       )}
     </>
   )

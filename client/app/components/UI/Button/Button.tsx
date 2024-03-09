@@ -1,11 +1,11 @@
 // Button.tsx
-import React, { memo } from 'react'
+import React, { MouseEvent, memo } from 'react'
 import classes from './Button.module.css'
 
-type TButtonProps = {
+export type TButtonProps = {
   children: React.ReactNode
   type?: 'button' | 'submit' | 'reset'
-  onClick?: () => void
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void
   disabled?: boolean
   loading?: boolean
   variant?:
