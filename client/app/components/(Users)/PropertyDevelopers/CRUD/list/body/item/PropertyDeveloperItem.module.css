@@ -63,15 +63,14 @@
     ---item-flex-basis: 65px;
   }
 
-  .item.expanded {
-    /* flex: 1 0 auto; */
-    /* width: 40%;
+  /* .item.expanded {
+    width: 40%;
     height: 60%;
-    margin-left: calc(0% + var(--sidebar-width-larger-screens)); */
-    /* 
+    margin-left: calc(0% + var(--sidebar-width-larger-screens));
+
     box-shadow: 0 0 8px 0 var(--color-palette-end),
-      0 0 16px 0 var(--color-palette-4); */
-  }
+      0 0 16px 0 var(--color-palette-4);
+  } */
 }
 
 .transitioning {
