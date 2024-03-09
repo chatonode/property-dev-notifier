@@ -29,6 +29,7 @@ export default async function RootLayout({
         {children}
         {/* </NavigationProvider> */}
         <BackgroundPortal />
+        {/* <div id="background-root" /> */}
         {/* <Suspense fallback={null}>
           <NavigationListener />
         </Suspense> */}

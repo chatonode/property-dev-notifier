@@ -499,12 +499,12 @@ body {
   /* z-index: 1; */
 }
 
-.root {
+#root {
   z-index: 1; /* For showing BackgroundPortal animation */
 }
 
 .header,
-.root,
+#root,
 .footer {
   width: 100%;
 }
@@ -513,7 +513,7 @@ body {
 /* .layout-homepage */ /* Has fixed colors */ /* but unused */
 .layout-public,
 .layout-dashboard,
-/* .root, */
+/* #root, */
 .header,
 .footer {
   transition: background var(--theme-color-transition-duration) linear;
@@ -521,7 +521,7 @@ body {
 }
 
 .header,
-.root,
+#root,
 .footer {
   transition: color var(--theme-color-transition-duration) linear; /* Essential to assign (text) color from these 3 main pieces to make this transition work */
 
@@ -564,7 +564,7 @@ body {
   align-items: center;
 }
 
-.root {
+#root {
   color: var(--text-primary);
 
   flex-grow: 1;
@@ -618,7 +618,7 @@ body {
     display: flex;
   } */
 
-  /* .root, .footer {
+  /* #root, .footer {
     width: var(--page-width-larger-screens);
   } */
 }

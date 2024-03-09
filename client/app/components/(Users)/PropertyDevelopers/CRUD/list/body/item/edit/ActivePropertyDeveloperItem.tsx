@@ -34,7 +34,10 @@ TActivePropertyDeveloperItemProps) => {
     if (isClosing) {
       const closeDelayInterval = setTimeout(() => {
         router.push(ERoute.PropertyDevelopers)
+
+        // onCancel()
       }, GLOBAL_TRANSITION_DURATION)
+
       return () => clearTimeout(closeDelayInterval)
     }
   }, [isClosing])

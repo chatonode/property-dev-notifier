@@ -30,7 +30,7 @@ const BackdropPortal = (props: TBackdropPortalProps) => {
             {/* Modal as children */}
             {props.children}
           </div>,
-          document.body
+          document.getElementById('backdrop-root')!
         )}
     </>
   )

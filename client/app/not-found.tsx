@@ -11,7 +11,7 @@ const NotFound = async () => {
   return (
     <div className="layout-public">
       <MainHeader currentUser={currentUser} />
-      <div className="root">
+      <div id="root">
         <PublicMainWrapper>
           <PublicSectionWrapper>
             <NotFoundContainer />

@@ -4,7 +4,7 @@ import getCurrentUser from '@/api/(server)/auth/get-current-user'
 import getPropertyDevelopers from '@/api/(server)/users/property-developers/list'
 import { TPropertyDevelopersList } from '@/types/types'
 
-import PropertyDeveloperItem from '@/app/components/(Users)/PropertyDevelopers/CRUD/list/body/item/PropertyDeveloperItem'
+import PropertyDeveloperItem from '@/components/(Users)/PropertyDevelopers/CRUD/list/body/item/PropertyDeveloperItem'
 
 const PropertyDevelopers = async () => {
   // const currentUser = await getCurrentUser()

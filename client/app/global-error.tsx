@@ -29,7 +29,7 @@ const GlobalError = ({ error, reset }: TErrorProps) => {
       <body>
         <div className="layout-public">
           <MainHeader currentUser={currentUser} />
-          <div className="root">
+          <div id="root">
             <PublicMainWrapper>
               <PublicSectionWrapper>
                 <h2>Whoopsie...</h2>

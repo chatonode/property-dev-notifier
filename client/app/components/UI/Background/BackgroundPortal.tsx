@@ -8,7 +8,16 @@ const BackgroundPortal = () => {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => setMounted(true), [])
-  return mounted ? createPortal(<MovingCircles />, document.body) : null
+  return (
+    <>
+      {mounted &&
+        createPortal(
+          <MovingCircles />,
+          // document.getElementById('background-root')!
+          document.body
+        )}
+    </>
+  )
 }
 
 export default memo(BackgroundPortal)

@@ -53,7 +53,7 @@
   right: 0;
   z-index: calc(var(--overlay-z-index) - 1); */
 
-  /* border: 1px solid var(--color-palette-start); */
+  border: 1px solid var(--color-palette-start);
   background-color: transparent;
   /* background-color: var(--color-palette-4); */
 }
@@ -83,12 +83,14 @@
   animation-name: fade-out;
 }
 
+/* TODO: Need it from the form to achieve smooth transition from modal's fading-out item to list's fading-in item  */
 .transitioning.expanded {
   /* animation-timing-function: ease-in;
   animation-fill-mode: forwards;
   animation-duration: calc(var(--global-animation-duration) * 2); */
 
   /* animation-name: minimize; */
+  background-color: green;
   animation-name: fade-out;
 }
 

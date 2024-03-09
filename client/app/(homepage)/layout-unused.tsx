@@ -19,7 +19,7 @@ const HomepageLayout = async (props: TInternalLayoutProps) => {
   return (
     <div className="layout-homepage">
       <MainHeader currentUser={currentUser} />
-      <div className="root">{props.children}</div>
+      <div id="root">{props.children}</div>
       <MainFooter />
     </div>
   )
