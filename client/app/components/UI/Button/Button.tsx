@@ -1,5 +1,5 @@
 // Button.tsx
-import React from 'react'
+import React, { memo } from 'react'
 import classes from './Button.module.css'
 
 type TButtonProps = {
@@ -57,4 +57,4 @@ const Button = ({
   )
 }
 
-export default Button
+export default memo(Button)

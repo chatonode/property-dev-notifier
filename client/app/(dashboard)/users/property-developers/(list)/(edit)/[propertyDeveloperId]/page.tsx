@@ -33,14 +33,14 @@ const EditPropertyDeveloper = async ({
       {propertyDevelopers.map((developer) => {
         if (developer.id === propertyDeveloper.id) {
           return (
-            <BackdropPortal>
-              <PropertyDeveloperItem
-                key={developer.id}
-                developer={developer}
-                isExpanded={true}
-                // onClick={itemClickHandler}
-              />
-            </BackdropPortal>
+            // <BackdropPortal>
+            <PropertyDeveloperItem
+              key={developer.id}
+              developer={developer}
+              isExpanded={true}
+              // onClick={itemClickHandler}
+            />
+            // </BackdropPortal>
           )
         }
 

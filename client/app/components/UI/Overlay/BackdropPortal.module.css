@@ -1,7 +1,7 @@
 .overlay {
   z-index: var(--overlay-z-index);
   background: none;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   /* width: 100%; */
