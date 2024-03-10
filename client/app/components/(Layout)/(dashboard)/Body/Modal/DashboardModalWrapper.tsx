@@ -2,10 +2,11 @@
 
 import {
   type ReactNode,
+  type FormEvent,
+  type FormEventHandler,
   useCallback,
   useEffect,
   useState,
-  FormEvent,
 } from 'react'
 // import { useRouter } from 'next/navigation'
 
@@ -21,7 +22,7 @@ type TDashboardModalWrapperProps = {
   title: string
   onClose: () => void
   // onSubmit: (e: FormEvent) => void
-  onSubmit: (e: React.MouseEvent<HTMLButtonElement>) => void
+  onSubmit: FormEventHandler<HTMLFormElement>
 }
 
 const DashboardModalWrapper = ({

@@ -5,7 +5,7 @@ import classes from './Button.module.css'
 export type TButtonProps = {
   children: React.ReactNode
   type?: 'button' | 'submit' | 'reset'
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void
+  onClick?: () => void
   disabled?: boolean
   loading?: boolean
   variant?:

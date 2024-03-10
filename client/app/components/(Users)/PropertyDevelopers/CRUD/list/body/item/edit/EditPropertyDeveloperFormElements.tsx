@@ -5,13 +5,28 @@ import { memo, useState, useEffect, ChangeEvent, useCallback } from 'react'
 import classes from './EditPropertyDeveloperFormElements.module.css'
 import { TPropertyDeveloper } from '@/app/types/types'
 
+import {
+  emailOptions,
+  fullNameOptions,
+} from '@/app/config/form/options/users/property-developers/edit'
+
 type TEditPropertyDeveloperFormElementsProps = {
   developer: TPropertyDeveloper
+  // TODO:
+  // Pass them to input elements
+  // options: {
+  //   fullNameOptions: typeof fullNameOptions
+  //   emailOptions: typeof emailOptions
+  // }
+
+  // *******
+  // onChange: (changedDeveloper: TPropertyDeveloper) => void
 }
 
 const EditPropertyDeveloperFormElements = ({
   developer,
-}: TEditPropertyDeveloperFormElementsProps) => {
+}: // onChange,
+TEditPropertyDeveloperFormElementsProps) => {
   const [editedDeveloper, setEditedDeveloper] =
     useState<TPropertyDeveloper>(developer)
 

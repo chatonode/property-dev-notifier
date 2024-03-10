@@ -9,20 +9,22 @@ import Link from 'next/link'
 
 import classes from './LoginForm.module.css'
 
-import { EFormType, ERoute } from '@/app/types/enums'
-import { TFormDataType } from '@/app/types/types'
+import { EFormType, ERoute } from '@/types/enums'
+import { TFormDataType } from '@/types/types'
 
-import { buildClientSender } from '@/app/api/(axios)/client/build-client-sender'
+import { buildClientSender } from '@/api/(axios)/client/build-client-sender'
 
-import useAuth from '@/app/hooks/useAuth'
+import useAuth from '@/hooks/useAuth'
 import AuthFormContainer from '../layout/AuthFormContainer'
 import AuthFormSubmitButton from '../button/AuthFormSubmitButton'
 import AuthFormFooter from '../layout/footer/AuthFormFooter'
 
-import { useAsyncError } from '@/app/hooks/useAsyncError'
-import InvalidFormInputsError from '@/app/lib/errors/InvalidFormInputsError'
-import BadRequestError from '@/app/lib/errors/BadRequestError'
-// import useLoginSubmittedParams from '@/app/hooks/useLoginSubmittedParams'
+import { useAsyncError } from '@/hooks/useAsyncError'
+import InvalidFormInputsError from '@/lib/errors/InvalidFormInputsError'
+import BadRequestError from '@/lib/errors/BadRequestError'
+import { emailOptions, passwordOptions } from '@/config/form/options/auth/login'
+
+// import useLoginSubmittedParams from '@/hooks/useLoginSubmittedParams'
 
 const DEFAULT_LOGIN_FORM_STATE: TFormDataType[EFormType.LOGIN] = {
   email: '',
@@ -105,43 +107,6 @@ const LoginForm = () => {
       clearTimeout(timeout)
     }
   }, [isSubmitSuccessful])
-
-  const emailOptions: RegisterOptions<TFormDataType[EFormType.LOGIN], 'email'> =
-    {
-      required: {
-        value: true,
-        message: 'Email cannot be empty.',
-      },
-      minLength: {
-        value: 10,
-        message: 'Email must have more than 10 characters.',
-      },
-      maxLength: {
-        value: 40,
-        message: 'Email characters cannot be greater than 40.',
-      },
-      pattern: {
-        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-        message: 'E-mail must be valid.',
-      },
-    }
-  const passwordOptions: RegisterOptions<
-    TFormDataType[EFormType.LOGIN],
-    'password'
-  > = {
-    required: {
-      value: true,
-      message: 'Password cannot be empty.',
-    },
-    minLength: {
-      value: 8,
-      message: 'Password must have more than 8 characters.',
-    },
-    maxLength: {
-      value: 30,
-      message: 'Password characters cannot be greater than 30.',
-    },
-  }
 
   // Validation Styles
   const emailIsValid = submitCount > 0 && !errors.email
