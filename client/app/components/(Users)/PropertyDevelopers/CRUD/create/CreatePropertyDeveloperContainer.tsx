@@ -2,27 +2,32 @@
 
 import { useRouter } from 'next/navigation'
 import { useForm, SubmitHandler } from 'react-hook-form'
-import classes from './CreatePropertyDeveloperContainer.module.css'
-import { buildClientSender } from '@/app/api/(axios)/client/build-client-sender'
-import BadRequestError from '@/app/lib/errors/BadRequestError'
-import FormWrapper from '@/app/components/UI/Form/Dashboard/FormWrapper'
-import { useAsyncError } from '@/app/hooks/useAsyncError'
-import { ELoginErrorParam, ERoute } from '@/app/types/enums'
-import AuthRequiredError from '@/app/lib/errors/AuthRequiredError'
-import logUserOutFromClient from '@/app/api/(client)/auth/logout'
 
-type FormData = {
-  fullName: string
-  email: string
-  // Add more fields as needed
-}
+import classes from './CreatePropertyDeveloperContainer.module.css'
+import { buildClientSender } from '@/api/(axios)/client/build-client-sender'
+import logUserOutFromClient from '@/api/(client)/auth/logout'
+import { useAsyncError } from '@/hooks/useAsyncError'
+import { TFormDataType } from '@/types/types'
+import { EFormType, ELoginErrorParam, ERoute } from '@/types/enums'
+import {
+  fullNameOptions,
+  emailOptions,
+} from '@/config/form/options/users/property-developers/create'
+
+import FormWrapper from '@/components/UI/Form/Dashboard/FormWrapper'
+
+import AuthRequiredError from '@/lib/errors/AuthRequiredError'
+import BadRequestError from '@/lib/errors/BadRequestError'
 
 const CreatePropertyDeveloperContainer = () => {
   const router = useRouter()
-  const { register, handleSubmit, formState, reset } = useForm<FormData>()
+  const { register, handleSubmit, formState, reset } =
+    useForm<TFormDataType[EFormType.CREATE_PROPERTY_DEVELOPER]>()
   const throwError = useAsyncError()
 
-  const onSubmit: SubmitHandler<FormData> = async (data) => {
+  const onSubmit: SubmitHandler<
+    TFormDataType[EFormType.CREATE_PROPERTY_DEVELOPER]
+  > = async (data) => {
     // Handle form submission, e.g., send data to server
     console.log(data)
 
@@ -69,12 +74,10 @@ const CreatePropertyDeveloperContainer = () => {
         <h2>Create Property Developer</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <label htmlFor="fullName">Full Name:</label>
-          <input {...register('fullName', { required: true })} />
+          <input {...register('fullName', fullNameOptions)} />
 
           <label htmlFor="email">Email:</label>
-          <input
-            {...register('email', { required: true, pattern: /^\S+@\S+$/i })}
-          />
+          <input {...register('email', emailOptions)} />
 
           {/* Add more input fields as needed */}
 

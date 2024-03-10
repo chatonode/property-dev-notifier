@@ -19,7 +19,8 @@ const PublicLayout = async (props: TInternalLayoutProps) => {
   return (
     <div className="layout-public">
       <MainHeader currentUser={currentUser} />
-      <div className="root">{props.children}</div>
+      <div id="root">{props.children}</div>
+      <div id="backdrop-root" />
       <MainFooter />
     </div>
   )

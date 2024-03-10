@@ -34,4 +34,6 @@ export const enum ELoginErrorParam {
 export const enum EFormType {
   SIGNUP = 'signup',
   LOGIN = 'login',
+  CREATE_PROPERTY_DEVELOPER = 'create-property-developer',
+  EDIT_PROPERTY_DEVELOPER = 'edit-property-developer',
 }

@@ -1,0 +1,49 @@
+.container {
+  z-index: calc(var(--overlay-z-index) + 2);
+  position: fixed;
+
+  width: 90%;
+  height: 90%;
+
+  border-radius: 10px;
+
+  background-color: var(--color-palette-end);
+  box-shadow: 0 0 4px 0 var(--color-palette-end),
+    0 0 8px 0 var(--color-palette-4);
+
+  opacity: 0;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  animation-duration: calc(var(--global-animation-duration));
+  animation-name: fade-in;
+}
+
+@media (min-width: 40rem) {
+  .container {
+    width: 40%;
+    height: 60%;
+    margin-left: calc(0% + var(--sidebar-width-larger-screens));
+
+    box-shadow: 0 0 8px 0 var(--color-palette-end),
+      0 0 16px 0 var(--color-palette-4);
+  }
+}
+
+.container.closing {
+  animation-name: fade-out;
+}
+
+@keyframes fade-in {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

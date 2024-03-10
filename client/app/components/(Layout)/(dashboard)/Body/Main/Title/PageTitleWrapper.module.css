@@ -32,12 +32,22 @@
   ); */
   /* background-blend-mode: color; */
   background: var(--dashboard-page-title-background-light);
-  box-shadow: 0px 0px 13px 3px var(--text-primary);
+  box-shadow: 0px 0px 12px 4px var(--color-palette-start);
+}
+
+.wrapper h2 {
+  text-shadow: 0 0 2px var(--color-palette-3), 0 0 4px var(--color-palette-4);
 }
 
 @media (min-width: 40rem) {
   .wrapper {
     padding: 1em 1.5em;
     justify-content: space-between;
+
+    box-shadow: 0 0 6px 2px var(--color-palette-start);
+  }
+
+  .wrapper h2 {
+    text-shadow: 0 0 4px var(--color-palette-3), 0 0 8px var(--color-palette-4);
   }
 }

@@ -1,0 +1,120 @@
+/* Button.module.css */
+
+.btn {
+  /* Color Palette */
+  /* --primary-color: #3498db; */
+  /* --secondary-color: #2ecc71; */
+  --primary-color: var(--color-palette-start);
+  --secondary-color: var(--color-palette-2);
+
+  --success-color: #27ae60;
+  --danger-color: #e74c3c;
+  --warning-color: #f39c12;
+  --info-color: #3498db;
+  /* --cancel-color: #e0e0e0; */
+  /* --cancel-color: transparent; */
+  --cancel-color: #ffffff;
+
+  /* **  */
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.25rem;
+  transition: background-color ease, color ease;
+  transition-duration: var(--global-transition-duration);
+}
+
+/* Color */
+
+.btn--primary {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.btn--secondary {
+  background-color: var(--secondary-color);
+  color: #fff;
+}
+
+.btn--success {
+  background-color: var(--success-color);
+  color: var(--primary-color);
+}
+
+.btn--danger {
+  background-color: var(--danger-color);
+  color: #fff;
+}
+
+.btn--warning {
+  background-color: var(--warning-color);
+  color: #fff;
+}
+
+.btn--info {
+  background-color: var(--info-color);
+  color: #fff;
+}
+
+.btn--cancel {
+  background-color: var(--cancel-color);
+  border-color: var(--primary-color);
+  border-style: solid;
+  border-width: 1px;
+}
+
+/* Size */
+
+.btn--sm {
+  font-size: 0.875rem;
+}
+
+.btn--md {
+  font-size: 1rem;
+}
+
+.btn--lg {
+  font-size: 1.25rem;
+}
+
+.btn--fullWidth {
+  width: 100%;
+}
+
+.btn--loading {
+  pointer-events: none;
+  position: relative;
+}
+
+.btn__startIcon,
+.btn__endIcon {
+  margin-right: 0.5rem;
+}
+
+.btn__loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 3px solid #fff;
+  border-top: 3px solid var(--primary-color);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

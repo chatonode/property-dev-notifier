@@ -316,6 +316,10 @@
   --menu-icon-length: 32px;
   --sidebar-menu-item-gap: 0.5em;
 
+  /** --- **/
+  /** z-index **/
+  --overlay-z-index: 1000;
+
   /*  ---  */
 }
 
@@ -495,12 +499,12 @@ body {
   /* z-index: 1; */
 }
 
-.root {
+#root {
   z-index: 1; /* For showing BackgroundPortal animation */
 }
 
 .header,
-.root,
+#root,
 .footer {
   width: 100%;
 }
@@ -509,7 +513,7 @@ body {
 /* .layout-homepage */ /* Has fixed colors */ /* but unused */
 .layout-public,
 .layout-dashboard,
-/* .root, */
+/* #root, */
 .header,
 .footer {
   transition: background var(--theme-color-transition-duration) linear;
@@ -517,7 +521,7 @@ body {
 }
 
 .header,
-.root,
+#root,
 .footer {
   transition: color var(--theme-color-transition-duration) linear; /* Essential to assign (text) color from these 3 main pieces to make this transition work */
 
@@ -560,7 +564,7 @@ body {
   align-items: center;
 }
 
-.root {
+#root {
   color: var(--text-primary);
 
   flex-grow: 1;
@@ -614,7 +618,7 @@ body {
     display: flex;
   } */
 
-  /* .root, .footer {
+  /* #root, .footer {
     width: var(--page-width-larger-screens);
   } */
 }
@@ -727,11 +731,11 @@ main {
   font-size: 1em;
 }
 
+main.main-home,
 main.main-public {
   /* height: 100%; */
   margin: auto;
-  /* padding-top: 1em; */
-  /* padding-bottom: 1.2em; */
+
   flex-grow: 1;
 
   /* For Sidebar */
@@ -742,6 +746,11 @@ main.main-public {
   flex-direction: column;
   justify-content: flex-start;
   /* align-items: center; */
+}
+
+main.main-public {
+  padding-top: 1em;
+  padding-bottom: 1.2em;
 }
 
 section.section-public {
@@ -784,6 +793,16 @@ section.section-dashboard {
   justify-content: flex-start;
   align-items: center;
   flex-grow: 1;
+
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+@media (min-width: 40rem) {
+  section.section-dashboard {
+    margin-left: 1em;
+    margin-right: 1em;
+  }
 }
 
 /** **/

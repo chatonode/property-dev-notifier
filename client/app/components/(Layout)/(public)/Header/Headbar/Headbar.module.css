@@ -1,5 +1,5 @@
 .headbar-container {
-  z-index: 9996;
+  z-index: calc(var(--overlay-z-index) - 1);
   position: fixed;
   top: 0;
   left: 0;

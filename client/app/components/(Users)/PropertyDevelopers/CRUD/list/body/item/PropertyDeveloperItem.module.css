@@ -1,0 +1,213 @@
+/* PropertyDeveloperItem.module.css */
+
+.item {
+  ---item-flex-basis: 85px;
+
+  width: 100%;
+  flex: 0 0 var(---item-flex-basis);
+  /* order: 0; */
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-radius: 10px;
+  padding: 0.5em;
+  margin: 0 1em;
+
+  cursor: pointer;
+
+  background-color: var(--color-palette-end);
+  transition: background-color ease-in;
+  transition-duration: var(--global-transition-duration);
+
+  opacity: 0;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  animation-duration: calc(var(--global-animation-duration));
+  animation-name: fade-in;
+}
+
+.item.expanded {
+  /* flex: 1 0 auto; */
+  /* order: -1; */
+  /* z-index: calc(var(--overlay-z-index) + 2); */
+  /* position: absolute;
+
+  width: 90%;
+  height: 90%; */
+  /* margin-right: 0;
+
+  margin-left: 0; */
+
+  /* cursor: auto; */
+  /* 
+  background-color: var(--color-palette-end);
+  box-shadow: 0 0 4px 0 var(--color-palette-end),
+    0 0 8px 0 var(--color-palette-4); */
+
+  /* position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: calc(var(--overlay-z-index) - 1); */
+
+  border: 1px solid var(--color-palette-start);
+  background-color: transparent;
+  /* background-color: var(--color-palette-4); */
+}
+
+@media (min-width: 40rem) {
+  .item {
+    ---item-flex-basis: 65px;
+  }
+
+  /* .item.expanded {
+    width: 40%;
+    height: 60%;
+    margin-left: calc(0% + var(--sidebar-width-larger-screens));
+
+    box-shadow: 0 0 8px 0 var(--color-palette-end),
+      0 0 16px 0 var(--color-palette-4);
+  } */
+}
+
+.transitioning {
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  animation-duration: calc(var(--global-animation-duration));
+  cursor: progress;
+
+  /* animation-name: expand; */
+  animation-name: fade-out;
+}
+
+/* TODO: Need it from the form to achieve smooth transition from modal's fading-out item to list's fading-in item  */
+.transitioning.expanded {
+  /* animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  animation-duration: calc(var(--global-animation-duration) * 2); */
+
+  /* animation-name: minimize; */
+  background-color: green;
+  animation-name: fade-out;
+}
+
+/* @keyframes minimize {
+  100% {
+    flex: 0 0 var(---item-flex-basis);
+  }
+}
+
+@keyframes expand {
+  100% {
+    flex: 1 0 auto;
+  }
+} */
+
+@keyframes fade-in {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* .item:not(.transitioning) {
+  animation: fade-out 1s linear forwards;
+}
+
+@keyframes fade-out {
+  100% {
+    opacity: 0;
+  }
+} */
+
+.item:focus,
+.item:hover {
+  background-color: var(--color-palette-4);
+}
+
+.item:focus.expanded,
+.item:hover.expanded {
+  background-color: var(--color-palette-end);
+}
+
+.user-info {
+  height: 90%;
+  flex: 1 0 70%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+
+  /* gap: 1em; */
+}
+
+.full-name,
+.email {
+  flex: 1 0 auto;
+}
+
+.full-name {
+  font-size: 0.85em;
+  font-weight: bold;
+  margin-bottom: 0;
+  color: var(--color-palette-2);
+}
+
+@media (min-width: 40rem) {
+  .full-name {
+    font-size: 1.2em;
+  }
+}
+
+.email {
+  font-size: 0.8em;
+
+  margin-bottom: 0;
+
+  /* color: var(--text-secondary); */
+  color: var(--color-palette-3);
+  transition: color var(--global-transition-duration) linear;
+}
+
+@media (min-width: 40rem) {
+  .email {
+    font-size: 1em;
+  }
+}
+
+.item:focus .email,
+.item:hover .email {
+  color: var(--color-palette-end);
+}
+
+/* .item.expanded .email { */
+/* color: var(--color-palette-end); */
+/* } */
+
+.item:focus.expanded .email,
+.item:hover.expanded .email {
+  color: var(--color-palette-3);
+}
+
+.actions {
+  height: 75%;
+  flex: 0 1 auto;
+  margin: 0 0.5em;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

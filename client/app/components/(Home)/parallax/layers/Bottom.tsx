@@ -13,7 +13,7 @@ const Bottom = () => {
           Ready to Boost Your Productivity and Profits?
         </h2>
         <p className={classes.text}>
-          Sign Up today and start managing and contacting property developers
+          Sign up today and start managing and contacting property developers
           like a pro!
         </p>
         <button className={classes.button}>Sign Up Now</button>

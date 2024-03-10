@@ -1,5 +1,5 @@
 .container {
-  z-index: 9999;
+  z-index: calc(var(--overlay-z-index) + 2);
   /* animation: fade 0.5s ease-in-out forwards; */
   animation: backdrop-filter 0.5s ease-in-out;
   backdrop-filter: blur(1px);

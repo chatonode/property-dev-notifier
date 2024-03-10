@@ -24,7 +24,8 @@ const DashboardLayout = async (props: TDashboardLayoutProps) => {
   return (
     <div className="layout-dashboard">
       <SidebarContainer currentUser={currentUser} />
-      <div className="root">{props.children}</div>
+      <div id="root">{props.children}</div>
+      <div id="backdrop-root" />
     </div>
   )
 }

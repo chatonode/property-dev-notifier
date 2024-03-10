@@ -13,20 +13,30 @@ type TFormData<T = Record<string, string | Blob>> = {
 export type TFormDataType = {
   [EFormType.SIGNUP]: TSignupFormData
   [EFormType.LOGIN]: TLoginFormData
+  [EFormType.EDIT_PROPERTY_DEVELOPER]: TEditPropertyDeveloperFormData
+  [EFormType.CREATE_PROPERTY_DEVELOPER]: TCreatePropertyDeveloperFormData
 }
 
-// Define a type for signup form data, specifying the expected fields and their types.
 type TSignupFormData = TFormData<{
   // username: string
   email: string
   password: string
 }>
 
-// Define a type for login form data, specifying the expected fields and their types.
 type TLoginFormData = TFormData<{
   email: string
   password: string
 }>
+
+type TCreatePropertyDeveloperFormData = TFormData<
+  Pick<TPropertyDeveloper, 'fullName' | 'email'>
+>
+
+type TEditPropertyDeveloperFormData = TFormData<
+  Pick<TPropertyDeveloper, 'fullName' | 'email'>
+>
+
+/* ***************** */
 
 export type TEmailData = {
   title: string
